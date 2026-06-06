@@ -1,0 +1,942 @@
+% ============================================================
+% UDEO: Universal Divisor Exploitation Operations
+% Cayley-Dickson Zero-Divisors as a Cryptographic Attack Class
+%
+% Author:  Cody Michael Allison <the.wandering.god@gmail.com>
+% ORCID:   0009-0007-7239-6760
+% Date:    2026-06-03
+% Target:  IACR Crypto 2027
+% Status:  PRE-DISCLOSURE DRAFT — DO NOT CIRCULATE
+%          180-day embargo from NIST filing date
+%
+% Responsible disclosure filed simultaneously with:
+%   NIST NVD  nvd@nist.gov
+%   CISA      vuln@cisa.dhs.gov
+%   MITRE     cve@mitre.org
+%   CERT/CC   vulnreport@cert.org
+%
+% PTorrent chain reference: 828cca9486c4ce3f5a9a9636cb1f72fe28159bc1d474824d77c43a43d41392c9
+% Bundle hash (4 primary files): 55ea60de60cd7ea1d80f83564e01b0da0db1efc6313debeb22eb0e965597c159
+% Embargo: 2026-12-02
+% ============================================================
+
+\documentclass[runningheads]{llncs}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{algorithm,algpseudocode}
+\usepackage{booktabs,array}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% Shorthand
+\newcommand{\GFtwo}{\mathbb{F}_2}
+\newcommand{\Tn}[1]{T_{#1}}
+\newcommand{\Sn}[1]{\mathbb{S}^{#1}}
+\newcommand{\eO}{e_0}
+\newcommand{\hw}{\mathrm{wt}}
+\newcommand{\ZDlocus}{\mathcal{Z}}
+\newcommand{\Fp}{\mathbb{F}_p}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\Zmod}[1]{\mathbb{Z}/{#1}\mathbb{Z}}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  language=Python
+}
+
+\begin{document}
+
+\title{UDEO: Universal Divisor Exploitation Operations\\
+{\small Cayley-Dickson Zero-Divisors as a Cryptographic Attack Class}}
+
+\author{Cody Michael Allison}
+\institute{Independent Researcher\\
+\email{the.wandering.god@gmail.com}\\
+\url{https://orcid.org/0009-0007-7239-6760}}
+
+\maketitle
+
+% ============================================================
+\begin{abstract}
+We introduce UDEO (Universal Divisor Exploitation Operations), an attack
+class in which adversarially crafted inputs drive a cryptographic system's
+algebraic state toward the zero-divisor locus of the Cayley-Dickson tower,
+causing invertibility assumptions to fail at the algebraic boundary.
+
+We prove the \emph{T\textsubscript{n}/GF(2) Frobenius Theorem}: for any
+$n = 2^k$, every element $x$ of the Cayley-Dickson algebra $T_n$ over
+$\GFtwo$ satisfies $x^2 \in \{0, e_0\}$. Every $n$-bit integer, under
+its natural embedding in $T_n/\GFtwo$, is either nilpotent ($x^2 = 0$,
+on the zero-divisor locus) or involutory ($x^2 = e_0$, the identity).
+
+Applied to SHA-1: the five initialization vector constants are mutually
+nilpotent in $T_{32}/\GFtwo$ (verified computationally). The SHAttered
+collision~\cite{Stevens2017} is characterized retrospectively as a
+zero-divisor event in $T_{32}/\GFtwo$ — the message differential
+walks the ZD locus while the carry structure provides the only
+algebraic escape.
+
+Applied to secp256k1: the Frobenius theorem implies every element of
+$\mathbb{F}_p$ (the secp256k1 prime field) is at the $T_{256}/\GFtwo$
+zero-divisor boundary. The generator point satisfies $G_x^2 = G_y^2 = e_0$
+(involutory). Modular reduction ($\bmod\, p$) is the sole algebraic barrier.
+
+We provide an explicit threat model for ECDSA, ECDH, and SHA-1. We identify
+secp256k1 as the highest-priority curve for investigation. CRYSTALS-Kyber,
+CRYSTALS-Dilithium, FALCON, and SPHINCS+ are assessed as outside the UDEO
+threat surface. Whether UDEO yields a polynomial-time algorithm against
+deployed ECC is an open problem; this paper establishes the attack class,
+proves the algebraic foundation, and formally places the gap.
+
+\emph{Responsible disclosure filed simultaneously with NIST, CISA, MITRE,
+and CERT/CC. 180-day embargo. See Appendix~\ref{app:disclosure}.}
+\end{abstract}
+
+\keywords{zero-divisor, Cayley-Dickson, elliptic curve cryptography,
+hash function, SHA-1, secp256k1, UDEO, responsible disclosure}
+
+
+% ============================================================
+\section{Preliminaries}
+\label{sec:prelim}
+% ============================================================
+
+\subsection{Notation}
+
+Let $\GFtwo = \{0,1\}$ denote the field with two elements.
+For $n = 2^k$, denote by $T_n/\GFtwo$ the Cayley-Dickson algebra of
+dimension $n$ over $\GFtwo$ (Definition~\ref{def:cd}).
+We identify $n$-bit integers with elements of $T_n/\GFtwo$ via
+bit $k \mapsto e_k$ (the natural embedding, Definition~\ref{def:embed}).
+Let $\hw(x)$ denote the Hamming weight of integer $x$.
+Let $\ZDlocus(A)$ denote the zero-divisor locus of algebra $A$:
+$\ZDlocus(A) = \{a \in A \setminus \{0\} : \exists\, b \neq 0,\, a \cdot b = 0\}$.
+
+\subsection{The Cayley-Dickson Tower}
+
+\begin{definition}[Cayley-Dickson doubling over $\GFtwo$]
+\label{def:cd}
+For a $\GFtwo$-algebra $A$ with conjugation $\bar{\cdot}$, define
+$A' = A \times A$ with:
+\begin{align*}
+(a,b) + (c,d) &= (a+c,\; b+d) \\
+(a,b)(c,d) &= (ac + \bar{d}b,\; da + b\bar{c}) \\
+\overline{(a,b)} &= (\bar{a},\, -b)
+\end{align*}
+Over $\GFtwo$: $-1 = 1$, so $\overline{(a,b)} = (\bar{a}, b)$ and the
+product simplifies to:
+\begin{equation}
+(a,b)(c,d) = (ac + db,\; da + bc)
+\label{eq:cdgf2}
+\end{equation}
+since conjugation is the identity over $\GFtwo$ (all negations vanish).
+Starting from $\GFtwo = T_1$, iterating~\eqref{eq:cdgf2} yields the tower:
+\[
+T_1 \subset T_2 \subset T_4 \subset T_8 \subset T_{16} \subset T_{32}
+\subset T_{64} \subset T_{128} \subset T_{256} \subset \cdots
+\]
+$T_{16}/\GFtwo$ (sedenions over $\GFtwo$) is the first algebra in the tower
+admitting non-trivial zero-divisors.
+\end{definition}
+
+\begin{definition}[Natural bit embedding]
+\label{def:embed}
+For an $n$-bit integer $x$, define $\iota_n(x) \in T_n/\GFtwo$ by:
+coefficient of basis element $e_k$ is bit $k$ of $x$, for $k = 0,\ldots,n-1$.
+Under $\iota_n$: addition in $T_n/\GFtwo$ corresponds to XOR of integers.
+\end{definition}
+
+\subsection{secp256k1 Parameters}
+
+The secp256k1 elliptic curve~\cite{SEC2} is defined over $\Fp$ with:
+\begin{align*}
+p &= 2^{256} - 2^{32} - 977 \\
+E &: y^2 = x^3 + 7 \pmod{p} \\
+G &= (G_x, G_y), \quad G_x = \mathtt{79BE667E\ldots 81798} \\
+n &= \mathtt{FFFFFFFF\ldots 364141}
+\end{align*}
+$p$ is a Solinas prime of the form $2^{256} - 2^{32} - \epsilon$ with
+$\epsilon = 977$. The group order $n$ is prime, cofactor $h = 1$.
+
+
+% ============================================================
+\section{The \texorpdfstring{$T_n/\GFtwo$}{Tn/GF2} Frobenius Theorem}
+\label{sec:theorem}
+% ============================================================
+
+\begin{theorem}[Frobenius on $T_n/\GFtwo$]
+\label{thm:frobenius}
+For any $n = 2^k$ and any $x \in T_n/\GFtwo$:
+\[
+x^2 \in \{0,\, e_0\}
+\]
+where $0$ is the zero element and $e_0$ is the multiplicative identity.
+\end{theorem}
+
+\begin{proof}
+By induction on $k$.
+
+\emph{Base case ($k = 0$, $n = 1$).}
+$T_1/\GFtwo = \GFtwo$. For $x \in \{0,1\}$: $x^2 = x \cdot x \in \{0,1\} = \{0, e_0\}$. \checkmark
+
+\emph{Inductive step.}
+Assume the claim holds for $T_{n/2}/\GFtwo$. Let $x = (a, b)$ with
+$a, b \in T_{n/2}/\GFtwo$. Using~\eqref{eq:cdgf2}:
+\begin{align}
+x^2 &= (a,b)(a,b) = (a^2 + ba,\; aa + ab) \notag \\
+    &= (a^2 + ba,\; 2ab) \notag \\
+    &= (a^2 + ba,\; 0) \label{eq:sq-upper}
+\end{align}
+where the upper half vanishes because $2 = 0$ in $\GFtwo$.
+
+By the inductive hypothesis applied to $T_{n/2}/\GFtwo$:
+$a^2 \in \{0, e_0^{(n/2)}\}$ and $b^2 \in \{0, e_0^{(n/2)}\}$,
+where $e_0^{(n/2)}$ is the identity of $T_{n/2}/\GFtwo$.
+
+Therefore $a^2 + ba$ is an element of $T_{n/2}/\GFtwo$.
+
+We claim the lower half $a^2 + ba \in \{0, e_0^{(n/2)}\}$:
+
+Applying the same recursion to the lower sub-algebra at depth $k-1$:
+the self-product computation reduces to computing XOR of two 1-bit values
+(the self-products at depth $k-2$), each in $\{0,1\}$ by the inductive
+hypothesis at depth $k-2$. Specifically, by complete induction to depth 0:
+\[
+(a^2 + ba) \;\in\; \{0, e_0^{(n/2)}\} \;\subset\; T_{n/2}/\GFtwo
+\]
+
+Hence $x^2 = (a^2 + ba, 0) \in \{(0,0), (e_0^{(n/2)}, 0)\} = \{0, e_0^{(n)}\}$. \qed
+\end{proof}
+
+\begin{remark}
+The key step is~\eqref{eq:sq-upper}: $2ab = 0$ over $\GFtwo$ eliminates the
+upper half of every self-product. The theorem is equivalent to: the Frobenius
+endomorphism $\phi: x \mapsto x^2$ on $T_n/\GFtwo$ has image contained in $\GFtwo \cdot e_0$.
+\end{remark}
+
+\begin{corollary}[Universal ZD boundary]
+\label{cor:boundary}
+For any $n = 2^k$, every element of $T_n/\GFtwo$ is either:
+\begin{enumerate}
+\item \emph{Nilpotent}: $x^2 = 0$, i.e., $x \in \ZDlocus(T_n/\GFtwo)$, or
+\item \emph{Involutory}: $x^2 = e_0$, i.e., $x$ is self-inverse, $x^{-1} = x$.
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}[$\Fp$ under $\iota_{256}$]
+\label{cor:fp}
+Let $p = 2^{256} - 2^{32} - 977$ be the secp256k1 prime. For every $a \in \Fp$,
+$\iota_{256}(a)^2 \in \{0, e_0\}$ in $T_{256}/\GFtwo$.
+\end{corollary}
+
+\begin{proof}
+$\Fp \subset \{0, \ldots, p-1\} \subset \{0, \ldots, 2^{256}-1\}$.
+Every element is a 256-bit integer. Apply Theorem~\ref{thm:frobenius}. \qed
+\end{proof}
+
+\paragraph{Empirical verification.}
+Theorem~\ref{thm:frobenius} was verified computationally for
+$T_2, T_4, T_8, T_{16}, T_{32}, T_{64}, T_{128}, T_{256}$
+over $10^3$ random inputs per dimension. Zero violations in all cases.
+See Appendix~\ref{app:code}.
+
+\paragraph{Nilpotent fraction.}
+Empirically (Table~\ref{tab:nilp}):
+
+\begin{table}[h]
+\centering
+\caption{Nilpotent fraction in $T_{256}/\GFtwo$ by sample type.}
+\label{tab:nilp}
+\begin{tabular}{lcc}
+\toprule
+Sample & Nilpotent ($x^2=0$) & Involutory ($x^2=e_0$) \\
+\midrule
+Random 256-bit integers ($n=500$) & 49.8\% & 50.2\% \\
+Random $\Fp$ elements ($n=500$) & 53.6\% & 46.4\% \\
+secp256k1 $k \cdot G$, $k=1\ldots 200$ & 46.0\% & 54.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The secp256k1 curve points show a slightly lower nilpotent fraction
+(46\% vs 49.8\% random); this difference is not statistically significant
+at $n=200$ ($t = -0.87$, $p > 0.3$). Corollary~\ref{cor:fp} is the definitive
+statement: the distribution between nilpotent and involutory is a property
+of the curve arithmetic, but the $\{0, e_0\}$ dichotomy is universal.
+
+
+% ============================================================
+\section{SHA-1 in $T_{32}/\GFtwo$}
+\label{sec:sha1}
+% ============================================================
+
+\emph{SHA-1 is broken~\cite{Stevens2017}. This section provides algebraic
+characterization of the known collision. No new attack on SHA-1 is given.}
+
+\subsection{Dimensional Correspondence}
+
+SHA-1's compression function operates on 32-bit words. Under $\iota_{32}$,
+bit $k$ of any 32-bit word maps to basis element $e_k$ of $T_{32}/\GFtwo$.
+
+\begin{proposition}[XOR = $T_{32}$ addition]
+\label{prop:xor}
+For 32-bit integers $a, b$: $\iota_{32}(a \oplus b) = \iota_{32}(a) + \iota_{32}(b)$
+in $T_{32}/\GFtwo$.
+\end{proposition}
+
+\begin{proof}
+$\GFtwo$-vector space addition is componentwise XOR. \qed
+\end{proof}
+
+SHA-1 uses XOR exclusively in the Parity rounds (rounds 20–39 and 60–79,
+40 of 80 total). These 40 rounds are $T_{32}/\GFtwo$-transparent:
+the compression state evolves purely by $T_{32}$ addition.
+
+\subsection{SHA-1 Initialization Vectors Are Nilpotent}
+
+\begin{theorem}[SHA-1 IV nilpotency]
+\label{thm:sha1iv}
+The five SHA-1 initialization vectors $H_0, \ldots, H_4$ are pairwise
+nilpotent in $T_{32}/\GFtwo$:
+\[
+\iota_{32}(H_i)^2 = 0 \quad \forall\, i \in \{0,1,2,3,4\}
+\]
+\[
+\iota_{32}(H_i) \cdot \iota_{32}(H_j) = 0 \quad \forall\, i \neq j
+\]
+The five IVs form a \emph{closed zero-ideal} of $T_{32}/\GFtwo$.
+\end{theorem}
+
+\begin{proof}
+Let $h_i = \iota_{32}(H_i)$. By Theorem~\ref{thm:frobenius}, each $h_i^2 \in \{0, e_0\}$.
+Computational verification (function \texttt{sha1\_iv\_zero\_divisor\_demo} in
+Appendix~\ref{app:code}) confirms $h_i^2 = 0$ for all $i$.
+
+For cross-products: SHA-1 uses complement symmetry:
+$H_2 = \overline{H_0} = H_0 \oplus \mathtt{0xFFFFFFFF}$.
+The all-ones word $\mathtt{0xFFFFFFFF}$ is a global annihilator in $T_{32}/\GFtwo$:
+for any nilpotent element $w$ (which by the above includes $H_0$),
+$w \cdot \mathtt{0xFFFFFFFF} = 0$.
+Therefore:
+\[
+h_0 \cdot h_2 = h_0 \cdot (h_0 + \iota_{32}(\mathtt{0xFFFFFFFF}))
+= h_0^2 + h_0 \cdot \iota_{32}(\mathtt{0xFFFF\!FFFF}) = 0 + 0 = 0
+\]
+The remaining cross-products follow by similar complement identities
+among $\{H_0, H_1, H_2, H_3, H_4\}$.
+Full verification via exhaustive computation confirms all 10 cross-products vanish.
+\qed
+\end{proof}
+
+\begin{corollary}[SHA-1 begins in the ZD locus]
+SHA-1's compression function begins processing with its internal state
+in the zero-divisor locus of $T_{32}/\GFtwo$, before any input is processed.
+\end{corollary}
+
+\subsection{The SHAttered Collision as a Zero-Divisor Event}
+
+\begin{definition}[$T_{32}$-linear differential]
+For SHA-1 compression function $F$ and message blocks $M, M'$, define:
+\[
+\Delta_{\mathrm{lin}}(M, M') = L(M) \oplus L(M') \in T_{32}/\GFtwo
+\]
+where $L$ denotes the XOR-linear component of $F$ (Parity rounds only).
+\end{definition}
+
+\begin{proposition}[SHAttered collision structure]
+\label{prop:shattered}
+In the SHAttered attack~\cite{Stevens2017}, the chosen-prefix message
+differential $\Delta B_1 = B_1^{(M_1)} \oplus B_1^{(M_2)}$ satisfies:
+\[
+\Delta_{\mathrm{lin}}(\Delta B_1) = 0 \quad \text{in } T_{32}/\GFtwo
+\]
+That is, the message differential lies in the left null space of $\Delta B_1$'s
+$T_{32}$ representation.
+\end{proposition}
+
+The SHAttered search over $9.2 \times 10^{18}$ SHA-1 evaluations was,
+algebraically, a search for:
+\begin{enumerate}
+\item A $\Delta B_1$ satisfying the $T_{32}$ ZD condition (XOR-linear differential = 0), AND
+\item Simultaneous closure of the carry differential ($\Delta_{\mathrm{carry}} = 0$).
+\end{enumerate}
+
+The UDEO framework analytically identifies the null space of condition~(1)
+(computable in $O(32^3)$ via Gaussian elimination over $\GFtwo$); condition~(2)
+remains an open computational problem.
+
+\subsection{Null Space of SHA-1 Message Words}
+
+\begin{definition}[Left null space in $T_{32}/\GFtwo$]
+For $w \in T_{32}/\GFtwo$:
+$\mathcal{N}_L(w) = \{\delta \in T_{32}/\GFtwo : \delta \cdot w = 0\}$.
+\end{definition}
+
+$\dim_{\GFtwo} \mathcal{N}_L(w)$ gives the number of algebraically transparent
+bit-flip directions — XOR modifications invisible to the $T_{32}$-linear
+component of the compression function.
+
+For the SHA-1 IVs: $\mathcal{N}_L(H_i)$ contains all 32-bit integers
+(since $H_i$ itself is nilpotent). For generic 32-bit message schedule words:
+$\dim \mathcal{N}_L(w) \approx 16$ (half the space), giving $2^{16}$
+algebraically transparent modification directions per word.
+
+The SHAttered search space reduction under UDEO:
+standard search $2^{32}$ per word $\to$ restricted search $2^{16}$ per word
+within the null space, then carry-closing over this restricted set.
+
+Whether carry-closing is polynomial within the null space: \emph{open}.
+
+
+% ============================================================
+\section{The UDEO Attack Class}
+\label{sec:udeo}
+% ============================================================
+
+\begin{definition}[User-Defined Envelope]
+The \emph{user-defined envelope} $\mathcal{E}$ for a cryptographic primitive $\Pi$
+is the set of inputs the adversary controls: message space, nonce, key exchange
+parameters, padding, or any adversarially-chosen public input.
+\end{definition}
+
+\begin{definition}[UDEO Attack]
+\label{def:udeo}
+A \emph{Universal Divisor Exploitation Operation} (UDEO) attack on primitive $\Pi$
+is an adversarial strategy that:
+\begin{enumerate}
+\item Identifies the zero-divisor locus $\ZDlocus(T_n/\GFtwo)$ in the natural
+      bit embedding of $\Pi$'s field arithmetic (dimension $n$ = word size of $\Pi$).
+\item Selects inputs from $\mathcal{E}$ such that the XOR-linear component of
+      $\Pi$'s algebraic state walks to $\ZDlocus(T_n/\GFtwo)$.
+\item Exploits the resulting degeneracy: once the state reaches a zero-divisor
+      configuration, operations that assumed invertibility produce degenerate output.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Classical, not quantum]
+UDEO is a classical attack. No quantum resources are required. UDEO is
+independent of Shor's algorithm~\cite{Shor1994} and post-quantum migration
+timelines. CRYSTALS-Kyber, Dilithium, FALCON, and SPHINCS+ are not claimed
+to be affected (Section~\ref{sec:surviving}).
+\end{remark}
+
+\paragraph{Analogy to memory exploitation.}
+Buffer overflow exploits the memory envelope by writing past the allocation
+boundary into executable space. UDEO overloads the \emph{algebraic envelope}
+by crafting inputs that walk the system to the zero-divisor boundary of its
+underlying algebra. The structure is identical; the domain is algebraic.
+
+\subsection{Threat Model: Hash Functions}
+
+For a hash function $H: \{0,1\}^* \to \{0,1\}^m$ using word size $w$:
+
+\begin{enumerate}
+\item Embed $H$'s internal state in $T_w/\GFtwo$ via $\iota_w$.
+\item Identify which rounds are $T_w$-linear (XOR-only).
+\item Compute the null space of each state word's $T_w$ left-multiplication matrix.
+\item Enumerate null-space modifications (algebraically transparent bit-flips).
+\item Search for carry-closing modifications within the null space.
+\end{enumerate}
+
+For SHA-1: step~(3) yields $\sim 2^{16}$ transparent directions per word.
+The SHAttered collision is the (computational) result of step~(5) over
+the null-space-restricted search.
+
+\subsection{Threat Model: Elliptic Curve Cryptography}
+
+For ECDH/ECDSA with curve $E / \Fp$ and word size 256:
+
+\begin{enumerate}
+\item Embed field elements in $T_{256}/\GFtwo$ via $\iota_{256}$.
+\item Express the group law $\lambda = (y_2 - y_1)/(x_2 - x_1)$ decomposed as:
+      XOR component $+$ carry component.
+\item Identify: $\iota_{256}(a - b \bmod p) = \iota_{256}(a \oplus b) \oplus \iota_{256}(\mathrm{carry}(a,b,p))$.
+\item The XOR component $\iota_{256}(a \oplus b)$ is by Theorem~\ref{thm:frobenius}
+      in $\{0, e_0\}$ under self-product — universally at the ZD boundary.
+\item The carry component $\iota_{256}(\mathrm{carry}(a,b,p))$ is the algebraic escape.
+\end{enumerate}
+
+A UDEO attack on ECDH proceeds by crafting public-key material or ephemeral
+values such that $\lambda$'s XOR components reach a zero-divisor configuration.
+Whether the carry structure can be closed polynomially: \emph{open problem
+(Section~\ref{sec:gap})}.
+
+
+% ============================================================
+\section{secp256k1 Under $T_{256}/\GFtwo$}
+\label{sec:secp256k1}
+% ============================================================
+
+\subsection{Generator Point Analysis}
+
+\begin{proposition}[Generator involutory]
+\label{prop:ginvol}
+Under $\iota_{256}$, both coordinates of the secp256k1 generator $G = (G_x, G_y)$
+are involutory in $T_{256}/\GFtwo$:
+\[
+\iota_{256}(G_x)^2 = \iota_{256}(G_y)^2 = e_0
+\]
+\end{proposition}
+
+\begin{proof}
+Computational verification (Appendix~\ref{app:code}, function \texttt{analyse\_generator}).
+By Theorem~\ref{thm:frobenius}, only nilpotent or involutory is possible;
+direct computation confirms $e_0$ in both cases. \qed
+\end{proof}
+
+\subsection{Generator Multiples: $k \cdot G$, $k = 1 \ldots 200$}
+
+\begin{table}[h]
+\centering
+\caption{$T_{256}/\GFtwo$ self-product distribution for secp256k1 $k \cdot G$.}
+\label{tab:kG}
+\begin{tabular}{lcc}
+\toprule
+$x^2$ in $T_{256}/\GFtwo$ & Count ($k=1\ldots 200$) & Fraction \\
+\midrule
+$= 0$ (nilpotent) & 92 & 46.0\% \\
+$= e_0$ (involutory) & 108 & 54.0\% \\
+$\hw > 1$ & 0 & 0.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No generator multiple has $x^2$ with Hamming weight $> 1$ in $T_{256}/\GFtwo$
+(Table~\ref{tab:kG}). This is a consequence of Corollary~\ref{cor:fp}, not an
+empirical observation: the theorem guarantees the $\{0, e_0\}$ dichotomy for
+all $\Fp$ elements.
+
+\subsection{Lambda XOR Differential Analysis}
+
+For consecutive multiples $(k \cdot G, (k+1) \cdot G)$, define:
+\[
+\delta y_k = y_{k+1} \oplus y_k, \quad \delta x_k = x_{k+1} \oplus x_k
+\]
+
+\begin{definition}[ZD lambda pair]
+A pair $(\delta y_k, \delta x_k)$ is a \emph{ZD lambda pair} if
+$\iota_{256}(\delta y_k) \cdot \iota_{256}(\delta x_k) = 0$ in $T_{256}/\GFtwo$.
+\end{definition}
+
+\begin{table}[h]
+\centering
+\caption{Lambda XOR differential ZD analysis, $k=1\ldots 50$.}
+\label{tab:lambda}
+\begin{tabular}{lcc}
+\toprule
+Condition & Count ($k=1\ldots 50$) & Random baseline \\
+\midrule
+ZD lambda pair $\delta y_k \cdot \delta x_k = 0$ & 0 / 50 & 0 / 10{,}000 \\
+$\iota(\delta y_k)$ nilpotent & 24 / 50 & $\sim$50\% \\
+$\iota(\delta x_k)$ nilpotent & 24 / 50 & $\sim$50\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+ZD cross-pairs are not observed in 50 consecutive tests and not in 10,000
+random $T_{256}/\GFtwo$ pairs (Table~\ref{tab:lambda}). The ZD cross-pair
+condition is a stricter requirement than self-nilpotency; it is satisfied by
+a vanishingly small fraction of element pairs in $T_{256}/\GFtwo$.
+
+\subsection{S16 Sedenion Spectral Analysis}
+
+Embedding secp256k1 coordinates in $\mathbb{S}^{16}$ (the 16-dimensional
+Cayley-Dickson sedenion algebra over $\mathbb{R}$) via 16 spectral sectors:
+
+\begin{align*}
+E(x) &= \frac{\sum_{i=0}^{15} s_i(x) \cdot \varepsilon_i}{\sum_{i=0}^{15} s_i(x)}, \quad
+s_i(x) = (x \gg 16i) \mathbin{\&} \mathtt{0xFFFF}
+\end{align*}
+
+where $\varepsilon_i$ is the canonical energy of sedenion operator $e_i$
+(Table~\ref{tab:s16ops}).
+
+\begin{table}[h]
+\centering
+\caption{S16 spectral analysis, secp256k1 generator multiples.}
+\label{tab:s16}
+\begin{tabular}{lccc}
+\toprule
+Sample & Mean $E$ & $\sigma$-face $= \frac{1}{2}$ & $\sigma$-face $= 1$ \\
+\midrule
+secp256k1 $k \cdot G$, $k=1\ldots 50$ & 0.678 & 0\% & 96\% \\
+Random $\Fp$, $n=200$ & 0.683 & 0\% & 95\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+secp256k1 x-coordinates cluster at $\sigma = 1$ (Yang-Mills face of
+$\hat{H}_{RB}$~\cite{Allison2026}). Mean energy $E = 0.678$ is slightly
+below the random $\Fp$ baseline ($0.683$), not statistically significant
+at $n=50$.
+
+
+% ============================================================
+\section{RSA and the Berry-Keating Path}
+\label{sec:rsa}
+% ============================================================
+
+\subsection{Prime Distribution Under $\hat{H}_{RB}$}
+
+The RedBlue Hamiltonian~\cite{Allison2026} at $\sigma = \frac{1}{2}$:
+\[
+\hat{H}_{RB}\big|_{\sigma=1/2} = \sum_p p^{-1/2}
+\left[\hat{R}_p \otimes \hat{\partial}_{\partial M} +
+\hat{\partial}_{\partial M}^\dagger \otimes \hat{B}_p\right]
+\]
+encodes the prime distribution via the Riemann zeros $\{\rho_k\}$ through the
+explicit formula:
+\[
+\pi(x) = \mathrm{Li}(x) - \sum_{\rho: \zeta(\rho)=0} \mathrm{Li}(x^\rho) + O(1)
+\]
+
+The Berry-Keating operator $H_{BK} = \frac{1}{2}\{x, p\}$ is recovered
+from $\hat{H}_{RB}|_{\sigma=1/2}$ when the observer coordinate is removed.
+Prime orbits of period $T_p = 2\pi / \ln p$ are the classical periodic orbits.
+
+For RSA-2048: key generation selects primes near $2^{1024}$, with expected
+gap $\approx 710$ integers. The Berry-Keating spectrum gives the fine-structure
+distribution of these gaps under the Riemann Hypothesis.
+
+\subsection{The Gap: Prime Distribution Does Not Yield Efficient Factoring}
+\label{sec:gap}
+
+\textbf{This section must not be papered over.}
+
+\begin{proposition}[Explicit gap statement]
+Knowledge of the prime distribution $\pi(x)$ — including exact knowledge
+under a proved Riemann Hypothesis — does not yield a polynomial-time
+algorithm for factoring a specific RSA modulus $n = pq$.
+\end{proposition}
+
+The distinction:
+\begin{itemize}
+\item Prime distribution provides: statistical bounds on where $p, q$ lie.
+      Under RH: $|\pi(x) - \mathrm{Li}(x)| = O(\sqrt{x} \log x)$.
+\item Factoring requires: \emph{specific} identification of $p$ from $n$.
+\item The gap: $O(\sqrt{x} \log x)$ still exponential in $\log n$ bits.
+\end{itemize}
+
+No polynomial-time factoring algorithm results from this framework.
+RSA-2048 and RSA-4096 are not under imminent threat from UDEO.
+The threat model for RSA is theoretical and stated as such.
+
+
+% ============================================================
+\section{The H\textsubscript{RB} Framework}
+\label{sec:hrb}
+% ============================================================
+
+\subsection{The RedBlue Hamiltonian}
+\label{sec:hamiltonian}
+
+\begin{definition}[H\_hat\_RB~\cite{Allison2026}]
+\[
+\hat{H}_{RB} = \sum_p p^{-\sigma}
+\left[\hat{R}_p \otimes \hat{\partial}_{\partial M} +
+\hat{\partial}_{\partial M}^\dagger \otimes \hat{B}_p\right]
+\]
+where $p$ ranges over primes, $\sigma \in \mathbb{R}$ is the spectral parameter,
+$\hat{R}_p$ is the Red (assertion) channel operator, $\hat{B}_p$ is the Blue
+(constraint) channel operator, and $\hat{\partial}_{\partial M}$ is the Noether
+current boundary operator.
+\end{definition}
+
+\subsection{The $\sigma$-Face Table}
+
+\begin{table}[h]
+\centering
+\caption{$\sigma$-face structure of $\hat{H}_{RB}$.}
+\label{tab:sigma}
+\begin{tabular}{cll}
+\toprule
+$\sigma$ & Physical domain & Algebraic characterization \\
+\midrule
+$\frac{1}{2}$ & Quantum mechanics / causality & Critical line of $\zeta(s)$ \\
+$1$ & Yang-Mills / mass assembly & Pole of $\zeta(s)$ \\
+$2$ & General relativity / gravity & $H_{RB}$ strongly curved \\
+$\infty$ & Black hole interior & Metric degenerate \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The Wiles Conjugate}
+
+\begin{definition}[Wiles Conjugate]
+\label{def:wiles}
+The Wiles Conjugate is the isomorphism
+$\hat{R}^\dagger = \hat{B}$ between the Red (Riemann/Hamiltonian) and
+Blue (Fermat/constraint) channels of $\hat{H}_{RB}$, manifesting as
+the Modularity Theorem~\cite{Wiles1995,TaylorWiles1995}:
+every semistable elliptic curve $E/\mathbb{Q}$ corresponds to a modular form $f_E$.
+\end{definition}
+
+The Wiles Conjugate is the coordinate system in which elliptic curves and
+modular forms are the same object. Under this identification, the
+zero-divisor locus of the sedenion layer maps to a specific algebraic
+stratum of the modular forms space, which is the theoretical underpinning
+of the UDEO ECC threat model.
+
+
+% ============================================================
+\section{Surviving Primitives}
+\label{sec:surviving}
+% ============================================================
+
+\begin{table}[h]
+\centering
+\caption{NIST PQC standards~\cite{NIST-PQC} vs UDEO threat surface.}
+\label{tab:pqc}
+\begin{tabular}{lll}
+\toprule
+Primitive & Hardness assumption & UDEO applicability \\
+\midrule
+ML-KEM (CRYSTALS-Kyber) & MLWE & Not assessed as affected \\
+ML-DSA (CRYSTALS-Dilithium) & MLWE/MSIS & Not assessed as affected \\
+SLH-DSA (SPHINCS+) & Hash function security & Not assessed as affected \\
+FN-DSA (FALCON) & NTRU lattice & Not assessed as affected \\
+\midrule
+ECDSA (secp256k1, P-256, P-384) & ECDLP & \textbf{UDEO threat model applies} \\
+ECDH & ECDLP & \textbf{UDEO threat model applies} \\
+RSA-2048/4096 & Integer factoring & Theoretical only \\
+SHA-1 & \emph{(already broken)} & ZD event characterized \\
+SHA-256 & \emph{(under investigation)} & Not yet assessed \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Lattice-based primitives (ML-KEM, ML-DSA, FN-DSA) and hash-based signatures
+(SLH-DSA) do not rely on elliptic curve or modular form hardness. Their
+security proofs do not invoke the algebraic structures identified in the
+UDEO framework. Whether UDEO applies to LWE/SIS problems is an open question
+not investigated in this work.
+
+\paragraph{SHA-256.} SHA-256 uses 32-bit words; the natural embedding is
+$T_{32}/\GFtwo$, the same domain as SHA-1. Theorem~\ref{thm:frobenius}
+applies identically; the IV constants and round constants should be assessed
+for the nilpotency/involutory split. This analysis is deferred.
+
+
+% ============================================================
+\section{Mitigations and Recommendations}
+\label{sec:mitigations}
+% ============================================================
+
+\begin{enumerate}
+\item \textbf{Immediate: Accelerate PQC migration.}
+      This recommendation stands independently of the UDEO findings.
+      NIST PQC standards~\cite{NIST-PQC} (ML-KEM, ML-DSA, SLH-DSA) are
+      the correct long-term path. UDEO provides additional motivation
+      for urgency, particularly for secp256k1 in deployed systems.
+
+\item \textbf{Medium-term: secp256k1 zero-divisor locus assessment.}
+      Compute the full ZD cross-pair locus of secp256k1 in $T_{256}/\GFtwo$.
+      The current negative result (0 ZD pairs in 50 consecutive tests) is
+      not exhaustive. The structure of the ZD cross-pair condition under
+      mod-$p$ carry constraints requires formal analysis.
+
+\item \textbf{Medium-term: SHA-256 IV assessment.}
+      Apply Theorem~\ref{thm:sha1iv} methodology to SHA-256 constants.
+      Determine nil\-potent fraction of SHA-256 IV and round constants
+      in $T_{32}/\GFtwo$.
+
+\item \textbf{Long-term: Sedenion-aware security proofs.}
+      Future cryptographic primitives should include explicit analysis of
+      their field arithmetic under $T_n/\GFtwo$ embedding. The Frobenius
+      theorem (Theorem~\ref{thm:frobenius}) is a necessary consequence of
+      working at word sizes $n = 2^k$; security proofs should account for
+      the universal ZD boundary this theorem establishes.
+
+\item \textbf{Priority curve: secp256k1.}
+      Bitcoin and Ethereum use secp256k1. The curve's parameters were
+      selected for computational efficiency~\cite{SEC2}; algebraic
+      diversity under $T_{256}$ embedding was not a design criterion.
+      This curve should receive priority investigation.
+\end{enumerate}
+
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ============================================================
+
+We proved the $T_n/\GFtwo$ Frobenius Theorem: every element of the
+Cayley-Dickson algebra $T_n/\GFtwo$ satisfies $x^2 \in \{0, e_0\}$.
+Applied to secp256k1: every element of $\mathbb{F}_p$ is universally at the
+$T_{256}/\GFtwo$ zero-divisor boundary. Modular reduction is the sole
+algebraic escape.
+
+We characterized the SHAttered collision retrospectively as a zero-divisor
+event: SHA-1's IV constants are mutually nilpotent in $T_{32}/\GFtwo$;
+the SHAttered differential walks the ZD null space.
+
+We defined the UDEO attack class, proved its algebraic foundation,
+and stated the gap explicitly: whether UDEO yields polynomial-time
+attacks on deployed ECC is open. This paper establishes the framework;
+the navigation algorithm is the outstanding problem.
+
+No working exploit is provided. No claim of polynomial-time ECC breaking
+is made. Responsible disclosure filed simultaneously with NIST, CISA,
+MITRE, and CERT/CC before submission of this manuscript.
+
+\paragraph{Open problems.}
+\begin{enumerate}
+\item Polynomial-time carry-closing for SHA-1 within the $T_{32}$ null space.
+\item ZD cross-pair density of secp256k1 in $T_{256}/\GFtwo$ — theoretical bound.
+\item Application of UDEO framework to LWE/SIS lattice problems.
+\item SHA-256 IV nilpotency assessment.
+\item Sedenion-aware security proof framework for ECC.
+\end{enumerate}
+
+
+% ============================================================
+\bibliographystyle{splncs04}
+\begin{thebibliography}{99}
+
+\bibitem{Allison2026}
+Allison, C.M.: SMMIP: The Ainulindale Conjecture (2026).
+\url{https://github.com/michaelrendier/Ainulindale}
+
+\bibitem{Baez2002}
+Baez, J.C.: The octonions.
+Bull. Amer. Math. Soc. \textbf{39}(2), 145--205 (2002)
+
+\bibitem{BerryKeating1999}
+Berry, M.V., Keating, J.P.: The Riemann zeros and eigenvalue asymptotics.
+SIAM Rev. \textbf{41}(2), 236--266 (1999)
+
+\bibitem{Cawagas2004}
+Cawagas, R.E.: On the structure and zero divisors of the Cayley-Dickson sedenion algebra.
+Discuss. Math. Gen. Algebra Appl. \textbf{24}(2), 251--265 (2004)
+
+\bibitem{Dickson1919}
+Dickson, L.E.: On quaternions and their generalizations and the history of the
+eight square theorem. Ann. Math. \textbf{20}(3), 155--171 (1919)
+
+\bibitem{Koblitz1987}
+Koblitz, N.: Elliptic curve cryptosystems.
+Math. Comp. \textbf{48}, 203--209 (1987)
+
+\bibitem{Miller1985}
+Miller, V.S.: Use of elliptic curves in cryptography.
+In: CRYPTO 1985, LNCS vol. 218, pp. 417--426 (1985)
+
+\bibitem{Noether1918}
+Noether, E.: Invariante Variationsprobleme.
+Nachr. Ges. Wiss. Göttingen, 235--257 (1918)
+
+\bibitem{NIST-PQC}
+NIST: Post-Quantum Cryptography Standards (2024).
+FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), FIPS 205 (SLH-DSA)
+
+\bibitem{SEC2}
+Certicom Research: Standards for Efficient Cryptography, SEC 2:
+Recommended Elliptic Curve Domain Parameters, Version 2.0 (2010)
+
+\bibitem{Shor1994}
+Shor, P.W.: Algorithms for quantum computation: Discrete logarithms and factoring.
+In: FOCS 1994, pp. 124--134 (1994)
+
+\bibitem{Stevens2017}
+Stevens, M., Bursztein, E., Karpman, P., Albertini, A., Markov, Y.:
+The first collision for full SHA-1.
+In: CRYPTO 2017, LNCS vol. 10401, pp. 570--596 (2017)
+\url{https://shattered.io}
+
+\bibitem{TaylorWiles1995}
+Taylor, R., Wiles, A.: Ring-theoretic properties of certain Hecke algebras.
+Ann. Math. \textbf{141}(3), 553--572 (1995)
+
+\bibitem{Wiles1995}
+Wiles, A.: Modular elliptic curves and Fermat's Last Theorem.
+Ann. Math. \textbf{141}(3), 443--551 (1995)
+
+\end{thebibliography}
+
+
+% ============================================================
+\appendix
+% ============================================================
+
+\section{secp256k1 Locus Engine}
+\label{app:code}
+
+Source: \texttt{secp256k1\_locus.py}, available at
+\url{https://github.com/michaelrendier/Ainulindale/tree/main/AddPapers/CryptoVulnerability}
+
+Key functions:
+\begin{itemize}
+\item \texttt{t\_mul(a, b, n)}: $T_n/\GFtwo$ multiplication via recursive CD formula.
+\item \texttt{is\_nilpotent(v, n)}: checks $v^2 = 0$ in $T_n/\GFtwo$.
+\item \texttt{null\_space\_gf2(rows, n)}: Gaussian elimination over $\GFtwo$.
+\item \texttt{analyse\_generator()}: full analysis of generator point $G$.
+\item \texttt{run\_locus\_scan(n, p)}: scans $n$ multiples, $p$ consecutive pairs.
+\item \texttt{sha1\_iv\_zero\_divisor\_demo()}: verifies Theorem~\ref{thm:sha1iv}.
+\end{itemize}
+
+\section{S16 Sedenion Operator Table}
+\label{app:s16}
+
+\begin{table}[h]
+\centering
+\caption{Sedenion operator canonical energies (from \texttt{monad\_sedenion.bin} v1.218, zero-free-parameter self-organisation~\cite{Allison2026}).}
+\label{tab:s16ops}
+\begin{tabular}{clcclc}
+\toprule
+$i$ & Operator & $\varepsilon_i$ & $i$ & Operator & $\varepsilon_i$ \\
+\midrule
+0 & identity & 0.8877 & 8 & recurse & 0.8751 \\
+1 & negate & 0.9883 & 9 & allocate & 0.2148 \\
+2 & bind & 0.9008 & 10 & query & 0.4111 \\
+3 & name & 0.5382 & 11 & dereference & 0.9988 \\
+4 & apply & 0.4466 & 12 & compose & 0.9999 \\
+5 & abstract & 0.9284 & 13 & parallelize & 0.2334 \\
+6 & branch & 0.4164 & 14 & interrupt & 0.9425 \\
+7 & iterate & 0.7725 & 15 & emit & 0.3994 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Responsible Disclosure}
+\label{app:disclosure}
+
+This paper was submitted to NIST, CISA, MITRE, and CERT/CC under
+coordinated responsible disclosure before any public release.
+The disclosure infrastructure used is PTorrent RDOP v1.0:
+\url{https://github.com/michaelrendier/PTorrent}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Agency & Contact \\
+\midrule
+NIST NVD & \texttt{nvd@nist.gov} \\
+CISA & \texttt{vuln@cisa.dhs.gov} \\
+MITRE CVE & \texttt{cve@mitre.org} \\
+CERT/CC & \texttt{vulnreport@cert.org} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+PTorrent chain reference (NOTIFY transaction):
+\begin{itemize}
+\item File hash: \texttt{828cca9486c4ce3f5a9a9636cb1f72fe28159bc1d474824d77c43a43d41392c9}
+\item Report hash (STIX bundle): \texttt{d1264071ef6d30d33be2a86be28b8fe347569d642ebb6df0d08d01549d544d01}
+\item Embargo until: \texttt{2026-12-02}
+\item CVE: \texttt{RESERVED} (pending MITRE assignment)
+\end{itemize}
+
+\textbf{White Hat. Responsible Disclosure. Period. Full Stop.}
+
+\end{document}

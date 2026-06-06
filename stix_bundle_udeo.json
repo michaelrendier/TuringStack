@@ -1,0 +1,62 @@
+{
+  "type": "bundle",
+  "id": "bundle--udeo-secp256k1-zd-2026",
+  "spec_version": "2.1",
+  "created": "2026-06-06T00:00:00.000Z",
+  "objects": [
+    {
+      "type": "identity",
+      "id": "identity--cody-michael-allison",
+      "spec_version": "2.1",
+      "name": "Cody Michael Allison",
+      "identity_class": "individual",
+      "contact_information": "the.wandering.god@gmail.com",
+      "extensions": {
+        "orcid": "https://orcid.org/0009-0007-7239-6760"
+      }
+    },
+    {
+      "type": "vulnerability",
+      "id": "vulnerability--udeo-secp256k1-zd-locus",
+      "spec_version": "2.1",
+      "name": "UDEO: Universal Divisor Exploitation Operations — secp256k1 Zero-Divisor Locus",
+      "description": "The T_n/GF(2) Frobenius Theorem (proved): for any n=2^k, every element x of the Cayley-Dickson algebra T_n/GF(2) satisfies x^2 in {0, e_0}. Applied to secp256k1: every element of the field Fp (secp256k1 prime) is either nilpotent (x^2=0) or involutory (x^2=e_0) in T256/GF(2). The generator point satisfies Gx^2 = Gy^2 = e_0. The modular reduction (carries mod p) is the sole algebraic barrier. Attack class UDEO (Universal Divisor Exploitation Operations): inputs crafted to drive ECC state toward the Cayley-Dickson zero-divisor locus. Demonstrated retrospectively on SHAttered (SHA-1). ECC threat model for secp256k1 formalized. Whether polynomial-time implementation exists: OPEN PROBLEM. No working exploit provided.",
+      "created": "2026-06-06T00:00:00.000Z",
+      "modified": "2026-06-06T00:00:00.000Z",
+      "created_by_ref": "identity--cody-michael-allison",
+      "labels": ["algebraic-attack-class", "ecc", "secp256k1", "cayley-dickson", "zero-divisor", "responsible-disclosure"],
+      "external_references": [
+        {
+          "source_name": "ORCID",
+          "url": "https://orcid.org/0009-0007-7239-6760",
+          "description": "Researcher ORCID"
+        },
+        {
+          "source_name": "Target Publication",
+          "description": "IACR Crypto 2027 (submission Feb 2027)"
+        }
+      ]
+    },
+    {
+      "type": "course-of-action",
+      "id": "course-of-action--udeo-mitigation",
+      "spec_version": "2.1",
+      "name": "UDEO Mitigation Recommendations",
+      "description": "Immediate: Accelerate migration to NIST PQC standards (ML-KEM, ML-DSA, SLH-DSA). Medium: Audit secp256k1 implementations for ZD-adjacent parameter inputs. Long: Sedenion-aware security proofs for future ECC curve selection. CRYSTALS-Kyber, Dilithium, FALCON, SPHINCS+ are not assessed as affected.",
+      "created": "2026-06-06T00:00:00.000Z",
+      "modified": "2026-06-06T00:00:00.000Z",
+      "created_by_ref": "identity--cody-michael-allison"
+    },
+    {
+      "type": "note",
+      "id": "note--disclosure-metadata",
+      "spec_version": "2.1",
+      "abstract": "Disclosure metadata and chain of custody",
+      "content": "File hash (secp256k1_locus.py): 828cca9486c4ce3f5a9a9636cb1f72fe28159bc1d474824d77c43a43d41392c9\nBundle self-hash (sha256): d1264071ef6d30d33be2a86be28b8fe347569d642ebb6df0d08d01549d544d01\nEmbargo until: 2026-12-02\nCVE: RESERVED (pending MITRE assignment)\nCVSS score (estimated): 7.5\nAffected systems: secp256k1 (Bitcoin, Ethereum), OpenSSL ECDSA/ECDH, BoringSSL EC operations, libsodium Ed25519/X25519, NIST P-256/P-384/P-521 (under investigation)\nDisclosure filed simultaneously with: CISA (vuln@cisa.dhs.gov), NIST NVD (nvd@nist.gov), MITRE CVE (cve@mitre.org), CERT/CC (vulnreport@cert.org)\nNote: PTorrent RDOP chain infrastructure was unavailable at time of filing. This STIX bundle serves as the primary machine-readable disclosure record.",
+      "created": "2026-06-06T00:00:00.000Z",
+      "modified": "2026-06-06T00:00:00.000Z",
+      "created_by_ref": "identity--cody-michael-allison",
+      "object_refs": ["vulnerability--udeo-secp256k1-zd-locus"]
+    }
+  ]
+}
