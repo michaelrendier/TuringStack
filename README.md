@@ -4,14 +4,29 @@
 **CAN:** Pending — MITRE coordinated disclosure in progress  
 **CVE Status:** Submission filed 2026-06-08  
 **Vulnerability Class:** Cryptographic weakness via hypercomplex algebraic attack  
-**Vulnerability Type:** Other (novel attack class — no existing CWE category)  
+**Vulnerability Type:** Algorithm complexity  
 **Attack Type:** Context-dependent  
 **Impact:** Information Disclosure (private key recovery); Integrity (signature forgery)  
 **Severity:** Critical  
 **Discovery:** Cody Michael Allison  
 **Disclosure:** White Hat. Responsible coordinated disclosure.  
 **Author Contact:** the.wandering.god@gmail.com  
-**Date:** 2026-06-08
+
+---
+
+## Disclosure Timeline
+
+| Day | Date | Event |
+|---|---|---|
+| **Day 0** | **2026-05-29** | **Zero-divisor cryptographic attack insight — Day Zero** |
+| Day 4 | 2026-06-02 | UDEO formally crystallised — first paper commit (`dacff5b`) |
+| Day 5 | 2026-06-03 | secp256k1 locus analysis + T_n/GF(2) theorem proved |
+| Day 5 | 2026-06-03 | Disclosure checklist completed |
+| Day 8 | 2026-06-06 | TuringStack repository seeded |
+| Day 10 | 2026-06-08 | Repository made public; MITRE CVE form submitted |
+| Day 180 | **2026-11-25** | **Embargo end — full public disclosure** |
+
+**180-day embargo end: 2026-11-25**
 
 ---
 
