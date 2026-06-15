@@ -66,7 +66,7 @@ INF = None
 # ── Ainulindale constants ─────────────────────────────────────────────────────
 
 D_STAR    = 0.24600   # spectral ground state
-OMEGA_ZS  = 0.56714   # Lambert W fixed point W(1) — zero-divisor VEV
+OMEGA_ZS  = 0.5671432904097838   # Lambert W fixed point W(1) — zero-divisor VEV
 SIGMA_CRIT = 0.5       # critical line
 D_UNO     = 1.0        # zero-divisor boundary (D* = 1)
 

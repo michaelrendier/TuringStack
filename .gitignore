@@ -8,3 +8,7 @@ dist/
 build/
 .env
 *.log
+
+# Netcup hosting credentials, infrastructure, and legal documents
+# NEVER commit — contains server credentials, AVV, legal correspondence
+Netcup/
