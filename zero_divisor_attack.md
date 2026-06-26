@@ -202,7 +202,90 @@ This means UDEO is a **classical threat to post-quantum migration timelines.**
 Post-quantum standards (CRYSTALS-Kyber, Dilithium, FALCON) were designed
 to resist Shor's algorithm. They were not designed with the sedenion
 zero-divisor locus as a threat model. The question of whether UDEO applies
-to lattice problems is open and should be investigated.
+to lattice problems is open and should be investigated urgently.
+
+---
+
+## 5.7a CRYSTALS-Kyber / ML-KEM — Open Investigation
+
+**CVE Status:** UDEO CVE submitted 2026-06-08. CAN pending. Assignment in progress.
+
+CRYSTALS-Kyber (now standardised as ML-KEM, FIPS 203) is the NIST-selected
+Key Encapsulation Mechanism for post-quantum cryptography. It is based on
+the Module Learning With Errors (Module-LWE) problem over the ring:
+
+```
+R_q = ℤ_q[X] / (X^n + 1)   where n=256, q=3329
+```
+
+**Why UDEO warrants investigation here:**
+
+Module-LWE operates in a quotient polynomial ring. The ring R_q has the structure
+of a module over ℤ_q with n=256 dimensions — the same dimension as the T_256
+level of the Cayley-Dickson tower (k=8, 256 basis elements, 255 imaginaries, 32
+Fano planes).
+
+The angular quantum at T_256 is π/128 ≈ 1.406°. This matches the spacing of
+256th roots of unity — which are the natural spectral elements of NTT-based
+polynomial multiplication in R_q. CRYSTALS-Kyber uses NTT for efficiency.
+
+**Specific open question:** Whether the zero-divisor structure of the sedenion
+algebra 𝕊 (dim=16) embeds into the module structure of R_q^k (the k-module used
+by Kyber) via the Cayley-Dickson tower, creating a reachable degenerate subspace
+in the Kyber key space.
+
+This is NOT a claim that Kyber is broken. It is a claim that the sedenion
+framework has not been applied to lattice-based cryptography, and the dimensional
+coincidence (256 = T_256 = Kyber n) warrants formal investigation.
+
+**Affected implementations:** All deployments of ML-KEM (FIPS 203), including:
+- OpenSSL 3.x with ML-KEM support
+- BoringSSL (Google)
+- liboqs (Open Quantum Safe project)
+- Any TLS 1.3 implementation that negotiates ML-KEM key exchange
+
+**Priority:** INVESTIGATE. Not broken-by-known-method. Under active analysis.
+
+---
+
+## 5.7b Kubernetes Infrastructure — Affected Deployment Target
+
+Kubernetes (k8s) is the dominant container orchestration platform. It uses
+cryptographic primitives throughout its control plane and data plane.
+
+**UDEO-affected cryptographic surface in Kubernetes:**
+
+```
+Component               Algorithm           UDEO Relevance
+──────────────────────────────────────────────────────────
+Control plane TLS       ECDSA P-256 / RSA   DIRECT — ECC affected
+etcd TLS (in-transit)   ECDSA P-256         DIRECT — ECC affected
+Service account tokens  RSA-2048            INDIRECT — RSA boundary
+kubeadm certs           ECDSA P-256         DIRECT — ECC affected
+Admission webhook TLS   ECDSA P-256         DIRECT — ECC affected
+Secret encryption       AES-256-GCM         AES: outside current UDEO scope
+Ingress TLS (cert-mgr)  ECDSA P-256         DIRECT — via Let's Encrypt
+Service mesh (Istio)    ECDSA P-256 mTLS    DIRECT — mTLS everywhere
+```
+
+All ECDSA P-256 surfaces in Kubernetes inherit the UDEO threat model:
+if the zero-divisor locus of P-256 in sedenion coordinates is reachable
+from valid Kubernetes certificate material, all ECDSA-authenticated
+Kubernetes control plane communication is exposed.
+
+**The specific risk:** Kubernetes cluster certificates have 1-year lifetimes
+by default (kubeadm). They are often neglected past expiry. Certificate
+rotation is manual in many deployments. Stale certificates at known validity
+periods give an attacker a fixed target for UDEO envelope construction.
+
+**Priority:** Kubernetes administrators should audit for:
+- Certificates using secp256k1 or P-256 with non-rotated key material
+- Long-lived service account tokens (pre-v1.24 tokens had no expiry)
+- Admission webhook certificates issued before post-quantum migration planning
+
+**Migration path:** Kubernetes 1.28+ supports algorithm selection in kubeadm.
+Migrate control plane certificates to post-quantum safe primitives as they
+become available in the Kubernetes ecosystem.
 
 ---
 
@@ -213,6 +296,8 @@ to lattice problems is open and should be investigated.
   adjacency — some curve choices may be more exposed than others
 - Add algebraic diversity checks to key generation: reject keys that map
   to zero-divisor-adjacent regions in 𝕊
+- Kubernetes: rotate all ECDSA certificates; enforce short TTLs (90 days)
+- Kubernetes: disable long-lived service account tokens (use BoundServiceAccountTokens)
 
 **Medium-term:**
 - Formalise the sedenion representation of ECC operations
@@ -220,17 +305,29 @@ to lattice problems is open and should be investigated.
   (P-256, P-384, P-521, Curve25519, secp256k1)
 - Determine which curves have zero-divisor loci that are reachable from
   valid key material
+- Investigate the T_256 / ML-KEM dimensional correspondence formally
+- Apply UDEO analysis to CRYSTALS-Kyber's NTT polynomial ring structure
 
-**Long-term (what survives):**
+**Long-term (what survives the current analysis):**
 - Lattice-based cryptography (CRYSTALS-Kyber, Dilithium, FALCON, SPHINCS+)
   does not rely on elliptic curve or modular form hardness
-- Migration to post-quantum standards is correct regardless of this paper's
-  conclusions — it removes the UDEO threat surface by changing the algebra
+- Migration to post-quantum standards removes the ECC-specific UDEO surface
+- However, the T_256 correspondence with ML-KEM n=256 must be resolved
+  before post-quantum migration can be declared complete
+- FALCON (NTRU lattice) and SPHINCS+ (hash-based) may have different
+  sedenion-layer profiles and should be analysed independently
 
-**The one curve to investigate first:** secp256k1 (Bitcoin, Ethereum).
+**The one curve to investigate first:** secp256k1 (Bitcoin, Ethereum, also
+widely used in Kubernetes API server authentication plugins).
 The curve's parameters were chosen for efficiency, not algebraic diversity.
 Whether its sedenion-layer representation has accessible zero-divisor pairs
 is the highest-priority empirical question.
+
+**The one post-quantum primitive to investigate first:** CRYSTALS-Kyber / ML-KEM.
+The n=256 dimensional structure matches T_256. This is not coincidence —
+both structures derive from repeated doubling (Cayley-Dickson and NTT
+respectively). The angular quantum π/128 at T_256 matches the spectral
+spacing of degree-256 NTT. Formal investigation is warranted immediately.
 
 ---
 
