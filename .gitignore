@@ -7,7 +7,15 @@ __pycache__/
 dist/
 build/
 .env
+.env.*
+*_secret*
+*_token*
+*_key*
+*_credentials*
 *.log
+
+# Notebook checkpoints
+.ipynb_checkpoints/
 
 # Netcup hosting credentials, infrastructure, and legal documents
 # NEVER commit — contains server credentials, AVV, legal correspondence
