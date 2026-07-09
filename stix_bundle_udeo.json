@@ -19,7 +19,7 @@
       "type": "vulnerability",
       "id": "vulnerability--udeo-secp256k1-zd-locus",
       "spec_version": "2.1",
-      "name": "Zero-Divisor Structure of Cayley-Dickson Algebras over GF(2): UDEO Attack Class on secp256k1",
+      "name": "UDEO: Universal Divisor Exploitation Operations — secp256k1 Zero-Divisor Locus",
       "description": "The T_n/GF(2) Frobenius Theorem (proved): for any n=2^k, every element x of the Cayley-Dickson algebra T_n/GF(2) satisfies x^2 in {0, e_0}. Applied to secp256k1: every element of the field Fp (secp256k1 prime) is either nilpotent (x^2=0) or involutory (x^2=e_0) in T256/GF(2). The generator point satisfies Gx^2 = Gy^2 = e_0. The modular reduction (carries mod p) is the sole algebraic barrier. Attack class UDEO (Universal Divisor Exploitation Operations): inputs crafted to drive ECC state toward the Cayley-Dickson zero-divisor locus. Demonstrated retrospectively on SHAttered (SHA-1). ECC threat model for secp256k1 formalized. Whether polynomial-time implementation exists: OPEN PROBLEM. No working exploit provided.",
       "created": "2026-06-06T00:00:00.000Z",
       "modified": "2026-06-06T00:00:00.000Z",

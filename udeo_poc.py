@@ -345,7 +345,7 @@ def print_zero_divisor_landscape():
     print()
     print("  The zero-divisors ARE the algebraic turbulent eddies.")
     print("  Each Cayley-Dickson doubling DOUBLES the zero-divisor count.")
-    print("  Navier-Stokes turbulence is this structure, manifest at σ=1 in H_hat_RB.")
+    print("  Navier-Stokes turbulence is this structure, manifest at σ=1 in Σ_RB.")
     print("=" * 70)
 
 
@@ -894,7 +894,7 @@ if __name__ == "__main__":
     print("║  Proof of Concept for Paper Section 3+4                        ║")
     print("╚══════════════════════════════════════════════════════════════════╝")
     print()
-    print("  Framework: SMMIP / H_hat_RB — Wiles Conjugate R̂† = B̂")
+    print("  Framework: SMMIP / Σ_RB — Wiles Conjugate R̂† = B̂")
     print("  Status:    PRE-DISCLOSURE. NIST contact before publication.")
     print("  Ethics:    White Hat. Responsible disclosure. 180-day embargo.")
 
@@ -940,7 +940,7 @@ if __name__ == "__main__":
     print("  5. The zero-divisor sinks in 𝕊 (16D) cascade to T32 (32D)")
     print("     as new algebraic turbulence. Each Cayley-Dickson level adds")
     print("     more zero-divisors — the energy cascade of algebraic turbulence.")
-    print("     Navier-Stokes turbulence IS this structure, at σ=1 in H_hat_RB.")
+    print("     Navier-Stokes turbulence IS this structure, at σ=1 in Σ_RB.")
     print()
     print("  Noether (1918) provided the conservation law.")
     print("  Wiles (1995) proved the adjoint structure.")

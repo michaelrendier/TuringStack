@@ -112,16 +112,40 @@ $$\hat{H}_{RB} = \sum_p p^{-\sigma} \left[ \hat{R}_p \otimes \hat{\partial}_{\pa
 
 ---
 
-## 7. What Survives
+## 7. What Survives — REVISED 2026-06-17
 
-### 7.1 Lattice-Based Cryptography
-    — CRYSTALS-Kyber (KEM)
-    — CRYSTALS-Dilithium (signatures)
-    — FALCON (signatures)
-    — SPHINCS+ (hash-based signatures)
-### 7.2 Why Lattice Problems May Be Outside the UDEO Threat Surface
-### 7.3 Open Question: Does UDEO Apply to LWE/SIS Problems?
-    — Honest: not investigated. Should be.
+**Section 7.2 and 7.3 are superseded by `post_quantum_nshape.md`.**
+**Engine: `pqc_nshape_engine.py`.**
+
+### 7.1 The Fermat-Monster Theorem (New Result)
+    — Proved: 71 holomorphic c=24 VOAs = complete Fermat N-shape map in 𝕊
+    — Niemeier gap {e₁,e₁₁,e₁₅}: algebraically unreachable by any A/D/E at rank 24
+    — Monster fills the gap via Moonshine primes {17,11,59,31,47}
+    — Reference: FourthAgePapers/FermatMonster v0.300
+
+### 7.2 The NTT Structural Trap
+    — NTT requires q ≡ 1 (mod 2n); for n=2^k with k≥3: gcd(2n,16)=16 → q ≡ 1 (mod 16) FORCED
+    — ALL NTT-based post-quantum schemes operate in e₁ = Monster gap
+    — This was not a design choice: NTT efficiency forced it
+    — FIPS 203 (Kyber): q=3329 ≡ 1 → e₁  CRITICAL
+    — FIPS 204 (Dilithium): q=8380417 ≡ 1 → e₁  CRITICAL
+    — FIPS 206 (FALCON): q=12289 ≡ 1 → e₁  CRITICAL
+
+### 7.3 The UDEO Connection — CLOSED (was: Open Question)
+    — Canonical ZD pair: (e₁+e₁₁)/√2 · (e₅+e₁₅)/√2 = 0
+    — CRYSTALS' operating N-shape (e₁) is a direct component of the ZD pair
+    — LWE hardness assumes Niemeier-type adversaries; Monster-type adversaries untested
+    — UDEO APPLIES to LWE/SIS at the structural level
+
+### 7.4 What Actually Survives
+    — FIPS 205 (SPHINCS+): hash-based, no polynomial ring, LIKELY SAFE
+    — FrodoKEM: q=65536 ≡ 0 = e₀ (Leech zone), no NTT, LIKELY SAFER
+    — Classic McEliece: code-based, different algebra, outside N-shape analysis
+    — NTRU-HPS: Niemeier zone (e₅,e₁₃), ELEVATED but not Monster gap
+
+### 7.5 Kubernetes
+    — Kubernetes PQ-TLS: Kyber (KEM) + Dilithium (signatures) = both e₁ CRITICAL
+    — Alternative: FrodoKEM + SPHINCS+ avoids Monster gap entirely
 
 ---
 
