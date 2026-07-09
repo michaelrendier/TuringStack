@@ -141,11 +141,36 @@ Post-quantum algorithms do not rely on modular form hardness or ECDLP:
 | `secp256k1_locus_results.md` | Computational results on secp256k1 |
 | `zero_divisor_attack.md` | Attack vector documentation (Section 5 of paper) |
 | `sha1_demonstration.md` | SHA-1 worked example |
-| `rsa_framework.md` | RSA in RedBlue coordinates |
+| `rsa_framework.md` | RSA in RedBlue coordinates — honest-scope theoretical framework |
+| `udeo_crypto/UDEO_RSA_DEMO.py` | Five candidate RSA key-recovery mechanisms, honestly scored (2026-07-09) |
 | `stix_bundle_udeo.json` | STIX 2.1 structured threat intelligence bundle |
 | `DISCLOSURE_CHECKLIST.md` | Coordinated disclosure process record |
 
 **→ [Wiki: UDEO Vulnerability Disclosure](../../wiki)** — CVE reference documentation
+**→ [Wiki: RSA Key-Recovery Attempts](wiki/RSA-Key-Recovery-Attempts-2026-07-09.md)** — full method-by-method results
+
+---
+
+## RSA — Current Testing Status (2026-07-09)
+
+`rsa_framework.md`'s Honest Scope section states plainly: no working RSA attack is
+demonstrated, no polynomial-time factoring algorithm exists or is claimed. That boundary
+has not moved. Five additional candidate key-recovery mechanisms were built and tested
+against toy RSA keys on 2026-07-09, each scored against a random-guess control (not just
+reported as working) — see `udeo_crypto/UDEO_RSA_DEMO.py` and the wiki page above for
+full detail.
+
+**Result:** four of the five sedenion/zero-divisor-based mechanisms tested at chance —
+no evidence they recover the private key from the public key alone. A fifth produces an
+exact result only when a value requiring the private key to compute is separately
+exposed, which is not a public-key-only attack.
+
+**One genuinely proven result came out of this round, and it is not a sedenion result:**
+`d ≡ e (mod 4)` holds for every RSA key (elementary number theory — `φ(n)` is always
+divisible by 4, and `(Z/4Z)*` has exponent 2). Verified 2000/2000 on random keys. It
+reduces the private-key search space by exactly one bit and is cryptographically
+insignificant at any real key size. Recorded here per the Scientific Integrity policy
+below — a real, checkable result, correctly scoped, not overstated.
 
 ---
 
