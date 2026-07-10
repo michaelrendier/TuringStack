@@ -143,6 +143,7 @@ Post-quantum algorithms do not rely on modular form hardness or ECDLP:
 | `sha1_demonstration.md` | SHA-1 worked example |
 | `rsa_framework.md` | RSA in RedBlue coordinates — honest-scope theoretical framework |
 | `udeo_crypto/UDEO_RSA_DEMO.py` | Five candidate RSA key-recovery mechanisms, honestly scored (2026-07-09) |
+| `CLAUDE_CODE_CONTRIBUTION_2026-07-10.md` | Documented mathematical/methodological contributions from a Claude Code session — exact directional-derivative structure, a proven number-theoretic identity, and the artifact-detection methodology used throughout |
 | `stix_bundle_udeo.json` | STIX 2.1 structured threat intelligence bundle |
 | `DISCLOSURE_CHECKLIST.md` | Coordinated disclosure process record |
 
