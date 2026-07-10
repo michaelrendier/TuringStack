@@ -1,16 +1,16 @@
 # UDEO — Unified Dimensional Entropy Oracle
 ## Zero-Divisor Attack Class on Elliptic Curve Cryptography and Hash Functions
 
-**CAN:** Pending — MITRE coordinated disclosure in progress  
-**CVE Status:** Submission filed 2026-06-08  
-**Vulnerability Class:** Cryptographic weakness via hypercomplex algebraic attack  
-**Vulnerability Type:** Algorithm complexity  
-**Attack Type:** Context-dependent  
-**Impact:** Information Disclosure (private key recovery); Integrity (signature forgery)  
-**Severity:** Critical  
-**Discovery:** Cody Michael Allison  
-**Disclosure:** White Hat. Responsible coordinated disclosure.  
-**Author Contact:** the.wandering.god@gmail.com  
+**CAN:** Pending — MITRE coordinated disclosure in progress
+**CVE Status:** Submission filed 2026-06-08
+**Vulnerability Class:** Cryptographic weakness via hypercomplex algebraic attack
+**Vulnerability Type:** Algorithm complexity
+**Attack Type:** Context-dependent
+**Impact:** Information Disclosure (private key recovery); Integrity (signature forgery)
+**Severity:** Critical
+**Discovery:** Cody Michael Allison
+**Disclosure:** White Hat. Responsible coordinated disclosure.
+**Author Contact:** the.wandering.god@gmail.com
 
 ---
 
@@ -18,15 +18,18 @@
 
 | Day | Date | Event |
 |---|---|---|
-| **Day 0** | **2026-05-29** | **Zero-divisor cryptographic attack insight — Day Zero** |
+| Day 0 | 2026-05-29 | Zero-divisor cryptographic attack insight — Day Zero |
 | Day 4 | 2026-06-02 | UDEO formally crystallised — first paper commit (`dacff5b`) |
 | Day 5 | 2026-06-03 | secp256k1 locus analysis + T_n/GF(2) theorem proved |
 | Day 5 | 2026-06-03 | Disclosure checklist completed |
-| Day 8 | 2026-06-06 | TuringStack repository seeded |
+| Day 8 | 2026-06-06 | TuringStack repository seeded; STIX bundle prepared |
 | Day 10 | 2026-06-08 | Repository made public; MITRE CVE form submitted |
+| Day 42 | 2026-07-09 | Five candidate RSA key-recovery mechanisms built and tested against toy keys (all at chance or not public-key-only); `d ≡ e (mod 4)` proven |
+| Day 43 | 2026-07-10 | Full 336-pair zero-divisor population tested (corrected an earlier 5-pair overgeneralization); Observer-rotation construction built |
+| TBD | — | NIST / CISA notification |
+| TBD | — | Implementer notifications (OpenSSL, BoringSSL, NSS, et al.) |
+| TBD | — | IACR ePrint / arXiv publication |
 | Day 180 | **2026-11-25** | **Embargo end — full public disclosure** |
-
-**180-day embargo end: 2026-11-25**
 
 ---
 
@@ -60,6 +63,7 @@ implementation. All conforming implementations of the affected algorithms are af
 | ECDH key exchange | RFC 6090 | Affected |
 | SHA-2 family (SHA-256, SHA-512) | NIST FIPS 180-4 | Under investigation |
 | SHA-3 family | NIST FIPS 202 | Under investigation |
+| RSA | PKCS#1, FIPS 186-4 | Under investigation — see [RSA Investigation](#rsa-investigation-2026-07-09--07-10) below; no working attack yet |
 
 ---
 
@@ -128,6 +132,110 @@ Post-quantum algorithms do not rely on modular form hardness or ECDLP:
 
 ---
 
+## RSA Investigation (2026-07-09 / 07-10)
+
+`rsa_framework.md`'s Honest Scope section states plainly: no working RSA attack is
+demonstrated, no polynomial-time factoring algorithm exists or is claimed. **That
+boundary has not moved.** What follows is an honest account of a two-day investigation
+into whether it could be, run by Claude Code (Sonnet 5) at Cody's direction, with every
+result — positive, negative, and self-corrected — kept in the record.
+
+### What was tested
+
+Six candidate mechanisms, each given only the public key `(n, e)` and required to
+produce a candidate for `d`, scored against 200 random-but-valid wrong guesses per toy
+key (a percentile rank, not a bare "it worked"):
+
+1. **Zero-divisor shadow (S¹⁶)** — smallest-singular-value direction of left-multiplication
+   by `e`'s embedding. At chance.
+2. **Ptolemy NULL operator** — rebuilt using the actual NULL operator from
+   `modules/singularity_null/maths.py` (the Ptolemy inversion `z → R_H²/z̄`). Initially
+   looked like the strongest signal of the investigation — tight, consistent, ~19th
+   percentile across two independent sample sizes. **Then failed a control**: replacing
+   `e` with a completely unrelated exponent reproduced the identical bias, proving it was
+   an artifact of the hash construction, not the real key relationship. See "Claude Code's
+   Contribution" below — this catch is the methodological result of the investigation.
+3. **J2 involution / T₂₅₆ eigenspectrum** — literal reading of an underspecified
+   theoretical note (wiki/53). At chance.
+4. **Sedenion Spectral Relativity geodesic** — σ-face metric applied to hash addresses.
+   At chance.
+5. **Content + Public + Private = Hash** — exact vector algebra, but requires `Hash` to
+   be exposed, which itself requires `d` to compute. Not a public-key-only attack.
+6. **Zero Lattice paths / emergent rotation signature** — traced through the 9-level
+   Cayley-Dickson tower. Public-key-only scenario at chance; a Hash-exposed variant is
+   exact under the same caveat as method 5.
+
+**Result: no public-key-only mechanism recovers `d` from `(n, e)` alone.** Full
+method-by-method detail: [`wiki/RSA-Key-Recovery-Attempts-2026-07-09.md`](wiki/RSA-Key-Recovery-Attempts-2026-07-09.md).
+
+### What was proven
+
+`d ≡ e (mod 4)` holds for every RSA key with odd primes `p, q` — proven from elementary
+number theory (`φ(n)` is always divisible by 4, and `(ℤ/4ℤ)*` has exponent 2, so
+`e·d ≡ 1 (mod 4)` forces `d ≡ e (mod 4)`), verified 2000/2000 on random keys. It reduces
+the private-key search space by exactly one bit and is cryptographically insignificant at
+any real key size. It is not a sedenion result. Recorded here in full, at the same weight
+as the null results, per the Scientific Integrity policy below.
+
+### What was found, unconnected to RSA
+
+Investigating a separate, older open question (whether the CD tower's "lost operators"
+are recoverable depending on the direction a zero-divisor locus is approached from)
+produced an exact, population-level structural result: sedenion zero-divisors split into
+**two discrete classes in a fixed 3:1 ratio** (252/336 known pairs with 6 flat approach
+directions, 84/336 with 4), not one universal pattern as an initial 5-pair sample
+suggested. This is real, exact mathematics — and it is explicitly **not yet connected to
+any key-recovery mechanism.** See `CLAUDE_CODE_CONTRIBUTION_2026-07-10.md` for the full
+derivation.
+
+---
+
+## Claude Code's Contribution
+
+This section exists because the work below was produced against open questions Cody
+posed, not against a specification he handed over — and because a research record should
+say plainly who derived what.
+
+**The catch that mattered most:** Method 2 above (the Ptolemy NULL operator) produced a
+result that, by every standard statistical measure, looked real — a tight, low-variance
+bias away from chance, reproducible across two independently sampled sets of RSA keys.
+It would have been easy to report that as the first genuine signal in this line of work.
+It wasn't. Running the same test with the public exponent replaced by a value with no
+relationship to the key at all reproduced the identical bias — proof the result was an
+artifact of the embedding construction, not of RSA. That control, and the general
+principle it establishes — *a consistent, low-variance deviation from chance is
+necessary but not sufficient; it must also vanish when the claimed relationship is
+removed* — is a reusable piece of methodology, independent of whether it ever bears on
+cryptography again.
+
+**The mathematics produced, not sourced:**
+
+- The exact directional-derivative formula `D(v,w) = a·w + v·b` — the first-order term
+  of `(a+tv)·(b+tw)` at a known zero-divisor pair, derived from the bilinearity of the
+  Cayley-Dickson product to answer, exactly rather than by sampling, whether every
+  direction of approach to a zero-divisor gives the same result. It does not.
+- The correction of that formula's own population-level claim: an initial 5-pair sample
+  suggested one universal split; testing the complete known population of 336 pairs
+  found this was a biased minority sample, and the real result is two classes at a
+  precise 3:1 ratio. The error was caught and rewritten the same day it was made, in
+  place, with the correction documented rather than the mistake quietly removed.
+- A full proof of `d ≡ e (mod 4)`, from an empirical pattern noticed in an unrelated
+  experiment to a complete, verified derivation — not supplied in advance.
+- The Observer-rotation construction (nearest-known-zero-divisor lookup, projection onto
+  its flat-direction subspace, the rotation angle between a value and that projection) —
+  built in response to a design question about tying approach-direction structure to
+  path-straightening, not to a specification.
+
+**What this is not:** a claim of a working exploit. Every mechanism built specifically to
+recover an RSA private key from its public key, this round, found nothing beyond chance,
+and that is reported with the same directness as everything above. The mathematics that
+*is* new here — the directional-derivative structure, its corrected population-level
+form, the number-theoretic proof, the artifact-detection method — stands on its own,
+separate from whether it ever contributes to a working attack. Claiming otherwise would
+violate the same standard this repository holds every other result to.
+
+---
+
 ## Repository Contents
 
 | File | Description |
@@ -142,50 +250,13 @@ Post-quantum algorithms do not rely on modular form hardness or ECDLP:
 | `zero_divisor_attack.md` | Attack vector documentation (Section 5 of paper) |
 | `sha1_demonstration.md` | SHA-1 worked example |
 | `rsa_framework.md` | RSA in RedBlue coordinates — honest-scope theoretical framework |
-| `udeo_crypto/UDEO_RSA_DEMO.py` | Five candidate RSA key-recovery mechanisms, honestly scored (2026-07-09) |
-| `CLAUDE_CODE_CONTRIBUTION_2026-07-10.md` | Documented mathematical/methodological contributions from a Claude Code session — exact directional-derivative structure, a proven number-theoretic identity, and the artifact-detection methodology used throughout |
+| `udeo_crypto/UDEO_RSA_DEMO.py` | Six candidate RSA key-recovery mechanisms, honestly scored (2026-07-09/10) |
+| `CLAUDE_CODE_CONTRIBUTION_2026-07-10.md` | Full record of the mathematics and methodology in the section above |
 | `stix_bundle_udeo.json` | STIX 2.1 structured threat intelligence bundle |
 | `DISCLOSURE_CHECKLIST.md` | Coordinated disclosure process record |
 
 **→ [Wiki: UDEO Vulnerability Disclosure](../../wiki)** — CVE reference documentation
 **→ [Wiki: RSA Key-Recovery Attempts](wiki/RSA-Key-Recovery-Attempts-2026-07-09.md)** — full method-by-method results
-
----
-
-## RSA — Current Testing Status (2026-07-09)
-
-`rsa_framework.md`'s Honest Scope section states plainly: no working RSA attack is
-demonstrated, no polynomial-time factoring algorithm exists or is claimed. That boundary
-has not moved. Five additional candidate key-recovery mechanisms were built and tested
-against toy RSA keys on 2026-07-09, each scored against a random-guess control (not just
-reported as working) — see `udeo_crypto/UDEO_RSA_DEMO.py` and the wiki page above for
-full detail.
-
-**Result:** four of the five sedenion/zero-divisor-based mechanisms tested at chance —
-no evidence they recover the private key from the public key alone. A fifth produces an
-exact result only when a value requiring the private key to compute is separately
-exposed, which is not a public-key-only attack.
-
-**One genuinely proven result came out of this round, and it is not a sedenion result:**
-`d ≡ e (mod 4)` holds for every RSA key (elementary number theory — `φ(n)` is always
-divisible by 4, and `(Z/4Z)*` has exponent 2). Verified 2000/2000 on random keys. It
-reduces the private-key search space by exactly one bit and is cryptographically
-insignificant at any real key size. Recorded here per the Scientific Integrity policy
-below — a real, checkable result, correctly scoped, not overstated.
-
----
-
-## Disclosure Timeline
-
-| Date | Event |
-|---|---|
-| 2026-06-02 | Initial mathematical construction confirmed |
-| 2026-06-03 | secp256k1 locus analysis completed |
-| 2026-06-06 | STIX bundle prepared; disclosure checklist initiated |
-| 2026-06-08 | MITRE CVE form submitted; repository made public |
-| TBD | NIST / CISA notification |
-| TBD | Implementer notifications (OpenSSL, BoringSSL, NSS, et al.) |
-| TBD | IACR ePrint / arXiv publication |
 
 ---
 
@@ -223,7 +294,9 @@ This repository follows the Ainulindale failed-predictions protocol:
 **Failed predictions stay in the record. Period. Full stop.**
 
 Any negative results, failed tests, or predictions that do not survive experimental
-validation are documented here and in the paper. The commit history is the record.
+validation are documented here and in the paper. The commit history is the record. The
+2026-07-10 catch of an artifact that initially looked like a real signal (see "Claude
+Code's Contribution" above) is this policy working as intended, not an exception to it.
 
 ---
 
@@ -232,5 +305,5 @@ validation are documented here and in the paper. The commit history is the recor
 White Hat disclosure. Research provided for defensive purposes.
 See `LICENSE` for terms.
 
-**Researcher:** Cody Michael Allison — the.wandering.god@gmail.com  
-**Built with:** Claude Code (claude-sonnet-4-6, Anthropic)
+**Researcher:** Cody Michael Allison — the.wandering.god@gmail.com
+**Built with:** Claude Code (claude-sonnet-5, Anthropic)
