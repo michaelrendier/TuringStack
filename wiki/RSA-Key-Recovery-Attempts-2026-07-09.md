@@ -75,6 +75,37 @@ address is a statistical outlier vs. random `d'`.
 mass/gravity scale). That reinterpretation is this test's choice, not something
 wiki/34 states.
 
+## Method 1b — Ptolemy NULL Operator
+
+**Idea:** `modules/singularity_null/maths.py` (`circle_null_modes()`) defines the
+actual "NULL operator" in this framework: the Ptolemy inversion `z → R_H²/z̄`,
+claimed to underlie every sedenion zero-divisor pair "in its local 2D subspace."
+Rebuild of Method 1 using this literal operator: take `e`'s two dominant
+embedding coordinates as a 2D complex number, apply the Ptolemy inversion, and
+test whether `d`'s embedding aligns with that partner better than chance.
+(Note: this is the *conformal* inverse, `x_s · partner = R_H²`, not `0` — the
+`singularity_null` code itself only verifies 5 pre-known zero-divisor pairs; no
+general closed-form `b = f(a)` for an exact zero-divisor partner exists
+anywhere in this repository.)
+
+**Result: initially looked like a strong signal, then failed a critical control.**
+On the 6 toy keys: mean percentile 21.71. On 40 independent random verification
+keys: mean 18.79, std 8.63 — tight and consistent, nothing like the wide
+noise-spread that debunked Method 6 below. This looked like the first real
+signal of the entire investigation.
+
+**Then the control test:** repeated the exact same test, but replaced the true
+`e` with a completely unrelated random exponent having nothing to do with the
+key. Result: mean 17.82 — nearly identical. **The bias has nothing to do with
+the real `(e, d)` relationship.** It is a generic artifact of the hash/embedding
+construction (`map_int_to_hypercomplex` always places fixed-ratio weights at
+two hash-derived positions, so the Ptolemy-inverted partner of *any* small
+integer has a structurally similar relationship to *any* other integer's
+embedding). This is recorded as a methodological lesson as much as a null
+result: a consistent, low-variance deviation from chance across independent
+keys is not sufficient evidence of a real signal — it must also disappear when
+the specific claimed relationship (here, the true key pairing) is removed.
+
 ## Method 4 — Content + Public + Private = Hash
 
 **Idea (Cody's equation):** `Content + Public + Private = Hash`, therefore
@@ -118,6 +149,25 @@ against 200 independent random toy RSA keys: 200/200 matched, not the ~50%
 expected if independent) — see the mod4 theorem below for why, and why it isn't
 a sedenion result.
 
+## Method 6 — Emergent Rotation Signature (Inclination + Declination)
+
+**Idea:** Method 5's angular path only ever carried one degree of freedom
+(azimuth via quadrant) — its polar angle was a fixed function of tower level
+`k`, never of the traced integer. This method builds a genuine two-angle raw
+path: at each level `k`, embed `x` in that level's own native dimension
+(`2^k`) via the real P1-hash mechanism, and extract both an inclination angle
+(`arccos` of the scalar component) and an azimuth (from the next two
+components). The rotation needed at each shell to straighten this raw path
+onto the straight-line geodesic between the `k=1` and `k=8` points is the
+candidate "emergent information" signature.
+
+**Result: looked like a weak signal on 6 toy keys (mean percentile 31.2),
+did not survive a 40-key verification (mean 52.6, std 28.6 — a wide, roughly
+uniform spread from 3 to 98, the signature of pure noise).** Recorded as a
+direct example of why a 6-key sample is not sufficient to draw conclusions —
+this result motivated adding the same larger-verification-set discipline to
+every method tested afterward (including Method 1b above).
+
 ## PROVEN: `d ≡ e (mod 4)`
 
 Not from the sedenion framework — classical number theory, surfaced by Method 5
@@ -144,11 +194,13 @@ break.
 | Method | Mean percentile (chance = 50) | Confidence | Requires more than (n, e)? |
 |---|---|---|---|
 | 1 — Zero-divisor shadow | 46.91 | OPEN | No |
+| 1b — Ptolemy NULL operator | 18.79 (artifact — see above) | OPEN | No |
 | 2 — J2 / T₂₅₆ eigenspectrum | 56.77 | OPEN | No |
 | 3 — Spectral Relativity geodesic | 38.82 | OPEN | No |
 | 4 — Content+Public+Private=Hash | exact, not unique | CONJECTURE | Yes — Hash (requires d) |
 | 5 — Zero Lattice, public-key-only | 50.45 | OPEN | No |
 | 5 — Zero Lattice, Hash-exposed | exact | ESTABLISHED (trivial algebra) | Yes — Hash (requires d) |
+| 6 — Emergent rotation signature | 52.59 (40-key; 31.2 on 6-key, did not survive) | OPEN | No |
 | `d ≡ e (mod 4)` | — | **ESTABLISHED** | No, but only 1 bit |
 
 No public-key-only mechanism tested here recovers `d` from `(n, e)` alone. The

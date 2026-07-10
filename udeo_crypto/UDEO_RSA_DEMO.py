@@ -418,6 +418,150 @@ def method1_zero_divisor_shadow(dim: int = 16) -> Dict[str, Any]:
     }
 
 
+def ptolemy_null_partner(x_s: np.ndarray) -> np.ndarray:
+    """
+    The actual NULL operator (modules/singularity_null/maths.py,
+    circle_null_modes()): the Ptolemy inversion z -> R_H^2 / z-bar, applied
+    in x_s's own dominant 2D subspace -- the same construction
+    circle_null_modes() and drug_targeting's c_drug = R_H^2 * conj(c)/|c|^2
+    both use. Note this is the CONFORMAL inverse (x_s . partner = R_H^2,
+    not 0) -- the actual code in singularity_null verifies pre-known ZD
+    pairs rather than deriving b from a by a general zero-divisor formula;
+    no such closed-form exists in this repo. This is the faithful, literal
+    reading of 'the shape of the hole' as the Ptolemy-inverted partner in
+    e's own subspace, not an invented substitute.
+    """
+    idx = np.argsort(-np.abs(x_s))[:2]
+    i, j = int(idx[0]), int(idx[1])
+    z = complex(float(x_s[i]), float(x_s[j]))
+    partner = np.zeros_like(x_s)
+    if abs(z) < 1e-12:
+        return partner
+    z_inv = (R_H ** 2) / z.conjugate()
+    partner[i] = z_inv.real
+    partner[j] = z_inv.imag
+    return partner
+
+
+def method1b_ptolemy_null_operator(dim: int = 16, n_verification_keys: int = 40) -> Dict[str, Any]:
+    """
+    Rebuild of Method 1 using the actual NULL operator (Ptolemy inversion,
+    modules/singularity_null/maths.py) instead of the smallest-singular-
+    -vector approximation used in method1_zero_divisor_shadow(). Tested on
+    the 6 toy keys AND n_verification_keys independent random keys from the
+    start (Method 6 showed the 6-key sample alone can look like a signal
+    that doesn't survive scale-up).
+    """
+    def run_on_keys(keys):
+        per_key = []
+        for key in keys:
+            n, e, d, phi_n = key['n'], key['e'], key['d'], key['phi_n']
+            e_s = map_int_to_hypercomplex(e, dim)
+            null_partner = normalize(ptolemy_null_partner(e_s))
+            d_s = normalize(map_int_to_hypercomplex(d, dim))
+            true_alignment = abs(float(np.dot(null_partner, d_s)))
+            controls = random_wrong_d_candidates(phi_n, d, e)
+            control_alignments = [
+                abs(float(np.dot(null_partner, normalize(map_int_to_hypercomplex(dp, dim)))))
+                for dp in controls
+            ]
+            rank = percentile_rank(true_alignment, control_alignments)
+            per_key.append({
+                'n': n, 'e': e, 'd': d,
+                'true_d_alignment': round(true_alignment, 6),
+                'control_mean_alignment': round(float(np.mean(control_alignments)), 6),
+                'true_d_percentile_vs_controls': round(rank, 2),
+            })
+        return per_key
+
+    per_key_6 = run_on_keys(TOY_KEYS)
+    mean_rank_6 = float(np.mean([r['true_d_percentile_vs_controls'] for r in per_key_6]))
+
+    def sieve(limit):
+        s = bytearray([1]) * (limit + 1)
+        s[0] = s[1] = 0
+        for i in range(2, int(limit ** 0.5) + 1):
+            if s[i]:
+                s[i * i::i] = bytearray(len(s[i * i::i]))
+        return [i for i in range(3, limit + 1) if s[i]]
+
+    rng = random.Random(99)
+    verify_primes = [p for p in sieve(5000) if p > 20]
+    verify_keys = [_random_toy_key(rng, verify_primes) for _ in range(n_verification_keys)]
+    per_key_v = run_on_keys(verify_keys)
+    ranks_v = [r['true_d_percentile_vs_controls'] for r in per_key_v]
+    mean_rank_v = float(np.mean(ranks_v))
+    std_rank_v = float(np.std(ranks_v))
+
+    # CRITICAL CONTROL: repeat verification using an UNRELATED random exponent
+    # in place of the true e, to check whether any apparent signal is about
+    # the real (e, d) relationship or a generic artifact of the hash/embedding
+    # construction that would show up for any small integer.
+    rng2 = random.Random(123)
+    unrelated_ranks = []
+    for key in verify_keys:
+        n, e, d, phi_n = key['n'], key['e'], key['d'], key['phi_n']
+        e_prime = rng2.randrange(3, 200)
+        e_prime_s = map_int_to_hypercomplex(e_prime, dim)
+        null_partner_unrelated = normalize(ptolemy_null_partner(e_prime_s))
+        d_s = normalize(map_int_to_hypercomplex(d, dim))
+        true_align_u = abs(float(np.dot(null_partner_unrelated, d_s)))
+        controls = random_wrong_d_candidates(phi_n, d, e)
+        ctrl_aligns_u = [
+            abs(float(np.dot(null_partner_unrelated, normalize(map_int_to_hypercomplex(dp, dim)))))
+            for dp in controls
+        ]
+        unrelated_ranks.append(percentile_rank(true_align_u, ctrl_aligns_u))
+    mean_rank_unrelated = float(np.mean(unrelated_ranks))
+    std_rank_unrelated = float(np.std(unrelated_ranks))
+
+    # The apparent bias is only real evidence about (e,d) if it's absent (or
+    # much weaker) when e is replaced by something unrelated.
+    artifact_gap = abs(mean_rank_v - mean_rank_unrelated)
+    signal_strength = abs(mean_rank_v - 50.0)
+
+    if artifact_gap < 10:
+        verdict = (f'GENERIC HASH ARTIFACT, NOT A SIGNAL ABOUT (e,d): true-e mean={mean_rank_v:.1f}, '
+                    f'unrelated-e mean={mean_rank_unrelated:.1f} — nearly identical, so the bias away '
+                    f'from chance has nothing to do with the real key relationship')
+        confidence = 'OPEN'
+    elif signal_strength > 30:
+        verdict, confidence = 'POSSIBLE SIGNAL — survives the unrelated-e control, worth escalating', 'CONJECTURE'
+    elif signal_strength > 15:
+        verdict, confidence = 'WEAK, INCONSISTENT SIGNAL', 'CONJECTURE'
+    else:
+        verdict, confidence = f'AT CHANCE on {n_verification_keys}-key verification (6-key: {mean_rank_6:.1f})', 'OPEN'
+
+    return {
+        'claim': "Method 1b (Ptolemy NULL operator): does d_s align with e_s's Ptolemy-inversion "
+                 "partner in its own 2D subspace, better than chance -- and is that specific to "
+                 "the real (e,d) pairing?",
+        'per_key_6_toy_keys': per_key_6,
+        'six_key_mean_percentile': round(mean_rank_6, 2),
+        f'verification_{n_verification_keys}_keys': {
+            'mean_percentile_rank': round(mean_rank_v, 2), 'std': round(std_rank_v, 2),
+            'ranks': sorted(round(r, 1) for r in ranks_v),
+        },
+        'unrelated_e_control': {
+            'mean_percentile_rank': round(mean_rank_unrelated, 2), 'std': round(std_rank_unrelated, 2),
+            'note': 'Same test, but e replaced by an unrelated random exponent unconnected to the '
+                    'toy key. If this matches the true-e result, the apparent bias is a construction '
+                    'artifact, not information about the real private key.',
+        },
+        'mean_percentile_rank': round(mean_rank_v, 2),
+        'chance_baseline': 50.0,
+        'verdict': verdict,
+        'confidence': confidence,
+        'operator_note': (
+            'ptolemy_null_partner() is the literal NULL operator from '
+            'modules/singularity_null/maths.py: z -> R_H^2/z-bar applied in the dominant 2D '
+            "subspace of e_s. Note x_s . partner = R_H^2 (a conformal inverse), not 0 -- "
+            'singularity_null itself only verifies pre-known zero-divisor pairs; there is no '
+            'general closed-form b=f(a) for an exact zero-divisor partner anywhere in this repo.'
+        ),
+    }
+
+
 # ══════════════════════════════════════════════════════════════════════════
 # ENGINE 2 — J2 INVOLUTION IN T_256  (Cody's Method 2)
 # ══════════════════════════════════════════════════════════════════════════
@@ -913,6 +1057,186 @@ def method5_zero_lattice_paths(search_pool: int = 200) -> Dict[str, Any]:
 
 
 # ══════════════════════════════════════════════════════════════════════════
+# ENGINE 6 — EMERGENT ROTATION INFORMATION  (straightening the switchback path)
+# ══════════════════════════════════════════════════════════════════════════
+#
+# Method 5's phi_deg was a function of quadrant (x mod 4) ONLY -- the polar
+# angle theta was fixed per level (theta = k*pi/8), never a function of x at
+# all. That is why Method 5's path visually looked "already straight": there
+# was only ever one x-dependent degree of freedom (azimuth), not two. Cody's
+# request here is to actually build the two-angle (inclination/declination)
+# raw path, then compute what rotation at each shell straightens it -- that
+# per-level rotation sequence is the candidate "emergent information."
+
+def level_dim(k: int) -> int:
+    return max(1, 2 ** k)
+
+def raw_shell_angles(x: int, k: int) -> Tuple[float, float]:
+    """
+    Raw (unstraightened) inclination theta and azimuth phi for integer x at
+    CD tower level k, using the REAL P1-hash embedding at that level's own
+    native dimensionality (dim = 2^k). theta = arccos(v[0]) is the standard
+    hyperspherical polar angle relative to the scalar axis. phi is the
+    azimuth in the (e1, e2) plane. At k=0 (dim=1) the embedding is a single
+    scalar -- degenerate, both angles defined as 0 (the tower's pole, same
+    convention telperion_engine.py uses for k=0).
+    """
+    dim = level_dim(k)
+    if dim == 1:
+        return 0.0, 0.0
+    v = map_int_to_hypercomplex(x, dim)
+    theta = math.acos(max(-1.0, min(1.0, float(v[0]))))
+    if dim >= 3:
+        phi = math.atan2(float(v[2]), float(v[1]))
+    else:
+        phi = math.atan2(0.0, float(v[1]))
+    return theta, phi
+
+def _wrap_pi(a: float) -> float:
+    """Wrap angle to (-pi, pi]."""
+    return (a + math.pi) % (2 * math.pi) - math.pi
+
+def emergent_rotation_information(x: int, label: str) -> Dict[str, Any]:
+    """
+    For integer x, compute the raw (theta_k, phi_k) at every level k=0..8,
+    the straight-line (linearly interpolated between k=1 and k=8) target at
+    each intermediate level, and the rotation (d_theta_k, d_phi_k) needed at
+    each shell to correct the raw path onto that straight Lagrangian path.
+    This per-level rotation sequence is the emergent-information signature.
+    """
+    raw = [raw_shell_angles(x, k) for k in range(N_LEVELS_TOWER)]
+    theta_1, phi_1 = raw[1]
+    theta_8, phi_8 = raw[8]
+    d_phi_total = _wrap_pi(phi_8 - phi_1)
+
+    corrections = []
+    for k in range(1, N_LEVELS_TOWER):
+        t = (k - 1) / 7.0
+        target_theta = theta_1 + t * (theta_8 - theta_1)
+        target_phi = phi_1 + t * d_phi_total
+        raw_theta_k, raw_phi_k = raw[k]
+        d_theta = raw_theta_k - target_theta
+        d_phi = _wrap_pi(raw_phi_k - target_phi)
+        corrections.append({
+            'k': k, 'name': CD_TOWER_NAMES[k],
+            'raw_theta': round(raw_theta_k, 6), 'raw_phi': round(raw_phi_k, 6),
+            'target_theta': round(target_theta, 6), 'target_phi': round(target_phi, 6),
+            'd_theta': round(d_theta, 6), 'd_phi': round(d_phi, 6),
+        })
+
+    signature = tuple(round(c['d_theta'], 4) for c in corrections) + \
+                tuple(round(c['d_phi'], 4) for c in corrections)
+
+    return {'label': label, 'value': x, 'corrections': corrections, 'signature': signature}
+
+def signature_distance(sig_a: Tuple[float, ...], sig_b: Tuple[float, ...]) -> float:
+    return float(np.linalg.norm(np.array(sig_a) - np.array(sig_b)))
+
+def _random_toy_key(rng: random.Random, primes: List[int]) -> Dict[str, int]:
+    p, q = rng.sample(primes, 2)
+    phi_n = (p - 1) * (q - 1)
+    e_candidates = [x for x in range(3, 200) if math.gcd(x, phi_n) == 1]
+    e = rng.choice(e_candidates)
+    d = pow(e, -1, phi_n)
+    return {'p': p, 'q': q, 'n': p * q, 'phi_n': phi_n, 'e': e, 'd': d}
+
+def method6_emergent_rotation_signature(search_pool: int = 200, n_verification_keys: int = 40) -> Dict[str, Any]:
+    """
+    Test: does Private's emergent-rotation signature (the per-shell
+    inclination/declination corrections needed to straighten its raw path)
+    align with Public's, Content's, or Hash's signature better than a
+    random valid d' would -- given only (n, e)? Same honest scoring as
+    every engine above.
+
+    Runs on the standard 6 toy keys FIRST, then repeats on
+    n_verification_keys independent random keys, because the 6-key result
+    alone was misleading here: it showed mean percentile 31.19 (looked like
+    a weak signal by this engine's own >15 threshold), but that did not
+    survive a larger sample -- see verification_40_keys below. The 40-key
+    result is treated as authoritative; the small-sample result is kept in
+    the record, not deleted, per the standing 'failed predictions stay in
+    the record' policy.
+    """
+    def run_on_keys(keys):
+        per_key = []
+        for key in keys:
+            n, e, d, phi_n = key['n'], key['e'], key['d'], key['phi_n']
+            public_sig  = emergent_rotation_information(e, 'Public (e)')['signature']
+            private_sig = emergent_rotation_information(d, 'Private (d)')['signature']
+            true_dist = signature_distance(private_sig, public_sig)
+            controls = random_wrong_d_candidates(phi_n, d, e, count=search_pool)
+            control_dists = [
+                signature_distance(emergent_rotation_information(dp, 'control')['signature'], public_sig)
+                for dp in controls
+            ]
+            rank = percentile_rank(true_dist, control_dists)
+            per_key.append({
+                'n': n, 'e': e, 'd': d,
+                'true_d_sig_distance_to_public': round(true_dist, 6),
+                'control_mean_sig_distance': round(float(np.mean(control_dists)), 6),
+                'true_d_percentile_vs_controls': round(rank, 2),
+            })
+        return per_key
+
+    per_key = run_on_keys(TOY_KEYS)
+    ranks_6 = [r['true_d_percentile_vs_controls'] for r in per_key]
+    mean_rank_6 = float(np.mean(ranks_6))
+
+    def sieve(limit):
+        s = bytearray([1]) * (limit + 1)
+        s[0] = s[1] = 0
+        for i in range(2, int(limit ** 0.5) + 1):
+            if s[i]:
+                s[i * i::i] = bytearray(len(s[i * i::i]))
+        return [i for i in range(3, limit + 1) if s[i]]
+
+    rng = random.Random(99)
+    verify_primes = [p for p in sieve(5000) if p > 20]
+    verify_keys = [_random_toy_key(rng, verify_primes) for _ in range(n_verification_keys)]
+    verify_per_key = run_on_keys(verify_keys)
+    ranks_40 = [r['true_d_percentile_vs_controls'] for r in verify_per_key]
+    mean_rank_40 = float(np.mean(ranks_40))
+    std_rank_40 = float(np.std(ranks_40))
+
+    mean_rank = mean_rank_40
+    signal_strength = abs(mean_rank - 50.0)
+    if signal_strength > 30:
+        verdict, confidence = 'POSSIBLE SIGNAL — worth a larger-scale follow-up', 'CONJECTURE'
+    elif signal_strength > 15:
+        verdict, confidence = 'WEAK, INCONSISTENT SIGNAL', 'CONJECTURE'
+    else:
+        verdict, confidence = (
+            f'AT CHANCE on {n_verification_keys}-key verification (6-key sample showed '
+            f'{mean_rank_6:.1f}, looked like a weak signal, did not survive scale-up)',
+            'OPEN',
+        )
+
+    return {
+        'claim': 'Method 6 (emergent rotation information): do per-shell straightening '
+                 'corrections (inclination + declination) for d align with e more than chance?',
+        'per_key': per_key,
+        'six_key_mean_percentile': round(mean_rank_6, 2),
+        f'verification_{n_verification_keys}_keys': {
+            'mean_percentile_rank': round(mean_rank_40, 2),
+            'std': round(std_rank_40, 2),
+            'ranks': sorted(round(r, 1) for r in ranks_40),
+        },
+        'mean_percentile_rank': round(mean_rank, 2),
+        'chance_baseline': 50.0,
+        'verdict': verdict,
+        'confidence': confidence,
+        'method_note': (
+            'This corrects a real gap in Method 5: its theta was fixed per level (k*pi/8), '
+            'never a function of x, so it only ever carried one angular degree of freedom '
+            '(azimuth via quadrant). This engine computes BOTH angles from the real P1-hash '
+            "embedding at each level's own native dimensionality (dim=2^k), then measures the "
+            'rotation needed at each shell to straighten the raw path onto the k=1-to-k=8 '
+            'geodesic. That per-shell rotation sequence is the signature tested here.'
+        ),
+    }
+
+
+# ══════════════════════════════════════════════════════════════════════════
 # ENGINE — COMPARE ALL THREE
 # ══════════════════════════════════════════════════════════════════════════
 
@@ -925,15 +1249,20 @@ def compare_all_methods() -> Dict[str, Any]:
     baseline = rsa_control_baseline()
     mod4 = mod4_identity_theorem()
     m1 = method1_zero_divisor_shadow()
+    m1b = method1b_ptolemy_null_operator()
     m2 = method2_j2_involution_t256()
     m3 = method3_spectral_relativity()
     m4 = method4_content_public_private_hash()
     m5 = method5_zero_lattice_paths()
+    m6 = method6_emergent_rotation_signature()
 
     table = [
         {'method': '1 — Zero-divisor shadow (S^16)',
          'mean_percentile_vs_chance_50': m1['mean_percentile_rank'],
          'verdict': m1['verdict'], 'confidence': m1['confidence']},
+        {'method': '1b — Ptolemy NULL operator (singularity_null)',
+         'mean_percentile_vs_chance_50': m1b['mean_percentile_rank'],
+         'verdict': m1b['verdict'], 'confidence': m1b['confidence']},
         {'method': '2 — J2 involution / T_256 eigenspectrum',
          'mean_percentile_vs_chance_50': m2['mean_percentile_rank'],
          'verdict': m2['verdict'], 'confidence': m2['confidence']},
@@ -947,6 +1276,9 @@ def compare_all_methods() -> Dict[str, Any]:
          'mean_percentile_vs_chance_50': m5['public_key_only_scenario']['mean_percentile_rank'],
          'verdict': m5['public_key_only_scenario']['verdict'],
          'confidence': m5['public_key_only_scenario']['confidence']},
+        {'method': '6 — Emergent rotation signature (inclination+declination)',
+         'mean_percentile_vs_chance_50': m6['mean_percentile_rank'],
+         'verdict': m6['verdict'], 'confidence': m6['confidence']},
     ]
     best = min(table, key=lambda r: abs(r['mean_percentile_vs_chance_50'] - 50.0) * -1) \
         if any(abs(r['mean_percentile_vs_chance_50'] - 50.0) > 15 for r in table) else None
@@ -960,7 +1292,7 @@ def compare_all_methods() -> Dict[str, Any]:
         'strongest_signal': best['method'] if best else 'NONE — all five at chance',
         'confidence': 'OPEN' if best is None else 'CONJECTURE',
         'honest_summary': (
-            'None of methods 1-5 takes only (n, e) and outputs d exactly. '
+            'None of methods 1-6 takes only (n, e) and outputs d exactly. '
             'What each produces is a percentile rank: how unusual the true d looks under that '
             "method's geometry compared to 200-random-but-valid wrong guesses per key. "
             '50 == indistinguishable from chance, matching the prior finding that the RSA '
@@ -968,9 +1300,14 @@ def compare_all_methods() -> Dict[str, Any]:
             'The one genuinely ESTABLISHED result of this session is the mod4_theorem: '
             'd = e (mod 4) always, proven by elementary number theory, unrelated to sedenions or '
             'zero-divisors, and cryptographically insignificant (1 bit of search-space reduction). '
-            'Methods 1, 2, 3, 5(public-key-only) are AT CHANCE. Method 4 and Method 5 '
-            "(Hash-exposed scenario) are exact ONLY when a value requiring d to compute (Hash) "
-            'is separately exposed -- neither is a public-key-only attack.'
+            'Methods 1, 2, 3, 5(public-key-only), 6 are AT CHANCE (Method 6 initially looked like a '
+            'weak signal on 6 toy keys, did not survive a 40-key verification). Method 1b (the '
+            'actual Ptolemy NULL operator from singularity_null) initially looked like a strong '
+            'signal on both the 6-key and 40-key tests, but a control test replacing e with an '
+            'UNRELATED exponent produced the same bias -- proving it is a generic artifact of the '
+            'hash construction, not information about the real (e,d) relationship. Method 4 and '
+            'Method 5 (Hash-exposed scenario) are exact ONLY when a value requiring d to compute '
+            '(Hash) is separately exposed -- neither is a public-key-only attack.'
         ),
     }
 
