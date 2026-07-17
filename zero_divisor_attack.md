@@ -208,7 +208,7 @@ to lattice problems is open and should be investigated urgently.
 
 ## 5.7a CRYSTALS-Kyber / ML-KEM — Open Investigation
 
-**CVE Status:** UDEO CVE submitted 2026-06-08. CAN pending. Assignment in progress.
+**CVE Status:** Submitted to MITRE via legacy submission form 2026-06-08. Confirmation received. Awaiting MITRE evaluation and assignment decision.
 
 CRYSTALS-Kyber (now standardised as ML-KEM, FIPS 203) is the NIST-selected
 Key Encapsulation Mechanism for post-quantum cryptography. It is based on

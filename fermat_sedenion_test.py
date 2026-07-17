@@ -355,7 +355,12 @@ def run_test():
     for s in strategies:
         f_pct = factor_hits[s] / n_factor
         r_pct = rand_hits[s] / rand_pairs_tested if rand_pairs_tested > 0 else 0
-        ratio = f_pct / r_pct if r_pct > 0 else float('inf')
+        if r_pct > 0:
+            ratio = f_pct / r_pct
+        elif f_pct > 0:
+            ratio = float('inf')  # real hits vs zero random hits -- genuine signal
+        else:
+            ratio = 0.0          # 0/0 -- no data either way, NOT a signal
         signal = "*** YES ***" if ratio > 2.0 else ("maybe" if ratio > 1.3 else "no")
         print(f"  {s:<20}  {f_pct*100:5.1f}%   {r_pct*100:5.1f}%    {ratio:5.2f}  {signal}")
         if ratio > best_ratio:
@@ -404,7 +409,14 @@ def run_test():
               f"{s16_fermat_hits/n_factor*100:.1f}%")
         print(f"  S16 ZD(r1,r2) random base: {s16_rand_hits}/{rand_pairs_tested} = "
               f"{s16_rand_hits/rand_pairs_tested*100:.1f}%")
-        s16_ratio = (s16_factor_hits/n_factor) / (s16_rand_hits/rand_pairs_tested) if s16_rand_hits > 0 else float('inf')
+        s16_f_pct = s16_factor_hits / n_factor
+        s16_r_pct = s16_rand_hits / rand_pairs_tested if rand_pairs_tested > 0 else 0
+        if s16_r_pct > 0:
+            s16_ratio = s16_f_pct / s16_r_pct
+        elif s16_f_pct > 0:
+            s16_ratio = float('inf')  # real hits vs zero random hits -- genuine signal
+        else:
+            s16_ratio = 0.0          # 0/0 -- no data either way, NOT a signal
         print(f"  S16 factor/random ratio:   {s16_ratio:.2f}")
 
     # ── SUMMARY ──────────────────────────────────────────────────────────
