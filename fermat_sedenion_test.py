@@ -317,20 +317,20 @@ def run_test():
     rand_hits = {s: 0 for s in strategies}
     n_rand = n_factor
 
+    # BUG FIX (2026-07-21): the old baseline drew r1=p+2*randint, r2=q+2*randint
+    # from the SAME (p,q) under test -- a near-duplicate, not an independent null
+    # (both strategies operate on values within one perturbation step of the real
+    # pair at every resolution/strategy tested). Draw from primes never used in
+    # any test_cases pair instead.
+    _used_primes = set(p for p, q, _ in test_cases) | set(q for p, q, _ in test_cases)
+    _pool = [p for p in PRIMES if p not in _used_primes and p >= 7]
+
     rand_pairs_tested = 0
     attempts = 0
     rand_detail = []
     while rand_pairs_tested < n_rand and attempts < n_rand * 100:
         attempts += 1
-        # Pick two random odd integers near a typical prime pair
-        idx = random.randint(0, len(test_cases)-1)
-        p, q, N = test_cases[idx]
-        r1 = p + 2 * random.randint(1, 20)
-        r2 = q + 2 * random.randint(1, 20)
-        if r1 * r2 == N:
-            continue  # accidentally hit a factor pair — skip
-        if r1 == r2:
-            continue
+        r1, r2 = random.sample(_pool, 2)
         zd_r = test_zd_all_strategies(r1, r2)
         for s in strategies:
             if zd_r[s]: rand_hits[s] += 1

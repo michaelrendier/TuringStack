@@ -1,309 +1,210 @@
-# UDEO — Unified Dimensional Entropy Oracle
-## Zero-Divisor Attack Class on Elliptic Curve Cryptography and Hash Functions
+# UDEO — Zero-Divisor Structure of Cayley-Dickson Algebras over GF(2)
 
-**CAN:** Pending — MITRE coordinated disclosure in progress
-**CVE Status:** Submission filed 2026-06-08
-**Vulnerability Class:** Cryptographic weakness via hypercomplex algebraic attack
-**Vulnerability Type:** Algorithm complexity
-**Attack Type:** Context-dependent
-**Impact:** Information Disclosure (private key recovery); Integrity (signature forgery)
-**Severity:** Critical
-**Discovery:** Cody Michael Allison
-**Disclosure:** White Hat. Responsible coordinated disclosure.
-**Author Contact:** the.wandering.god@gmail.com
+## A white-hat research framework, and a retrospective structural account of the SHA-1 break
+
+**Discovery / Researcher:** Cody Michael Allison — the.wandering.god@gmail.com
+**ORCID:** https://orcid.org/0009-0007-7239-6760
+**Disclosure posture:** White hat. Responsible, coordinated.
+**Status:** Research framework + one exact theorem + a retrospective result on the
+already-public SHA-1 collision. **No working key-recovery or preimage exploit is
+claimed or provided.**
+
+> **Scientific-integrity note (Ainulindale protocol — failed predictions stay in the record).**
+> This README was corrected on 2026-07-28 after every script in the repository
+> was re-run. A prior version claimed Critical severity, private-key recovery
+> from public keys, ECDSA signature forgery, and breaks of SHA-2/SHA-3. **None
+> of those are supported by the code in this repository** — each script's own
+> summary says so. The corrected scope is below. The overclaims are not deleted;
+> they are recorded here as what was retracted, and why.
 
 ---
 
-## Disclosure Timeline
+## 1. What is actually established (reproduced 2026-07-28)
 
-| Day | Date | Event |
+Each claim carries its evidence tier. Run the named script to reproduce.
+
+### ESTABLISHED — the T_n/GF(2) trace-Laplacian theorem
+`hypercomplex_laplacian.py`
+
+For any n = 2^k, in the Cayley-Dickson algebra T_n over GF(2), every element x
+satisfies **x² ∈ {0, e₀}**. Equivalently, the trace-Laplacian
+Δ(w) = w · (0xFF…F) is zero **iff** w is nilpotent, iff w lies on the nodal
+line (the zero-divisor locus). This is an exact algebraic theorem, not a
+statistical claim — it either holds for an element or it does not, and it is
+checked directly.
+
+### ESTABLISHED — the named SHA-1 constants land on the nodal line
+`hypercomplex_laplacian.py`
+
+The five SHA-1 initialization-vector constants are **all nilpotent in T32** —
+every one lies exactly on the zero-divisor nodal line:
+
+| Name | w | Δ(w) | Distance | Nilpotent |
+|---|---|---|---|---|
+| H0 | 0x67452301 | 0x00000000 | 0 | ✓ |
+| H1 | 0xEFCDAB89 | 0x00000000 | 0 | ✓ |
+| H2 | 0x98BADCFE | 0x00000000 | 0 | ✓ |
+| H3 | 0x10325476 | 0x00000000 | 0 | ✓ |
+| H4 | 0xC3D2E1F0 | 0x00000000 | 0 | ✓ |
+
+The four round constants (K0–K3), by contrast, sit at the **maximum** spectral
+distance (32) — a clean bimodal split: the IVs are on the locus, the round
+constants are as far from it as the space allows. This is the "name collision"
+result: the *named* constants of SHA-1 collide onto the nodal line while the
+round constants do not. It is exact and reproducible.
+
+### ESTABLISHED — secp256k1's generator has involutory coordinates in T256
+`secp256k1_locus.py`, `secp256k1_locus_results.md`
+
+Both generator coordinates Gx, Gy are **involutory** (x² = e₀) in T256/GF(2) —
+neither is nilpotent, and Gx · Gy ≠ 0. This is a structural fact about how the
+curve's fixed constants sit in the algebra. It is **not** an attack; see §3.
+
+---
+
+## 2. The SHA-1 account (the solid, defensible core)
+
+SHA-1 is genuinely, publicly broken — the SHAttered collision (Stevens et al.,
+2017) is real and required ≈ 2⁶³ (~9.2 × 10¹⁸) compressions to find. This
+repository does **not** re-break SHA-1 and claims no new SHA-1 attack. What it
+offers is a **retrospective structural reading** of the known break:
+
+- SHA-1's IV constants sit exactly on the T32 zero-divisor nodal line (§1).
+- A collision is, in these coordinates, a zero-divisor event in T32 — two
+  distinct messages whose differential lands on the locus.
+- Framed this way, the 2⁶³ search of SHAttered was a *search* for a locus that
+  is describable analytically.
+
+This is a lens on an already-known result, offered as mathematical
+context — **not** a claim to have navigated to that locus in polynomial time.
+That step is open (§3).
+
+---
+
+## 3. What is OPEN or NULL — do not cite these as results
+
+### OPEN — polynomial-time navigation to the locus
+The whole framework's value as an *attack* would rest on reaching the
+zero-divisor locus analytically rather than by search. `udeo_poc.py` states it
+directly: *"Current gap: 'navigate to' is not yet polynomial-time."* No script
+in this repository closes it.
+
+### OPEN — ECC / secp256k1 key recovery
+`secp256k1_locus.py`'s own conclusion: modular reduction (carries mod p) is the
+sole algebraic barrier, and *"Whether carry-closing is polynomial: OPEN
+PROBLEM. Not a working exploit."* There is no public-key → private-key recovery
+here, demonstrated or implied.
+
+### NULL — the sedenion factoring "signal" does not exist
+`fermat_sedenion_test.py` prints *"SIGNAL DETECTED via 'hw_hi32'
+(ratio = inf)."* **This is a divide-by-zero artifact, not a signal.** The
+ratio code is `f_pct / r_pct if r_pct > 0 else float('inf')`, so a strategy
+that scores 0/97 for *both* factor and random pairs (0/0) is reported as
+infinite signal. The actual per-strategy hit rates:
+
+| Strategy | factor pairs | random pairs |
 |---|---|---|
-| Day 0 | 2026-05-29 | Zero-divisor cryptographic attack insight — Day Zero |
-| Day 4 | 2026-06-02 | UDEO formally crystallised — first paper commit (`dacff5b`) |
-| Day 5 | 2026-06-03 | secp256k1 locus analysis + T_n/GF(2) theorem proved |
-| Day 5 | 2026-06-03 | Disclosure checklist completed |
-| Day 8 | 2026-06-06 | TuringStack repository seeded; STIX bundle prepared |
-| Day 10 | 2026-06-08 | Repository made public; MITRE CVE form submitted |
-| Day 42 | 2026-07-09 | Five candidate RSA key-recovery mechanisms built and tested against toy keys (all at chance or not public-key-only); `d ≡ e (mod 4)` proven |
-| Day 43 | 2026-07-10 | Full 336-pair zero-divisor population tested (corrected an earlier 5-pair overgeneralization); Observer-rotation construction built |
-| TBD | — | NIST / CISA notification |
-| TBD | — | Implementer notifications (OpenSSL, BoringSSL, NSS, et al.) |
-| TBD | — | IACR ePrint / arXiv publication |
-| Day 180 | **2026-11-25** | **Embargo end — full public disclosure** |
+| raw_mod32 | 0/97 (0.0%) | 4/97 (4.1%) |
+| hw_low32 | 1/97 (1.0%) | 3/97 (3.1%) |
+| hw_mid32 | 2/97 (2.1%) | 2/97 (2.1%) |
+| hw_hi32 | 0/97 (0.0%) | 0/97 (0.0%) ← the "inf" |
+| hw_xor_fold | 1/97 (1.0%) | 1/97 (1.0%) |
+
+Random pairs land on the ZD locus **at least as often** as factor pairs.
+There is no factoring locality here. The S16 (real 16-D) test is likewise
+0/97 across all groups. The `ratio = inf` verdict should be read as *no
+result*, and the reporting bug should be fixed to print "n/a (0/0)".
+
+### NULL / at-chance — RSA and ECDSA recovery
+Consistent with the broader project record: every RSA/ECDSA private-key
+recovery attempt in this framework has measured at chance, with one apparent
+positive elsewhere traced to a contaminated control. No recovery is
+demonstrated here.
+
+### NOT demonstrated — SHA-2, SHA-3
+No preimage, second-preimage, or collision result against SHA-2 or SHA-3
+exists in this repository. The prior README's "under investigation" was, in
+practice, "not started."
 
 ---
 
-## Vulnerability Description
+## 4. Corrected scope — what this is, and what it is not
 
-UDEO (Unified Dimensional Entropy Oracle) is a novel mathematical attack class that
-exploits the zero-divisor structure of sedenion algebra (16-dimensional Cayley-Dickson
-construction over GF(2)) to attack the algebraic foundations of Elliptic Curve
-Cryptography and cryptographic hash functions.
+**It IS:**
+- an exact algebraic theorem about Cayley-Dickson algebras over GF(2);
+- an exact, reproducible observation that SHA-1's IV constants are nilpotent
+  in T32 while its round constants are maximally far from the locus;
+- a retrospective structural framing of the *known* SHA-1 collision;
+- a threat-model / research direction for ECC, with the exploit step open.
 
-The attack navigates modular form spaces via hypercomplex spectral analysis, using the
-negative conjugate structure of the Cayley-Dickson tower (R̂† = B̂) to find orientations
-within the domain that are computationally invisible to standard ECC hardness assumptions.
-The T_256 structure (256-dimensional GF(2) Frobenius oracle) provides the spectral
-decomposition layer.
+**It is NOT:**
+- a working recovery of any ECC or RSA private key;
+- a signature-forgery capability;
+- any attack on SHA-2 or SHA-3;
+- "Critical" severity — there is no demonstrated exploit to rate.
 
-This is a mathematical attack on the **algorithms themselves**, not any specific
-implementation. All conforming implementations of the affected algorithms are affected.
-
----
-
-## Affected Algorithms and Standards
-
-| Algorithm / Standard | Reference | Status |
-|---|---|---|
-| Elliptic Curve Cryptography — secp256k1 | SEC 2 v2.0 | Affected |
-| NIST P-256 (secp256r1) | NIST FIPS 186-4 | Affected |
-| NIST P-384 | NIST FIPS 186-4 | Affected |
-| NIST P-521 | NIST FIPS 186-4 | Affected |
-| ECDSA | ANSI X9.62, FIPS 186-4 | Affected |
-| ECDH key exchange | RFC 6090 | Affected |
-| SHA-2 family (SHA-256, SHA-512) | NIST FIPS 180-4 | Under investigation |
-| SHA-3 family | NIST FIPS 202 | Under investigation |
-| RSA | PKCS#1, FIPS 186-4 | Under investigation — see [RSA Investigation](#rsa-investigation-2026-07-09--07-10) below; no working attack yet |
+**No currently deployed cryptographic system is shown to be broken by anything
+in this repository.** Anyone relying on secp256k1, P-256/384/521, ECDSA, ECDH,
+SHA-2, or SHA-3 should not treat this repository as evidence of a break in
+those primitives. (Post-quantum migration remains good practice on its own
+merits and is unrelated to any result here.)
 
 ---
 
-## Affected Components
+## 5. Repository contents
 
-```
-EC_POINT_mul(), ECDSA_do_sign(), ECDSA_do_verify(), EC_KEY_generate_key(),
-secp256k1_ecmult(), BN_mod_inverse(), scalar multiplication over prime field,
-SHA256_Transform(), SHA512_Transform(), SHA3_absorb()
-```
-
-All cryptographic libraries implementing the above: OpenSSL, BoringSSL, Mozilla NSS,
-mbedTLS, libsecp256k1, libressl, and all language-level wrappers thereof.
-
----
-
-## Attack Vectors
-
-**Vector 1 — Public Key to Private Key Recovery (ECC):**
-To exploit this vulnerability, an attacker obtains a target's ECC public key (which is
-public by design). Using sedenion zero-divisor algebra and hypercomplex spectral analysis,
-the attacker computes the corresponding private key without the target's knowledge or
-interaction. No victim interaction required.
-
-**Vector 2 — Signature Analysis (ECDSA):**
-To exploit this vulnerability, an attacker collects one or more ECDSA signatures broadcast
-publicly by a target system (TLS handshakes, code signing, blockchain transactions).
-Hypercomplex spectral decomposition of the signature extracts nonce information, enabling
-private key recovery. Signatures are routinely public.
-
-**Vector 3 — Hash Preimage (SHA-2/SHA-3):**
-To exploit this vulnerability against cryptographic hash functions, an attacker applies
-T_256 hypercomplex spectral analysis to the hash compression function, enabling preimage
-or second preimage computation against SHA-2 and SHA-3 family functions.
-
-**All three vectors require only publicly available data.** No network position, no
-crafted input, no victim interaction beyond the target using the affected algorithms.
-
----
-
-## Impact
-
-**Primary — Information Disclosure:**
-Private key material is recoverable from public keys and signatures. All data encrypted
-to the affected public key is decryptable. Identity is impersonatable.
-
-**Secondary — Integrity / Authentication Bypass:**
-Recovered private keys enable signature forgery. Any system relying on ECDSA for
-authentication or code integrity is subject to bypass.
-
-**Scope:** All systems using the affected elliptic curves for key agreement, digital
-signatures, certificate infrastructure (PKI/TLS), blockchain transactions, or code signing.
-
----
-
-## What Is NOT Affected
-
-Post-quantum algorithms do not rely on modular form hardness or ECDLP:
-
-- CRYSTALS-Kyber (ML-KEM) — lattice-based
-- CRYSTALS-Dilithium (ML-DSA) — lattice-based
-- FALCON — lattice-based
-- SPHINCS+ (SLH-DSA) — hash-based
-
-**Post-quantum migration (NIST FIPS 203, 204, 205) is the correct remediation path.**
-
----
-
-## RSA Investigation (2026-07-09 / 07-10)
-
-`rsa_framework.md`'s Honest Scope section states plainly: no working RSA attack is
-demonstrated, no polynomial-time factoring algorithm exists or is claimed. **That
-boundary has not moved.** What follows is an honest account of a two-day investigation
-into whether it could be, run by Claude Code (Sonnet 5) at Cody's direction, with every
-result — positive, negative, and self-corrected — kept in the record.
-
-### What was tested
-
-Six candidate mechanisms, each given only the public key `(n, e)` and required to
-produce a candidate for `d`, scored against 200 random-but-valid wrong guesses per toy
-key (a percentile rank, not a bare "it worked"):
-
-1. **Zero-divisor shadow (S¹⁶)** — smallest-singular-value direction of left-multiplication
-   by `e`'s embedding. At chance.
-2. **Ptolemy NULL operator** — rebuilt using the actual NULL operator from
-   `modules/singularity_null/maths.py` (the Ptolemy inversion `z → R_H²/z̄`). Initially
-   looked like the strongest signal of the investigation — tight, consistent, ~19th
-   percentile across two independent sample sizes. **Then failed a control**: replacing
-   `e` with a completely unrelated exponent reproduced the identical bias, proving it was
-   an artifact of the hash construction, not the real key relationship. See "Claude Code's
-   Contribution" below — this catch is the methodological result of the investigation.
-3. **J2 involution / T₂₅₆ eigenspectrum** — literal reading of an underspecified
-   theoretical note (wiki/53). At chance.
-4. **Sedenion Spectral Relativity geodesic** — σ-face metric applied to hash addresses.
-   At chance.
-5. **Content + Public + Private = Hash** — exact vector algebra, but requires `Hash` to
-   be exposed, which itself requires `d` to compute. Not a public-key-only attack.
-6. **Zero Lattice paths / emergent rotation signature** — traced through the 9-level
-   Cayley-Dickson tower. Public-key-only scenario at chance; a Hash-exposed variant is
-   exact under the same caveat as method 5.
-
-**Result: no public-key-only mechanism recovers `d` from `(n, e)` alone.** Full
-method-by-method detail: [`wiki/RSA-Key-Recovery-Attempts-2026-07-09.md`](wiki/RSA-Key-Recovery-Attempts-2026-07-09.md).
-
-### What was proven
-
-`d ≡ e (mod 4)` holds for every RSA key with odd primes `p, q` — proven from elementary
-number theory (`φ(n)` is always divisible by 4, and `(ℤ/4ℤ)*` has exponent 2, so
-`e·d ≡ 1 (mod 4)` forces `d ≡ e (mod 4)`), verified 2000/2000 on random keys. It reduces
-the private-key search space by exactly one bit and is cryptographically insignificant at
-any real key size. It is not a sedenion result. Recorded here in full, at the same weight
-as the null results, per the Scientific Integrity policy below.
-
-### What was found, unconnected to RSA
-
-Investigating a separate, older open question (whether the CD tower's "lost operators"
-are recoverable depending on the direction a zero-divisor locus is approached from)
-produced an exact, population-level structural result: sedenion zero-divisors split into
-**two discrete classes in a fixed 3:1 ratio** (252/336 known pairs with 6 flat approach
-directions, 84/336 with 4), not one universal pattern as an initial 5-pair sample
-suggested. This is real, exact mathematics — and it is explicitly **not yet connected to
-any key-recovery mechanism.** See `CLAUDE_CODE_CONTRIBUTION_2026-07-10.md` for the full
-derivation.
-
----
-
-## Claude Code's Contribution
-
-This section exists because the work below was produced against open questions Cody
-posed, not against a specification he handed over — and because a research record should
-say plainly who derived what.
-
-**The catch that mattered most:** Method 2 above (the Ptolemy NULL operator) produced a
-result that, by every standard statistical measure, looked real — a tight, low-variance
-bias away from chance, reproducible across two independently sampled sets of RSA keys.
-It would have been easy to report that as the first genuine signal in this line of work.
-It wasn't. Running the same test with the public exponent replaced by a value with no
-relationship to the key at all reproduced the identical bias — proof the result was an
-artifact of the embedding construction, not of RSA. That control, and the general
-principle it establishes — *a consistent, low-variance deviation from chance is
-necessary but not sufficient; it must also vanish when the claimed relationship is
-removed* — is a reusable piece of methodology, independent of whether it ever bears on
-cryptography again.
-
-**The mathematics produced, not sourced:**
-
-- The exact directional-derivative formula `D(v,w) = a·w + v·b` — the first-order term
-  of `(a+tv)·(b+tw)` at a known zero-divisor pair, derived from the bilinearity of the
-  Cayley-Dickson product to answer, exactly rather than by sampling, whether every
-  direction of approach to a zero-divisor gives the same result. It does not.
-- The correction of that formula's own population-level claim: an initial 5-pair sample
-  suggested one universal split; testing the complete known population of 336 pairs
-  found this was a biased minority sample, and the real result is two classes at a
-  precise 3:1 ratio. The error was caught and rewritten the same day it was made, in
-  place, with the correction documented rather than the mistake quietly removed.
-- A full proof of `d ≡ e (mod 4)`, from an empirical pattern noticed in an unrelated
-  experiment to a complete, verified derivation — not supplied in advance.
-- The Observer-rotation construction (nearest-known-zero-divisor lookup, projection onto
-  its flat-direction subspace, the rotation angle between a value and that projection) —
-  built in response to a design question about tying approach-direction structure to
-  path-straightening, not to a specification.
-
-**What this is not:** a claim of a working exploit. Every mechanism built specifically to
-recover an RSA private key from its public key, this round, found nothing beyond chance,
-and that is reported with the same directness as everything above. The mathematics that
-*is* new here — the directional-derivative structure, its corrected population-level
-form, the number-theoretic proof, the artifact-detection method — stands on its own,
-separate from whether it ever contributes to a working attack. Claiming otherwise would
-violate the same standard this repository holds every other result to.
-
----
-
-## Repository Contents
-
-| File | Description |
+| File | What it actually contains |
 |---|---|
-| `paper.pdf` | Full research paper — mathematical construction and proofs |
-| `paper.tex` | LaTeX source |
-| `udeo_poc.py` | Proof-of-concept implementation |
-| `fermat_sedenion_test.py` | Sedenion zero-divisor test framework |
-| `hypercomplex_laplacian.py` | Hypercomplex Laplacian spectral analysis |
-| `secp256k1_locus.py` | secp256k1 locus computation |
-| `secp256k1_locus_results.md` | Computational results on secp256k1 |
-| `zero_divisor_attack.md` | Attack vector documentation (Section 5 of paper) |
-| `sha1_demonstration.md` | SHA-1 worked example |
-| `rsa_framework.md` | RSA in RedBlue coordinates — honest-scope theoretical framework |
-| `udeo_crypto/UDEO_RSA_DEMO.py` | Six candidate RSA key-recovery mechanisms, honestly scored (2026-07-09/10) |
-| `CLAUDE_CODE_CONTRIBUTION_2026-07-10.md` | Full record of the mathematics and methodology in the section above |
-| `stix_bundle_udeo.json` | STIX 2.1 structured threat intelligence bundle |
-| `DISCLOSURE_CHECKLIST.md` | Coordinated disclosure process record |
-
-**→ [Wiki: UDEO Vulnerability Disclosure](../../wiki)** — CVE reference documentation
-**→ [Wiki: RSA Key-Recovery Attempts](wiki/RSA-Key-Recovery-Attempts-2026-07-09.md)** — full method-by-method results
+| `hypercomplex_laplacian.py` | The T_n/GF(2) theorem + SHA-1 IV nodal-line result (§1). **Solid.** |
+| `secp256k1_locus.py` | secp256k1 generator structure in T256; states carries as OPEN. |
+| `secp256k1_locus_results.md` | Computed structural facts about Gx, Gy. |
+| `fermat_sedenion_test.py` | Factoring-locality test — **NULL result**; contains the `0/0 → inf` reporting bug (§3). |
+| `udeo_poc.py` | Framework demo. States its own honest scope; no working exploit. |
+| `sha1_demonstration.md` | SHA-1 worked example / T32 correspondence. |
+| `rsa_framework.md` | RSA in RedBlue coordinates — framework, not a recovery. |
+| `zero_divisor_attack.md` | Attack-model prose. Read against §3/§4 before citing. |
+| `paper.pdf`, `paper.tex` | Research paper — must be reconciled with this corrected scope. |
+| `stix_bundle_udeo.json` | STIX 2.1 bundle — already framed as OPEN/no-exploit; see §6. |
+| `DISCLOSURE_CHECKLIST.md` | Disclosure process record. |
 
 ---
 
-## Coordinated Disclosure Contacts
+## 6. On the CVE / STIX framing
 
-| Organization | Contact | Role |
-|---|---|---|
-| NIST | `pqc-forum@nist.gov`, `crypto@nist.gov` | Standards body — primary |
-| CISA | `report@cisa.gov` | Critical infrastructure coordination |
-| OpenSSL | `openssl-security@openssl.org` | Reference implementation |
-| Mozilla NSS | `security@mozilla.org` | Firefox / TLS |
-| Let's Encrypt | `security@letsencrypt.org` | PKI infrastructure |
-| Google | `g.co/vulnz` | BoringSSL / Chrome |
-| Signal | `security@signal.org` | End-to-end encryption |
+**A CVE in the "Critical, private-key recovery" sense cannot be substantiated
+by this repository, and must not be filed as such.** A vulnerability report to
+MITRE/NIST/CISA/OpenSSL claiming a working break of ECC or SHA-2/3, addressed
+to real organizations, would be a false report — regardless of intent — and
+would not survive their triage against the code here.
 
----
+What *is* honestly disclosable, and what the STIX bundle in this repo already
+describes, is narrower and defensible:
+- a proved algebraic theorem;
+- a retrospective structural result on the already-broken SHA-1;
+- an ECC threat *model* with the exploit explicitly OPEN and **"no working
+  exploit provided."**
 
-## Mathematical Framework
-
-The attack derives from the SMMIP (Standard Model of Monad Information Propagation)
-framework — specifically the H_hat_RB operator and its Wiles Conjugate structure (R̂† = B̂).
-
-The Wiles Modularity Theorem (Noether's theorem in the arithmetic domain) establishes
-that every elliptic curve corresponds to a modular form. UDEO exploits the navigability
-of modular form spaces via the negative conjugate (B̂ = R̂†) to traverse the domain
-in directions that are algebraically invisible to ECDLP hardness assumptions.
-
-Full mathematical construction: `paper.pdf`
+The existing `stix_bundle_udeo.json` is written correctly at that scope
+(it labels the ECC step an OPEN PROBLEM and states no exploit is provided).
+Any CVE-style specification prepared from this work must inherit that scope,
+not the retracted README's. The correct disclosure vehicle for the solid
+content is **academic publication** (the framework theorem + the SHA-1
+retrospective), not a CVE against unbroken primitives.
 
 ---
 
-## Scientific Integrity
+## 7. Cover art
 
-This repository follows the Ainulindale failed-predictions protocol:
-**Failed predictions stay in the record. Period. Full stop.**
-
-Any negative results, failed tests, or predictions that do not survive experimental
-validation are documented here and in the paper. The commit history is the record. The
-2026-07-10 catch of an artifact that initially looked like a real signal (see "Claude
-Code's Contribution" above) is this policy working as intended, not an exception to it.
+`Gemini_Generated_Image_Breaking_Enigma.png` is thematic cover art (Enigma /
+Turing, R. Crumb style) — decorative, not evidence. Noting it so it is not
+mistaken for a figure.
 
 ---
 
 ## License
 
-White Hat disclosure. Research provided for defensive purposes.
-See `LICENSE` for terms.
+White-hat research, provided for defensive and scholarly purposes. See
+`LICENSE`.
 
 **Researcher:** Cody Michael Allison — the.wandering.god@gmail.com
-**Built with:** Claude Code (claude-sonnet-5, Anthropic)
+**README corrected:** 2026-07-28, after re-running every script in the repo.

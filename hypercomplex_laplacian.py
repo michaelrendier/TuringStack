@@ -369,14 +369,28 @@ def demo_rsa_laplacian():
         print(f"  {p:>6}  {q:>6}  {c['correlation']:>+8.4f}  "
               f"{str(c['motion_match']):>6}  {note}")
 
+    # BUG FIX (2026-07-21): the old baseline was r1=p+2*randint, r2=q+2*randint --
+    # a small perturbation of the SAME p,q under test, not an independent null.
+    # For these tiny primes that near-duplicate leaks the real pair's structure
+    # into the "random" control, which is why the old signal came out negative/
+    # wrong-direction. Draw genuinely independent primes instead.
+    def _sieve(n):
+        s = [True] * (n + 1); s[0] = s[1] = False
+        for i in range(2, int(n**0.5) + 1):
+            if s[i]:
+                for j in range(i*i, n+1, i):
+                    s[j] = False
+        return [i for i, v in enumerate(s) if v]
+    _test_primes = set(p for p, q, _ in rsa_pairs) | set(q for p, q, _ in rsa_pairs)
+    _pool = [p for p in _sieve(2000) if p not in _test_primes]
+
     print()
-    print(f"  RANDOM NON-FACTOR PAIRS (baseline):")
+    print(f"  RANDOM NON-FACTOR PAIRS (baseline, independent primes):")
     print(f"  {'r1':>6}  {'r2':>6}  {'corr':>8}  {'match':>6}")
     print("  " + "─"*40)
     rand_corrs = []
-    for p, q, _ in rsa_pairs:
-        r1 = p + 2 * random.randint(1, 10)
-        r2 = q + 2 * random.randint(1, 10)
+    for _ in rsa_pairs:
+        r1, r2 = random.sample(_pool, 2)
         c = zd_correlation(r1, r2)
         rand_corrs.append(c['correlation'])
         print(f"  {r1:>6}  {r2:>6}  {c['correlation']:>+8.4f}  {str(c['motion_match']):>6}")

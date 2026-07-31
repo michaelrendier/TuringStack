@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--udeo-secp256k1-zd-2026",
+  "id": "bundle--udeo-cd-gf2-2026",
   "spec_version": "2.1",
   "created": "2026-06-06T00:00:00.000Z",
   "objects": [
@@ -16,15 +16,34 @@
       }
     },
     {
-      "type": "vulnerability",
-      "id": "vulnerability--udeo-secp256k1-zd-locus",
+      "type": "note",
+      "id": "note--scope-correction-2026-07-28",
       "spec_version": "2.1",
-      "name": "UDEO: Universal Divisor Exploitation Operations — secp256k1 Zero-Divisor Locus",
-      "description": "The T_n/GF(2) Frobenius Theorem (proved): for any n=2^k, every element x of the Cayley-Dickson algebra T_n/GF(2) satisfies x^2 in {0, e_0}. Applied to secp256k1: every element of the field Fp (secp256k1 prime) is either nilpotent (x^2=0) or involutory (x^2=e_0) in T256/GF(2). The generator point satisfies Gx^2 = Gy^2 = e_0. The modular reduction (carries mod p) is the sole algebraic barrier. Attack class UDEO (Universal Divisor Exploitation Operations): inputs crafted to drive ECC state toward the Cayley-Dickson zero-divisor locus. Demonstrated retrospectively on SHAttered (SHA-1). ECC threat model for secp256k1 formalized. Whether polynomial-time implementation exists: OPEN PROBLEM. No working exploit provided.",
+      "abstract": "SCOPE CORRECTION — read before any other object in this bundle",
+      "content": "Corrected 2026-07-28 after re-running every script in the TuringStack repository. This bundle does NOT describe a demonstrated break of any deployed cryptographic primitive. It describes: (1) an exact algebraic theorem over Cayley-Dickson algebras mod 2; (2) an exact, reproducible structural observation about SHA-1's constants; (3) a retrospective reading of the ALREADY-PUBLIC SHA-1 collision (SHAttered, 2017); and (4) an ECC threat MODEL whose exploit step is explicitly an OPEN PROBLEM. No private-key recovery, signature forgery, or SHA-2/SHA-3 attack is demonstrated. A prior version of this bundle's metadata assigned CVSS 7.5 and listed secp256k1/OpenSSL/Bitcoin/Ethereum as affected and filed to CISA/NIST/MITRE/CERT-CC; those claims are RETRACTED as unsupported by the code. They are recorded in note--disclosure-metadata for the record, not asserted.",
+      "created": "2026-07-28T00:00:00.000Z",
+      "modified": "2026-07-28T00:00:00.000Z",
+      "created_by_ref": "identity--cody-michael-allison"
+    },
+    {
+      "type": "vulnerability",
+      "id": "vulnerability--udeo-cd-gf2-zd-locus",
+      "spec_version": "2.1",
+      "name": "Cayley-Dickson-over-GF(2) zero-divisor structure: a research framework and ECC threat model (exploit OPEN, not demonstrated)",
+      "description": "ESTABLISHED THEOREM: for any n=2^k, every element x of the Cayley-Dickson algebra T_n over GF(2) satisfies x^2 in {0, e_0}; equivalently the trace-Laplacian Delta(w)=w*(0xFF..F) is zero iff w is nilpotent iff w lies on the zero-divisor nodal line. Exact, checked directly. STRUCTURAL OBSERVATIONS (exact, reproducible): all five SHA-1 IV constants (H0-H4) are nilpotent in T32 and lie on the nodal line at spectral distance 0, while the four round constants (K0-K3) sit at the maximum distance 32 (bimodal split); secp256k1's generator coordinates Gx, Gy are both involutory (x^2=e_0) in T256/GF(2). RETROSPECTIVE: the known SHA-1 collision can be read as a T32 zero-divisor event. OPEN / NOT DEMONSTRATED: polynomial-time navigation to the locus; ECC secp256k1 key recovery (carry-closing mod p is the sole barrier and its complexity is an OPEN PROBLEM); RSA/ECDSA recovery (measured at chance in this project); any SHA-2/SHA-3 attack. NULL: a sedenion factoring-locality test returned no signal (random pairs matched or exceeded factor pairs; a reported 'ratio=inf' was a 0/0 divide-by-zero artifact). No working exploit is provided or implied.",
       "created": "2026-06-06T00:00:00.000Z",
-      "modified": "2026-06-06T00:00:00.000Z",
+      "modified": "2026-07-28T00:00:00.000Z",
       "created_by_ref": "identity--cody-michael-allison",
-      "labels": ["algebraic-attack-class", "ecc", "secp256k1", "cayley-dickson", "zero-divisor", "responsible-disclosure"],
+      "labels": [
+        "research-framework",
+        "algebraic-structure",
+        "cayley-dickson",
+        "zero-divisor",
+        "sha1-retrospective",
+        "ecc-threat-model-open",
+        "no-working-exploit",
+        "responsible-disclosure"
+      ],
       "external_references": [
         {
           "source_name": "ORCID",
@@ -32,31 +51,43 @@
           "description": "Researcher ORCID"
         },
         {
-          "source_name": "Target Publication",
-          "description": "IACR Crypto 2027 (submission Feb 2027)"
+          "source_name": "SHAttered",
+          "url": "https://shattered.io/",
+          "description": "Stevens, Bursztein, Karpman, Albertini, Markov — first SHA-1 collision, 2017 (the already-public result this framework reads retrospectively)"
         }
       ]
     },
     {
-      "type": "course-of-action",
-      "id": "course-of-action--udeo-mitigation",
+      "type": "note",
+      "id": "note--established-evidence",
       "spec_version": "2.1",
-      "name": "UDEO Mitigation Recommendations",
-      "description": "Immediate: Accelerate migration to NIST PQC standards (ML-KEM, ML-DSA, SLH-DSA). Medium: Audit secp256k1 implementations for ZD-adjacent parameter inputs. Long: Sedenion-aware security proofs for future ECC curve selection. CRYSTALS-Kyber, Dilithium, FALCON, SPHINCS+ are not assessed as affected.",
+      "abstract": "ESTABLISHED, reproducible evidence (run hypercomplex_laplacian.py / secp256k1_locus.py)",
+      "content": "1) T_n/GF(2) trace-Laplacian theorem: Delta(w)=0 iff w nilpotent. Exact.\n2) SHA-1 IVs nilpotent in T32 (all on nodal line, distance 0): H0=0x67452301, H1=0xEFCDAB89, H2=0x98BADCFE, H3=0x10325476, H4=0xC3D2E1F0. Round constants K0-K3 at maximum distance 32. Reproduced 2026-07-28.\n3) secp256k1 generator: Gx and Gy both involutory (x^2=e_0) in T256/GF(2); Gx*Gy != 0.\nThese are structural facts. None constitutes an attack on a deployed primitive; see the vulnerability object's OPEN/NULL findings.",
+      "created": "2026-07-28T00:00:00.000Z",
+      "modified": "2026-07-28T00:00:00.000Z",
+      "created_by_ref": "identity--cody-michael-allison",
+      "object_refs": ["vulnerability--udeo-cd-gf2-zd-locus"]
+    },
+    {
+      "type": "course-of-action",
+      "id": "course-of-action--udeo-guidance",
+      "spec_version": "2.1",
+      "name": "Guidance (precautionary / research-directed — NOT incident response)",
+      "description": "No deployed system is shown to require remediation by this work. Precautionary and research-directed only: (research) close or bound the OPEN problem of polynomial-time navigation to the zero-divisor locus before any operational claim; (research) sedenion/CD-aware structural analysis as one input to future curve and hash constant selection. Post-quantum migration (ML-KEM, ML-DSA, SLH-DSA) is sound practice on its own merits and is UNRELATED to any result here. CRYSTALS-Kyber, Dilithium, FALCON, SPHINCS+ are not assessed and not implicated.",
       "created": "2026-06-06T00:00:00.000Z",
-      "modified": "2026-06-06T00:00:00.000Z",
+      "modified": "2026-07-28T00:00:00.000Z",
       "created_by_ref": "identity--cody-michael-allison"
     },
     {
       "type": "note",
       "id": "note--disclosure-metadata",
       "spec_version": "2.1",
-      "abstract": "Disclosure metadata and chain of custody",
-      "content": "File hash (secp256k1_locus.py): 828cca9486c4ce3f5a9a9636cb1f72fe28159bc1d474824d77c43a43d41392c9\nBundle self-hash (sha256): d1264071ef6d30d33be2a86be28b8fe347569d642ebb6df0d08d01549d544d01\nEmbargo until: 2026-12-02\nCVE: RESERVED (pending MITRE assignment)\nCVSS score (estimated): 7.5\nAffected systems: secp256k1 (Bitcoin, Ethereum), OpenSSL ECDSA/ECDH, BoringSSL EC operations, libsodium Ed25519/X25519, NIST P-256/P-384/P-521 (under investigation)\nDisclosure filed simultaneously with: CISA (vuln@cisa.dhs.gov), NIST NVD (nvd@nist.gov), MITRE CVE (cve@mitre.org), CERT/CC (vulnreport@cert.org)\nNote: PTorrent RDOP chain infrastructure was unavailable at time of filing. This STIX bundle serves as the primary machine-readable disclosure record.",
+      "abstract": "Disclosure metadata and chain of custody (with 2026-07-28 corrections)",
+      "content": "secp256k1_locus.py sha256 (recomputed 2026-07-28): 73e0ac3cf346f5e6c2f3f5e86243d18f25d7683860b938382e2ece4cdbda29d7\nhypercomplex_laplacian.py sha256 (2026-07-28): 6a9eac1af084f2b7b46cfff773338ef9efbbc67769d712a3e19055e9ae19024a\nNOTE: the prior recorded file hash (828cca94...) no longer matches secp256k1_locus.py and is superseded above.\nCVSS: NOT SCORED. There is no demonstrated exploit to score; a prior 'estimated 7.5' is retracted (see note--scope-correction-2026-07-28).\nSystems referenced in the threat model (NOT demonstrated affected): secp256k1, NIST P-256/P-384/P-521, OpenSSL/BoringSSL EC operations. Listing here is scope of the MODEL, not a finding of vulnerability.\nDisclosure routing: a prior version stated simultaneous filing to CISA/NIST/MITRE/CERT-CC with an estimated CVSS. Per the corrected scope, a CVE at 'Critical/key-recovery' severity is NOT substantiable and should not be filed as such; the appropriate vehicle for the established content is academic publication (the theorem + the SHA-1 retrospective). Any prior filing should be updated to this corrected scope.\nEmbargo language from the prior version is retained historically but is moot: nothing here is an undisclosed working exploit.",
       "created": "2026-06-06T00:00:00.000Z",
-      "modified": "2026-06-06T00:00:00.000Z",
+      "modified": "2026-07-28T00:00:00.000Z",
       "created_by_ref": "identity--cody-michael-allison",
-      "object_refs": ["vulnerability--udeo-secp256k1-zd-locus"]
+      "object_refs": ["vulnerability--udeo-cd-gf2-zd-locus"]
     }
   ]
 }
