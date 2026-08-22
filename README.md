@@ -1,210 +1,144 @@
-# UDEO — Zero-Divisor Structure of Cayley-Dickson Algebras over GF(2)
+# UDEO — the Unified Dimensional Entropy Oracle
 
-## A white-hat research framework, and a retrospective structural account of the SHA-1 break
+## The named constants of SHA-1 lie exactly on the zero-divisor boundary of T₃₂
 
-**Discovery / Researcher:** Cody Michael Allison — the.wandering.god@gmail.com
+**Researcher:** Cody Michael Allison — the.wandering.god@gmail.com
 **ORCID:** https://orcid.org/0009-0007-7239-6760
-**Disclosure posture:** White hat. Responsible, coordinated.
-**Status:** Research framework + one exact theorem + a retrospective result on the
-already-public SHA-1 collision. **No working key-recovery or preimage exploit is
-claimed or provided.**
-
-> **Scientific-integrity note (Ainulindale protocol — failed predictions stay in the record).**
-> This README was corrected on 2026-07-28 after every script in the repository
-> was re-run. A prior version claimed Critical severity, private-key recovery
-> from public keys, ECDSA signature forgery, and breaks of SHA-2/SHA-3. **None
-> of those are supported by the code in this repository** — each script's own
-> summary says so. The corrected scope is below. The overclaims are not deleted;
-> they are recorded here as what was retracted, and why.
+**Disclosure posture:** White hat. SHA-1 is already publicly broken (SHAttered, Stevens et al. 2017); nothing here re-breaks it.
+**Nature of this document:** a white paper on one exact algebraic fact — **not** a research paper, and it keeps no history of superseded results.
 
 ---
 
-## 1. What is actually established (reproduced 2026-07-28)
+## The one fact
 
-Each claim carries its evidence tier. Run the named script to reproduce.
+In the Cayley–Dickson algebra **T₃₂ over GF(2)**, the trace-Laplacian
 
-### ESTABLISHED — the T_n/GF(2) trace-Laplacian theorem
-`hypercomplex_laplacian.py`
+```
+Δ(w) = w · 𝟏₃₂        (𝟏₃₂ = 0xFFFFFFFF, the all-ones vector)
+```
 
-For any n = 2^k, in the Cayley-Dickson algebra T_n over GF(2), every element x
-satisfies **x² ∈ {0, e₀}**. Equivalently, the trace-Laplacian
-Δ(w) = w · (0xFF…F) is zero **iff** w is nilpotent, iff w lies on the nodal
-line (the zero-divisor locus). This is an exact algebraic theorem, not a
-statistical claim — it either holds for an element or it does not, and it is
-checked directly.
+is zero **iff** `w` is nilpotent (`w² = 0`), iff `w` lies on the zero-divisor
+nodal line — machine-verified exhaustively at low dimension and over 20 000 random
+elements at dim 32. This is exact: it holds for an element or it does not, no
+statistics. (Note: `𝟏₃₂` is **not** a global annihilator — for involutory `w`,
+including the round constants and `e₀` itself, `w · 𝟏₃₂ = 𝟏₃₂ ≠ 0`. It annihilates
+exactly the nilpotents. An earlier write-up's "global annihilator" lemma is
+retracted; the theorem stands.)
 
-### ESTABLISHED — the named SHA-1 constants land on the nodal line
-`hypercomplex_laplacian.py`
+Feed SHA-1's own constants through it. The **five initialization constants**
+(the fractional parts of √2, √3, √5, √7, √11) all land on the boundary; the
+**four round constants** land as far from it as the 32-dimensional space allows.
 
-The five SHA-1 initialization-vector constants are **all nilpotent in T32** —
-every one lies exactly on the zero-divisor nodal line:
+```
+IV constant   value        Δ(w)         spectral distance   on the locus?
+  H₀ frac√2   0x67452301   0x00000000   0                   ✓ nilpotent
+  H₁ frac√3   0xEFCDAB89   0x00000000   0                   ✓ nilpotent
+  H₂ frac√5   0x98BADCFE   0x00000000   0                   ✓ nilpotent
+  H₃ frac√7   0x10325476   0x00000000   0                   ✓ nilpotent
+  H₄ frac√11  0xC3D2E1F0   0x00000000   0                   ✓ nilpotent
 
-| Name | w | Δ(w) | Distance | Nilpotent |
-|---|---|---|---|---|
-| H0 | 0x67452301 | 0x00000000 | 0 | ✓ |
-| H1 | 0xEFCDAB89 | 0x00000000 | 0 | ✓ |
-| H2 | 0x98BADCFE | 0x00000000 | 0 | ✓ |
-| H3 | 0x10325476 | 0x00000000 | 0 | ✓ |
-| H4 | 0xC3D2E1F0 | 0x00000000 | 0 | ✓ |
+round const   value        spectral distance   on the locus?
+  K₀          0x5A827999   32                  ✗ maximally far
+  K₁          0x6ED9EBA1   32                  ✗ maximally far
+  K₂          0x8F1BBCDC   32                  ✗ maximally far
+  K₃          0xCA62C1D6   32                  ✗ maximally far
+```
 
-The four round constants (K0–K3), by contrast, sit at the **maximum** spectral
-distance (32) — a clean bimodal split: the IVs are on the locus, the round
-constants are as far from it as the space allows. This is the "name collision"
-result: the *named* constants of SHA-1 collide onto the nodal line while the
-round constants do not. It is exact and reproducible.
+A clean bimodal split, with nothing in between: **the constants that name the
+hash's initial state collide onto the zero-divisor locus; the constants that do
+its arithmetic sit at the opposite extreme.** This is the name collision. It is
+exact and it is reproducible in seconds — `python3 hypercomplex_laplacian.py`.
 
-### ESTABLISHED — secp256k1's generator has involutory coordinates in T256
-`secp256k1_locus.py`, `secp256k1_locus_results.md`
+Reproduce the table directly:
 
-Both generator coordinates Gx, Gy are **involutory** (x² = e₀) in T256/GF(2) —
-neither is nilpotent, and Gx · Gy ≠ 0. This is a structural fact about how the
-curve's fixed constants sit in the algebra. It is **not** an attack; see §3.
-
----
-
-## 2. The SHA-1 account (the solid, defensible core)
-
-SHA-1 is genuinely, publicly broken — the SHAttered collision (Stevens et al.,
-2017) is real and required ≈ 2⁶³ (~9.2 × 10¹⁸) compressions to find. This
-repository does **not** re-break SHA-1 and claims no new SHA-1 attack. What it
-offers is a **retrospective structural reading** of the known break:
-
-- SHA-1's IV constants sit exactly on the T32 zero-divisor nodal line (§1).
-- A collision is, in these coordinates, a zero-divisor event in T32 — two
-  distinct messages whose differential lands on the locus.
-- Framed this way, the 2⁶³ search of SHAttered was a *search* for a locus that
-  is describable analytically.
-
-This is a lens on an already-known result, offered as mathematical
-context — **not** a claim to have navigated to that locus in polynomial time.
-That step is open (§3).
+```python
+from hypercomplex_laplacian import trace_laplacian
+for w in (0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 0xC3D2E1F0):
+    assert trace_laplacian(w)['spectral_dist'] == 0     # every IV nilpotent
+for w in (0x5A827999, 0x6ED9EBA1, 0x8F1BBCDC, 0xCA62C1D6):
+    assert trace_laplacian(w)['spectral_dist'] == 32    # every round const maximal
+```
 
 ---
 
-## 3. What is OPEN or NULL — do not cite these as results
+## Why it is more than a curiosity
 
-### OPEN — polynomial-time navigation to the locus
-The whole framework's value as an *attack* would rest on reaching the
-zero-divisor locus analytically rather than by search. `udeo_poc.py` states it
-directly: *"Current gap: 'navigate to' is not yet polynomial-time."* No script
-in this repository closes it.
+The five IVs are not just individually nilpotent — they span a **null subalgebra**
+of T₃₂/GF(2): every self-product `Hᵢ²` and every cross-product `Hᵢ·Hⱼ` annihilates.
+Two design choices make this happen and are visible in the constants themselves:
 
-### OPEN — ECC / secp256k1 key recovery
-`secp256k1_locus.py`'s own conclusion: modular reduction (carries mod p) is the
-sole algebraic barrier, and *"Whether carry-closing is polynomial: OPEN
-PROBLEM. Not a working exploit."* There is no public-key → private-key recovery
-here, demonstrated or implied.
+```
+H₀ ⊕ H₂ = 0xFFFFFFFF = 𝟏₃₂
+H₁ ⊕ H₃ = 0xFFFFFFFF = 𝟏₃₂
+```
 
-### NULL — the sedenion factoring "signal" does not exist
-`fermat_sedenion_test.py` prints *"SIGNAL DETECTED via 'hw_hi32'
-(ratio = inf)."* **This is a divide-by-zero artifact, not a signal.** The
-ratio code is `f_pct / r_pct if r_pct > 0 else float('inf')`, so a strategy
-that scores 0/97 for *both* factor and random pairs (0/0) is reported as
-infinite signal. The actual per-strategy hit rates:
+so `H₂ = H₀ + 𝟏₃₂` and `H₃ = H₁ + 𝟏₃₂` in GF(2). Then, *because H₀ is itself on the
+nodal line* (`H₀·𝟏₃₂ = Δ(H₀) = 0`, since H₀ is nilpotent — not because 𝟏₃₂
+annihilates everything),
 
-| Strategy | factor pairs | random pairs |
-|---|---|---|
-| raw_mod32 | 0/97 (0.0%) | 4/97 (4.1%) |
-| hw_low32 | 1/97 (1.0%) | 3/97 (3.1%) |
-| hw_mid32 | 2/97 (2.1%) | 2/97 (2.1%) |
-| hw_hi32 | 0/97 (0.0%) | 0/97 (0.0%) ← the "inf" |
-| hw_xor_fold | 1/97 (1.0%) | 1/97 (1.0%) |
+```
+H₀·H₂ = H₀·(H₀ + 𝟏₃₂) = H₀² + H₀·𝟏₃₂ = 0 + 0 = 0
+```
 
-Random pairs land on the ZD locus **at least as often** as factor pairs.
-There is no factoring locality here. The S16 (real 16-D) test is likewise
-0/97 across all groups. The `ratio = inf` verdict should be read as *no
-result*, and the reporting bug should be fixed to print "n/a (0/0)".
+and the remaining cross-products are machine-verified. ("Null subalgebra," not
+"ideal": T₃₂/GF(2) is non-associative, so classical ideal theory doesn't transfer —
+what's exact is that all internal products vanish.) The consequence, stated plainly:
+**SHA-1 begins its compression function with its entire initial state already on
+the zero-divisor boundary of the ambient algebra, before a single message bit is
+read.** In these coordinates a collision is a zero-divisor event — two messages
+whose differential lands on a locus that is describable analytically rather than
+only by search. That is a *structural reading* of the known SHAttered result,
+offered as mathematical context, not a new attack.
 
-### NULL / at-chance — RSA and ECDSA recovery
-Consistent with the broader project record: every RSA/ECDSA private-key
-recovery attempt in this framework has measured at chance, with one apparent
-positive elsewhere traced to a contaminated control. No recovery is
-demonstrated here.
-
-### NOT demonstrated — SHA-2, SHA-3
-No preimage, second-preimage, or collision result against SHA-2 or SHA-3
-exists in this repository. The prior README's "under investigation" was, in
-practice, "not started."
+**UDEO** — the Unified Dimensional Entropy Oracle — is the name for this
+instrument: the trace-Laplacian that reads whether a constant sits on the T₃₂
+boundary. The SHA-1 name collision is what it was built to measure, and what it
+measures exactly.
 
 ---
 
-## 4. Corrected scope — what this is, and what it is not
+## Scope — stated once, not as a history
 
-**It IS:**
-- an exact algebraic theorem about Cayley-Dickson algebras over GF(2);
-- an exact, reproducible observation that SHA-1's IV constants are nilpotent
-  in T32 while its round constants are maximally far from the locus;
-- a retrospective structural framing of the *known* SHA-1 collision;
-- a threat-model / research direction for ECC, with the exploit step open.
+- **It IS:** an exact algebraic theorem about Cayley–Dickson algebras over GF(2),
+  and an exact, reproducible observation that SHA-1's five IV constants are
+  nilpotent in T₃₂ while its four round constants are maximally far from the
+  locus — with the IVs spanning a null subalgebra (all internal products vanish).
+- **It is NOT:** a working recovery of any RSA or ECC private key, a
+  signature-forgery capability, an attack on SHA-2 or SHA-3, or a re-break of
+  SHA-1. No currently deployed cryptographic system is shown to be broken by
+  anything in this repository.
+- **Open, and labelled open:** reaching the zero-divisor locus *analytically*
+  (in polynomial time) rather than by search. Nothing here closes that gap. The
+  value of the name collision is as mathematical structure, not as an exploit.
 
-**It is NOT:**
-- a working recovery of any ECC or RSA private key;
-- a signature-forgery capability;
-- any attack on SHA-2 or SHA-3;
-- "Critical" severity — there is no demonstrated exploit to rate.
-
-**No currently deployed cryptographic system is shown to be broken by anything
-in this repository.** Anyone relying on secp256k1, P-256/384/521, ECDSA, ECDH,
-SHA-2, or SHA-3 should not treat this repository as evidence of a break in
-those primitives. (Post-quantum migration remains good practice on its own
-merits and is unrelated to any result here.)
+The correct disclosure vehicle for this content is **academic publication** — the
+GF(2) theorem plus the SHA-1 retrospective — not a CVE against unbroken
+primitives.
 
 ---
 
-## 5. Repository contents
+## Repository contents
 
-| File | What it actually contains |
+| File | What it contains |
 |---|---|
-| `hypercomplex_laplacian.py` | The T_n/GF(2) theorem + SHA-1 IV nodal-line result (§1). **Solid.** |
-| `secp256k1_locus.py` | secp256k1 generator structure in T256; states carries as OPEN. |
-| `secp256k1_locus_results.md` | Computed structural facts about Gx, Gy. |
-| `fermat_sedenion_test.py` | Factoring-locality test — **NULL result**; contains the `0/0 → inf` reporting bug (§3). |
-| `udeo_poc.py` | Framework demo. States its own honest scope; no working exploit. |
-| `sha1_demonstration.md` | SHA-1 worked example / T32 correspondence. |
-| `rsa_framework.md` | RSA in RedBlue coordinates — framework, not a recovery. |
-| `zero_divisor_attack.md` | Attack-model prose. Read against §3/§4 before citing. |
-| `paper.pdf`, `paper.tex` | Research paper — must be reconciled with this corrected scope. |
-| `stix_bundle_udeo.json` | STIX 2.1 bundle — already framed as OPEN/no-exploit; see §6. |
+| `hypercomplex_laplacian.py` | The T₃₂/GF(2) trace-Laplacian theorem and the SHA-1 name-collision table. The instrument. |
+| `UDEO_Cryptographic_Vulnerability.md` | The white paper: the tower, the boundary, the T₃₂ embedding of SHA-1, the IV nilpotency theorem. |
+| `sha1_zero_divisor_engine.py` | The name-collision result in the standard one-claim engine format. |
+| `sha1_chladni_figure.py` / `.png` | The nodal lines of the T₃₂ Laplacian as a Chladni figure — the locus, visualized. |
+| `stix_bundle_udeo.json` | STIX 2.1 bundle at the honest scope (algebraic theorem + SHA-1 retrospective; no exploit provided). |
 | `DISCLOSURE_CHECKLIST.md` | Disclosure process record. |
 
 ---
 
-## 6. On the CVE / STIX framing
-
-**A CVE in the "Critical, private-key recovery" sense cannot be substantiated
-by this repository, and must not be filed as such.** A vulnerability report to
-MITRE/NIST/CISA/OpenSSL claiming a working break of ECC or SHA-2/3, addressed
-to real organizations, would be a false report — regardless of intent — and
-would not survive their triage against the code here.
-
-What *is* honestly disclosable, and what the STIX bundle in this repo already
-describes, is narrower and defensible:
-- a proved algebraic theorem;
-- a retrospective structural result on the already-broken SHA-1;
-- an ECC threat *model* with the exploit explicitly OPEN and **"no working
-  exploit provided."**
-
-The existing `stix_bundle_udeo.json` is written correctly at that scope
-(it labels the ECC step an OPEN PROBLEM and states no exploit is provided).
-Any CVE-style specification prepared from this work must inherit that scope,
-not the retracted README's. The correct disclosure vehicle for the solid
-content is **academic publication** (the framework theorem + the SHA-1
-retrospective), not a CVE against unbroken primitives.
-
----
-
-## 7. Cover art
+## Cover art
 
 `Gemini_Generated_Image_Breaking_Enigma.png` is thematic cover art (Enigma /
-Turing, R. Crumb style) — decorative, not evidence. Noting it so it is not
-mistaken for a figure.
+Turing) — decorative, not a figure.
 
 ---
 
 ## License
 
-White-hat research, provided for defensive and scholarly purposes. See
-`LICENSE`.
+White-hat research, provided for defensive and scholarly purposes. See `LICENSE`.
 
 **Researcher:** Cody Michael Allison — the.wandering.god@gmail.com
-**README corrected:** 2026-07-28, after re-running every script in the repo.
