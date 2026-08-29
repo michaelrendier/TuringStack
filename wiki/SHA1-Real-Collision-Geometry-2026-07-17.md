@@ -104,10 +104,45 @@ says it should, using real data — it does not show how to find a new
 one faster than Stevens et al. did. Consistent with the rest of this
 repository: characterization, not exploitation.
 
+## 5. The stability-distance panel — a failed prediction, kept in the record (2026-08-25)
+
+*Grounded in `sha1_chladni_stability.py`'s composite-pair panel — the
+red/blue gradient with gold zero-divisor markers over the 496×496
+`(e_i+e_j)` composite grid. Recorded from Cody's own description of the
+two images; noted here in case a different, uncommitted script is what's
+actually meant — correct if so.*
+
+**Original prediction:** the stability-distance gradient (popcount of the
+product, 0 = exact zero-divisor collapse, up to 4 = maximally stable)
+would vary spatially across the grid — "pockets" of differential
+behavior, some regions of composite pairs settling toward the
+zero-divisor locus faster than others, visible as a spatial gradient in
+the red/blue coloring underneath the gold zero-divisor markers.
+
+**Measured, and the prediction was wrong:** the settling behavior is
+**uniform across the entire set** — every composite pair reaches its
+stability distance the same way, no spatially clustered pockets. What
+looked at first like it might carry positional information collapses to
+a single invariant: they all settle at the same "time." A real, useful
+result — just not the one being looked for.
+
+**Why this belongs on the record rather than being quietly dropped**
+(same discipline as wiki Phase 3's "failed predictions stay in the
+data"): a uniform outcome across an entire measured set is itself a
+finding — it rules out spatial/positional structure in this particular
+metric, cleanly, rather than leaving the question open. Stated precisely
+so it isn't re-investigated blind later: **if there had been variation in
+settling across the grid, that would plausibly have been a spectral
+signal** (eigenvalue/mode-related, the kind `trace_laplacian`'s
+`spectral_dist` already probes elsewhere in this file) — but since the
+metric is uniform, there is no such signal available to extract from it.
+The absence is the result, not a gap in the analysis.
+
 ## Related
 
 `paper.tex` §3 (SHA-1 in T32/GF(2)), `sha1_zero_divisor_demo.py` (the
 verified compression function and toy-scale control tests this builds
 on), `sha1_chladni_figure.py` (the trace-Laplacian nodal visualization —
 same T32/GF(2) machinery, applied to SHA-1's IV/round constants instead
-of a real collision).
+of a real collision), `sha1_chladni_stability.py` (the composite-pair
+continuous stability gradient, §5 above).
