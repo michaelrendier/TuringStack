@@ -1,0 +1,394 @@
+THE EMERGER  v0.1  --  sedenion bracketing & firing order of emergence
+
+==============================================================================
+INPUT :  e0  (the identity / 0_RB)
+        |x| = 1.000000   x = [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+==============================================================================
+sigma_RB :  Sigma_tilt = +0.000000   tau = 0.5000   precession step = 6/12   ->  entry bracket #1
+FIRING ORDER (canonical / dependency) :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+FIRING ORDER (sigma_RB-phased)        :  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}  ->  {1:15}
+------------------------------------------------------------------------------
+
+[1]  {2:14}          [THEORETICAL (pointer carries Omega_ZS) + CALCULATED (the residual)]
+     split   : {'pointer  z = x0 + i x8': (1.0, 0.0), '|rest| (G_2 side, dim 14)': 0.0}
+     EMERGES : 
+                |z|  (CD-scale) = 1.0
+                arg(z)  (ladder position) = 0.0
+                |exp(-z) - z|  (residual to W(1) fixed point) = 0.632121
+                distance |z| - Omega_ZS = 0.432857
+     enables : CD double / halve  (which octonion; scalar of the other half), the read head  (where in the tower), Omega_ZS anchoring  (fixed point of  z -> e^{-z}  lives on this line)
+
+[2]  {8:8}          [DERIVED  (equator condition for basis-type ZD is exact)]
+     split   : {'|a| (J_red / forward)': 1.0, '|b| (J_blue / back)': 0.0}
+     EMERGES : 
+                balance |a|-|b|  (signed dist. from ZD equator) = 1.0
+                Re(a), Re(b) = (1.0, 0.0)
+                ON THE ZD EQUATOR = False
+                J_2 asymmetry  ||L_x - R_x|| = 0.0
+                min singular value of L_x  (0 => exact zero divisor) = 1.0
+     enables : J involution  (a,b) -> (a,-b)   (e8-conjugation), zero-divisor test  (equator membership), sheet / sign select  (+-), left vs right multiplication  (the J_2 operator)
+
+[3]  {4:4:4:4}          [DERIVED (quaternion polar) + THEORETICAL (tilt = net work)]
+     split   : {'block 0  (|q|, angle)': (1.0, 0.0), 'block 1  (|q|, angle)': (0.0, 0.0), 'block 2  (|q|, angle)': (0.0, 0.0), 'block 3  (|q|, angle)': (0.0, 0.0)}
+     EMERGES : 
+                Sigma_tilt  (Scale detuning = net work around the loop) = 0.0
+                Sigma_axis  (should be ~0) = 0.0
+                sigma = 1/2  <=>  Sigma_tilt = 0 = True
+                T1 conj-symmetry holds = True
+     enables : four SU(2) phases  (the d* faces), sigma_RB decomposition  (tilt = Scale, axis = Flow), the firing clock  (tilt-phase -> precession step)
+
+[4]  {4:8:4}          [THEORETICAL (the 4:8:4 index assignment) + CALCULATED (the norms)]
+     split   : {'|G0| annihilator': 0.0, '|G1| unit/NOW': 1.0, '|Gsqrt2| amplifier': 0.0}
+     EMERGES : 
+                dominant gain class = unit (gain 1, NOW)
+                L_{x/|x|} singular-value spread (min,max) = (1.0, 1.0)
+                is an isometry  (spread ~ (1,1)) = True
+     enables : multiplicative role classification, nilpotent / idempotent / scaler test, gain budget  (0 / 1 / sqrt2  -- the ZD gain spectrum)
+
+[5]  {1:15}          [DERIVED  (the 1:15 grading is what makes conj/norm/inverse well-defined)]
+     split   : {'scalar (e0 / 0_RB)': 1.0, '|pure| (the 15 edges)': 0.0}
+     EMERGES : 
+                Re = 1.0
+                N = |x|^2 = 1.0
+                is_unit = True
+     enables : conjugate  x_bar, norm  N(x), inverse  x_bar / N   (N > 0), exp / log  (Re + pure decomposition)
+
+==============================================================================
+INPUT :  e0 + e8  (the pointer / doubling plane)
+        |x| = 1.000000   x = [0.707, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.707, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+==============================================================================
+sigma_RB :  Sigma_tilt = +0.000000   tau = 0.5000   precession step = 6/12   ->  entry bracket #1
+FIRING ORDER (canonical / dependency) :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+FIRING ORDER (sigma_RB-phased)        :  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}  ->  {1:15}
+------------------------------------------------------------------------------
+
+[1]  {2:14}          [THEORETICAL (pointer carries Omega_ZS) + CALCULATED (the residual)]
+     split   : {'pointer  z = x0 + i x8': (0.707107, 0.707107), '|rest| (G_2 side, dim 14)': 0.0}
+     EMERGES : 
+                |z|  (CD-scale) = 1.0
+                arg(z)  (ladder position) = 0.785398
+                |exp(-z) - z|  (residual to W(1) fixed point) = 1.07981
+                distance |z| - Omega_ZS = 0.432857
+     enables : CD double / halve  (which octonion; scalar of the other half), the read head  (where in the tower), Omega_ZS anchoring  (fixed point of  z -> e^{-z}  lives on this line)
+
+[2]  {8:8}          [DERIVED  (equator condition for basis-type ZD is exact)]
+     split   : {'|a| (J_red / forward)': 0.707107, '|b| (J_blue / back)': 0.707107}
+     EMERGES : 
+                balance |a|-|b|  (signed dist. from ZD equator) = 0.0
+                Re(a), Re(b) = (0.707107, 0.707107)
+                ON THE ZD EQUATOR = False
+                J_2 asymmetry  ||L_x - R_x|| = 5.2915
+                min singular value of L_x  (0 => exact zero divisor) = 1.0
+     enables : J involution  (a,b) -> (a,-b)   (e8-conjugation), zero-divisor test  (equator membership), sheet / sign select  (+-), left vs right multiplication  (the J_2 operator)
+
+[3]  {4:4:4:4}          [DERIVED (quaternion polar) + THEORETICAL (tilt = net work)]
+     split   : {'block 0  (|q|, angle)': (0.707107, 0.0), 'block 1  (|q|, angle)': (0.0, 0.0), 'block 2  (|q|, angle)': (0.707107, 0.0), 'block 3  (|q|, angle)': (0.0, 0.0)}
+     EMERGES : 
+                Sigma_tilt  (Scale detuning = net work around the loop) = 0.0
+                Sigma_axis  (should be ~0) = 0.0
+                sigma = 1/2  <=>  Sigma_tilt = 0 = True
+                T1 conj-symmetry holds = True
+     enables : four SU(2) phases  (the d* faces), sigma_RB decomposition  (tilt = Scale, axis = Flow), the firing clock  (tilt-phase -> precession step)
+
+[4]  {4:8:4}          [THEORETICAL (the 4:8:4 index assignment) + CALCULATED (the norms)]
+     split   : {'|G0| annihilator': 0.0, '|G1| unit/NOW': 1.0, '|Gsqrt2| amplifier': 0.0}
+     EMERGES : 
+                dominant gain class = unit (gain 1, NOW)
+                L_{x/|x|} singular-value spread (min,max) = (1.0, 1.0)
+                is an isometry  (spread ~ (1,1)) = True
+     enables : multiplicative role classification, nilpotent / idempotent / scaler test, gain budget  (0 / 1 / sqrt2  -- the ZD gain spectrum)
+
+[5]  {1:15}          [DERIVED  (the 1:15 grading is what makes conj/norm/inverse well-defined)]
+     split   : {'scalar (e0 / 0_RB)': 0.707107, '|pure| (the 15 edges)': 0.707107}
+     EMERGES : 
+                Re = 0.707107
+                N = |x|^2 = 1.0
+                is_unit = True
+     enables : conjugate  x_bar, norm  N(x), inverse  x_bar / N   (N > 0), exp / log  (Re + pure decomposition)
+
+==============================================================================
+INPUT :  e1 + e10  (a basis zero-divisor candidate)
+        |x| = 1.000000   x = [0.0, 0.707, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.707, 0.0, 0.0, 0.0, 0.0, 0.0]
+==============================================================================
+sigma_RB :  Sigma_tilt = +0.000000   tau = 0.5000   precession step = 6/12   ->  entry bracket #1
+FIRING ORDER (canonical / dependency) :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+FIRING ORDER (sigma_RB-phased)        :  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}  ->  {1:15}
+------------------------------------------------------------------------------
+
+[1]  {2:14}          [THEORETICAL (pointer carries Omega_ZS) + CALCULATED (the residual)]
+     split   : {'pointer  z = x0 + i x8': (0.0, 0.0), '|rest| (G_2 side, dim 14)': 1.0}
+     EMERGES : 
+                |z|  (CD-scale) = 0.0
+                arg(z)  (ladder position) = 0.0
+                |exp(-z) - z|  (residual to W(1) fixed point) = 1.0
+                distance |z| - Omega_ZS = -0.567143
+     enables : CD double / halve  (which octonion; scalar of the other half), the read head  (where in the tower), Omega_ZS anchoring  (fixed point of  z -> e^{-z}  lives on this line)
+
+[2]  {8:8}          [DERIVED  (equator condition for basis-type ZD is exact)]
+     split   : {'|a| (J_red / forward)': 0.707107, '|b| (J_blue / back)': 0.707107}
+     EMERGES : 
+                balance |a|-|b|  (signed dist. from ZD equator) = 0.0
+                Re(a), Re(b) = (0.0, 0.0)
+                ON THE ZD EQUATOR = True
+                J_2 asymmetry  ||L_x - R_x|| = 7.4833
+                min singular value of L_x  (0 => exact zero divisor) = 0.0
+     enables : J involution  (a,b) -> (a,-b)   (e8-conjugation), zero-divisor test  (equator membership), sheet / sign select  (+-), left vs right multiplication  (the J_2 operator)
+
+[3]  {4:4:4:4}          [DERIVED (quaternion polar) + THEORETICAL (tilt = net work)]
+     split   : {'block 0  (|q|, angle)': (0.707107, 3.141593), 'block 1  (|q|, angle)': (0.0, 0.0), 'block 2  (|q|, angle)': (0.707107, 3.141593), 'block 3  (|q|, angle)': (0.0, 0.0)}
+     EMERGES : 
+                Sigma_tilt  (Scale detuning = net work around the loop) = 0.0
+                Sigma_axis  (should be ~0) = 0.0
+                sigma = 1/2  <=>  Sigma_tilt = 0 = True
+                T1 conj-symmetry holds = True
+     enables : four SU(2) phases  (the d* faces), sigma_RB decomposition  (tilt = Scale, axis = Flow), the firing clock  (tilt-phase -> precession step)
+
+[4]  {4:8:4}          [THEORETICAL (the 4:8:4 index assignment) + CALCULATED (the norms)]
+     split   : {'|G0| annihilator': 0.0, '|G1| unit/NOW': 1.0, '|Gsqrt2| amplifier': 0.0}
+     EMERGES : 
+                dominant gain class = unit (gain 1, NOW)
+                L_{x/|x|} singular-value spread (min,max) = (0.0, 1.4142)
+                is an isometry  (spread ~ (1,1)) = False
+     enables : multiplicative role classification, nilpotent / idempotent / scaler test, gain budget  (0 / 1 / sqrt2  -- the ZD gain spectrum)
+
+[5]  {1:15}          [DERIVED  (the 1:15 grading is what makes conj/norm/inverse well-defined)]
+     split   : {'scalar (e0 / 0_RB)': 0.0, '|pure| (the 15 edges)': 1.0}
+     EMERGES : 
+                Re = 0.0
+                N = |x|^2 = 1.0
+                is_unit = True
+     enables : conjugate  x_bar, norm  N(x), inverse  x_bar / N   (N > 0), exp / log  (Re + pure decomposition)
+
+==============================================================================
+INPUT :  e1 + e2  (a non-ZD imaginary)
+        |x| = 1.000000   x = [0.0, 0.707, 0.707, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+==============================================================================
+sigma_RB :  Sigma_tilt = +0.000000   tau = 0.5000   precession step = 6/12   ->  entry bracket #1
+FIRING ORDER (canonical / dependency) :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+FIRING ORDER (sigma_RB-phased)        :  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}  ->  {1:15}
+------------------------------------------------------------------------------
+
+[1]  {2:14}          [THEORETICAL (pointer carries Omega_ZS) + CALCULATED (the residual)]
+     split   : {'pointer  z = x0 + i x8': (0.0, 0.0), '|rest| (G_2 side, dim 14)': 1.0}
+     EMERGES : 
+                |z|  (CD-scale) = 0.0
+                arg(z)  (ladder position) = 0.0
+                |exp(-z) - z|  (residual to W(1) fixed point) = 1.0
+                distance |z| - Omega_ZS = -0.567143
+     enables : CD double / halve  (which octonion; scalar of the other half), the read head  (where in the tower), Omega_ZS anchoring  (fixed point of  z -> e^{-z}  lives on this line)
+
+[2]  {8:8}          [DERIVED  (equator condition for basis-type ZD is exact)]
+     split   : {'|a| (J_red / forward)': 1.0, '|b| (J_blue / back)': 0.0}
+     EMERGES : 
+                balance |a|-|b|  (signed dist. from ZD equator) = 1.0
+                Re(a), Re(b) = (0.0, 0.0)
+                ON THE ZD EQUATOR = False
+                J_2 asymmetry  ||L_x - R_x|| = 7.4833
+                min singular value of L_x  (0 => exact zero divisor) = 1.0
+     enables : J involution  (a,b) -> (a,-b)   (e8-conjugation), zero-divisor test  (equator membership), sheet / sign select  (+-), left vs right multiplication  (the J_2 operator)
+
+[3]  {4:4:4:4}          [DERIVED (quaternion polar) + THEORETICAL (tilt = net work)]
+     split   : {'block 0  (|q|, angle)': (1.0, 3.141593), 'block 1  (|q|, angle)': (0.0, 0.0), 'block 2  (|q|, angle)': (0.0, 0.0), 'block 3  (|q|, angle)': (0.0, 0.0)}
+     EMERGES : 
+                Sigma_tilt  (Scale detuning = net work around the loop) = 0.0
+                Sigma_axis  (should be ~0) = 0.0
+                sigma = 1/2  <=>  Sigma_tilt = 0 = True
+                T1 conj-symmetry holds = True
+     enables : four SU(2) phases  (the d* faces), sigma_RB decomposition  (tilt = Scale, axis = Flow), the firing clock  (tilt-phase -> precession step)
+
+[4]  {4:8:4}          [THEORETICAL (the 4:8:4 index assignment) + CALCULATED (the norms)]
+     split   : {'|G0| annihilator': 0.0, '|G1| unit/NOW': 1.0, '|Gsqrt2| amplifier': 0.0}
+     EMERGES : 
+                dominant gain class = unit (gain 1, NOW)
+                L_{x/|x|} singular-value spread (min,max) = (1.0, 1.0)
+                is an isometry  (spread ~ (1,1)) = True
+     enables : multiplicative role classification, nilpotent / idempotent / scaler test, gain budget  (0 / 1 / sqrt2  -- the ZD gain spectrum)
+
+[5]  {1:15}          [DERIVED  (the 1:15 grading is what makes conj/norm/inverse well-defined)]
+     split   : {'scalar (e0 / 0_RB)': 0.0, '|pure| (the 15 edges)': 1.0}
+     EMERGES : 
+                Re = 0.0
+                N = |x|^2 = 1.0
+                is_unit = True
+     enables : conjugate  x_bar, norm  N(x), inverse  x_bar / N   (N > 0), exp / log  (Re + pure decomposition)
+
+==============================================================================
+INPUT :  random unit sedenion (seed 1)
+        |x| = 1.000000   x = [0.142, 0.338, 0.136, -0.535, 0.372, 0.183, -0.221, 0.239, 0.15, 0.121, 0.012, 0.225, -0.303, -0.067, -0.198, 0.246]
+==============================================================================
+sigma_RB :  Sigma_tilt = -0.174019   tau = 0.4452   precession step = 5/12   ->  entry bracket #0
+FIRING ORDER (canonical / dependency) :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+FIRING ORDER (sigma_RB-phased)        :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+------------------------------------------------------------------------------
+
+[1]  {1:15}          [DERIVED  (the 1:15 grading is what makes conj/norm/inverse well-defined)]
+     split   : {'scalar (e0 / 0_RB)': 0.141963, '|pure| (the 15 edges)': 0.989872}
+     EMERGES : 
+                Re = 0.141963
+                N = |x|^2 = 1.0
+                is_unit = True
+     enables : conjugate  x_bar, norm  N(x), inverse  x_bar / N   (N > 0), exp / log  (Re + pure decomposition)
+
+[2]  {2:14}          [THEORETICAL (pointer carries Omega_ZS) + CALCULATED (the residual)]
+     split   : {'pointer  z = x0 + i x8': (0.141963, 0.149763), '|rest| (G_2 side, dim 14)': 0.978477}
+     EMERGES : 
+                |z|  (CD-scale) = 0.206356
+                arg(z)  (ladder position) = 0.81213
+                |exp(-z) - z|  (residual to W(1) fixed point) = 0.768498
+                distance |z| - Omega_ZS = -0.360788
+     enables : CD double / halve  (which octonion; scalar of the other half), the read head  (where in the tower), Omega_ZS anchoring  (fixed point of  z -> e^{-z}  lives on this line)
+
+[3]  {8:8}          [DERIVED  (equator condition for basis-type ZD is exact)]
+     split   : {'|a| (J_red / forward)': 0.846554, '|b| (J_blue / back)': 0.532303}
+     EMERGES : 
+                balance |a|-|b|  (signed dist. from ZD equator) = 0.31425
+                Re(a), Re(b) = (0.141963, 0.149763)
+                ON THE ZD EQUATOR = False
+                J_2 asymmetry  ||L_x - R_x|| = 7.4075
+                min singular value of L_x  (0 => exact zero divisor) = 0.413896
+     enables : J involution  (a,b) -> (a,-b)   (e8-conjugation), zero-divisor test  (equator membership), sheet / sign select  (+-), left vs right multiplication  (the J_2 operator)
+
+[4]  {4:4:4:4}          [DERIVED (quaternion polar) + THEORETICAL (tilt = net work)]
+     split   : {'block 0  (|q|, angle)': (0.662623, 2.709757), 'block 1  (|q|, angle)': (0.526862, 1.5742), 'block 2  (|q|, angle)': (0.295978, 2.080524), 'block 3  (|q|, angle)': (0.442429, 4.647487)}
+     EMERGES : 
+                Sigma_tilt  (Scale detuning = net work around the loop) = -0.174019
+                Sigma_axis  (should be ~0) = 0.0
+                sigma = 1/2  <=>  Sigma_tilt = 0 = False
+                T1 conj-symmetry holds = True
+     enables : four SU(2) phases  (the d* faces), sigma_RB decomposition  (tilt = Scale, axis = Flow), the firing clock  (tilt-phase -> precession step)
+
+[5]  {4:8:4}          [THEORETICAL (the 4:8:4 index assignment) + CALCULATED (the norms)]
+     split   : {'|G0| annihilator': 0.526862, '|G1| unit/NOW': 0.725722, '|Gsqrt2| amplifier': 0.442429}
+     EMERGES : 
+                dominant gain class = unit (gain 1, NOW)
+                L_{x/|x|} singular-value spread (min,max) = (0.4139, 1.3523)
+                is an isometry  (spread ~ (1,1)) = False
+     enables : multiplicative role classification, nilpotent / idempotent / scaler test, gain budget  (0 / 1 / sqrt2  -- the ZD gain spectrum)
+
+
+### toy semiprime  N = 323 = 17*19   Fermat  a=(p+q)/2=18  b=(q-p)/2=1
+==============================================================================
+INPUT :  a-coordinate embedding  (N=323, a=18)
+        |x| = 1.000000   x = [0.0, 0.447, 0.894, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+==============================================================================
+sigma_RB :  Sigma_tilt = +0.000000   tau = 0.5000   precession step = 6/12   ->  entry bracket #1
+FIRING ORDER (canonical / dependency) :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+FIRING ORDER (sigma_RB-phased)        :  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}  ->  {1:15}
+------------------------------------------------------------------------------
+
+[1]  {2:14}          [THEORETICAL (pointer carries Omega_ZS) + CALCULATED (the residual)]
+     split   : {'pointer  z = x0 + i x8': (0.0, 0.0), '|rest| (G_2 side, dim 14)': 1.0}
+     EMERGES : 
+                |z|  (CD-scale) = 0.0
+                arg(z)  (ladder position) = 0.0
+                |exp(-z) - z|  (residual to W(1) fixed point) = 1.0
+                distance |z| - Omega_ZS = -0.567143
+     enables : CD double / halve  (which octonion; scalar of the other half), the read head  (where in the tower), Omega_ZS anchoring  (fixed point of  z -> e^{-z}  lives on this line)
+
+[2]  {8:8}          [DERIVED  (equator condition for basis-type ZD is exact)]
+     split   : {'|a| (J_red / forward)': 1.0, '|b| (J_blue / back)': 0.0}
+     EMERGES : 
+                balance |a|-|b|  (signed dist. from ZD equator) = 1.0
+                Re(a), Re(b) = (0.0, 0.0)
+                ON THE ZD EQUATOR = False
+                J_2 asymmetry  ||L_x - R_x|| = 7.4833
+                min singular value of L_x  (0 => exact zero divisor) = 1.0
+     enables : J involution  (a,b) -> (a,-b)   (e8-conjugation), zero-divisor test  (equator membership), sheet / sign select  (+-), left vs right multiplication  (the J_2 operator)
+
+[3]  {4:4:4:4}          [DERIVED (quaternion polar) + THEORETICAL (tilt = net work)]
+     split   : {'block 0  (|q|, angle)': (1.0, 3.141593), 'block 1  (|q|, angle)': (0.0, 0.0), 'block 2  (|q|, angle)': (0.0, 0.0), 'block 3  (|q|, angle)': (0.0, 0.0)}
+     EMERGES : 
+                Sigma_tilt  (Scale detuning = net work around the loop) = 0.0
+                Sigma_axis  (should be ~0) = 0.0
+                sigma = 1/2  <=>  Sigma_tilt = 0 = True
+                T1 conj-symmetry holds = True
+     enables : four SU(2) phases  (the d* faces), sigma_RB decomposition  (tilt = Scale, axis = Flow), the firing clock  (tilt-phase -> precession step)
+
+[4]  {4:8:4}          [THEORETICAL (the 4:8:4 index assignment) + CALCULATED (the norms)]
+     split   : {'|G0| annihilator': 0.0, '|G1| unit/NOW': 1.0, '|Gsqrt2| amplifier': 0.0}
+     EMERGES : 
+                dominant gain class = unit (gain 1, NOW)
+                L_{x/|x|} singular-value spread (min,max) = (1.0, 1.0)
+                is an isometry  (spread ~ (1,1)) = True
+     enables : multiplicative role classification, nilpotent / idempotent / scaler test, gain budget  (0 / 1 / sqrt2  -- the ZD gain spectrum)
+
+[5]  {1:15}          [DERIVED  (the 1:15 grading is what makes conj/norm/inverse well-defined)]
+     split   : {'scalar (e0 / 0_RB)': 0.0, '|pure| (the 15 edges)': 1.0}
+     EMERGES : 
+                Re = 0.0
+                N = |x|^2 = 1.0
+                is_unit = True
+     enables : conjugate  x_bar, norm  N(x), inverse  x_bar / N   (N > 0), exp / log  (Re + pure decomposition)
+
+==============================================================================
+INPUT :  b-coordinate embedding  (N=323, b=1  <- the erased coordinate)
+        |x| = 1.000000   x = [0.0, 0.894, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.447, 0.0, 0.0, 0.0, 0.0, 0.0]
+==============================================================================
+sigma_RB :  Sigma_tilt = +0.000000   tau = 0.5000   precession step = 6/12   ->  entry bracket #1
+FIRING ORDER (canonical / dependency) :  {1:15}  ->  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}
+FIRING ORDER (sigma_RB-phased)        :  {2:14}  ->  {8:8}  ->  {4:4:4:4}  ->  {4:8:4}  ->  {1:15}
+------------------------------------------------------------------------------
+
+[1]  {2:14}          [THEORETICAL (pointer carries Omega_ZS) + CALCULATED (the residual)]
+     split   : {'pointer  z = x0 + i x8': (0.0, 0.0), '|rest| (G_2 side, dim 14)': 1.0}
+     EMERGES : 
+                |z|  (CD-scale) = 0.0
+                arg(z)  (ladder position) = 0.0
+                |exp(-z) - z|  (residual to W(1) fixed point) = 1.0
+                distance |z| - Omega_ZS = -0.567143
+     enables : CD double / halve  (which octonion; scalar of the other half), the read head  (where in the tower), Omega_ZS anchoring  (fixed point of  z -> e^{-z}  lives on this line)
+
+[2]  {8:8}          [DERIVED  (equator condition for basis-type ZD is exact)]
+     split   : {'|a| (J_red / forward)': 0.894427, '|b| (J_blue / back)': 0.447214}
+     EMERGES : 
+                balance |a|-|b|  (signed dist. from ZD equator) = 0.447214
+                Re(a), Re(b) = (0.0, 0.0)
+                ON THE ZD EQUATOR = False
+                J_2 asymmetry  ||L_x - R_x|| = 7.4833
+                min singular value of L_x  (0 => exact zero divisor) = 0.447214
+     enables : J involution  (a,b) -> (a,-b)   (e8-conjugation), zero-divisor test  (equator membership), sheet / sign select  (+-), left vs right multiplication  (the J_2 operator)
+
+[3]  {4:4:4:4}          [DERIVED (quaternion polar) + THEORETICAL (tilt = net work)]
+     split   : {'block 0  (|q|, angle)': (0.894427, 3.141593), 'block 1  (|q|, angle)': (0.0, 0.0), 'block 2  (|q|, angle)': (0.447214, 3.141593), 'block 3  (|q|, angle)': (0.0, 0.0)}
+     EMERGES : 
+                Sigma_tilt  (Scale detuning = net work around the loop) = 0.0
+                Sigma_axis  (should be ~0) = 0.0
+                sigma = 1/2  <=>  Sigma_tilt = 0 = True
+                T1 conj-symmetry holds = True
+     enables : four SU(2) phases  (the d* faces), sigma_RB decomposition  (tilt = Scale, axis = Flow), the firing clock  (tilt-phase -> precession step)
+
+[4]  {4:8:4}          [THEORETICAL (the 4:8:4 index assignment) + CALCULATED (the norms)]
+     split   : {'|G0| annihilator': 0.0, '|G1| unit/NOW': 1.0, '|Gsqrt2| amplifier': 0.0}
+     EMERGES : 
+                dominant gain class = unit (gain 1, NOW)
+                L_{x/|x|} singular-value spread (min,max) = (0.4472, 1.3416)
+                is an isometry  (spread ~ (1,1)) = False
+     enables : multiplicative role classification, nilpotent / idempotent / scaler test, gain budget  (0 / 1 / sqrt2  -- the ZD gain spectrum)
+
+[5]  {1:15}          [DERIVED  (the 1:15 grading is what makes conj/norm/inverse well-defined)]
+     split   : {'scalar (e0 / 0_RB)': 0.0, '|pure| (the 15 edges)': 1.0}
+     EMERGES : 
+                Re = 0.0
+                N = |x|^2 = 1.0
+                is_unit = True
+     enables : conjugate  x_bar, norm  N(x), inverse  x_bar / N   (N > 0), exp / log  (Re + pure decomposition)
+
+==============================================================================
+SUMMARY  (generational-lineage sec.9 form)
+==============================================================================
+  bracket    tier          emerges                            function
+  ---------- ------------- ---------------------------------- ------------------------
+  {1:15}     DERIVED       Re, N, conj, inverse               grades the algebra
+  {2:14}     THEORETICAL   the pointer z; |z|-Omega_ZS        read head / ladder position
+  {8:8}      DERIVED       |a|-|b|, ZD-equator membership     which tree / sheet / J_2
+  {4:4:4:4}  DERIVED+TH.   Sigma_tilt (= net work), axis      four SU(2) phases; the clock
+  {4:8:4}    THEORETICAL   dominant gain class 0/1/sqrt2      multiplicative role
+
+  Firing order is set by the sigma_RB tilt-phase (12-step precession,
+  4 d* faces : 3 Lambert-W faces).  Order is load-bearing: each bracket
+  is conditioned on the ones fired before it.
+
+  no new generator required  --  all five brackets are orthogonal
+  projections of R^16; nothing changes length that should not, no graded
+  failure, no fixed set of the wrong dimension.  (v0.1 -- widen the input
+  battery and pin the {4:8:4} index assignment before trusting the gain class.)
