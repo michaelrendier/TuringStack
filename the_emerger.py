@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
-the_emerger.py  --  v0.1  (2026-09-01, Cody's direction)
+the_emerger.py  --  v0.1 PROTOTYPE  (2026-09-01, Cody's direction)
+
+SUPERSEDED by the canonical Full-Engine-Protocol build:
+    ValaQuenta/modules/emerger/   (EmergerModule, pure Python / Fraction,
+    exact ZD tests, 8 formulary equations, notebook 19_emerger.ipynb,
+    wiki/emerger.md, Ainulindale/wiki/109_the_emerger.md)
+This numpy prototype is kept as the first pass / a fast sandbox.
 
 Bracket the sedenion; report which functions each bracketing causes to emerge,
 in FIRING ORDER OF EMERGENCE.

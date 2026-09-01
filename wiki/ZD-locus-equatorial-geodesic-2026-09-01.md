@@ -2,6 +2,8 @@
 
 **Date:** 2026-09-01
 **Tier:** `[THEORETICAL — geometric picture]` + `[ESTABLISHED — exact topology, Moreno 1998]`
+**Engine:** `ValaQuenta/modules/emerger/` -- the `{8:8}` bracket's
+`on_zd_equator` test is this locus; `emerge()` reports it in firing order.
 **Companion:** `hypercomplex_laplacian.py` ("ZD pairs are the NODAL LINES of L_w — the
 Chladni figures of the T32 algebra"). This note gives the locus those nodal lines fill.
 
