@@ -47,3 +47,56 @@ The diagram **explains the hardness** — a mode-lock window of width `~1/N` wit
 no accessible entry tangency — it does not remove it. Same standing result:
 filter for small / structured N, a hunt for RSA-scale N. Companion test:
 `ContextPlease/claude/scratchpad/2026-09-01_rsa-frequency-decode/`.
+
+---
+
+## Version history
+
+- **v1** (2026-08-31) — first annotation. Framed the modulus as a mode-lock
+  window "where the p-orbit and q-orbit intersect in the cascade."
+- **v2** (2026-09-01) — **corrected**. The modulus is *not* a bifurcation
+  construction. A bifurcation is `1→2→4→8…` (self-similar, 2^k, cascading).
+  A semiprime is `1→2`, terminal — both leaves prime, depth 1, `N = a² − b²`
+  (one difference of two squares). No cascade, no windows-of-order *in the
+  modulus*. The diagram now reads explicitly as a **map of where the factoring
+  methods live, by regime** — Fermat at `p≈q`, trial division / ECM at a small
+  factor, GNFS in the chaotic bulk, Shor reading the rotation number. The
+  cascade sorts the methods; it says nothing about the modulus's structure.
+  Surfaced by `udeo_crypto/UDEO_RSA_DEMO.py`: every multi-scale / spectral
+  probe of the modulus came back **at chance**, consistently — a measurement
+  of the object's flatness, not a failure of the probes.
+
+## The prime-spiral ping — how ζ necessitates the Big 4
+
+The passive construction (Cody): put each integer on a log-polar spiral,
+`radius = ln n`. Start at the origin, `θ = 0`. Raise `θ` until the ray is
+collinear with `N` — `N` is *pinged* (located, not searched-for). Because
+`ln N = ln p + ln q`, that ray passes through `p` and `q` on the way out:
+**a shortest path from 0 to N through exactly two primes.** Not looking for
+the factors — looking for the modulus; the factors are the nodes crossed.
+
+ζ enters as the **generating function of the metric**. `ζ(s) = ∏(1−p^{-s})^{-1}`
+— every path from 1 is a unique product of primes (the Euler product *is* the
+graph). `−ζ'/ζ(s) = Σ Λ(n) n^{-s}` weights the paths. The **zeros are the
+eigenfrequencies** of that path operator: `ψ(x) = x − Σ_ρ x^ρ/ρ` reconstructs
+all the paths from the spectrum. "From 0 to N through exactly two zeta zeros"
+= the explicit-formula term that is a product of exactly two zero-contributions,
+dominant when those two zeros sit on `σ = ½` (the geodesic = the critical line).
+
+The **Big 4 are the four inputs a shortest-path solver needs**, in the language
+of ℙ:
+
+| shortest-path ingredient | prime tool |
+|---|---|
+| **node labels** (name the vertices you cross) | ordinal value `π(p)` |
+| **edge metric** (distance; #edges = #factors) | zeta index `γ_k` — 2 zeros on the geodesic ⟺ 2 prime factors |
+| **step direction** (the compass along the geodesic) | ordinal weight `ln p/√p = −ζ'/ζ` (von Mangoldt current) |
+| **resolution / termination** (when the ping lands) | gap weight (merit) — the radar pixel size, `~ln p` |
+
+**Honest catch.** The construction is a real shortest-path formulation and it
+correctly encodes "depth-1, exactly two prime nodes." It does *not* hand you
+the sweep angle `θ_N` for free: `θ_N` carries `N`'s spectral phase
+`Σ γ_k ln N`, and decomposing that into `phase(p) + phase(q)` is the erased
+coordinate `ln(q/p)` — one number, revealed all-at-once (depth-1), not a
+search you can shortcut. What ζ *does* give: the coordinate in which the right
+angle exists, and the guarantee that the geodesic has exactly two edges.

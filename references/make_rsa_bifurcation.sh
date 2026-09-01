@@ -48,16 +48,28 @@ convert "$T" -strokewidth 2 -fill '#111' -stroke '#111' \
 convert "$T" -font DejaVu-Sans -gravity NorthWest -pointsize 18 \
   -undercolor 'rgba(255,255,255,0.85)' \
   -fill '#33475b' -annotate +300+128 "period-1 : one determinant  (prime / prime power)" \
-  -fill '#2c5378' -annotate +1312+128 "P2->chaos : balanced semiprime" \
-  -fill '#2c5378' -annotate +1312+152 "(the two branches are p and q)" \
+  -fill '#2c5378' -annotate +1312+128 "P2->chaos band = the Fermat regime" \
+  -fill '#2c5378' -annotate +1312+152 "(p ~ q, branches near merge)" \
   -fill '#7a5100' -annotate +1648+128 "TELPERION bulk" \
   -fill '#7a5100' -annotate +1648+152 "GNFS sieves here" \
+  "$T"
+
+# --- pass 4c : NOT-A-BIFURCATION correction box (v2) ---
+convert "$T" -strokewidth 3 -fill 'rgba(255,255,255,0.93)' -stroke '#c0161d' \
+  -draw "rectangle 360,150 942,322" "$T"
+convert "$T" -font DejaVu-Sans -gravity NorthWest \
+  -fill '#c0161d' -pointsize 22 -annotate +380+168 "THE MODULUS IS NOT A BIFURCATION" \
+  -fill '#111' -pointsize 18 \
+  -annotate +380+202 "N = p*q is depth-1 : one split, two primes." \
+  -annotate +380+228 "N = a^2 - b^2  (Fermat).  No cascade, no 2^k." \
+  -annotate +380+262 "This maps WHERE THE METHODS LIVE, by regime --" \
+  -annotate +380+288 "nothing about the modulus's own structure." \
   "$T"
 
 # --- pass 5 : title + callouts over the plot ---
 convert "$T" -font DejaVu-Sans -gravity NorthWest -fill '#111' \
   -pointsize 29 \
-  -annotate +40+34 "WHERE RSA LIVES IN THE BIFURCATION  --  Telperion hugging Laurelin at the windows of order" \
+  -annotate +40+34 "WHERE THE FACTORING METHODS LIVE  --  the modulus itself is NOT a bifurcation" \
   -pointsize 21 -undercolor 'rgba(255,255,255,0.88)' \
   -annotate +430+446 "RSA-2048 : a  p:q  mode-lock window, width ~ 1/N" \
   -annotate +430+476 "the order is real; no scan reaches it" \
@@ -71,14 +83,14 @@ convert "$T" -font DejaVu-Sans -gravity NorthWest -fill '#111' \
 
 # --- pass 6 : caption block ---
 convert "$T" -font DejaVu-Sans -gravity NorthWest -fill '#111' -pointsize 21 \
-  -annotate +40+1030 "A composite is not a walk from 0 to N.  It is where the p-orbit and the q-orbit INTERSECT -- a mode-lock.  N is born at the crossing." \
-  -annotate +40+1064 "cascade = RG doublings (Feigenbaum delta ~ 4.669); bit-length = the doubling count.   pitchfork r=3 : p=q, the Fermat limit RSA forbids." \
+  -annotate +40+1030 "A composite IS a walk from 0 to N through exactly two primes :  N = a^2 - b^2.  Depth-1, NOT a bifurcation -- the cascade below only sorts the methods." \
+  -annotate +40+1064 "the cascade is a MAP OF METHODS BY REGIME, not a model of the modulus.   pitchfork r=3 : p=q, the Fermat limit RSA forbids." \
   -annotate +40+1098 "chaotic bulk (r > 3.5699) = TELPERION : structure present, unreadable.  GNFS sieves it statistically (sub-exponential); never enters a window." \
   -annotate +40+1132 "windows of order = LAURELIN : genuine periodic structure inside the chaos, each opening at a tangent (saddle-node) = the entry point." \
   -annotate +40+1166 "RSA-2048 = a  p:q  mode-lock window of width ~ 1/N, exponentially narrow.  The order is real; you cannot scan to it." \
   -annotate +40+1200 "Shor reads the rotation number  p:q  directly -- a DTMF-style filter.  The diagram explains the hardness; it does not remove it." \
   -pointsize 15 -fill '#888' \
-  -annotate +40+1248 "source: logistic map  x_{n+1} = r x_n (1 - x_n).   calibration  x = 583 r - 442,  y = 966 - 856 x*.   build: TuringStack/references/make_rsa_bifurcation.sh" \
+  -annotate +40+1248 "v2 (2026-09-01) -- corrected: the modulus is not a bifurcation construction.   logistic map x_{n+1}=r x_n(1-x_n),  x=583r-442, y=966-856x*.   build: make_rsa_bifurcation.sh" \
   "$OUT"
 
 rm -f "$T"
