@@ -43,7 +43,7 @@ This document is the higher-level record of what was actually novel.
 
 ## 2. Testing methodology: random-guess and unrelated-variable controls
 
-Every one of the six RSA mechanisms tested (`UDEO_RSA_DEMO.py` in this
+Every one of the six RSA mechanisms tested (`RSA_DEMO.py` in this
 repository) was given only `(n, e)` to produce a candidate for `d`, then
 scored by comparing the candidate's behavior to 200 random-but-valid wrong
 guesses per toy key — a percentile rank, not a bare "it worked" report. This

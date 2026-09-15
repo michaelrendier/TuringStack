@@ -252,7 +252,7 @@ def _toy_semiprime_coords(N=323):        # 323 = 17 * 19
     p, q = 17, 19
     a, b = (p + q) // 2, (q - p) // 2    # Fermat coordinates: N = a^2 - b^2
     xa = np.zeros(DIM); xb = np.zeros(DIM)
-    # crude Hyperwebster-style placement (illustrative, matches UDEO_RSA_DEMO shape)
+    # crude Hyperwebster-style placement (illustrative, matches RSA_DEMO shape)
     xa[a % DIM] += 1.0; xa[(a * 7 + 3) % DIM] += 0.5
     xb[b % DIM] += 1.0; xb[(b * 7 + 3) % DIM] += 0.5
     return unit(xa), unit(xb), (N, p, q, a, b)

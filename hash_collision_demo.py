@@ -4,7 +4,7 @@ hash_collision_demo.py — does the same content produce the same Hash_s
 for different (e,d) key pairs? Cody's direct question, 2026-07-17.
 
 v2: the first pass (see git history / session log) used
-UDEO_RSA_DEMO.py's map_int_to_hypercomplex() unchanged, and found BOTH
+RSA_DEMO.py's map_int_to_hypercomplex() unchanged, and found BOTH
 the real (e,d) population AND an unrelated-random-integer control landing
 on an EXACT 0.000000 minimum pairwise distance, every single control
 trial. That's not a signal about keys — it's proof the embedding itself
@@ -22,7 +22,7 @@ each of the 16 coordinates — no hashing, no folding mod a small dim.
 Same philosophy as the T32 bit-exact embedding (word_to_t32: bit k -> e_k,
 no aliasing), generalised to real-valued coefficients so it still works
 inside S16's ordinary Euclidean/linear-algebra machinery (norms,
-distances) that methods 1-6 in UDEO_RSA_DEMO.py depend on. Injective for
+distances) that methods 1-6 in RSA_DEMO.py depend on. Injective for
 any x < (2^16)^16 = 2^256 -- covers every value used anywhere in this
 codebase, toy-scale or real RSA-2048/4096, with room to spare.
 

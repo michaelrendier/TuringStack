@@ -2,12 +2,12 @@
 """
 sha1_zero_divisor_demo.py — the RSA demo's methodology, reframed onto SHA-1.
 
-UDEO_RSA_DEMO.py's discipline: given only public information, does a
+RSA_DEMO.py's discipline: given only public information, does a
 zero-divisor/geometric mechanism single out the true hidden value against
 a control population of equally-plausible wrong ones, scored by percentile
 rank, verified on an independent sample, checked for artifact-ness? Every
 RSA method that got this treatment came back at chance except one identity
-unrelated to sedenions (see udeo_crypto/UDEO_RSA_DEMO.py).
+unrelated to sedenions (see udeo_crypto/RSA_DEMO.py).
 
 This file applies the SAME discipline to SHA-1 instead of RSA, per Cody's
 direction: "reframe the goal to SHA-1 not RSA."

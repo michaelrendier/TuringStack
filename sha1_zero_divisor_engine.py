@@ -21,7 +21,7 @@ The theorem chain:
     THIS ENGINE checks it. Adjacent-word exact-ZD (the naive test) finds
         nothing -- exact ZD pairs are a sparse 336-pair locus, a dense
         differential essentially never lands on it, real collision or
-        not (same shape of miss as UDEO_RSA_DEMO.py's Method 1). The
+        not (same shape of miss as RSA_DEMO.py's Method 1). The
         FULL 80-word expanded message schedule differential does: 11 of
         80 words are exactly zero, clustered at the linear-round
         boundaries, not scattered.

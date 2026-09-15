@@ -54,7 +54,7 @@ exact ZD events either way). Honest structural reason, not a bug: exact
 ZD pairs are a sparse 336-pair locus; a dense, full-Hamming-weight
 differential essentially never lands on it, real collision or not. This
 test was never well-positioned to see what turned out to be the real
-phenomenon (§3) — same shape of miss as `UDEO_RSA_DEMO.py`'s Method 1.
+phenomenon (§3) — same shape of miss as `RSA_DEMO.py`'s Method 1.
 
 ## 3. The real result: the expanded message schedule collapses to exact zero
 

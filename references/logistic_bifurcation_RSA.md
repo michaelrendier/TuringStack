@@ -62,7 +62,7 @@ filter for small / structured N, a hunt for RSA-scale N. Companion test:
   methods live, by regime** — Fermat at `p≈q`, trial division / ECM at a small
   factor, GNFS in the chaotic bulk, Shor reading the rotation number. The
   cascade sorts the methods; it says nothing about the modulus's structure.
-  Surfaced by `udeo_crypto/UDEO_RSA_DEMO.py`: every multi-scale / spectral
+  Surfaced by `udeo_crypto/RSA_DEMO.py`: every multi-scale / spectral
   probe of the modulus came back **at chance**, consistently — a measurement
   of the object's flatness, not a failure of the probes.
 

@@ -1,7 +1,17 @@
 """
-ainulindale_engine.modules.udeo_crypto.UDEO_RSA_DEMO
+ainulindale_engine.modules.udeo_crypto.RSA_DEMO
 ======================================================
-UDEO RSA private-key-recovery engine — three candidate mechanisms (Cody's),
+Cody, 2026-09-15: renamed from UDEO_RSA_DEMO.py — this is NOT UDEO. UDEO's
+own method maps iterative/subtractive structure into a higher-order
+Laplacian via T_256, which only means anything where the data carries an
+inherent FREQUENCY (SHA-1's compression function is built entirely from
+bitwise rotations — literal circular-clock maths, at every round). N = p*q
+has no such structure anywhere in its answer domain — plain multiplication
+never introduces a rotation or a period — so UDEO's frequency/Laplacian
+method is not applicable here and was never claimed to be. This file keeps
+its own name and its own (separate, non-UDEO) methods.
+
+RSA private-key-recovery engine — three candidate mechanisms (Cody's),
 each implemented literally and tested against known toy RSA keys, with a
 random-guess control run alongside every result.
 
