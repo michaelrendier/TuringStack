@@ -139,6 +139,6 @@ Turing) — decorative, not a figure.
 
 ## License
 
-White-hat research, provided for defensive and scholarly purposes. See `LICENSE`.
+White-hat research, provided for defensive and scholarly purposes. Licensed under the GNU General Public License, version 3.0 (GPL-3.0-only); see `LICENSE`.
 
 **Researcher:** Cody Michael Allison — the.wandering.god@gmail.com
