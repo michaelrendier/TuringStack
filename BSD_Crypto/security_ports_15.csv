@@ -1,0 +1,1714 @@
+package,origin,comment,crypto_related
+0d1n-3.8_1,security/0d1n,Open source web HTTP fuzzing tool and bruteforcer,
+1password-client-1.12.4,security/1password-client,1Password CLI client,yes
+1password-client2-2.32.1,security/1password-client2,1Password CLI client,yes
+1password-client2-beta-2.33.0.b.02,security/1password-client2-beta,1Password CLI client (BETA),yes
+2fa-1.2.0_48,security/2fa,Two-factor authentication on the command line,
+ADMsmb-0.3,security/ADMsmb,Security scanner for Samba,
+ADMsnmp-0.1,security/ADMsnmp,SNMP audit scanner,
+APKiD-3.2.0,security/apkid,Android Application Identifier,yes
+OpenSSH-askpass-1.2.4.1_4,security/openssh-askpass,Graphical password applet for entering SSH passphrase,yes
+R-cran-ROAuth-0.9.6_5,security/R-cran-ROAuth,R interface for OAuth,
+R-cran-askpass-1.2.1,security/R-cran-askpass,"Safe Password Entry for R, Git, and SSH",yes
+R-cran-credentials-2.0.1,security/R-cran-credentials,Tools for Managing SSH and Git Credentials,yes
+R-cran-digest-0.6.39,security/R-cran-digest,Create cryptographic hash digests of R objects,yes
+R-cran-gitcreds-0.1.2_1,security/R-cran-gitcreds,Query 'git' Credentials from 'R',
+R-cran-openssl-2.5.0,security/R-cran-openssl,"Toolkit for Encryption, Signatures and Certificates Based on OpenSSL",yes
+R-cran-sodium-1.4.0_1,security/R-cran-sodium,R bindings to libsodium,yes
+acme-tiny-5.0.3,security/py-acme-tiny,Tiny script to issue and renew TLS certs from Let's Encrypt,yes
+acme.sh-3.1.7_1,security/acme.sh,ACME protocol client written in shell,
+acmed-0.25.0_1,security/acmed,ACME (RFC 8555) client daemon written in Rust,
+acmetool-0.2.2_38,security/acmetool,CLI tool for automatically acquiring certificates from ACME servers,yes
+aescrypt-0.7_2,security/aescrypt,Command-line AES encryption/decryption suite,yes
+aespipe-2.4e_1,security/aespipe,AES encrypting or decrypting pipe,yes
+afl++-llvm-5.03.c,security/afl++,Fast instrumented fuzzer,
+afterglow-1.6.2_2,security/afterglow,Collection of graph-generating scripts,
+agave-blockchain-4.4.1,security/agave,Web-scale blockchain for decentralized apps and marketplaces,
+age-1.3.2_4,security/age,"Simple, modern and secure file encryption tool",yes
+aide-0.19.4,security/aide,File and directory integrity checker,
+aide-without_acl-0.19.4,security/aide,File and directory integrity checker,
+amavisd-milter-1.7.0_1,security/amavisd-milter,Milter for amavisd-new,
+"amavisd-new-2.15.0,1",security/amavisd-new,Mail scanner interface between mailer and content checkers,
+apache-xml-security-c-3.0.0_1,security/apache-xml-security-c,Apache XML security libraries - C++ version,
+"apg-1.2.0_23,1",security/apg,Automated Password Generator written in Go,yes
+archlinux-keyring-20251116,security/archlinux-keyring,Arch Linux PGP keyring,yes
+arpCounterattack-1.2.0_8,security/arpCounterattack,Detects and remedies ARP attacks,
+arti-2.8.0,security/arti,"Implementation of Tor, in Rust",
+arti-full-2.8.0,security/arti,"Implementation of Tor, in Rust",
+asignify-1.0_1,security/asignify,Yet another signify tool,yes
+assh-2.15.0_42,security/assh,Smart SSH client wrapper,yes
+authenticator-4.4.0_21,security/authenticator,Generate Two-Factor Codes,
+authoscope-0.9.0,security/authoscope,Scriptable network authentication cracker,
+autofirma-1.9_3,security/autofirma,Spanish Government digital signature application,yes
+autossh-1.4g_1,security/autossh,Automatically restart SSH sessions and tunnels,yes
+aws-c-auth-1.0.4,security/aws-c-auth,C99 library implementation of AWS client-side authentication,
+aws-c-cal-1.0.0,security/aws-c-cal,Aws Crypto Abstraction Layer,yes
+aws-iam-authenticator-0.7.20_3,security/aws-iam-authenticator,Use AWS IAM credentials to authenticate to a Kubernetes cluster,
+aws-lc-5.15.0,security/aws-lc,AWS libcrypto,yes
+aws-vault-6.6.2_39,security/aws-vault,Vault for securely storing and accessing AWS credentials,
+axc-0.3.7,security/axc,Crypto interfaces for libsignal-protocol-c,yes
+bastillion-3.14.00_2,security/bastillion,Web-based SSH console,yes
+bcwipe-1.9.13_1,security/bcwipe,BCWipe securely erases data from magnetic and solid-state memory,
+bdes-1993_1,security/bdes,Encrypt/decrypt using the Data Encryption Standard (DES),yes
+bearssl-0.6,security/bearssl,Implementation of TLS/SSL in C,yes
+beecrypt-4.2.1_3,security/beecrypt,Open source cryptographic library,yes
+beid-5.1.28,security/beid,Belgian eID middleware,
+beidconnect-2.12,security/beidconnect,Belgian eID digital signature browser extension backend,yes
+bfbtester-2.0.1_1,security/bfbtester,Security tool for testing binaries for overflows,
+binwalk-3.1.0_2,security/binwalk,Search binary images for embedded files and executable code,
+bitwarden-cli-2026.11.0,security/bitwarden-cli,Bitwarden client command-line interface,
+blst-0.3.17,security/blst,Implementation of BLS12-381 signature algorithm,yes
+boringssl-0.20261020.0_1,security/boringssl,Fork of OpenSSL,yes
+botan3-3.13.0,security/botan3,"Portable, easy to use and efficient C++ crypto library",yes
+bruteblock-0.8.0,security/bruteblock,Software for blocking bruteforce attacks with ipfw,
+bsdsfv-1.18,security/bsdsfv,Flexible SFV checksum utility,yes
+bsmtrace-1.4_2,security/bsmtrace,BSM based intrusion detection system,
+bsmtrace3-3.1,security/bsmtrace3,BSM based intrusion detection system,
+bumblebee-0.1.1_8,security/bumblebee,Read-only supply-chain exposure scanner for developer endpoints,
+bzrtp-5.4.121,security/bzrtp,ZRTP support library (RFC 6189),
+c-siphash-1.1.0,security/c-siphash,Streaming-capable SipHash Implementation,yes
+ca_root_nss-3.134,security/ca_root_nss,Root certificate bundle from the Mozilla Project,yes
+caesarcipher-1.1_1,security/caesarcipher,Caesar cipher cryptography tool,yes
+caldera-5.3.0_33,security/caldera,Automated Adversary Emulation Platform,yes
+caldera-ot-5.3.0_18,security/caldera-ot,caldera OT plugin and capabilities,
+calife-3.0.6_2,security/calife,Lightweight alternative to sudo,
+cardpeek-0.8.4_2,security/cardpeek,Tool for reading the contents of ISO 7816 smart cards,
+"cargo-audit-0.23.0,1",security/cargo-audit,Audit Cargo.lock for crates with security vulnerabilities,
+ccrypt-1.11_1,security/ccrypt,Command-line utility for encrypting and decrypting files and streams,yes
+ccsrch-1.0.3_1,security/ccsrch,Is a tool that searches for credit card numbers (PAN) and track data,
+cdxgen-12.1.2,security/cdxgen,CycloneDX SBOM generator CLI,
+certificate_maker-1.10.1,security/certificate_maker,Certificate creation utility for Fulcio,yes
+certmgr-3.0.3_48,security/certmgr,Automated certificate management using a CFSSL CA,yes
+certmonger-0.79.20_3,security/certmonger,Daemon to enrol with a CA and renew SSL certificates,yes
+certspotter-0.26.2_1,security/certspotter,Certificate Transparency Monitor,yes
+cfssl-1.7.2,security/cfssl,Cloudflare's PKI and TLS toolkit,yes
+chaosreader-0.96,security/chaosreader,Tool to extract data from tcpdump logs,
+checkpassword-0.90_1,security/checkpassword,Simple password-checking interface,yes
+checkpassword-pam-0.99_2,security/checkpassword-pam,Implementation of checkpassword authentication program,yes
+chkrootkit-0.59,security/chkrootkit,Tool to locally check for signs of a rootkit,yes
+chntpw-140201,security/chntpw,Utility to set the password and edit registry on Microsoft NT system,yes
+chroot_safe-1.4_2,security/chroot_safe,LD_PRELOAD wrapper to safely chroot(2) any program,
+chrootuid-1.3_1,security/chrootuid,Simple wrapper that combines chroot(8) and su(1) into one program,
+ckpass-0.2,security/ckpass,Ncurses based password database client,yes
+cksfv-1.3.15_1,security/cksfv,Create or manipulate Simple File Verification (SFV) checksum files,yes
+cl-md5-2.0.5,security/cl-md5,Native MD5 implementation in Common Lisp,
+cl-md5-ccl-2.0.5,security/cl-md5-ccl,Native MD5 implementation in Common Lisp,
+cl-md5-clisp-2.0.5,security/cl-md5-clisp,Native MD5 implementation in Common Lisp,
+cl-md5-sbcl-2.0.5_18,security/cl-md5-sbcl,Native MD5 implementation in Common Lisp,
+clamassassin-1.2.4_7,security/clamassassin,Simple virus filter wrapper for ClamAV,
+"clamav-1.5.5,1",security/clamav,Open-source (GPL) anti-virus engine (Regular Feature Release),
+"clamav-lts-1.4.7,1",security/clamav-lts,Open-source (GPL) anti-virus engine (LTS Feature Release),
+clamav-unofficial-sigs-7.2.5_3,security/clamav-unofficial-sigs,Update script for third-party ClamAV databases,
+clamd-stream-client-1.3,security/clamd-stream-client,Standalone clamav client,
+clamsmtp-1.10_6,security/clamsmtp,ClamAV anti-virus SMTP Filter,
+clamtk-6.19,security/clamtk,GTK front-end for Clam Antivirus,
+cloak-0.3.0_43,security/cloak,Command line OTP Authenticator application,yes
+cops-1.04_1,security/cops,System secureness checker,
+cosign-3.1.4_1,security/cosign,Signing OCI containers and other artifacts using Sigstore,yes
+courier-authlib-0.73.2,security/courier-authlib,Meta-port for the courier authentication library,
+courier-authlib-base-0.73.2,security/courier-authlib-base,Courier authentication library base,
+courierpassd-1.1.2_1,security/courierpassd,User authentication and password changing daemon utility,yes
+courierpasswd-1.1.3_1,security/courierpasswd,User authentication and password changing utility,yes
+courieruserinfo-1.1.2_1,security/courieruserinfo,User account information retrieval utility,
+cowrie-3.1.3,security/cowrie,Cowrie SSH/Telnet honeypot,yes
+cracklib-2.10.3,security/cracklib,Password-checking library,yes
+crackpkcs12-0.2.11,security/crackpkcs12,Multithreaded program to crack PKCS#12 files,yes
+create-cert-2.12,security/create-cert,Create openssl client key and certificates,yes
+crlfuzz-1.4.1_48,security/crlfuzz,Fast tool to scan CRLF vulnerability written in Go,
+crowdsec-1.8.2_1,security/crowdsec,CrowdSec lightweight and collaborative security engine,
+crowdsec-blocklist-mirror-0.0.2_35,security/crowdsec-blocklist-mirror,CrowdSec Blocklist Mirror,
+crowdsec-firewall-bouncer-0.0.38_3,security/crowdsec-firewall-bouncer,CrowdSec bouncer written in golang for firewalls,
+cryptlib-3.4.7,security/cryptlib,Powerful security programming toolkit,yes
+cryptopp-8.9.0_1,security/cryptopp,Free C++ class library of Cryptographic Primitives,yes
+cryptopp-modern-2026.11.1,security/cryptopp-modern,C++ class library of cryptographic algorithms and schemes,yes
+ct-submit-1.1.2_48,security/ct-submit,Submission utility for transparency logs,
+cvm-0.97,security/cvm,Credential Validation Modules,
+cyberchef-11.5.0,security/cyberchef,Cyber operations within a web browser,
+cyrus-sasl-2.1.28_6,security/cyrus-sasl2,RFC 2222 SASL (Simple Authentication and Security Layer),
+cyrus-sasl-gssapi-2.1.28,security/cyrus-sasl2-gssapi,SASL GSSAPI authentication plugin,yes
+cyrus-sasl-ldapdb-2.1.28,security/cyrus-sasl2-ldapdb,SASL LDAPDB auxprop plugin,
+cyrus-sasl-saslauthd-2.1.28_4,security/cyrus-sasl2-saslauthd,SASL authentication server for cyrus-sasl2,
+cyrus-sasl-sql-2.1.28,security/cyrus-sasl2-sql,SASL SQL plugins,
+cyrus-sasl-srp-2.1.28,security/cyrus-sasl2-srp,SASL SRP authentication plugin,
+cyrus-sasl2-xoauth2-0.2,security/cyrus-sasl2-xoauth2,XOAUTH2 plugin for cyrus-sasl2,
+d0_blind_id-1.0_2,security/d0_blind_id,Crypto library,yes
+debian-keyring-2026.08.27,security/debian-keyring,GPG keys for Debian package signature verification,yes
+dehydrated-0.7.2_1,security/dehydrated,Pure BASH/ZSH Lets Encrypt client,yes
+denyhosts-py312-3.1.2_1,security/denyhosts,Script to thwart ssh and imap attacks,yes
+destroy-20130926_1,security/destroy,Securely destroy files on the hard disk,
+diffcode-1.2,security/diffcode,Progrssive differential cipher,yes
+digestpp-g20200907,security/digestpp,Experimental C++11 header-only message digest library,
+dirbuster-1.0r1_2,security/dirbuster,DirBuster allows file and directory brute forcing on web servers,
+distcache-1.5.1,security/distcache,Distributed OpenSSL session caching tools,yes
+diswall-0.7.2_4,security/diswall,Distributed firewall,
+doas-6.4_1,security/doas,Simple sudo alternative to run commands as another user,
+dogtag-jss-5.10.1_1,security/dogtag-jss,Java security services using Mozilla NSS,
+dogtag-pki-11.10.1_2,security/dogtag-pki,Dogtag PKI certificate system and server components,yes
+dotdotpwn-3.0.2_2,security/dotdotpwn,Fuzzer to discover traversal directory vulnerabilities,yes
+dropbear-2026.94,security/dropbear,"SSH 2 server, designed to be usable in small memory environments",yes
+dsniff-2.4.b1_9,security/dsniff,Various sniffing utilities for penetration testing,
+dsvpn-0.1.4,security/dsvpn,Dead Simple VPN,yes
+duo-2.3.0,security/duo,Duo unix integration package,
+duo_openvpn-3.2,security/duo_openvpn,Duo two-factor authentication for OpenVPN,yes
+"easy-rsa-3.2.6,1",security/easy-rsa,Small RSA key management package based on openssl,yes
+enc-1.1.5_14,security/enc,Modern and friendly CLI alternative to GnuPG,yes
+enchive-3.5_1,security/enchive,Tool to encrypt files to yourself for long-term archival,yes
+eschalot-1.2.0.20191006,security/eschalot,Vanity onion address generator for Tor,
+expiretable-0.6_3,security/expiretable,Utility to remove entries from the pf(4) table based on their age,
+exploit-pattern-g20230527,security/exploit-pattern,Generate and search pattern string for exploit development,
+fakeident-2.7,security/fakeident,Tool that replies with a standard answer to incoming identd requests,
+fakeroot-2.1.4,security/fakeroot,Simulate the root user behaviour,
+farmhash-1.1,security/farmhash,Hash functions for strings and other data,yes
+fcrackzip-1.0_3,security/fcrackzip,"Portable, fast, and featureful ZIP password cracker",yes
+ffuf-2.3.0_2,security/ffuf,Fast web fuzzer written in Go,
+fiked-0.0.5_9,security/fiked,Fake IKE PSK+XAUTH daemon based on VPNC,yes
+fizz-2026.10.26.00,security/fizz,C++14 implementation of the TLS-1.3 standard,yes
+flawfinder-2.0.20,security/flawfinder,Examines source code looking for security weaknesses,
+flawz-0.4.1_3,security/flawz,Terminal UI for browsing security vulnerabilities (CVEs),
+fprintd-1.94.4,security/fprintd,Daemon that provides fingerprint scanning functionality over D-Bus,
+fragroute-1.2_17,security/fragroute,"Tool for intercepting, modifying, and rewriting egress traffic",
+fragrouter-1.6_2,security/fragrouter,Tool for testing network IDS implementations,
+fswatch-0.02.b5_2,security/fswatch,File system checksum checker,yes
+ftimes-3.11.0_3,security/ftimes,System baselining and evidence collection tool,
+fuzz-0.6_2,security/fuzz,Tool for testing software by bombarding the program with random data,
+fwanalog-0.6.9_6,security/fwanalog,Firewall log summarizer that uses Analog,
+fwknop-2.6.10_5,security/fwknop,SPA implementation for Linux and FreeBSD,
+fwlogwatch-1.5_1,security/fwlogwatch,Packet filter and firewall log analyzer,
+gauth-1.5.0_19,security/gauth,Google Authenticator in your terminal,
+gcr-4.4.0.1,security/gcr,Library for bits of crypto UI and parsing,yes
+gcr3-3.41.2,security/gcr3,Library for bits of crypto UI and parsing,yes
+gef-2026.01,security/gef,GDB Enhanced Features for exploit devs & reversers,
+git-credential-azure-0.3.1_24,security/git-credential-azure,Git credential helper for Azure Repos,
+git-credential-gopass-1.17.4_2,security/git-credential-gopass,Manage git credentials using gopass,
+git-credential-oauth-0.18.0_1,security/git-credential-oauth,Git credential helper for GitHub and other forges using OAuth,
+git-crypt-0.8.0,security/git-crypt,Transparent file encryption in git,yes
+git-remote-gcrypt-1.5_1,security/git-remote-gcrypt,PGP-encrypt git remotes,yes
+git-secret-0.2.5_1,security/git-secret,Bash tool to store your private data inside a git repository,
+gitjacker-0.1.0_48,security/gitjacker,Leak git repositories from misconfigured websites,
+gitlab-analyzers-secrets-7.20.1_15,security/gitlab-analyzers-secrets,Secret detection scanner for Gitlab,
+gnome-keyring-48.0,security/gnome-keyring,Program that keeps passwords and other secrets,yes
+gnupg-2.5.24,security/gnupg,Complete and free PGP implementation,yes
+gnupg-pkcs11-scd-0.11.0,security/gnupg-pkcs11-scd,PKCS#11 enabled gnupg scd,yes
+gnupg1-1.4.23_5,security/gnupg1,"The GNU Privacy Guard (minimalist ""classic"" version)",yes
+gnutls-3.8.14,security/gnutls,GNU Transport Layer Security library,yes
+go-cve-dictionary-0.16.2_8,security/go-cve-dictionary,Build local copies of vulnerabilities from NVD and JVN,
+go-tuf-2.4.2_8,security/go-tuf,Framework for Securing Software,
+gokart-0.5.1_42,security/gokart,Go Security Static Analysis,
+gokey-0.2.1_10,security/gokey,Simple password manager write in Go,yes
+gonepass-g20181221_6,security/gonepass,GTK 1Password reader,yes
+gopass-1.17.4_2,security/gopass,Rewrite of the pass password manager in Go,yes
+gorilla-1.5.3.6,security/gorilla,Password Gorilla is a cross-platform Password Manager,yes
+gosec-2.30.0_1,security/gosec,Go security checker,
+gost-engine-g20250528,security/gost-engine,Implementation of the Russian GOST crypto algorithms for OpenSSL,yes
+gost-engine-openssl30-g20250528,security/gost-engine,Implementation of the Russian GOST crypto algorithms for OpenSSL,yes
+gostsum-20221213_1,security/gostsum,"Implementation of GOST R 34.11-94, GOST R 34.11-2012 hash functions",yes
+govulncheck-1.2.0_9,security/govulncheck,Database client and tools for the Go vulnerability database,
+gpa-0.11.1,security/gpa,GTK3+ frontend for the GNU Privacy Guard,
+gpg-gui-0.2.2_2,security/gpg-gui,GUI wrapper for symmetric GPG file encryption,yes
+gpg-tui-0.11.2_5,security/gpg-tui,Terminal User Interface for GnuPG,yes
+gpgdir-1.9.5_2,security/gpgdir,Recursive directory encryption with GnuPG,yes
+gpgme-2.2.0,security/gpgme,Library to make access to GnuPG easier,yes
+gpgmepp-2.2.0,security/gpgmepp,GnuPG Made Easy (GPGME) C++ bindings,yes
+gsa-28.2.0,security/gsa,Greenbone Security Assistant webpage written in React,
+gsad-27.1.0,security/gsad,Greenbone Security Assistant HTTP server,
+gsasl-2.2.4,security/gsasl,GNU SASL command-line utility,
+gssproxy-0.9.3,security/gssproxy,GSSAPI proxy daemon and interposer mechanism,yes
+gstreamer1-plugins-dtls-1.28.9,security/gstreamer1-plugins-dtls,GStreamer Datagram TLS (dtls) plugin,yes
+gtkpasman-0.12.1_2,security/gtkpasman,GTK passwords manager for system and network administrators,yes
+gvm-26.36.1,security/gvm,Greenbone vulnerability management (metaport),
+gvm-libs-23.9.2,security/gvm-libs,Libraries module for the GVM solution,
+gvmd-26.36.1,security/gvmd,Greenbone Vulnerability Manager central management service,
+hardening-check-2.6,security/hardening-check,Check binaries for security hardening features,
+hash-g20200929,security/hash,C++14 header-only easy-to-use hash library,yes
+"hashcat-7.1.2_15,1",security/hashcat,Advanced CPU-based password recovery utility,yes
+heaan-2.1.40_1,security/heaan,Library that implements homomorphic encryption,yes
+headscale-0.29.3_3,security/headscale,Mesh VPN that makes it easy to connect your devices,yes
+heimdal-7.8.0_10,security/heimdal,Popular BSD-licensed implementation of Kerberos 5,yes
+helib-2.3.0,security/helib,Implementation of homomorphic encryption,yes
+hexl-1.2.6,security/hexl,Intel homomorphic encryption acceleration library,yes
+hidden-lake-1.11.2_7,security/hidden-lake,F2F Anonymous network based on the QB-problem & GP/12 protocol stack,
+"highwayhash-g20240418_1,1",security/highwayhash,Fast strong hash functions: SipHash/HighwayHash,yes
+himitsu-0.10,security/himitsu,Secret storage system for Unix systems,
+hiprompt-gtk-0.10,security/hiprompt-gtk,GTK4-based prompter implementation for Himitsu,
+hitch-1.8.0_1,security/hitch,TLS proxy to forward connections to an unencrypted backend,yes
+hockeypuck-2.4.1_4,security/hockeypuck,"Synchronizing Key Server, a fast OpenPGP keyserver",yes
+honeytrap-g20210510_48,security/honeytrap,"Framework for running, monitoring and managing honeypots",
+honggfuzz-0.7,security/honggfuzz,"General-purpose fuzzer with simple, command-line interface",
+horcrux-0.3_47,security/horcrux,Split files into encrypted fragments,yes
+howdy-3.0.0.b.20230306_5,security/howdy,Windows Hello(TM) style authentication provider,
+hpenc-3.0_7,security/hpenc,Fast authenticated encryption CLI tool,yes
+hs-cryptol-3.6.0,security/hs-cryptol,Domain-specific language for specifying cryptographic algorithms,yes
+hydra-9.6,security/hydra,Brute force attack utility working on multiple network services,
+hyperhotp-0.1,security/hyperhotp,Programmer for the HOTP feature of hyperFIDO USB security keys,yes
+i2pd-3.0.0,security/i2pd,C++ implementation of I2P client,
+iaikPkcs11Wrapper-1.2.18_2,security/iaikpkcs11wrapper,PKCS#11 Java wrapper,yes
+idea-1.2_2,security/idea,Command-line IDEA encryption and decryption utility,yes
+identify-0.7,security/identify,Client side ident protocol daemon wrapper,
+imds-filterd-0.1,security/imds-filterd,Provides per user/group access controls to the EC2 IMDS,
+infisical-cli-0.43.99_7,security/infisical-cli,Official Infisical CLI,
+intel-ipsec-mb-2.0,security/intel-ipsec-mb,Intel(R) Multi-Buffer Crypto for IPsec Library,yes
+interactsh-1.4.0_3,security/interactsh,OOB interaction gathering server and client library,
+ipfmeta-1.3_2,security/ipfmeta,Use objects in IPfilter files,
+ipguard-1.04_5,security/ipguard,Tool designed to protect LAN IP address space by ARP spoofing,yes
+ipsec-tools-0.8.2_13,security/ipsec-tools,"KAME racoon IKE daemon, ipsec-tools version",yes
+ipv6toolkit-2.0_1,security/ipv6toolkit,Set of IPv6 security assessment tools,
+isal-kmod-g20220517.1502501_1,security/isal-kmod,Kernel crypto driver using Intel(R) ISA-L crypto,yes
+ismtp-g20190921,security/ismtp,"Test for SMTP user enumeration, internal spoofing, and relay",
+isnprober-1.02,security/isnprober,PenTest tool for TCP Initial Sequence Numbers research,
+john-1.9.0.j.1_1,security/john,Featureful Unix password cracker,yes
+kanidm-client-1.11.0_2,security/kanidm,Simple and secure identity management platform (client only),
+kanidm-server-1.11.0_2,security/kanidm,Simple and secure identity management platform (server only),
+kbfsd-1.6.1,security/kbfsd,Service daemon for the Keybase filesystem (KBFS),yes
+kc-2.5.3_3,security/kc,Console based password storing application,yes
+kdbxviewer-0.1.14,security/kdbxviewer,Ncurses UI and command-line tool for KeePass2 Database files,
+keepass-2.56,security/keepass,Light-weight and easy-to-use password manager,yes
+keepass-diff-1.1.3_7,security/keepass-diff,CLI-tool to diff two Keepass (.kdbx) files,
+keepass-plugin-keepassrpc-2.0.2,security/keepass-plugin-keepassrpc,KeePass plugin which facilitates the Kee Firefox plugin,
+keepassxc-2.7.12_2,security/keepassxc,KeePass Cross-platform Community Edition,
+keepassxc276-2.7.6_5,security/keepassxc276,KeePass Cross-platform Community Edition,
+keepsecret-26.08.3,security/keepsecret,Password manager for a Secret Service compatible provider,yes
+keybase-6.6.3_7,security/keybase,Keybase.io client and Keybase Filesystem (KBFS),yes
+keychain-2.9.8,security/keychain,User-friendly front-end to ssh-agent(1),yes
+keyprint-1.0_2,security/keyprint,"Print S/Key keys on a piece of paper, twice the size of a credit card",yes
+keysmith-26.08.3,security/keysmith,Application to generate two-factor authentication tokens,yes
+keyward-1.1.0_1,security/keyward,Terminal UI for managing SSH keys and config,yes
+kf5-kdesu-5.116.0,security/kf5-kdesu,KF5 integration with su for elevated privileges,
+kf6-kdesu-6.31.0,security/kf6-kdesu,User interface for running shell commands with root privileges,
+kgpg-26.08.3,security/kgpg,Encryption tool for KDE,yes
+kickpass-0.2.0_6,security/kickpass,Stupid simple password safe,yes
+klee-3.3_1,security/klee,Symbolic virtual machine built on top of LLVM,
+kleopatra-26.08.3,security/kleopatra,Certificate manager for KDE,yes
+"knock-0.8_1,1",security/knock,Flexible port-knocking server and client,
+knocker-0.8.0_1,security/knocker,Simple and easy to use TCP only port scanner (Console version),
+kpcli-3.1_2,security/kpcli,Command line interface to KeePassX and KeePass database files,
+kpkpass-26.08.3_1,security/kpkpass,Library to deal with Apple Wallet pass files,
+kpmenu-1.4.1_48,security/kpmenu,Dmenu/rofi interface for KeePass,
+krb5-1.22.3,security/krb5,MIT implementation of RFC 4120 network authentication service,
+krb5-122-1.22.3,security/krb5-122,MIT implementation of RFC 4120 network authentication service,
+krb5-devel-1.23.2026.11.05,security/krb5-devel,MIT implementation of RFC 4120 network authentication service,
+krb5-ldap-1.22.3,security/krb5,MIT implementation of RFC 4120 network authentication service,
+krb5-ldap-122-1.22.3,security/krb5-122,MIT implementation of RFC 4120 network authentication service,
+krb5-ldap-devel-1.23.2026.11.05,security/krb5-devel,MIT implementation of RFC 4120 network authentication service,
+kstart-4.3_1,security/kstart,Automated Kerberos ticket cache and keytab management utilities,yes
+kuku-4.0.0,security/kuku,Cuckoo hashing library written in C++,yes
+kwalletmanager-26.08.3,security/kwalletmanager,Password manager for KDE,yes
+l0pht-watch-1.1_1,security/l0pht-watch,Program to report on what goes on in /tmp,
+lasso-2.9.0,security/lasso,Free Liberty Alliance Implementation,
+lastpass-cli-1.6.2,security/lastpass-cli,LastPass command line interface tool,
+lego-5.6.0_1,security/lego,Let's Encrypt client and ACME library written in Go,yes
+lfacme-1.0.1,security/lfacme,Simple ACME client based on uacme,
+libaegis-0.10.7,security/libaegis,Portable C implementations of the AEGIS family,
+libargon2-20190702_1,security/libargon2,Memory hard password hashing program and library,yes
+libassuan-3.0.2,security/libassuan,IPC library used by GnuPG and gpgme,yes
+libcaes-a.20251121,security/libcaes,Library to support cross-platform AES encryption,yes
+libdecaf-1.0.5,security/libdecaf,Implementation of elliptic curve cryptography,yes
+libecc-0.14.0_2,security/libecc,C++ Elliptic Curve Library,yes
+libfcrypto-a.20240414,security/libfcrypto,Library for encryption formats,yes
+libfido2-1.17.0,security/libfido2,Provides library functionality for FIDO 2.0,yes
+libfprint-1.94.10_1,security/libfprint,Library for fingerprint reader devices,
+libgcrypt-1.12.4,security/libgcrypt,General purpose cryptographic library based on the code from GnuPG,yes
+libgnome-keyring-3.12.0_3,security/libgnome-keyring,Program that keeps passwords and other secrets,yes
+libgpg-error-1.61,security/libgpg-error,Common error values for all GnuPG components,yes
+libgsasl-2.2.4,security/libgsasl,GNU SASL library,
+libhijack-0.9.0,security/libhijack,Runtime process infection made easy,
+libhydrogen-0.0.0.g20260608,security/libhydrogen,"Lightweight, secure, easy-to-use crypto library for constrained environments",yes
+libident-0.32_5,security/libident,Small library to interface the ident protocol server (rfc1413),
+libkleo-26.08.3_1,security/libkleo,Library that provides cryptography support for mails,yes
+libkpass-6_2,security/libkpass,Library for a reading/writing KeePass 1.x DB,
+libksba-1.8.1,security/libksba,Library to make X.509 certificates,yes
+libmacaroons-0.3.0.20210219,security/libmacaroons,Flexible authorization credentials library,
+libmcrypt-2.5.8_4,security/libmcrypt,Multi-cipher cryptographic library (used in PHP),yes
+libnitrokey-3.7,security/libnitrokey,Libnitrokey is a project to communicate with Nitrokey devices,yes
+libntlm-1.8,security/libntlm,Library that implement Microsoft's NTLM authentication,
+libomemo-0.8.1,security/libomemo,Implements OMEMO in C,
+libomemo-c-0.5.1_1,security/libomemo-c,Implementation of the ratcheting forward secrecy protocol,
+liboqs-0.16.0,security/liboqs,C library for quantum-resistant cryptography,yes
+libotr-4.1.1_1,security/libotr,Portable OTR Messaging Library and toolkit,
+libotr3-3.2.1_5,security/libotr3,Portable OTR Messaging Library and toolkit,
+libp11-0.4.20,security/libp11,Small layer on top of PKCS#11 API,yes
+libpki-0.9.2_7,security/libpki,OpenCA PKI library (libpki) and tools,yes
+libpwquality-1.4.5_2,security/libpwquality,Library for generating random passwords and quality checking,yes
+libressl-4.4.1,security/libressl,Free version of the SSL/TLS protocol forked from OpenSSL,yes
+libressl-devel-4.4.1,security/libressl-devel,Free version of the SSL/TLS protocol forked from OpenSSL,yes
+libressl-devel-libtls-4.4.1,security/libressl-devel,Free version of the SSL/TLS protocol forked from OpenSSL,yes
+libressl-libtls-4.4.1,security/libressl,Free version of the SSL/TLS protocol forked from OpenSSL,yes
+libreswan-4.12_3,security/libreswan,IPsec and IKE based firewall,yes
+libretls-3.8.1_2,security/libretls,TLS library designed to ease writing foolproof applications,yes
+libscep-0.09_1,security/libscep,Client side SCEP library w/o clients,
+libscrypt-1.22,security/libscrypt,C library for the scrypt key derivation function,yes
+libsecret-0.21.7_2,security/libsecret,Library to access the secret service API,
+libsodium-1.0.22,security/libsodium,Library to build higher-level cryptographic tools,yes
+libssh-0.12.2,security/libssh,Library implementing the SSH2 protocol,yes
+"libssh2-1.11.1_1,3",security/libssh2,Library implementing the SSH2 protocol,yes
+libtasn1-4.21.0,security/libtasn1,ASN.1 structure parser library,
+libtatsu-1.0.5,security/libtatsu,Library for communicating with Apple's Tatsu Signing Server,yes
+libtomcrypt-1.18.2_1,security/libtomcrypt,"Comprehensive, modular, and portable cryptographic toolkit",yes
+libwhisker-2.5_2,security/libwhisker,Perl module to create HTTP test scripts,
+libxcrypt-4.5.2_1,security/libxcrypt,"Extended crypt library for descrypt, md5crypt, bcrypt, and others",yes
+libyubikey-1.13_1,security/libyubikey,Library for decrypting and parsing YubiKey One-Time Passwords,yes
+lime-5.4.121,security/lime,End-to-end encryption library for instant messaging,yes
+linux-bitwarden-cli-1.22.1,security/linux-bitwarden-cli,Bitwarden CLI,
+linux-c7-ca-certificates-2023.2.60.v7.0.306,security/linux-c7-ca-certificates,Mozilla CA root certificate bundle (Linux CentOS 7.9.2009),yes
+linux-c7-cyrus-sasl-lib-2.1.26_5,security/linux-c7-cyrus-sasl2,RFC 2222 SASL (Simple Authentication and Security Layer) (Linux CentOS 7.9.2009),
+linux-c7-gnutls-3.3.29,security/linux-c7-gnutls,GNU Transport Layer Security library (Linux CentOS 7.9.2009),yes
+linux-c7-libgcrypt-1.5.3_4,security/linux-c7-libgcrypt,Crypto library based on code used in GnuPG (Linux CentOS 7.9.2009),yes
+linux-c7-libgpg-error-1.12_2,security/linux-c7-libgpg-error,Common error values for all GnuPG components (Linux CentOS 7.9.2009),yes
+linux-c7-libssh2-1.8.0_2,security/linux-c7-libssh2,Library implementing the SSH2 protocol (Linux CentOS 7.9.2009),yes
+linux-c7-libtasn1-4.10,security/linux-c7-libtasn1,ASN.1 structure parser library (Linux CentOS 7.9.2009),
+linux-c7-nettle-2.7.1_1,security/linux-c7-nettle,Low-level cryptographic library (Linux CentOS 7.9.2009),yes
+linux-c7-nss-3.90.0,security/linux-c7-nss,Network Security Services (Linux CentOS 7.9.2009),
+linux-c7-openssl-devel-1.0.2k_2,security/linux-c7-openssl-devel,OpenSSL headers (Linux CentOS 7.9.2009),yes
+linux-c7-p11-kit-0.23.5_1,security/linux-c7-p11-kit,Library for loading and enumerating of PKCS#11 modules (Linux CentOS 7.9.2009),yes
+linux-c7-trousers-0.3.14_1,security/linux-c7-trousers,Open-source TCG Software Stack (Linux CentOS 7.9.2009),
+linux-rl9-ca-certificates-2026.2.92,security/linux-rl9-ca-certificates,Mozilla CA root certificate bundle (Rocky Linux 9.9),yes
+linux-rl9-cyrus-sasl-lib-2.1.27_2,security/linux-rl9-cyrus-sasl2,RFC 2222 SASL (Simple Authentication and Security Layer) (Rocky Linux 9.9),
+linux-rl9-gnupg2-2.3.3_3,security/linux-rl9-gnupg,GNU Transport Layer Security library (Rocky Linux 9.9),yes
+linux-rl9-gnutls-3.8.10,security/linux-rl9-gnutls,GNU Transport Layer Security library (Rocky Linux 9.9),yes
+linux-rl9-libassuan-2.5.5_1,security/linux-rl9-libassuan,IPC library used by GnuPG and gpgme (Rocky Linux 9.9),yes
+linux-rl9-libgcrypt-1.10.0_3,security/linux-rl9-libgcrypt,Crypto library based on code used in GnuPG (Rocky Linux 9.9),yes
+linux-rl9-libgpg-error-1.42_1,security/linux-rl9-libgpg-error,Common error values for all GnuPG components (Rocky Linux 9.9),yes
+linux-rl9-libksba-1.5.1,security/linux-rl9-libksba,Crypto library based on code used in GnuPG (Rocky Linux 9.9),yes
+linux-rl9-libseccomp-2.5.6,security/linux-rl9-libseccomp,Enhanced seccomp library (Rocky Linux 9.9),yes
+linux-rl9-libsecret-0.20.4_1,security/linux-rl9-libsecret,Library for storing and retrieving passwords and other secrets,yes
+linux-rl9-libssh-0.10.4_3,security/linux-rl9-libssh,Library implementing the SSH2 protocol (Rocky Linux 9.9),yes
+linux-rl9-libtasn1-4.16.0_3,security/linux-rl9-libtasn1,ASN.1 structure parser library (Rocky Linux 9.9),
+linux-rl9-nettle-3.10.1,security/linux-rl9-nettle,Low-level cryptographic library (Rocky Linux 9.9),yes
+linux-rl9-nss-3.112.0,security/linux-rl9-nss,Network Security Services (Rocky Linux 9.9),
+linux-rl9-p11-kit-0.26.4,security/linux-rl9-p11-kit,Library for loading and enumerating of PKCS#11 modules (Rocky Linux 9.9),yes
+linux-rl9-trousers-0.3.15,security/linux-rl9-trousers,Open-source TCG Software Stack (Rocky Linux 9.9),
+local-php-security-checker-2.1.3_22,security/local-php-security-checker,Tool to check PHP composer dependencies for vulnerabilities,
+logcheck-1.4.7,security/logcheck,Auditing tool for system logs on Unix boxes,
+lua-resty-hmac-0.06,security/lua-resty-hmac,HMAC functions for OpenResty / ngx_lua,
+lua-resty-jwt-0.2.3,security/lua-resty-jwt,JWT for OpenResty / ngx_lua,
+lua-resty-openidc-1.7.6_1,security/lua-resty-openidc,OpenID Connect and/or OAuth 2.0 functionality for OpenResty / ngx_lua,
+lua-resty-openssl-1.9.0,security/lua-resty-openssl,FFI-based OpenSSL binding for OpenResty / ngx_lua,yes
+lua51-argon2-3.0.1,security/lua-argon2,Lua C binding for the Argon2 password hashing function,yes
+lua51-luasec-1.3.2,security/luasec,Lua binding for the OpenSSL library to provide TLS/SSL communication,yes
+lua52-argon2-3.0.1,security/lua-argon2,Lua C binding for the Argon2 password hashing function,yes
+lua52-luasec-1.3.2,security/luasec,Lua binding for the OpenSSL library to provide TLS/SSL communication,yes
+lua53-argon2-3.0.1,security/lua-argon2,Lua C binding for the Argon2 password hashing function,yes
+lua53-bcrypt-2.3.1,security/lua-bcrypt,Library providing OpenBSD's bcrypt hash function for Lua,yes
+lua53-luasec-1.3.2,security/luasec,Lua binding for the OpenSSL library to provide TLS/SSL communication,yes
+lua54-argon2-3.0.1,security/lua-argon2,Lua C binding for the Argon2 password hashing function,yes
+lua54-bcrypt-2.3.1,security/lua-bcrypt,Library providing OpenBSD's bcrypt hash function for Lua,yes
+lua54-luasec-1.3.2,security/luasec,Lua binding for the OpenSSL library to provide TLS/SSL communication,yes
+lua55-argon2-3.0.1,security/lua-argon2,Lua C binding for the Argon2 password hashing function,yes
+lua55-luasec-1.3.2,security/luasec,Lua binding for the OpenSSL library to provide TLS/SSL communication,yes
+lxqt-openssh-askpass-2.5.0,security/lxqt-openssh-askpass,LXQt GUI dialog for OpenSSH authentication,yes
+lxqt-sudo-2.5.0,security/lxqt-sudo,GUI frontend to su/sudo/doas for LXQt desktop,
+lynis-3.1.7,security/lynis,Security and system auditing tool,
+mac-robber-1.02,security/mac-robber,"Tool for listing Modify, Access, Create timestamps from files",
+mailzu-php82-0.8.r3_12,security/mailzu,Simple and intuitive web interface to manage amavisd-new quarantine,
+mailzu-php83-0.8.r3_12,security/mailzu,Simple and intuitive web interface to manage amavisd-new quarantine,
+mailzu-php84-0.8.r3_12,security/mailzu,Simple and intuitive web interface to manage amavisd-new quarantine,
+mailzu-php85-0.8.r3_12,security/mailzu,Simple and intuitive web interface to manage amavisd-new quarantine,
+mailzu-php86-0.8.r3_12,security/mailzu,Simple and intuitive web interface to manage amavisd-new quarantine,
+makepasswd-1.10_8,security/makepasswd,Random password generator,yes
+maltrail-1.4,security/maltrail,"Malicious traffic detection system, utilizing public (black)lists",
+masscan-1.3.2_1,security/masscan,Very fast port scanner,
+mate-pam-helper-1.3,security/mate-pam-helper,MATE authenticate applications requiring PAM services,
+mbedtls3-3.6.7,security/mbedtls3,SSL/TLS and cryptography library,yes
+mbedtls4-4.2.0,security/mbedtls4,Embedded SSL/TLS and cryptography library,yes
+md5deep-4.4_4,security/md5deep,Program to compute various message digests recursively,
+medusa-2.2_3,security/medusa,"Speedy, massively parallel, modular, login brute-forcer",
+meek-0.37.0_44,security/meek,Pluggable transport proxy that relays through third-party server,
+metasploit-6.5.8_1,security/metasploit,Exploit-Framework for Penetration-Testing,
+mhash-0.9.9.9_6,security/mhash,Easy-to-use library for strong hashes such as MD5 and SHA1,yes
+mindterm-binary-1.2.1_1,security/mindterm-binary,Full vt220 compatible Java SSH-1 client (not only for websites),yes
+minisign-0.12_2,security/minisign,Simple tool to sign files and verify digital signatures,yes
+mkcacerts-0.2.0,security/mkcacerts,Generate a Java PKCS,yes
+mkcert-1.4.4_6,security/mkcert,Simple tool for making locally-trusted development certificates,yes
+mkp224o-1.7.0_2,security/mkp224o,Vanity address generator for tor onion v3 (ed25519) hidden services,
+mkpasswd-2.1,security/py-mkpasswd,Overfeatured front end to crypt(3),yes
+modsecurity3-3.0.17,security/modsecurity3,Intrusion detection and prevention engine,
+modsecurity3-nginx-1.0.4.20260926_2,security/modsecurity3-nginx,Intrusion detection and prevention engine / nginx Wrapper,
+monkeysphere-0.43_2,security/monkeysphere,Use the OpenPGP web of trust to verify ssh connections,yes
+monocypher-4.0.3,security/monocypher,Compact cryptographic library in C,yes
+munge-0.5.18,security/munge,Authentication service for creating and validating credentials,
+n2n-2.8_1,security/n2n,Layer Two Peer-to-peer VPN,yes
+naabu-2.6.1_7,security/naabu,Port scanning tool,
+ncrack-0.7_2,security/ncrack,High-speed network authentication cracking tool,
+ncrypt-0.8.1_1,security/ncrypt,Advanced AES file encryption tool,yes
+nebula-1.11.2_3,security/nebula,Scalable overlay networking tool,
+netbird-0.82.0_1,security/netbird,Peer-to-peer VPN that seamlessly connects your devices,yes
+nettle-3.10.2,security/nettle,Low-level cryptographic library,yes
+nextcloud-end_to_end_encryption-php83-2.6.0,security/nextcloud-end_to_end_encryption,End-to-End Encryption app for Nextcloud,yes
+nextcloud-end_to_end_encryption-php84-2.6.0,security/nextcloud-end_to_end_encryption,End-to-End Encryption app for Nextcloud,yes
+nextcloud-end_to_end_encryption-php85-2.6.0,security/nextcloud-end_to_end_encryption,End-to-End Encryption app for Nextcloud,yes
+nextcloud-twofactor_admin-php83-4.13.0,security/nextcloud-twofactor_admin,Admin create one-time TOTP app for Nextcloud,yes
+nextcloud-twofactor_admin-php84-4.13.0,security/nextcloud-twofactor_admin,Admin create one-time TOTP app for Nextcloud,yes
+nextcloud-twofactor_admin-php85-4.13.0,security/nextcloud-twofactor_admin,Admin create one-time TOTP app for Nextcloud,yes
+nextcloud-twofactor_webauthn-php83-2.7.1,security/nextcloud-twofactor_webauthn,U2F webauthn app for Nextcloud,
+nextcloud-twofactor_webauthn-php84-2.7.1,security/nextcloud-twofactor_webauthn,U2F webauthn app for Nextcloud,
+nextcloud-twofactor_webauthn-php85-2.7.1,security/nextcloud-twofactor_webauthn,U2F webauthn app for Nextcloud,
+nflib-1.0.0.23_4,security/nflib,NTT-based fast lattice cryptography library,yes
+ngrok-2.2.8_1,security/ngrok,Secure tunnels to localhost,
+"nikto-2.1.6_1,1",security/nikto,Web and CGI vulnerability scanner with SSL support,yes
+nist-kat-0.0.2015.02.23_1,security/nist-kat,Collection of NIST's Known Answer Test Vectors,
+nitrokey-app-1.4.2_1,security/nitrokey-app,Nitrokey App is an application created to manage Nitrokey devices,yes
+nmap-7.992,security/nmap,Port scanning utility for large networks,
+nmap-devel-7.100.20261024,security/nmap-devel,Port scanning utility for large networks,
+node-sqlcipher-4.1.0,security/node-sqlcipher,Fast N-API-based Node.js addon wrapping sqlcipher and FTS5 segmenting APIs,yes
+nss-3.134,security/nss,Libraries to support development of security-enabled applications,
+nss_compat_ossl-0.9.6_1,security/nss_compat_ossl,Source-level compatibility library for OpenSSL to NSS porting,yes
+nuclei-3.11.1_3,security/nuclei,Fast vulnerability scanner,
+nyx-2.1.0_3,security/nyx,Command-line monitor for Tor,
+oath-toolkit-2.6.14,security/oath-toolkit,"Library, tools, and PAM module for OATH authentication",
+obfs4proxy-tor-0.0.14_43,security/obfs4proxy-tor,"Pluggable transport proxy for Tor (obfs4, The Obfuscator)",
+ocaml-cryptgps-0.2.1_4,security/ocaml-cryptgps,Symmetric cryptographic algorithms package for OCaml,yes
+ocaml-cryptokit-1.19,security/ocaml-cryptokit,Variety of cryptographic primitives for Objective Caml,yes
+ocaml-digestif-1.3.0,security/ocaml-digestif,Cryptographic hashing library for OCaml,yes
+ocaml-lwt_ssl-1.2.0_2,security/ocaml-lwt_ssl,OpenSSL asynchronously cooperative bindings for OCaml,yes
+ocaml-ssl-0.7.0,security/ocaml-ssl,OpenSSL bindings for OCaml,yes
+oidentd-3.1.0,security/oidentd,Ident server that supports user-defined ident strings,
+oinkmaster-2.0_2,security/oinkmaster,Help you update your snort rules after each update,
+olm-3.2.13,security/olm,Double Ratchet cryptographic ratchet in C++,yes
+onionscan-0.2_50,security/onionscan,Free and open source tool for investigating Onion Services,
+op-1.34_3,security/op,Controlled privilege escalation tool,
+open-vulnerability-cli-9.0.7,security/open-vulnerability-cli,CLI that can be used to query various online vulnerability sources,
+openbao-2.6.2_4,security/openbao,Tool for securely accessing secrets,
+openbsm-1.2.a6,security/openbsm,Open Source Basic Security Module (BSM) Audit Implementation,
+openca-ocspd-3.1.3_2,security/openca-ocspd,OpenCA OCSP responder,
+openconnect-9.21,security/openconnect,Client for Cisco's AnyConnect SSL VPN,yes
+openconnect-freebsd-daemon-2.1.0,security/openconnect-freebsd-daemon,OpenConnect service daemon for FreeBSD rc(8),
+openconnect-gui-1.5.3_9,security/openconnect-gui,Graphical OpenConnect client,
+opencryptoki-3.19.0_1,security/opencryptoki,Open PKCS#11 implementation library,yes
+openct-0.6.20_3,security/openct,Middleware framework for smart card terminals,
+opendoas-6.8.2,security/opendoas,Port of OpenDoas: a portable version of OpenBSD's doas,
+openfhe-1.6.1,security/openfhe,Open-source Fully Homomorphic Encryption library,yes
+openfortivpn-1.24.1,security/openfortivpn,Client for PPP+SSL VPN tunnel services,yes
+openiked-7.4_1,security/openiked,IKEv2 daemon,
+openpgp-card-ssh-agent-0.3.8,security/openpgp-card-ssh-agent,SSH agent backed by OpenPGP card authentication keys,yes
+openpgp-card-tools-0.11.13,security/openpgp-card-tools,CLI tool for interacting with OpenPGP cards,yes
+openpgp-card-tools-git-0.1.9,security/openpgp-card-tools-git,Git signing and verification with a focus on OpenPGP cards,yes
+opensaml-3.3.1,security/opensaml,Open source implementation of SAML2,
+opensc-0.27.0,security/opensc,Libraries and utilities to access smart cards,
+"openssh-portable-10.6.p2,1",security/openssh-portable,The portable version of OpenBSD's OpenSSH,yes
+"openssh-portable-gssapi-10.6.p2,1",security/openssh-portable,The portable version of OpenBSD's OpenSSH,yes
+"openssh-portable-hpn-10.6.p2,1",security/openssh-portable,The portable version of OpenBSD's OpenSSH,yes
+"openssl-3.5.9,1",security/openssl,TLSv1.3 capable SSL and crypto library,yes
+openssl-agent-0.18.0,security/openssl-agent,OpenSSL key agent and client utilities,yes
+openssl-oqsprovider-0.12.0,security/openssl-oqsprovider,quantum-resistant cryptography provider for OpenSSL,yes
+openssl-pkcs11provider-1.3.0,security/openssl-pkcs11provider,OpenSSL 3.x PKCS#11 provider,yes
+openssl-unsafe-1.0.2.20170706,security/openssl-unsafe,Unsafe SSL and crypto library,yes
+openssl30-3.0.22,security/openssl30,TLSv1.3 capable SSL and crypto library,yes
+openssl36-3.6.5,security/openssl36,TLSv1.3 capable SSL and crypto library,yes
+openssl40-4.0.3,security/openssl40,TLSv1.3 capable SSL and crypto library,yes
+openssl41-4.1.0,security/openssl41,TLSv1.3 capable SSL and crypto library,yes
+openvas-23.50.23,security/openvas,Open vulnerability assessment scanner,
+openvpn-2.7.9,security/openvpn,Secure IP/Ethernet tunnel daemon,yes
+openvpn-admin-1.9.4_7,security/openvpn-admin,GUI frontend to openvpn,yes
+openvpn-auth-ldap-2.0.4_3,security/openvpn-auth-ldap,LDAP authentication plugin for OpenVPN,yes
+openvpn-auth-oauth2-2.3.2_1,security/openvpn-auth-oauth2,Management client for OpenVPN that handles SSO authentication,yes
+openvpn-auth-radius-2.1_4,security/openvpn-auth-radius,RADIUS authentication plugin for OpenVPN,yes
+openvpn-auth-script-1.0.0.3,security/openvpn-auth-script,Generic script-based deferred auth plugin for OpenVPN,yes
+"openvpn-devel-g20260907,2",security/openvpn-devel,Secure IP/Ethernet tunnel daemon,yes
+ophcrack-3.8.0_1,security/ophcrack,Windows password cracker based on rainbow tables,yes
+opie-1.20230501_1,security/opie,One-time Passwords In Everything,yes
+opkssh-0.17.0_2,security/opkssh,Tool which enables SSH to be used with OpenID Connect,yes
+ossec-hids-3.8.0,security/ossec-hids,Security tool to monitor and check logs and intrusions,
+ossec-hids-agent-3.8.0,security/ossec-hids-agent,Security tool to monitor and check logs and intrusions - agent installation,
+ossec-hids-agent-config-3.8.0,security/ossec-hids-agent-config,Configuration manager for ossec-hids-agent,
+ossec-hids-local-3.8.0,security/ossec-hids-local,Security tool to monitor and check logs and intrusions - local (standalone) installation,
+ossec-hids-local-config-3.8.0,security/ossec-hids-local-config,Configuration manager for ossec-hids-local,
+ossec-hids-server-3.8.0,security/ossec-hids-server,Security tool to monitor and check logs and intrusions - server installation,
+ossec-hids-server-config-3.8.0,security/ossec-hids-server-config,Configuration manager for ossec-hids-server,
+osslsigncode-2.16,security/osslsigncode,OpenSSL-based signcode utility,yes
+osv-scanner-2.7.0_2,security/osv-scanner,Vulnerability scanner written in Go which uses the OSV database,
+otpw-1.5_1,security/otpw,One-time password login package by Markus Kuhn,yes
+p11-kit-0.26.6,security/p11-kit,Library for loading and enumerating of PKCS#11 modules,yes
+p5-Alt-Crypt-RSA-BigInt-0.06,security/p5-Alt-Crypt-RSA-BigInt,"RSA public-key cryptosystem, using Math::BigInt",yes
+p5-Apache-Htpasswd-1.9_2,security/p5-Apache-Htpasswd,Manage Unix crypt-style password file,yes
+p5-App-Acmeman-3.10,security/p5-App-Acmeman,Automatic management of ACME (Let's Encrypt) SSL certificates,yes
+p5-App-ClusterSSH-4.19,security/p5-App-ClusterSSH,Controls multiple hosts simultaneously via xterms and ssh,yes
+p5-App-Genpass-2.401,security/p5-App-Genpass,Quickly and easily create secure passwords,yes
+p5-App-TLSMe-0.110000_1,security/p5-App-TLSMe,Perl extension for TLS/SSL tunnel,yes
+p5-Auth-GoogleAuth-1.09,security/p5-Auth-GoogleAuth,Google Authenticator TOTP abstraction,yes
+p5-Auth-YubikeyDecrypter-0.07_1,security/p5-Auth-YubikeyDecrypter,Decrypting the output from the yubikey token,yes
+p5-AuthCAS-1.6_2,security/p5-AuthCAS,Perl API to Yale's Central Authentication System (CAS),
+p5-Authen-Bitcard-0.90_1,security/p5-Authen-Bitcard,Bitcard authentication verification,
+p5-Authen-Captcha-1.024,security/p5-Authen-Captcha,Perl module to verify the human element in transactions,
+p5-Authen-CyrusSASL-0.01_1,security/p5-Authen-CyrusSASL,Perl5 module for accessing the SASL authentication daemon,
+p5-Authen-DecHpwd-2.007,security/p5-Authen-DecHpwd,Perl module for DEC VMS password hashing,yes
+p5-Authen-Htpasswd-0.171_1,security/p5-Authen-Htpasswd,Perl interface to read and modify Apache .htpasswd files,
+p5-Authen-Krb5-1.9_2,security/p5-Authen-Krb5,Perl extension for Kerberos 5,yes
+p5-Authen-Krb5-Simple-0.43,security/p5-Authen-Krb5-Simple,User/password authentication using Kerberose 5,yes
+p5-Authen-Libwrap-0.23,security/p5-Authen-Libwrap,Perl interface to TCP Wrappers library,
+p5-Authen-NTLM-1.09_1,security/p5-Authen-NTLM,Perl5 NTLM authentication module,
+p5-Authen-OATH-1.0.0_1,security/p5-Authen-OATH,OATH one time passwords implementation,yes
+p5-Authen-PAAS-1.1.1_1,security/p5-Authen-PAAS,Perl Authentication & Authorization Service,
+p5-Authen-PAM-0.16_2,security/p5-Authen-PAM,Perl interface to the PAM library,
+p5-Authen-Passphrase-0.008_2,security/p5-Authen-Passphrase,Perl module for handling hashed passwords/passphrases as objects,yes
+p5-Authen-PluggableCaptcha-0.05_3,security/p5-Authen-PluggableCaptcha,Pluggable Captcha framework for Perl,
+p5-Authen-Radius-0.33,security/p5-Authen-Radius,Perl5 module to provide simple Radius client facilities,
+p5-Authen-SASL-2.2100,security/p5-Authen-SASL,Perl5 module for SASL authentication,
+p5-Authen-SASL-Cyrus-0.13_1,security/p5-Authen-SASL-Cyrus,XS SASL Authentication,
+p5-Authen-SASL-SASLprep-1.100,security/p5-Authen-SASL-SASLprep,Stringprep Profile for User Names and Passwords (RFC 4013),yes
+p5-Authen-SCRAM-0.011,security/p5-Authen-SCRAM,Salted Challenge Response Authentication Mechanism (RFC 5802),
+p5-Authen-Simple-0.5_1,security/p5-Authen-Simple,Simple authentication framework,
+p5-Authen-Simple-DBI-0.2_1,security/p5-Authen-Simple-DBI,Simple DBI authentication,
+p5-Authen-Simple-DBM-0.2_1,security/p5-Authen-Simple-DBM,Simple DBM authentication,
+p5-Authen-Simple-HTTP-0.2_1,security/p5-Authen-Simple-HTTP,Simple HTTP authentication,
+p5-Authen-Simple-Kerberos-0.1,security/p5-Authen-Simple-Kerberos,Simple Kerberos authentication,yes
+p5-Authen-Simple-LDAP-0.3_1,security/p5-Authen-Simple-LDAP,Simple LDAP authentication,
+p5-Authen-Simple-Net-0.2_2,security/p5-Authen-Simple-Net,"Simple authentication via FTP, POP3, or SMTP",
+p5-Authen-Simple-PAM-0.2_1,security/p5-Authen-Simple-PAM,Simple PAM authentication,
+p5-Authen-Simple-Passwd-0.6_1,security/p5-Authen-Simple-Passwd,Simple Passwd authentication,
+p5-Authen-Simple-RADIUS-0.1_1,security/p5-Authen-Simple-RADIUS,Simple RADIUS authentication,
+p5-Authen-Simple-SMB-0.1_1,security/p5-Authen-Simple-SMB,Simple SMB authentication,
+p5-Authen-Simple-SSH-0.1_1,security/p5-Authen-Simple-SSH,Simple SSH authentication,yes
+p5-Authen-Smb-0.91_1,security/p5-Authen-Smb,Perl extension to authenticate against an SMB server,
+p5-Authen-TacacsPlus-0.28,security/p5-Authen-TacacsPlus,Perl module that provides authentication using a tacacs+ server,
+p5-Authen-Ticket-0.02_1,security/p5-Authen-Ticket,Perl module providing the framework for implementing a ticketing system,
+p5-Authen-TypeKey-0.05_3,security/p5-Authen-TypeKey,TypeKey authentication verification,yes
+p5-Business-PayPal-EWP-1.03_1,security/p5-Business-PayPal-EWP,Perl extension for PayPal Encrypted Website Payments,yes
+p5-Bytes-Random-Secure-0.29,security/p5-Bytes-Random-Secure,Generate cryptographically-secure random bytes,yes
+p5-Bytes-Random-Secure-Tiny-1.011,security/p5-Bytes-Random-Secure-Tiny,Generate cryptographically-secure random bytes,yes
+p5-CACertOrg-CA-20210114.003,security/p5-CACertOrg-CA,CACert.org CA root certificate in PEM format,yes
+p5-CPAN-Audit-20261105.001,security/p5-CPAN-Audit,Audit CPAN distributions for known vulnerabilities,
+p5-CPANSA-DB-20261101.010,security/p5-CPANSA-DB,"CPAN Security Advisory data as a Perl data structure, mostly for CPAN::Audit",
+p5-CSP-0.34_1,security/p5-CSP,Perl tool for managing Certificate Authorities,yes
+p5-Cisco-Hash-0.02_1,security/p5-Cisco-Hash,De- and encrypts Cisco type 7 hashes,yes
+p5-Crypt-Anubis-1.0.4_1,security/p5-Crypt-Anubis,Crypt::CBC-compliant block cipher,yes
+p5-Crypt-AppleTwoFish-0.051_1,security/p5-Crypt-AppleTwoFish,Perl extension for Apple iTMS internal key descrambling algorithm,yes
+p5-Crypt-Argon2-0.032,security/p5-Crypt-Argon2,Perl interface to the Argon2 key derivation functions,yes
+p5-Crypt-Bcrypt-0.011,security/p5-Crypt-Bcrypt,Modern bcrypt implementation,yes
+p5-Crypt-Blowfish-2.14_2,security/p5-Crypt-Blowfish,Perl interface to the Blowfish encryption algorithm,yes
+p5-Crypt-Blowfish_PP-1.12_1,security/p5-Crypt-Blowfish_PP,Blowfish encryption algorithm implemented purely in Perl,yes
+p5-Crypt-CAST5-0.05_1,security/p5-Crypt-CAST5,CAST5 block cipher,yes
+p5-Crypt-CAST5_PP-1.04_1,security/p5-Crypt-CAST5_PP,CAST5 block cipher in pure Perl,yes
+p5-Crypt-CBC-3.07,security/p5-Crypt-CBC,Perl5 interface to Cipher Block Chaining with DES and IDEA,yes
+p5-Crypt-CBCeasy-0.24_2,security/p5-Crypt-CBCeasy,Easy things make really easy with Crypt::CBC,yes
+p5-Crypt-CFB-0.02_1,security/p5-Crypt-CFB,Perl extension for encrypting data in Cipher Feedback Mode,yes
+p5-Crypt-Caesar-0.01_1,security/p5-Crypt-Caesar,Perl extension for decrypting rot-N strings,yes
+p5-Crypt-Camellia_PP-0.02_1,security/p5-Crypt-Camellia_PP,Pure Perl Camellia 128-bit block cipher module,yes
+p5-Crypt-Chimera-1.01_1,security/p5-Crypt-Chimera,Perl extension for Chimera key exchange protocol,yes
+p5-Crypt-CipherSaber-1.01,security/p5-Crypt-CipherSaber,Perl module providing an OO interface to CipherSaber encryption,yes
+p5-Crypt-Cracklib-1.7_6,security/p5-Crypt-Cracklib,Perl interface to Alec Muffet's cracklib library,yes
+p5-Crypt-Ctr-0.01_2,security/p5-Crypt-Ctr,Perl extension for encrypting data in Counter Mode,yes
+p5-Crypt-Curve25519-0.08,security/p5-Crypt-Curve25519,Generate shared secret using elliptic-curve Diffie-Hellman function,yes
+p5-Crypt-DES-2.07_3,security/p5-Crypt-DES,Perl5 interface to DES block cipher,yes
+p5-Crypt-DES_EDE3-0.03,security/p5-Crypt-DES_EDE3,Perl5 interface to a implementing 3-DES EDE encryption and decryption,yes
+p5-Crypt-DES_PP-1.00_1,security/p5-Crypt-DES_PP,Perl extension for DES encryption in pure Perl,yes
+p5-Crypt-DH-0.07_1,security/p5-Crypt-DH,Perl5 interface to a Diffie-Hellman key exchange system,yes
+p5-Crypt-DSA-1.19,security/p5-Crypt-DSA,DSA signature and key generation,yes
+p5-Crypt-Dining-1.01_1,security/p5-Crypt-Dining,The Dining Cryptographers' Protocol,yes
+p5-Crypt-ECB-2.23,security/p5-Crypt-ECB,Perl module implementing the ECB encryption algorithm,yes
+p5-Crypt-Eksblowfish-0.009_3,security/p5-Crypt-Eksblowfish,Perl module for the Eksblowfish block cipher,yes
+p5-Crypt-Enigma-1.4_1,security/p5-Crypt-Enigma,Perl extension for the Enigma cipher,yes
+p5-Crypt-Format-0.12,security/p5-Crypt-Format,Conversion utilities for encryption applications,yes
+p5-Crypt-GCrypt-1.26_3,security/p5-Crypt-GCrypt,Perl interface to the GNU Cryptographic library,yes
+p5-Crypt-GOST-1.00_1,security/p5-Crypt-GOST,Perl extension for GOST Encryption Algorithm,yes
+p5-Crypt-GOST_PP-1.10_1,security/p5-Crypt-GOST_PP,Perl extension for GOST Encryption Algorithm in pure Perl,yes
+p5-Crypt-GPG-1.64,security/p5-Crypt-GPG,Perl extension for GnuPG,yes
+p5-Crypt-GeneratePassword-0.05,security/p5-Crypt-GeneratePassword,Generate secure random pronounceable passwords,yes
+p5-Crypt-GpgME-0.09_2,security/p5-Crypt-GpgME,Perl interface to libgpgme,yes
+p5-Crypt-HCE_MD5-0.75,security/p5-Crypt-HCE_MD5,Perl extension implementing one way hash chaining encryption using MD5,yes
+p5-Crypt-HCE_SHA-0.75,security/p5-Crypt-HCE_SHA,Perl5 interface to one way hash chaining block cipher,yes
+p5-Crypt-HSXKPasswd-3.6,security/p5-Crypt-HSXKPasswd,Secure memorable password generator inspired by XKCD,yes
+p5-Crypt-IDEA-1.10_1,security/p5-Crypt-IDEA,Perl5 interface to IDEA block cipher,yes
+p5-Crypt-Imail-0.01_1,security/p5-Crypt-Imail,Perl extension to encrypt and decrypt Imail passwords,yes
+p5-Crypt-JWT-0.038,security/p5-Crypt-JWT,"JSON Web Token (JWT, JWS, JWE) as defined by RFC7519, RFC7515, RFC7516",yes
+p5-Crypt-Juniper-0.02_1,security/p5-Crypt-Juniper,Encrypt and decrypt Juniper secrets,yes
+p5-Crypt-Khazad-1.0.3_1,security/p5-Crypt-Khazad,Perl extension for Khazad block cipher,yes
+p5-Crypt-LE-0.39,security/p5-Crypt-LE,Let's Encrypt API interfacing module,yes
+p5-Crypt-LibSCEP-0.09,security/p5-Crypt-LibSCEP,Easy-to-use interface between LibSCEP and Perl programs,yes
+p5-Crypt-License-2.04_1,security/p5-Crypt-License,Perl extension to examine a license,yes
+p5-Crypt-Lite-0.82.11_2,security/p5-Crypt-Lite,Perl extension for a symmetric data encryption and decryption,yes
+p5-Crypt-Loki97-1.0.1_1,security/p5-Crypt-Loki97,Perl extension for Loki97 block cipher,yes
+p5-Crypt-MySQL-0.04_1,security/p5-Crypt-MySQL,Perl extension to compare MySQL passwords without libmysqlclient,yes
+p5-Crypt-NULL-1.02_1,security/p5-Crypt-NULL,Perl implementation of the NULL encryption algorithm,yes
+p5-Crypt-OFB-0.01_1,security/p5-Crypt-OFB,Encrypt Data using OFB Mode,yes
+p5-Crypt-OTP-2.00_1,security/p5-Crypt-OTP,"Perl implementation of the One Time Pad (hence, OTP) encryption method",yes
+p5-Crypt-OpenPGP-1.19,security/p5-Crypt-OpenPGP,Pure-Perl OpenPGP-compatible PGP implementation,yes
+p5-Crypt-OpenSSL-AES-0.23,security/p5-Crypt-OpenSSL-AES,Perl wrapper around OpenSSL's AES library,yes
+p5-Crypt-OpenSSL-Bignum-0.09,security/p5-Crypt-OpenSSL-Bignum,OpenSSL's multiprecision integer arithmetic,yes
+p5-Crypt-OpenSSL-CA-0.91,security/p5-Crypt-OpenSSL-CA,Perl extension for OpenSSL CA API,yes
+p5-Crypt-OpenSSL-DSA-0.20,security/p5-Crypt-OpenSSL-DSA,Perl5 module to DSA signature verification using OpenSSL,yes
+p5-Crypt-OpenSSL-EC-1.32,security/p5-Crypt-OpenSSL-EC,Perl extension for OpenSSL EC (Elliptic Curves) library,yes
+p5-Crypt-OpenSSL-ECDSA-0.10,security/p5-Crypt-OpenSSL-ECDSA,Perl extension for OpenSSL ECDSA,yes
+p5-Crypt-OpenSSL-Guess-0.15,security/p5-Crypt-OpenSSL-Guess,Guess OpenSSL include path,yes
+p5-Crypt-OpenSSL-PKCS10-0.37,security/p5-Crypt-OpenSSL-PKCS10,Perl extension for OpenSSL PKCS10 API,yes
+p5-Crypt-OpenSSL-RSA-0.41,security/p5-Crypt-OpenSSL-RSA,Perl5 module to RSA encode and decode strings using OpenSSL,yes
+p5-Crypt-OpenSSL-Random-0.17,security/p5-Crypt-OpenSSL-Random,Perl5 interface to the OpenSSL pseudo-random number generator,yes
+p5-Crypt-OpenSSL-Verify-0.38,security/p5-Crypt-OpenSSL-Verify,OpenSSL Verify certificate verification in XS,yes
+p5-Crypt-OpenSSL-X509-2.0.1,security/p5-Crypt-OpenSSL-X509,Perl extension for OpenSSL X509 API,yes
+p5-Crypt-PBKDF2-0.161520,security/p5-Crypt-PBKDF2,PBKDF2 password hashing algorithm,yes
+"p5-Crypt-PKCS10-2.005,1",security/p5-Crypt-PKCS10,Parse PKCS #10 certificate requests,yes
+p5-Crypt-PWSafe3-1.22,security/p5-Crypt-PWSafe3,Read and write Passwordsafe v3 files,yes
+p5-Crypt-PassGen-0.06_1,security/p5-Crypt-PassGen,Generate random password that looks like real word,yes
+p5-Crypt-Passwd-XS-0.601_1,security/p5-Crypt-Passwd-XS,Full XS implementation of common crypt() algorithms,yes
+p5-Crypt-PasswdMD5-1.46,security/p5-Crypt-PasswdMD5,Perl module that provides interoperable MD5-based crypt() function,yes
+p5-Crypt-Password-Util-0.17,security/p5-Crypt-Password-Util,Crypt password utilities,yes
+p5-Crypt-Perl-0.38,security/p5-Crypt-Perl,Cryptography in Pure Perl,yes
+p5-Crypt-Primes-0.52,security/p5-Crypt-Primes,Provable Prime Number Generator suitable for Cryptographic Applications,yes
+p5-Crypt-RC4-2.02_1,security/p5-Crypt-RC4,Perl implementation of the RC4 encryption algorithm,yes
+p5-Crypt-RC5-2.00_1,security/p5-Crypt-RC5,Perl implementation of the RC5 encryption algorithm,yes
+p5-Crypt-RC6-1.0_1,security/p5-Crypt-RC6,Perl implementation of the RC6 encryption algorithm,yes
+p5-Crypt-RHash-1.05,security/p5-Crypt-RHash,Compute hash sums and magnet links,yes
+p5-Crypt-RIPEMD160-0.14,security/p5-Crypt-RIPEMD160,RIPEMD-160 message digest algorithm,yes
+p5-Crypt-RSA-1.99_2,security/p5-Crypt-RSA,RSA public-key cryptosystem,yes
+p5-Crypt-RSA-Parse-0.044,security/p5-Crypt-RSA-Parse,Parse RSA keys,yes
+p5-Crypt-RSA-Yandex-0.06_1,security/p5-Crypt-RSA-Yandex,Perl binding to modified RSA (yamrsa),yes
+p5-Crypt-Rabbit-1.0.0_1,security/p5-Crypt-Rabbit,Perl extension for Rabbit stream cipher,yes
+p5-Crypt-RandPasswd-0.07,security/p5-Crypt-RandPasswd,Implementation of the Automated Password Generator standard,yes
+p5-Crypt-Random-1.57,security/p5-Crypt-Random,"Cryptographically Secure, True Random Number Generator",yes
+p5-Crypt-Random-Seed-0.03,security/p5-Crypt-Random-Seed,Simple method to get strong randomness,yes
+p5-Crypt-Random-Source-0.12,security/p5-Crypt-Random-Source,Get weak or strong random data from pluggable sources,yes
+p5-Crypt-Random-TESHA2-0.01,security/p5-Crypt-Random-TESHA2,Random numbers using timer/schedule entropy,yes
+p5-Crypt-Rijndael-1.16,security/p5-Crypt-Rijndael,Perl module that implements the Rijndael cipher,yes
+p5-Crypt-Rijndael_PP-0.05_1,security/p5-Crypt-Rijndael_PP,Perl implementation of Rijndael,yes
+p5-Crypt-SKey-0.10_3,security/p5-Crypt-SKey,Perl S/Key calculator,yes
+p5-Crypt-SMIME-0.31,security/p5-Crypt-SMIME,"S/MIME message signing, verification, encryption and decryption",yes
+p5-Crypt-SSLeay-0.72_3,security/p5-Crypt-SSLeay,Perl5 interface to allow p5-libwww LWP to make https connections,yes
+p5-Crypt-SSSS-0.3,security/p5-Crypt-SSSS,Implementation of Shamir's Secret Sharing System,yes
+p5-Crypt-Salt-0.01_1,security/p5-Crypt-Salt,Perl extension to generate a salt to be fed into crypt,yes
+p5-Crypt-SaltedHash-0.12,security/p5-Crypt-SaltedHash,Perl extension to work with salted hashes,yes
+p5-Crypt-Serpent-1.01_1,security/p5-Crypt-Serpent,Perl implementation of the Serpent encryption algorithm,yes
+p5-Crypt-Shark-1.0.1_1,security/p5-Crypt-Shark,Perl extension for Shark block cipher,yes
+p5-Crypt-Simple-0.06_4,security/p5-Crypt-Simple,Perl encrypt stuff simply,yes
+p5-Crypt-SmbHash-0.12_1,security/p5-Crypt-SmbHash,Perl module implementing lanman and nt md4 hash functions,yes
+p5-Crypt-Sodium-0.11_4,security/p5-Crypt-Sodium,Perl bindings for portable NaCL (libsodium),yes
+p5-Crypt-Solitaire-2.0_1,security/p5-Crypt-Solitaire,Solitaire encryption,yes
+p5-Crypt-SysRandom-0.007,security/p5-Crypt-SysRandom,Perl interface to system randomness,yes
+p5-Crypt-SysRandom-XS-0.011,security/p5-Crypt-SysRandom-XS,"Perl interface to system randomness, XS version",yes
+p5-Crypt-TEA-1.26,security/p5-Crypt-TEA,Perl extension to Tiny Encryption Algorithm,yes
+p5-Crypt-T_e_a-2.12_1,security/p5-Crypt-T_e_a,The Tiny Encryption Algorithm in Perl and JavaScript,yes
+p5-Crypt-Tea_JS-2.23_3,security/p5-Crypt-Tea_JS,Next gen Tiny Encryption Algorithm in Perl and Javascript,yes
+p5-Crypt-TripleDES-0.24_1,security/p5-Crypt-TripleDES,Perl module implementing the Triple-DES cipher,yes
+p5-Crypt-Twofish-2.18,security/p5-Crypt-Twofish,Perl module implementing the Twofish cipher,yes
+p5-Crypt-Twofish2-1.03,security/p5-Crypt-Twofish2,Perl implementation of the Twofish encryption algorithm,yes
+p5-Crypt-Twofish_PP-0.17_2,security/p5-Crypt-Twofish_PP,The Twofish Algorithm in Pure Perl,yes
+p5-Crypt-URandom-0.55,security/p5-Crypt-URandom,Perl extension to provide non blocking randomness,yes
+p5-Crypt-URandom-Token-0.005,security/p5-Crypt-URandom-Token,"Generate secure strings for passwords, secrets and similar",yes
+p5-Crypt-UnixCrypt-1.0_1,security/p5-Crypt-UnixCrypt,Perl module implementing crypt(3) function,yes
+p5-Crypt-UnixCrypt_XS-0.11,security/p5-Crypt-UnixCrypt_XS,Perl XS interface for a portable traditional crypt function,yes
+p5-Crypt-X509-0.55,security/p5-Crypt-X509,Perl extension to parse X.509 certificates,yes
+p5-Crypt-X509-CRL-0.4,security/p5-Crypt-X509-CRL,Object oriented X.509 certificate revocation list parser,yes
+p5-Crypt-XTEA-0.0108,security/p5-Crypt-XTEA,Implementation of the eXtended Tiny Encryption Algorithm,yes
+p5-Crypt-xDBM_File-1.02_1,security/p5-Crypt-xDBM_File,Perl module encrypt almost any kind of dbm file,yes
+p5-CryptX-0.091,security/p5-CryptX,Crypto toolkit,yes
+p5-Dancer-Plugin-Auth-Extensible-1.00,security/p5-Dancer-Plugin-Auth-Extensible,Extensible authentication framework for Dancer apps,
+p5-Dancer2-Plugin-Auth-Extensible-0.711,security/p5-Dancer2-Plugin-Auth-Extensible,Extensible authentication framework for Dancer2 apps,
+p5-Dancer2-Plugin-Auth-Extensible-Provider-DBIC-0.624,security/p5-Dancer2-Plugin-Auth-Extensible-Provider-DBIC,Extensible authentication framework for Dancer2 apps using DBIC,
+p5-Dancer2-Plugin-Auth-Extensible-Provider-Database-0.630,security/p5-Dancer2-Plugin-Auth-Extensible-Provider-Database,Extensible authentication for D2 apps using Dancer2-Plugin-Database,
+p5-Dancer2-Plugin-Auth-Extensible-Provider-IMAP-0.003,security/p5-Dancer2-Plugin-Auth-Extensible-Provider-IMAP,Extensible authentication for D2 apps using Net::IMAP::Simple,
+p5-Data-Password-1.12,security/p5-Data-Password,Assess password quality,yes
+p5-Digest-1.20,security/p5-Digest,Modules that calculate message digests,
+p5-Digest-Adler32-0.03_2,security/p5-Digest-Adler32,Perl extension for Adler32 hash algorithm,yes
+p5-Digest-Bcrypt-1.212,security/p5-Digest-Bcrypt,Perl interface to the bcrypt digest algorithm,yes
+p5-Digest-BubbleBabble-0.02_1,security/p5-Digest-BubbleBabble,"Perl5 interface to a fingerprint in ""bubble babble"" format",
+p5-Digest-CRC-0.24,security/p5-Digest-CRC,Perl extension for calculating CRC checksums,yes
+p5-Digest-Crc32-0.01_1,security/p5-Digest-Crc32,Perl extension for calculating 32-bit CRC checksums,yes
+p5-Digest-DJB-1.00_1,security/p5-Digest-DJB,Perl extension for D.J Bernstein's hash algorithm,yes
+p5-Digest-DMAC-1.1.4_2,security/p5-Digest-DMAC,Perl5 interface to DMAC Double Message-Digest Algorithms,
+p5-Digest-EMAC-1.2_2,security/p5-Digest-EMAC,Perl5 interface to EMAC Double Message-Digest Algorithms,
+p5-Digest-Elf-1.42,security/p5-Digest-Elf,Perl extension for ElfHash hash algorithm,yes
+p5-Digest-FNV-2.00_1,security/p5-Digest-FNV,Perl extension for Fowler/Noll/Vo hash algorithm,yes
+p5-Digest-GOST-0.06,security/p5-Digest-GOST,Perl interface to the GOST R 34.11-94 digest algorithm,
+p5-Digest-HMAC-1.05,security/p5-Digest-HMAC,Perl5 interface to HMAC Message-Digest Algorithms,
+p5-Digest-Hashcash-1.1,security/p5-Digest-Hashcash,Perl extension for Hashcash hash algorithm,yes
+p5-Digest-Haval256-1.0.5_2,security/p5-Digest-Haval256,Perl extension for Haval256 hash algorithm,yes
+p5-Digest-JHash-0.10,security/p5-Digest-JHash,Perl extension for JHash hash algorithm,yes
+p5-Digest-MD2-2.04_2,security/p5-Digest-MD2,Perl5 interface to the MD2 message digest algorithm,
+p5-Digest-MD4-1.9_2,security/p5-Digest-MD4,Perl5 interface to the MD4 message digest algorithm,
+p5-Digest-MD5-2.59_1,security/p5-Digest-MD5,Perl5 interface to the MD5 algorithm,
+p5-Digest-MD5-File-0.08_1,security/p5-Digest-MD5-File,Perl extension for getting MD5 sums for files and urls,
+p5-Digest-MD5-M4p-0.01_2,security/p5-Digest-MD5-M4p,Perl interface to a variant of the MD5 algorithm,
+p5-Digest-MD5-Reverse-1.3_1,security/p5-Digest-MD5-Reverse,Perl extension that looks for MD5 hashes in several databases,yes
+p5-Digest-ManberHash-0.7_1,security/p5-Digest-ManberHash,Perl extension for ManberHash hash algorithm,yes
+p5-Digest-MurmurHash-0.11_1,security/p5-Digest-MurmurHash,Perl extension for XS interface to the MurmurHash algorithm,yes
+p5-Digest-Nilsimsa-0.06_1,security/p5-Digest-Nilsimsa,Perl version of Nilsimsa code,
+p5-Digest-Pearson-1.00_1,security/p5-Digest-Pearson,Perl extension for Peter K. Pearson's hash algorithm,yes
+p5-Digest-Pearson-PurePerl-1.00_1,security/p5-Digest-Pearson-PurePerl,Perl extension for Peter K. Pearson's hash algorithm in pure Perl,yes
+p5-Digest-Perl-MD4-1.4_1,security/p5-Digest-Perl-MD4,Perl extension for MD4 hash algorithm in pure Perl,yes
+p5-Digest-Perl-MD5-1.9_1,security/p5-Digest-Perl-MD5,Perl extension for MD5 hash algorithm in pure Perl,yes
+p5-Digest-SHA-6.04,security/p5-Digest-SHA,Perl extension for SHA-1/224/256/384/512,
+p5-Digest-SHA-PurePerl-6.03,security/p5-Digest-SHA-PurePerl,Perl extension for SHA-1/224/256/384/512 in pure Perl,
+p5-Digest-SHA1-2.13_2,security/p5-Digest-SHA1,Perl interface to the SHA-1 Algorithm,
+p5-Digest-SHA3-1.05,security/p5-Digest-SHA3,Perl extension for SHA-3,
+p5-Digest-SV1-0.01_1,security/p5-Digest-SV1,Perl extension for SV1 hash algorithm,yes
+p5-Digest-SipHash-0.21,security/p5-Digest-SipHash,Perl XS interface to the SipHash algorithm,yes
+p5-Digest-Tiger-0.03_1,security/p5-Digest-Tiger,Perl extension for Tiger hash algorithm,yes
+p5-Digest-Whirlpool-2.04_1,security/p5-Digest-Whirlpool,Perl extension for Whirlpool hash algorithm,yes
+p5-File-KeePass-2.03_2,security/p5-File-KeePass,"Interface to KeePassX, KeePass 1.x and 2.x database files",
+p5-File-KeePass-Agent-2.01_2,security/p5-File-KeePass-Agent,Application agent for working with File::KeePass objects,
+p5-File-Scan-1.43_1,security/p5-File-Scan,Perl5 anti-virus file scanning package,
+p5-File-Scan-ClamAV-1.96,security/p5-File-Scan-ClamAV,Perl extension for the clamav virus scanner,
+p5-Filter-CBC-0.10_2,security/p5-Filter-CBC,Source filter for Cipher Block Chaining,yes
+p5-Filter-Crypto-2.10,security/p5-Filter-Crypto,Create runnable Perl files encrypted with OpenSSL libcrypto,yes
+"p5-GD-SecurityImage-1.75_3,1",security/p5-GD-SecurityImage,Perl5 module for creating CAPTCHA security images,
+p5-GSSAPI-0.28_2,security/p5-GSSAPI,Perl extension providing access to the GSSAPIv2 library,yes
+p5-GnuPG-0.19_1,security/p5-GnuPG,Perl module for interfacing with GnuPG,yes
+p5-GnuPG-Interface-1.05,security/p5-GnuPG-Interface,Perl module for interfacing with GnuPG,yes
+p5-HTML-Email-Obfuscate-1.00_1,security/p5-HTML-Email-Obfuscate,Obfuscates HTML email addresses that look normal,
+p5-Heimdal-Kadm5-0.08,security/p5-Heimdal-Kadm5,Perl extension for Heimdal administrative client library,
+p5-IO-Async-SSL-0.25,security/p5-IO-Async-SSL,Use SSL/TLS with IO::Async,yes
+p5-IO-Socket-SSL-2.099,security/p5-IO-Socket-SSL,Perl5 interface to SSL sockets,yes
+p5-MD5-2.03_1,security/p5-MD5,Wrapper to the Digest::MD5 module,
+p5-Mcrypt-2.5.7.0_4,security/p5-Mcrypt,Perl extension for the Mcrypt cryptography library,yes
+p5-Module-Signature-0.93_1,security/p5-Module-Signature,Module signature file manipulation,yes
+p5-Net-Daemon-SSL-1.0_1,security/p5-Net-Daemon-SSL,Perl5 extension for portable daemons,yes
+p5-Net-OpenID-Common-1.20,security/p5-Net-OpenID-Common,Libraries shared between Net::OpenID::Consumer and Net::OpenID::Server,
+p5-Net-OpenID-JanRain-1.1.1_3,security/p5-Net-OpenID-JanRain,OpenID JanRain and Consumer with JanRain API,
+p5-Net-OpenID-Server-1.09_2,security/p5-Net-OpenID-Server,Reference implementation of OpenID server,
+p5-Net-Radius-Server-1.116_1,security/p5-Net-Radius-Server,Framework for RADIUS Servers,
+p5-Net-SAML2-0.89,security/p5-Net-SAML2,SAML2 bindings and protocol implementation,
+p5-Net-SSH-AuthorizedKeysFile-0.18,security/p5-Net-SSH-AuthorizedKeysFile,Read and modify SSH authorized_keys files,yes
+p5-Net-SSL-ExpireDate-1.25,security/p5-Net-SSL-ExpireDate,Obtain expiration date of certificate,yes
+p5-Net-SSLGlue-1.058,security/p5-Net-SSLGlue,Add/extend SSL support for common perl modules,yes
+p5-Net-SSLeay-1.94,security/p5-Net-SSLeay,Perl5 interface to SSL,yes
+p5-Net-Server-Mail-ESMTP-AUTH-0.2,security/p5-Net-Server-Mail-ESMTP-AUTH,Plain and login auth methods for Net::Server::Mail::ESMTP,
+p5-Net-SinFP-2.10,security/p5-Net-SinFP,Full operating system stack fingerprinting suite,
+p5-Nmap-Parser-1.37,security/p5-Nmap-Parser,Parse nmap scan data with perl,
+p5-Nmap-Scanner-1.0_5,security/p5-Nmap-Scanner,Perform and manipulate nmap scans using perl,
+"p5-OpenCA-CRL-0.9.6_1,1",security/p5-OpenCA-CRL,CRL Management module,
+p5-OpenCA-CRR-0.0.2_1,security/p5-OpenCA-CRR,Perl extension to handle CRR objects,
+p5-OpenCA-REQ-0.9.60_1,security/p5-OpenCA-REQ,Perl extension to easily manage Cert REQUESTs,yes
+p5-OpenCA-X509-0.9.10_2,security/p5-OpenCA-X509,Perl extension for handling X509 Certificates,yes
+p5-PBKDF2-Tiny-0.005,security/p5-PBKDF2-Tiny,Minimalist PBKDF2 (RFC 2898) with HMAC-SHA1 or HMAC-SHA2,
+p5-PGP-0.3a_2,security/p5-PGP,Perl5 module to work with PGP messages,yes
+p5-PGP-Sign-1.04,security/p5-PGP-Sign,Create detached PGP signatures for data,yes
+p5-POE-Component-SSLify-1.012,security/p5-POE-Component-SSLify,Integrate SSL into POE,yes
+p5-POE-Filter-SSL-0.41,security/p5-POE-Filter-SSL,Esiest and flexiblest way to SSL in POEIntegrate SSL into POE,yes
+p5-Parse-Snort-0.9,security/p5-Parse-Snort,Parse and create Snort rules,
+p5-PerlCryptLib-1.12,security/p5-PerlCryptLib,Perl interface to Peter Guttman cryptlib API,yes
+p5-SAVI-Perl-0.30_6,security/p5-SAVI-Perl,Perl5 module interface to Sophos AntiVirus,
+p5-SHA-2.01_1,security/p5-SHA,Perl5 interface to the SHA1 algorithm,
+p5-Safe-Hole-0.13_1,security/p5-Safe-Hole,Make a hole to the original main compartment in the Safe compartment,
+p5-Session-Token-1.503,security/p5-Session-Token,"Secure, efficient, simple random session token generation",
+p5-Snort-Rule-1.07_1,security/p5-Snort-Rule,Perl5 extension for dynamically building snort rules,
+p5-String-MkPasswd-0.05,security/p5-String-MkPasswd,Random password generator,yes
+p5-Sudo-0.33_1,security/p5-Sudo,Perl extension for running a command line sudo,
+p5-Text-Password-Pronounceable-0.30_1,security/p5-Text-Password-Pronounceable,Perl extension for generating pronounceable passwords,yes
+p5-Tie-EncryptedHash-1.24_1,security/p5-Tie-EncryptedHash,Hashes (and objects based on hashes) with encrypting fields,yes
+p5-Tree-Authz-0.03_1,security/p5-Tree-Authz,Role-Based Access Control authorization scheme,
+p5-URN-OASIS-SAML2-0.007,security/p5-URN-OASIS-SAML2,Constants for urn:oasis SAML2 implementations,
+p5-Unix-Passwd-File-0.251,security/p5-Unix-Passwd-File,Manipulate passwd and group entries,
+p5-Unix-setuid-0.02,security/p5-Unix-setuid,Get/set real/effective UID/username via (localizeable) variable,
+p5-Yahoo-BBAuth-0.50_1,security/p5-Yahoo-BBAuth,Perl interface to the Yahoo! Browser-Based Authentication,
+p5-dicewaregen-1.4,security/p5-dicewaregen,Perl script to generate Diceware dictionaries for passwords,yes
+p5-openxpki-3.24.2_1,security/p5-openxpki,Perl based trustcenter for PKI: universal server building block,yes
+p5-openxpki-clca-1.23,security/p5-openxpki-clca,Toolkit for basic PKI operations in small CA like root CA,yes
+p5-openxpki-i18n-3.24.2,security/p5-openxpki-i18n,Perl based trustcenter software for PKI: i18n tools,yes
+p5-plog-0.10,security/p5-plog,Perl based ipfilter log reporter,
+pam-modules-2.5_1,security/pam-modules,Collection of modules for PAM,
+pam-pgsql-0.7.3.2_2,security/pam-pgsql,PAM module for authenticating with PostgreSQL,
+pam-ssh-agent-1.0.0,security/pam_ssh_agent,PAM module for authenticating using ssh-agent,yes
+"pam_google_authenticator-1.11,1",security/pam_google_authenticator,PAM module for two-step authentication from Google,
+pam_helper-1.2,security/pam_helper,Authenticate applications requiring PAM services,
+pam_howdy-3.0.0.b.20230306_3,security/pam_howdy,PAM module for Howdy Face Recognition,
+pam_jail-0.4_1,security/pam_jail,PAM module dropping users in jails after login,
+pam_kde-1.0,security/pam_kde,PAM modules for KDE Display Manager,
+pam_krb5-4.11_2,security/pam_krb5,Pluggable Authentication Module for heimdal_base Kerberos 5,yes
+pam_krb5-heimdal-4.11_2,security/pam_krb5,Pluggable Authentication Module for heimdal_port Kerberos 5,yes
+pam_krb5-mit-4.11_2,security/pam_krb5,Pluggable Authentication Module for mit Kerberos 5,yes
+pam_krb5-rh-2.4.13_1,security/pam_krb5-rh,The Red Hat Pluggable Authentication Module for Kerberos 5,yes
+pam_ldap-186_2,security/pam_ldap,PAM module for authenticating with LDAP,
+pam_mkhomedir-0.2_1,security/pam_mkhomedir,Create HOME with a PAM module on demand,
+pam_mysql-0.8.2,security/pam-mysql,PAM module for authenticating with MySQL,
+pam_ocra-1.6_1,security/pam_ocra,RFC6287 (OCRA) PAM module,
+pam_p11-0.6.0,security/pam_p11,PAM module using crypto tokens for auth,yes
+pam_pkcs11-0.6.12_1,security/pam_pkcs11,PAM module using crypto tokens for auth,yes
+pam_pwdfile-2.0,security/pam_pwdfile,Pam module for authenticating with flat passwd files,
+pam_require-0.7,security/pam_require,PAM module for restricting access based on unix group or username,
+pam_rssh-1.2.1_3,security/pam_rssh,Remote sudo authenticated via ssh-agent,yes
+pam_script-1.1.9,security/pam_script,PAM script module allows to hook user space scripts on PAM events,
+pam_search_list-0.1_3,security/pam_search_list,PAM module to search arbitrary file for user,
+pam_ssh_agent_auth-0.10.4_6,security/pam_ssh_agent_auth,PAM module which permits authentication via ssh-agent,yes
+pam_u2f-1.4.0,security/pam_u2f,Pluggable Authentication Module for U2F and FIDO2,yes
+pam_worker-0.1_1,security/pam_worker,PAM authentication helper for use with,
+pam_yubico-2.27_1,security/pam_yubico,PAM module for authenticating with a Yubico YubiKey,yes
+pamtester-0.1.2_2,security/pamtester,Command line pam authentication tester,
+paperkey-1.6_1,security/paperkey,Extract just the secret information out of OpenPGP secret keys,yes
+passh-1.0.2,security/passh,Non-interactive password inputting CLI,yes
+passivedns-1.2.1.25_1,security/passivedns,Network sniffer that logs DNS replies for use in passive DNS setups,
+pcsc-tools-1.7.5,security/pcsc-tools,"Tools to test a PCSC driver, card, or reader",
+pdfcrack-0.21,security/pdfcrack,Cracking tool for password-protected PDF-files,yes
+pdfrip-3.0.0_6,security/pdfrip,Multi-threaded PDF password cracking utility in Rust,yes
+peda-1.2,security/peda,Python-based GDB extension for exploit development and debugging,
+periodic-filter-vuxml-1,security/periodic-filter-vuxml,Periodic script to install a filtered version of VuXML,
+pev-0.80_2,security/pev,PE analysis toolkit,
+pgpdump-0.38,security/pgpdump,PGP packet visualizer,yes
+pgpgpg-0.13_5,security/pgpgpg,Wrapper for GnuPG to simulate PGP 2.6.x,yes
+pgpin-010323_1,security/pgpin,PGP International version - improved for use in IN-CA,yes
+php82-filter-8.2.36,security/php82-filter,The filter shared extension for php,
+php82-pear-Auth-1.6.4,security/pear-Auth,PEAR class for creating an authentication system,
+php82-pear-Auth_HTTP-2.1.8,security/pear-Auth_HTTP,PEAR HTTP authentication,
+php82-pear-Auth_PrefManager-1.2.2,security/pear-Auth_PrefManager,PEAR preferences management class,
+php82-pear-Auth_SASL-1.2.0,security/pear-Auth_SASL,PEAR abstraction of various SASL mechanism responses,
+php82-pear-Auth_SASL2-0.3.0,security/pear-Auth_SASL2,Abstraction of various SASL mechanism responses,
+php82-pear-Crypt_Blowfish-1.1.0.r2,security/pear-Crypt_Blowfish,PEAR class for blowfish encryption,yes
+php82-pear-Crypt_CBC-1.0.1,security/pear-Crypt_CBC,Class to emulate Perl's Crypt::CBC module,yes
+php82-pear-Crypt_CHAP-1.5.0,security/pear-Crypt_CHAP,PEAR class for generating CHAP packets,yes
+php82-pear-Crypt_DiffieHellman-0.2.6,security/pear-Crypt_DiffieHellman,PEAR class implementing Diffie-Hellman Key Exchange protocol for PHP5,yes
+php82-pear-Crypt_GPG-1.6.11,security/pear-Crypt_GPG,GNU Privacy Guard (GPG),yes
+php82-pear-Crypt_HMAC2-1.0.0,security/pear-Crypt_HMAC2,Implementation of Hashed Message Authentication Code for PHP5,yes
+php82-pear-Crypt_MicroID-0.1.0,security/pear-Crypt_MicroID,PHP MicroID library,yes
+php82-pear-Crypt_RC4-1.0.3,security/pear-Crypt_RC4,PEAR encryption class for RC4 encryption,yes
+php82-pear-Crypt_RSA-1.2.1_1,security/pear-Crypt_RSA,PEAR class allows you to use two-key strong cryptography,yes
+php82-pear-Crypt_XXTEA-0.9.0,security/pear-Crypt_XXTEA,PEAR XXTEA encryption algorithm,yes
+php82-pear-File_HtAccess-1.2.1,security/pear-File_HtAccess,PEAR class to manipulate .htaccess files,
+php82-pear-File_Passwd-1.1.7,security/pear-File_Passwd,PEAR class to manipulate many kinds of password files,yes
+php82-pear-File_SMBPasswd-1.0.3,security/pear-File_SMBPasswd,PEAR class for managing SAMBA style password files,yes
+php82-pear-HTML_Crypt-1.3.4,security/pear-HTML_Crypt,Encrypts text which is later decoded using JavaScript on the client side,yes
+php82-pear-Horde_Crypt-2.7.12,security/pear-Horde_Crypt,Horde Cryptography API,yes
+php82-pear-Horde_Crypt_Blowfish-1.1.4,security/pear-Horde_Crypt_Blowfish,Horde blowfish encryption for PHP string data,yes
+php82-pear-LiveUser-0.16.14_1,security/pear-LiveUser,PEAR user authentication and permission management framework,
+php82-pear-LiveUser_Admin-0.4.0_1,security/pear-LiveUser_Admin,PEAR user authentication and permission management framework,
+php82-pear-Net_Portscan-1.0.3,security/pear-Net_Portscan,Provides an API for scanning ports,
+php82-pear-Text_Password-1.2.1,security/pear-Text_Password,PEAR random password creator,yes
+php82-pear-horde-Horde_Auth-2.2.2,security/pear-Horde_Auth,Horde Authentication API,
+php82-pear-horde-Horde_Group-2.1.1,security/pear-Horde_Group,Horde User Groups System,
+php82-pear-horde-Horde_Oauth-2.0.4,security/pear-Horde_Oauth,Horde OAuth client/server,
+php82-pear-horde-Horde_Perms-2.1.8,security/pear-Horde_Perms,Horde Permissions System,
+php82-pear-horde-Horde_Secret-2.0.6,security/pear-Horde_Secret,Secret Encryption API,yes
+php82-pear-horde-Horde_Share-2.2.0,security/pear-Horde_Share,Horde Shared Permissions System,
+php82-pecl-crypto-0.3.2,security/pecl-crypto,Objective wrapper for OpenSSL Crypto Library,yes
+php82-pecl-gnupg-1.5.4,security/pecl-gnupg,PECL wrapper around the gpgme library,yes
+php82-pecl-krb5-1.3.0,security/pecl-krb5,PECL classes for PAM integration,
+php82-pecl-libsodium-2.0.23_8,security/pecl-libsodium,PHP wrapper for the Sodium cryptographic library,yes
+php82-pecl-mcrypt-1.0.7,security/pecl-mcrypt,"PHP extension for mcrypt, removed in PHP 7.2",yes
+php82-pecl-pam-3.0.1,security/pecl-pam,PECL classes for PAM integration,
+php82-pecl-pkcs11-1.1.3,security/pecl-pkcs11,PKCS11 bindings for PHP,yes
+php82-pecl-scrypt-2.0.1,security/pecl-scrypt,PHP wrapper to Colin Percival's scrypt implementation,yes
+php82-pecl-ssh2-1.3.1,security/pecl-ssh2,PECL extension to the libssh2 library,yes
+php82-pecl-xxtea-1.0.11,security/pecl-xxtea,XXTEA encryption algorithm extension for PHP,yes
+php82-snuffleupagus-0.14.0,security/snuffleupagus,Security module for PHP,
+php82-sodium-8.2.36,security/php82-sodium,The sodium shared extension for php,yes
+php83-filter-8.3.37,security/php83-filter,The filter shared extension for php,
+php83-pear-Auth-1.6.4,security/pear-Auth,PEAR class for creating an authentication system,
+php83-pear-Auth_HTTP-2.1.8,security/pear-Auth_HTTP,PEAR HTTP authentication,
+php83-pear-Auth_PrefManager-1.2.2,security/pear-Auth_PrefManager,PEAR preferences management class,
+php83-pear-Auth_SASL-1.2.0,security/pear-Auth_SASL,PEAR abstraction of various SASL mechanism responses,
+php83-pear-Auth_SASL2-0.3.0,security/pear-Auth_SASL2,Abstraction of various SASL mechanism responses,
+php83-pear-Crypt_Blowfish-1.1.0.r2,security/pear-Crypt_Blowfish,PEAR class for blowfish encryption,yes
+php83-pear-Crypt_CBC-1.0.1,security/pear-Crypt_CBC,Class to emulate Perl's Crypt::CBC module,yes
+php83-pear-Crypt_CHAP-1.5.0,security/pear-Crypt_CHAP,PEAR class for generating CHAP packets,yes
+php83-pear-Crypt_DiffieHellman-0.2.6,security/pear-Crypt_DiffieHellman,PEAR class implementing Diffie-Hellman Key Exchange protocol for PHP5,yes
+php83-pear-Crypt_GPG-1.6.11,security/pear-Crypt_GPG,GNU Privacy Guard (GPG),yes
+php83-pear-Crypt_HMAC2-1.0.0,security/pear-Crypt_HMAC2,Implementation of Hashed Message Authentication Code for PHP5,yes
+php83-pear-Crypt_MicroID-0.1.0,security/pear-Crypt_MicroID,PHP MicroID library,yes
+php83-pear-Crypt_RC4-1.0.3,security/pear-Crypt_RC4,PEAR encryption class for RC4 encryption,yes
+php83-pear-Crypt_RSA-1.2.1_1,security/pear-Crypt_RSA,PEAR class allows you to use two-key strong cryptography,yes
+php83-pear-Crypt_XXTEA-0.9.0,security/pear-Crypt_XXTEA,PEAR XXTEA encryption algorithm,yes
+php83-pear-File_HtAccess-1.2.1,security/pear-File_HtAccess,PEAR class to manipulate .htaccess files,
+php83-pear-File_Passwd-1.1.7,security/pear-File_Passwd,PEAR class to manipulate many kinds of password files,yes
+php83-pear-File_SMBPasswd-1.0.3,security/pear-File_SMBPasswd,PEAR class for managing SAMBA style password files,yes
+php83-pear-HTML_Crypt-1.3.4,security/pear-HTML_Crypt,Encrypts text which is later decoded using JavaScript on the client side,yes
+php83-pear-Horde_Crypt-2.7.12,security/pear-Horde_Crypt,Horde Cryptography API,yes
+php83-pear-Horde_Crypt_Blowfish-1.1.4,security/pear-Horde_Crypt_Blowfish,Horde blowfish encryption for PHP string data,yes
+php83-pear-LiveUser-0.16.14_1,security/pear-LiveUser,PEAR user authentication and permission management framework,
+php83-pear-LiveUser_Admin-0.4.0_1,security/pear-LiveUser_Admin,PEAR user authentication and permission management framework,
+php83-pear-Net_Portscan-1.0.3,security/pear-Net_Portscan,Provides an API for scanning ports,
+php83-pear-Text_Password-1.2.1,security/pear-Text_Password,PEAR random password creator,yes
+php83-pear-horde-Horde_Auth-2.2.2,security/pear-Horde_Auth,Horde Authentication API,
+php83-pear-horde-Horde_Group-2.1.1,security/pear-Horde_Group,Horde User Groups System,
+php83-pear-horde-Horde_Oauth-2.0.4,security/pear-Horde_Oauth,Horde OAuth client/server,
+php83-pear-horde-Horde_Perms-2.1.8,security/pear-Horde_Perms,Horde Permissions System,
+php83-pear-horde-Horde_Secret-2.0.6,security/pear-Horde_Secret,Secret Encryption API,yes
+php83-pear-horde-Horde_Share-2.2.0,security/pear-Horde_Share,Horde Shared Permissions System,
+php83-pecl-crypto-0.3.2,security/pecl-crypto,Objective wrapper for OpenSSL Crypto Library,yes
+php83-pecl-gnupg-1.5.4,security/pecl-gnupg,PECL wrapper around the gpgme library,yes
+php83-pecl-krb5-1.3.0,security/pecl-krb5,PECL classes for PAM integration,
+php83-pecl-libsodium-2.0.23_8,security/pecl-libsodium,PHP wrapper for the Sodium cryptographic library,yes
+php83-pecl-mcrypt-1.0.7,security/pecl-mcrypt,"PHP extension for mcrypt, removed in PHP 7.2",yes
+php83-pecl-pam-3.0.1,security/pecl-pam,PECL classes for PAM integration,
+php83-pecl-pkcs11-1.1.3,security/pecl-pkcs11,PKCS11 bindings for PHP,yes
+php83-pecl-scrypt-2.0.1,security/pecl-scrypt,PHP wrapper to Colin Percival's scrypt implementation,yes
+php83-pecl-ssh2-1.3.1,security/pecl-ssh2,PECL extension to the libssh2 library,yes
+php83-pecl-xxtea-1.0.11,security/pecl-xxtea,XXTEA encryption algorithm extension for PHP,yes
+php83-snuffleupagus-0.14.0,security/snuffleupagus,Security module for PHP,
+php83-sodium-8.3.37,security/php83-sodium,The sodium shared extension for php,yes
+php84-filter-8.4.28,security/php84-filter,The filter shared extension for php,
+php84-pear-Auth-1.6.4,security/pear-Auth,PEAR class for creating an authentication system,
+php84-pear-Auth_HTTP-2.1.8,security/pear-Auth_HTTP,PEAR HTTP authentication,
+php84-pear-Auth_PrefManager-1.2.2,security/pear-Auth_PrefManager,PEAR preferences management class,
+php84-pear-Auth_SASL-1.2.0,security/pear-Auth_SASL,PEAR abstraction of various SASL mechanism responses,
+php84-pear-Auth_SASL2-0.3.0,security/pear-Auth_SASL2,Abstraction of various SASL mechanism responses,
+php84-pear-Crypt_Blowfish-1.1.0.r2,security/pear-Crypt_Blowfish,PEAR class for blowfish encryption,yes
+php84-pear-Crypt_CBC-1.0.1,security/pear-Crypt_CBC,Class to emulate Perl's Crypt::CBC module,yes
+php84-pear-Crypt_CHAP-1.5.0,security/pear-Crypt_CHAP,PEAR class for generating CHAP packets,yes
+php84-pear-Crypt_DiffieHellman-0.2.6,security/pear-Crypt_DiffieHellman,PEAR class implementing Diffie-Hellman Key Exchange protocol for PHP5,yes
+php84-pear-Crypt_GPG-1.6.11,security/pear-Crypt_GPG,GNU Privacy Guard (GPG),yes
+php84-pear-Crypt_HMAC2-1.0.0,security/pear-Crypt_HMAC2,Implementation of Hashed Message Authentication Code for PHP5,yes
+php84-pear-Crypt_MicroID-0.1.0,security/pear-Crypt_MicroID,PHP MicroID library,yes
+php84-pear-Crypt_RC4-1.0.3,security/pear-Crypt_RC4,PEAR encryption class for RC4 encryption,yes
+php84-pear-Crypt_RSA-1.2.1_1,security/pear-Crypt_RSA,PEAR class allows you to use two-key strong cryptography,yes
+php84-pear-Crypt_XXTEA-0.9.0,security/pear-Crypt_XXTEA,PEAR XXTEA encryption algorithm,yes
+php84-pear-File_HtAccess-1.2.1,security/pear-File_HtAccess,PEAR class to manipulate .htaccess files,
+php84-pear-File_Passwd-1.1.7,security/pear-File_Passwd,PEAR class to manipulate many kinds of password files,yes
+php84-pear-File_SMBPasswd-1.0.3,security/pear-File_SMBPasswd,PEAR class for managing SAMBA style password files,yes
+php84-pear-HTML_Crypt-1.3.4,security/pear-HTML_Crypt,Encrypts text which is later decoded using JavaScript on the client side,yes
+php84-pear-Horde_Crypt-2.7.12,security/pear-Horde_Crypt,Horde Cryptography API,yes
+php84-pear-Horde_Crypt_Blowfish-1.1.4,security/pear-Horde_Crypt_Blowfish,Horde blowfish encryption for PHP string data,yes
+php84-pear-LiveUser-0.16.14_1,security/pear-LiveUser,PEAR user authentication and permission management framework,
+php84-pear-LiveUser_Admin-0.4.0_1,security/pear-LiveUser_Admin,PEAR user authentication and permission management framework,
+php84-pear-Net_Portscan-1.0.3,security/pear-Net_Portscan,Provides an API for scanning ports,
+php84-pear-Text_Password-1.2.1,security/pear-Text_Password,PEAR random password creator,yes
+php84-pear-horde-Horde_Auth-2.2.2,security/pear-Horde_Auth,Horde Authentication API,
+php84-pear-horde-Horde_Group-2.1.1,security/pear-Horde_Group,Horde User Groups System,
+php84-pear-horde-Horde_Oauth-2.0.4,security/pear-Horde_Oauth,Horde OAuth client/server,
+php84-pear-horde-Horde_Perms-2.1.8,security/pear-Horde_Perms,Horde Permissions System,
+php84-pear-horde-Horde_Secret-2.0.6,security/pear-Horde_Secret,Secret Encryption API,yes
+php84-pear-horde-Horde_Share-2.2.0,security/pear-Horde_Share,Horde Shared Permissions System,
+php84-pecl-crypto-0.3.2,security/pecl-crypto,Objective wrapper for OpenSSL Crypto Library,yes
+php84-pecl-gnupg-1.5.4,security/pecl-gnupg,PECL wrapper around the gpgme library,yes
+php84-pecl-krb5-1.3.0,security/pecl-krb5,PECL classes for PAM integration,
+php84-pecl-libsodium-2.0.23_8,security/pecl-libsodium,PHP wrapper for the Sodium cryptographic library,yes
+php84-pecl-mcrypt-1.0.7,security/pecl-mcrypt,"PHP extension for mcrypt, removed in PHP 7.2",yes
+php84-pecl-pam-3.0.1,security/pecl-pam,PECL classes for PAM integration,
+php84-pecl-pkcs11-1.1.3,security/pecl-pkcs11,PKCS11 bindings for PHP,yes
+php84-pecl-scrypt-2.0.1,security/pecl-scrypt,PHP wrapper to Colin Percival's scrypt implementation,yes
+php84-pecl-ssh2-1.3.1,security/pecl-ssh2,PECL extension to the libssh2 library,yes
+php84-pecl-xxtea-1.0.11,security/pecl-xxtea,XXTEA encryption algorithm extension for PHP,yes
+php84-snuffleupagus-0.14.0,security/snuffleupagus,Security module for PHP,
+php84-sodium-8.4.28,security/php84-sodium,The sodium shared extension for php,yes
+php85-filter-8.5.13,security/php85-filter,The filter shared extension for php,
+php85-pear-Auth-1.6.4,security/pear-Auth,PEAR class for creating an authentication system,
+php85-pear-Auth_HTTP-2.1.8,security/pear-Auth_HTTP,PEAR HTTP authentication,
+php85-pear-Auth_PrefManager-1.2.2,security/pear-Auth_PrefManager,PEAR preferences management class,
+php85-pear-Auth_SASL-1.2.0,security/pear-Auth_SASL,PEAR abstraction of various SASL mechanism responses,
+php85-pear-Auth_SASL2-0.3.0,security/pear-Auth_SASL2,Abstraction of various SASL mechanism responses,
+php85-pear-Crypt_Blowfish-1.1.0.r2,security/pear-Crypt_Blowfish,PEAR class for blowfish encryption,yes
+php85-pear-Crypt_CBC-1.0.1,security/pear-Crypt_CBC,Class to emulate Perl's Crypt::CBC module,yes
+php85-pear-Crypt_CHAP-1.5.0,security/pear-Crypt_CHAP,PEAR class for generating CHAP packets,yes
+php85-pear-Crypt_DiffieHellman-0.2.6,security/pear-Crypt_DiffieHellman,PEAR class implementing Diffie-Hellman Key Exchange protocol for PHP5,yes
+php85-pear-Crypt_GPG-1.6.11,security/pear-Crypt_GPG,GNU Privacy Guard (GPG),yes
+php85-pear-Crypt_HMAC2-1.0.0,security/pear-Crypt_HMAC2,Implementation of Hashed Message Authentication Code for PHP5,yes
+php85-pear-Crypt_MicroID-0.1.0,security/pear-Crypt_MicroID,PHP MicroID library,yes
+php85-pear-Crypt_RC4-1.0.3,security/pear-Crypt_RC4,PEAR encryption class for RC4 encryption,yes
+php85-pear-Crypt_RSA-1.2.1_1,security/pear-Crypt_RSA,PEAR class allows you to use two-key strong cryptography,yes
+php85-pear-Crypt_XXTEA-0.9.0,security/pear-Crypt_XXTEA,PEAR XXTEA encryption algorithm,yes
+php85-pear-File_HtAccess-1.2.1,security/pear-File_HtAccess,PEAR class to manipulate .htaccess files,
+php85-pear-File_Passwd-1.1.7,security/pear-File_Passwd,PEAR class to manipulate many kinds of password files,yes
+php85-pear-File_SMBPasswd-1.0.3,security/pear-File_SMBPasswd,PEAR class for managing SAMBA style password files,yes
+php85-pear-HTML_Crypt-1.3.4,security/pear-HTML_Crypt,Encrypts text which is later decoded using JavaScript on the client side,yes
+php85-pear-Horde_Crypt-2.7.12,security/pear-Horde_Crypt,Horde Cryptography API,yes
+php85-pear-Horde_Crypt_Blowfish-1.1.4,security/pear-Horde_Crypt_Blowfish,Horde blowfish encryption for PHP string data,yes
+php85-pear-LiveUser-0.16.14_1,security/pear-LiveUser,PEAR user authentication and permission management framework,
+php85-pear-LiveUser_Admin-0.4.0_1,security/pear-LiveUser_Admin,PEAR user authentication and permission management framework,
+php85-pear-Net_Portscan-1.0.3,security/pear-Net_Portscan,Provides an API for scanning ports,
+php85-pear-Text_Password-1.2.1,security/pear-Text_Password,PEAR random password creator,yes
+php85-pear-horde-Horde_Auth-2.2.2,security/pear-Horde_Auth,Horde Authentication API,
+php85-pear-horde-Horde_Group-2.1.1,security/pear-Horde_Group,Horde User Groups System,
+php85-pear-horde-Horde_Oauth-2.0.4,security/pear-Horde_Oauth,Horde OAuth client/server,
+php85-pear-horde-Horde_Perms-2.1.8,security/pear-Horde_Perms,Horde Permissions System,
+php85-pear-horde-Horde_Secret-2.0.6,security/pear-Horde_Secret,Secret Encryption API,yes
+php85-pear-horde-Horde_Share-2.2.0,security/pear-Horde_Share,Horde Shared Permissions System,
+php85-pecl-crypto-0.3.2,security/pecl-crypto,Objective wrapper for OpenSSL Crypto Library,yes
+php85-pecl-gnupg-1.5.4,security/pecl-gnupg,PECL wrapper around the gpgme library,yes
+php85-pecl-krb5-1.3.0,security/pecl-krb5,PECL classes for PAM integration,
+php85-pecl-libsodium-2.0.23_8,security/pecl-libsodium,PHP wrapper for the Sodium cryptographic library,yes
+php85-pecl-mcrypt-1.0.7,security/pecl-mcrypt,"PHP extension for mcrypt, removed in PHP 7.2",yes
+php85-pecl-pam-3.0.1,security/pecl-pam,PECL classes for PAM integration,
+php85-pecl-pkcs11-1.1.3,security/pecl-pkcs11,PKCS11 bindings for PHP,yes
+php85-pecl-scrypt-2.0.1,security/pecl-scrypt,PHP wrapper to Colin Percival's scrypt implementation,yes
+php85-pecl-ssh2-1.3.1,security/pecl-ssh2,PECL extension to the libssh2 library,yes
+php85-pecl-xxtea-1.0.11,security/pecl-xxtea,XXTEA encryption algorithm extension for PHP,yes
+php85-snuffleupagus-0.14.0,security/snuffleupagus,Security module for PHP,
+php85-sodium-8.5.13,security/php85-sodium,The sodium shared extension for php,yes
+php86-filter-8.6.0,security/php86-filter,The filter shared extension for php,
+php86-pear-Auth-1.6.4,security/pear-Auth,PEAR class for creating an authentication system,
+php86-pear-Auth_HTTP-2.1.8,security/pear-Auth_HTTP,PEAR HTTP authentication,
+php86-pear-Auth_PrefManager-1.2.2,security/pear-Auth_PrefManager,PEAR preferences management class,
+php86-pear-Auth_SASL-1.2.0,security/pear-Auth_SASL,PEAR abstraction of various SASL mechanism responses,
+php86-pear-Auth_SASL2-0.3.0,security/pear-Auth_SASL2,Abstraction of various SASL mechanism responses,
+php86-pear-Crypt_Blowfish-1.1.0.r2,security/pear-Crypt_Blowfish,PEAR class for blowfish encryption,yes
+php86-pear-Crypt_CBC-1.0.1,security/pear-Crypt_CBC,Class to emulate Perl's Crypt::CBC module,yes
+php86-pear-Crypt_DiffieHellman-0.2.6,security/pear-Crypt_DiffieHellman,PEAR class implementing Diffie-Hellman Key Exchange protocol for PHP5,yes
+php86-pear-Crypt_GPG-1.6.11,security/pear-Crypt_GPG,GNU Privacy Guard (GPG),yes
+php86-pear-Crypt_HMAC2-1.0.0,security/pear-Crypt_HMAC2,Implementation of Hashed Message Authentication Code for PHP5,yes
+php86-pear-Crypt_MicroID-0.1.0,security/pear-Crypt_MicroID,PHP MicroID library,yes
+php86-pear-Crypt_RC4-1.0.3,security/pear-Crypt_RC4,PEAR encryption class for RC4 encryption,yes
+php86-pear-Crypt_RSA-1.2.1_1,security/pear-Crypt_RSA,PEAR class allows you to use two-key strong cryptography,yes
+php86-pear-Crypt_XXTEA-0.9.0,security/pear-Crypt_XXTEA,PEAR XXTEA encryption algorithm,yes
+php86-pear-File_HtAccess-1.2.1,security/pear-File_HtAccess,PEAR class to manipulate .htaccess files,
+php86-pear-File_Passwd-1.1.7,security/pear-File_Passwd,PEAR class to manipulate many kinds of password files,yes
+php86-pear-HTML_Crypt-1.3.4,security/pear-HTML_Crypt,Encrypts text which is later decoded using JavaScript on the client side,yes
+php86-pear-Horde_Crypt-2.7.12,security/pear-Horde_Crypt,Horde Cryptography API,yes
+php86-pear-Horde_Crypt_Blowfish-1.1.4,security/pear-Horde_Crypt_Blowfish,Horde blowfish encryption for PHP string data,yes
+php86-pear-LiveUser-0.16.14_1,security/pear-LiveUser,PEAR user authentication and permission management framework,
+php86-pear-LiveUser_Admin-0.4.0_1,security/pear-LiveUser_Admin,PEAR user authentication and permission management framework,
+php86-pear-Net_Portscan-1.0.3,security/pear-Net_Portscan,Provides an API for scanning ports,
+php86-pear-Text_Password-1.2.1,security/pear-Text_Password,PEAR random password creator,yes
+php86-pear-horde-Horde_Auth-2.2.2,security/pear-Horde_Auth,Horde Authentication API,
+php86-pear-horde-Horde_Group-2.1.1,security/pear-Horde_Group,Horde User Groups System,
+php86-pear-horde-Horde_Oauth-2.0.4,security/pear-Horde_Oauth,Horde OAuth client/server,
+php86-pear-horde-Horde_Perms-2.1.8,security/pear-Horde_Perms,Horde Permissions System,
+php86-pear-horde-Horde_Secret-2.0.6,security/pear-Horde_Secret,Secret Encryption API,yes
+php86-pear-horde-Horde_Share-2.2.0,security/pear-Horde_Share,Horde Shared Permissions System,
+php86-pecl-libsodium-2.0.23_8,security/pecl-libsodium,PHP wrapper for the Sodium cryptographic library,yes
+php86-pecl-pam-3.0.1,security/pecl-pam,PECL classes for PAM integration,
+php86-pecl-scrypt-2.0.1,security/pecl-scrypt,PHP wrapper to Colin Percival's scrypt implementation,yes
+php86-pecl-ssh2-1.3.1,security/pecl-ssh2,PECL extension to the libssh2 library,yes
+php86-pecl-xxtea-1.0.11,security/pecl-xxtea,XXTEA encryption algorithm extension for PHP,yes
+php86-snuffleupagus-0.14.0,security/snuffleupagus,Security module for PHP,
+php86-sodium-8.6.0,security/php86-sodium,The sodium shared extension for php,yes
+picocrypt-1.49_20,security/picocrypt,"Small, simple, yet very secure encryption tool",yes
+picosha2-1.0.1,security/picosha2,C++ header-only SHA256 hash generator,yes
+pidgin-encryption-3.1_9,security/pidgin-encryption,Encryption Plugin for the Pidgin instant messenger client,yes
+pidgin-otr-4.0.2_3,security/pidgin-otr,Allows deniable private conversations using Pidgin,yes
+pinentry-1.3.3,security/pinentry,Collection of simple PIN or passphrase entry dialogs,
+pinentry-curses-1.3.3,security/pinentry-curses,Curses version of the GnuPG password dialog,yes
+pinentry-efl-1.3.3,security/pinentry-efl,EFL version of the GnuPG password dialog,yes
+pinentry-fltk-1.3.3,security/pinentry-fltk,FLTK version of the GnuPG password dialog,yes
+pinentry-gnome-1.3.3,security/pinentry-gnome,GNOME version of the GnuPG password dialog,yes
+pinentry-gtk2-1.3.3,security/pinentry-gtk2,GTK 2.0 version of the GnuPG password dialog,yes
+pinentry-qt5-1.3.3_1,security/pinentry-qt5,Qt 5 version of the GnuPG password dialog,yes
+pinentry-qt6-1.3.3,security/pinentry-qt6,Qt 6 version of the GnuPG password dialog,yes
+pinentry-tty-1.3.3,security/pinentry-tty,Console version of the GnuPG password dialog,yes
+pixiewps-1.4.1,security/pixiewps,Offline WPS bruteforce utility,
+pkcrack-1.2.3_1,security/pkcrack,Utility for breaking pkzip encryption,yes
+pkcs11-dump-0.3.4_1,security/pkcs11-dump,Allow dumping PKCS#11 token content,yes
+pkcs11-gateway-1.4,security/pkcs11-gateway,Wrapper Cryptoki library to use Linux PKCS#11 modules,yes
+pkcs11-helper-1.31.0,security/pkcs11-helper,Helper library for multiple PKCS#11 providers,yes
+pkcs11-tools-3.1.0,security/pkcs11-tools,Tools for managing PKCS11 cryptographic tokens,yes
+pkesh-1.0,security/pkesh,Public Key Encryption SHell script,yes
+pks-0.9.6.20040312_12,security/pks,PGP Public Key Server,yes
+plasma6-kscreenlocker-6.8.3,security/plasma6-kscreenlocker,Library and components for secure lock screen architecture,
+plasma6-ksshaskpass-6.8.3,security/plasma6-ksshaskpass,ssh-add helper that uses QtKeychain and KPasswordDialog,yes
+plasma6-kwallet-pam-6.8.3,security/plasma6-kwallet-pam,PAM Integration with KWallet - Unlock KWallet when you login,
+plasma6lts-kscreenlocker-6.6.7,security/plasma6lts-kscreenlocker,Library and components for secure lock screen architecture,
+plasma6lts-ksshaskpass-6.6.7,security/plasma6lts-ksshaskpass,ssh-add helper that uses QtKeychain and KPasswordDialog,yes
+plasma6lts-kwallet-pam-6.6.7,security/plasma6lts-kwallet-pam,PAM Integration with KWallet - Unlock KWallet when you login,
+portacl-rc-0.9.0_1,security/portacl-rc,RC script for mac_portacl(4),
+proftpd-mod_clamav-0.14.r2_5,security/proftpd-mod_clamav,ClamAV ProFTPD module,
+proton-pass-cli-2.7.1,security/pass-cli,Command-line interface for Proton Pass,
+proxytunnel-1.13.0,security/proxytunnel,Connects stdin and stdout to an origin server through an HTTPS proxy,
+pssh-2.3.6,security/pssh,Parallel version of OpenSSH and related tools,yes
+pulledpork-0.7.4,security/pulledpork,Script to update snort-2.8+ rules,
+pure-sfv-0.3,security/pure-sfv,Utility to test and create .sfv files,
+putty-0.85,security/putty,Secure shell and telnet client including xterm emulator,
+putty-nogtk-0.85,security/putty-nogtk,Secure shell and telnet client including xterm emulator,
+pvk-20070406_1,security/pvk,Tool to convert a RSA key in PEM format into a PVK file and vice versa,yes
+pwauth-2.3.11,security/pwauth,Unix Web Authenticator,
+pwdsafety-0.4.2_4,security/pwdsafety,Command line tool that checks how much a password is safe,yes
+pwman-0.4.5_5,security/pwman,Console password management application based on gpg(me),yes
+"pwned-check-2.2_2,1",security/pwned-check,Check whether password is known to have been exposed in a data breach,yes
+py311-PAM-0.4.2,security/py-PAM,Python interface to the PAM library,
+py312-Flask-Bcrypt-1.0.1_1,security/py-flask-bcrypt,Flask extension that provides bcrypt hashing utilities for your application,yes
+py312-Flask-HTTPAuth-4.8.0,security/py-flask-httpauth,Basic and Digest HTTP authentication for Flask routes,
+py312-Flask-Kerberos-1.0.4_2,security/py-flask-kerberos,GSSAPI Negotiate HTTP authentication for Flask routes,yes
+py312-Flask-SAML-0.5.1_3,security/py-flask-saml,SAML authentication for Flask web apps,
+py312-PAM-0.4.2,security/py-PAM,Python interface to the PAM library,
+py312-PGPy-0.6.0,security/py-pgpy,Pretty Good Privacy for Python,yes
+py312-PyNaCl-1.6.2_1,security/py-pynacl,Python binding to the Networking and Cryptography library,yes
+py312-SecretStorage-3.3.3,security/py-SecretStorage,Store passwords using the SecretService DBus API,yes
+py312-YubiOTP-1.0.0_2,security/py-YubiOTP,Library for verifying YubiKey OTP tokens,yes
+"py312-acme-4.2.0_2,1",security/py-acme,ACME protocol implementation in Python,
+py312-ailment-9.0.5405_3,security/py-ailment,"AIL, the angr Intermediate Language",
+py312-aiohttp-security-0.5.0,security/py-aiohttp-security,security for aiohttp.web,
+py312-angr-9.0.5405_10,security/py-angr,Multi-architecture binary analysis toolkit,
+py312-argon2-cffi-25.1.0,security/py-argon2-cffi,Secure Argon2 password hashing algorithm,yes
+py312-argon2-cffi-bindings-26.2.0,security/py-argon2-cffi-bindings,Low-level CFFI bindings for Argon2,yes
+py312-artifacts-20260421,security/py-artifacts,ForensicArtifacts.com Artifact Repository,
+py312-asyncssh-2.24.1,security/py-asyncssh,Asynchronous SSHv2 client and server library,yes
+py312-authlib-1.9.8,security/py-authlib,Ultimate Python library in building OAuth and OpenID Connect servers,
+py312-azure-keyvault-certificates-4.12.0_1,security/py-azure-keyvault-certificates,Microsoft Corporation Key Vault Certificates Client Library for Python,yes
+py312-azure-keyvault-keys-4.12.0,security/py-azure-keyvault-keys,Microsoft Corporation Azure Key Vault Keys Client Library for Python,yes
+py312-azure-keyvault-secrets-4.12.0,security/py-azure-keyvault-secrets,Microsoft Corporation Key Vault Secrets Client Library for Python,yes
+py312-badkeys-0.0.22,security/py-badkeys,Tool to check public keys for known vulnerabilities,yes
+py312-base58-2.1.1_1,security/py-base58,Bitcoin-compatible Base58 and Base58Check implementation,
+py312-bcrypt-5.0.0_9,security/py-bcrypt,Modern password hashing for your software and your servers,yes
+py312-belier-1.2_2,security/belier,Easily cross several machines with SSH,yes
+py312-biscuit-python-0.4.0_6,security/py-biscuit-python,Python bindings for Biscuit authorization tokens,
+py312-bitbox02-7.0.0,security/py-bitbox02,Python API for communicating with the BitBox02 device,
+py312-blake3-1.0.11_1,security/py-blake3,Python bindings for the BLAKE3 cryptographic hash function,yes
+py312-btchip-python-0.1.32_3,security/py-btchip-python,Python communication library for Ledger Hardware Wallet,
+py312-cart-1.2.3,security/py-cart,CaRT Neutering format,
+py312-cerealizer-0.8.1,security/py-cerealizer,Secure pickle-like module,
+py312-cert-human-1.0.7_2,security/py-cert-human,SSL Certificates for Humans,yes
+"py312-certbot-4.2.0,2",security/py-certbot,Let's Encrypt client,yes
+py312-certbot-apache-4.2.0,security/py-certbot-apache,Apache plugin for Certbot,yes
+py312-certbot-dns-cloudflare-4.2.0,security/py-certbot-dns-cloudflare,Cloudflare DNS plugin for Certbot,yes
+py312-certbot-dns-cpanel-0.4.0_1,security/py-certbot-dns-cpanel,CPanel DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-digitalocean-4.2.0,security/py-certbot-dns-digitalocean,DigitalOcean DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-dnsimple-4.2.0,security/py-certbot-dns-dnsimple,DNSimple DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-dnsmadeeasy-4.2.0,security/py-certbot-dns-dnsmadeeasy,DNS Made Easy DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-gandi-1.5.0_1,security/py-certbot-dns-gandi,Gandi LiveDNS plugin for Certbot,yes
+py312-certbot-dns-gehirn-4.2.0,security/py-certbot-dns-gehirn,Gehirn Infrastructure Service DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-google-4.2.0,security/py-certbot-dns-google,Google Cloud DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-linode-4.2.0,security/py-certbot-dns-linode,Linode DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-luadns-4.2.0,security/py-certbot-dns-luadns,LuaDNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-nsone-4.2.0,security/py-certbot-dns-nsone,NS1 DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-ovh-4.2.0,security/py-certbot-dns-ovh,OVH DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-powerdns-0.2.1_2,security/py-certbot-dns-powerdns,PowerDNS DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-rfc2136-4.2.0,security/py-certbot-dns-rfc2136,RFC 2136 DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-route53-4.2.0,security/py-certbot-dns-route53,Route53 DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-sakuracloud-4.2.0,security/py-certbot-dns-sakuracloud,Sakura Cloud DNS Authenticator plugin for Certbot,yes
+py312-certbot-dns-standalone-1.1_1,security/py-certbot-dns-standalone,Standalone DNS Authenticator plugin for Certbot,yes
+py312-certbot-nginx-4.2.0_1,security/py-certbot-nginx,NGINX plugin for Certbot,yes
+py312-certifi-2026.10.23,security/py-certifi,Mozilla SSL certificates,yes
+py312-certipy-0.2.3,security/py-certipy,Utility to create and sign CAs and certificates,yes
+py312-certomancer-0.16.0,security/py-certomancer,PKI testing tool,yes
+py312-certstream-1.12_1,security/py-certstream,Library for receiving certificate transparency list updates,yes
+py312-cfv-3.2.0,security/cfv,"Utility to both test and create .sfv, .csv, and md5sum files",
+py312-ckcc-protocol-1.6.0,security/py-ckcc-protocol,Coldcard CLI and python interface library,
+py312-coincurve-21.0.0,security/py-coincurve,Cross-platform Python CFFI bindings for libsecp256k1,
+py312-cpe-1.3.1_1,security/py-cpe,CPE: Common Platform Enumeration for Python,
+py312-cpfx-g20240515,security/cpfx,PFX decoder for CryptoPro GOST R 34.10-2012 implementation,yes
+"py312-cryptography-50.0.2,1",security/py-cryptography,Cryptographic recipes and primitives for Python developers,yes
+"py312-cryptography-legacy-3.4.8_3,1",security/py-cryptography-legacy,Cryptographic recipes and primitives for Python developers,yes
+py312-cryptography-vectors-50.0.2,security/py-cryptography-vectors,Test vectors for the cryptography package,yes
+py312-cryptojwt-1.11.0,security/py-cryptojwt,"Python implementation of JWT, JWE, JWS and JWK",yes
+py312-ctypescrypto-0.5_1,security/py-ctypescrypto,CTypes-based interface for some OpenSSL libcrypto features,yes
+py312-cybox-2.1.0.21_4,security/py-cybox,"Python library for parsing, manipulating, and generating CybOX content",
+py312-detect-secrets-1.5.0_1,security/py-detect-secrets,Tool for detecting secrets in the codebase,
+py312-dfdatetime-20260411,security/py-dfdatetime,Digital Forensics Date and Time,
+py312-dfwinreg-20260411,security/py-dfwinreg,Digital Forensics Windows Registry,
+py312-dirhash-0.5.0,security/py-dirhash,Python module and CLI for hashing of file system directories,yes
+py312-distro2sbom-0.6.0,security/py-distro2sbom,Generates SBOM files from system packaging information,
+py312-django-auth-kerberos-1.2.5_3,security/py-django-auth-kerberos,Kerberos authentication backend for Django,yes
+py312-docker-pycreds-0.4.0_1,security/py-docker-pycreds,Python bindings for the docker credentials store API,
+py312-ecdsa-0.19.2,security/py-ecdsa,ECDSA cryptographic signature library (pure python),yes
+py312-ed25519ll-0.6_3,security/py-ed25519ll,Low-level ctypes wrapper for Ed25519 digital signatures,yes
+py312-exscript-2.6_3,security/py-exscript,Automating Telnet and SSH,yes
+py312-fail2ban-1.1.1,security/py-fail2ban,Scans log files and bans IP that makes too many password failures,yes
+py312-fido2-2.2.1,security/py-fido2,FIDO2/WebAuthn library for implementing clients and servers,yes
+py312-gixy-0.1.21,security/py-gixy,Tool to analyze Nginx configuration for security misconfiguration,
+py312-gnupg-3.1.1_1,security/py-gnupg,Python wrapper for GnuPG,yes
+py312-gnutls-3.1.3_1,security/py-gnutls,Python wrapper for the GNUTLS library,yes
+py312-google-auth-2.62.2,security/py-google-auth,Google Authentication Library,
+py312-google-auth-httplib2-0.4.4,security/py-google-auth-httplib2,Google Authentication Library: httplib2 transport,
+py312-google-auth-oauthlib-1.5.0,security/py-google-auth-oauthlib,Google Authentication Library,
+py312-google-cloud-kms-3.19.0,security/py-google-cloud-kms,Python client for Google Cloud Key Management Service,yes
+py312-gpg-2.0.0,security/py-gpg,Gpgme Python bindings,yes
+py312-gpsoauth-0.4.2_2,security/py-gpsoauth,Python client library for Google Play Services OAuth,
+py312-greenbone-feed-sync-25.4.2,security/py-greenbone-feed-sync,new script for downloading the Greenbone Community Feed,
+py312-gssapi-1.11.1,security/py-gssapi,High-level and low-level Python bindings to GSSAPI C libraries,yes
+py312-guardpost-1.1.0,security/py-guardpost,Framework to handle authentication and authorization,
+py312-gvm-tools-26.1.0,security/py-gvm-tools,The Greenbone Vulnerability Management Tools,
+py312-himitsu-keyring-0.2.0,security/py-himitsu-keyring,GTK4-based prompter implementation for Himitsu,yes
+py312-hkdf-0.0.3_1,security/py-hkdf,HMAC-based Extract-and-Expand Key Derivation Function (HKDF),yes
+py312-htpasswd-2019.10.15,security/py-htpasswd,Replacement for htpasswd,
+py312-httpx-auth-0.23.1,security/py-httpx-auth,Authentication for HTTPX,
+py312-iam-expand-0.3.0,security/py-iam-expand,Python package to expand and deobfuscate IAM policies,
+py312-iamdata-0.1.202611121,security/py-iamdata,"IAM data for AWS actions, resources, and conditions",
+"py312-iris-check-module-1.0.1_1,1",security/py-iris-check-module,A simple processor module for IRIS,
+py312-iris-client-2.0.4,security/py-iris-client,Python client for DFIR-IRIS,
+py312-iris-evtx-module-1.2.0_1,security/py-iris-evtx-module,"Example of IRIS module, handling EVTX files",
+py312-iris-intelowl-module-0.1.0_1,security/py-iris-intelowl-module,IntelOwl IRIS module,
+py312-iris-misp-module-1.3.0_1,security/py-iris-misp-module,IRIS module interfacing MISP with IRIS,
+py312-iris-module-interface-1.2.0_1,security/py-iris-module-interface,Base interface for modules of Iris,
+py312-iris-vt-module-1.2.1_1,security/py-iris-vt-module,IRIS Module enriching IOCs with VT insights,
+"py312-iris-webhooks-module-1.0.4_1,1",security/py-iris-webhooks-module,IRIS module offering support for webhooks,
+py312-itsdangerous-2.2.0,security/py-itsdangerous,Various helpers to pass data in untrusted environments,
+py312-josepy-2.3.0,security/py-josepy,JOSE protocol implementation in Python,
+py312-joserfc-1.8.0,security/py-joserfc,Ultimate Python library for JOSE RFCs,
+py312-jwcrypto-1.6.1,security/py-jwcrypto,Implementation of JOSE Web standards,yes
+py312-k5test-0.10.4,security/py-k5test,Library for setting up self-contained Kerberos 5 environments,yes
+py312-kdcproxy-1.1.0,security/py-kdcproxy,Kerberos KDC HTTP proxy WSGI module,yes
+py312-keepkey-7.2.1_3,security/py-keepkey,Library for communicating with KeepKey Hardware Wallet,yes
+py312-kerberos-1.3.1_3,security/py-kerberos,Kerberos bindings for python,yes
+"py312-keyring-25.6.0,1",security/py-keyring,Store and access your passwords safely,yes
+py312-keyrings.alt-4.2.0_1,security/py-keyrings.alt,Alternate Python keyring implementations,yes
+py312-krb5-0.10.0,security/py-krb5,Kerberos API bindings for Python,yes
+py312-lib4sbom-0.9.4,security/py-lib4sbom,Software bill of material (SBOM) generator and consumer library,
+py312-libnacl-2.1.0_3,security/py-libnacl,Python bindings for libsodium based on ctypes,yes
+py312-liboqs-python-0.16.0.2,security/py-liboqs-python,Library for quantum-resistant cryptography,yes
+py312-m2crypto-0.51.0,security/py-m2crypto,Crypto and SSL toolkit for Python,yes
+py312-maec-4.1.0.17_3,security/py-maec,"Python library for parsing, manipulating, and generating MAEC content",
+py312-merkletools-1.0.3_3,security/py-merkletools,Tools for working with Merkle trees,
+py312-mixbox-1.0.5_4,security/py-mixbox,"Utility library for cybox, maec, and stix",
+py312-mnemonic-0.21,security/py-mnemonic,Implementation of Bitcoin BIP-0039,
+py312-msoffcrypto-tool-5.0.0_1,security/py-msoffcrypto-tool,Python tool and library for decrypting MS Office files,yes
+py312-muacrypt-0.9.1_1,security/py-muacrypt,Support tool and API for Autocrypt mail agents,yes
+py312-netbox-secrets-3.2.0,security/py-netbox-secrets,Secret store for NetBox,
+py312-nethsm-3.0.0,security/py-nethsm,Python client for NetHSM,
+py312-netmiko-4.8.0,security/py-netmiko,Multi-vendor library to simplify SSH connections to network devices,yes
+py312-nettacker-0.4.1,security/py-nettacker,Automated penetration testing and information-gathering framework,
+py312-nitrokey-0.5.0,security/py-nitrokey,Python SDK for Nitrokey devices,yes
+py312-noiseprotocol-0.3.1_1,security/py-noiseprotocol,Python implementation of Noise Protocol Framework,
+py312-notus-scanner-23.0.0,security/py-notus-scanner,scanner for creating results from local security checks,
+py312-ntlm-auth-1.5.0_1,security/py-ntlm-auth,Create NTLM authentication structures,
+py312-nvdlib-0.8.3,security/py-nvdlib,Simple NIST NVD API wrapper library,
+py312-oauthlib-4.0.1,security/py-oauthlib,"Generic, spec-compliant, thorough implementation of the OAuth request-signing logic",yes
+py312-omemo-dr-1.2.0,security/py-omemo-dr,OMEMO Double Ratchet,
+py312-openssh-wrapper-0.4,security/py-openssh-wrapper,OpenSSH python wrapper,yes
+py312-oscrypto-1.3.0_1,security/py-oscrypto,Cryptographic operations using the OS crypto libraries,yes
+py312-ospd-openvas-22.10.5,security/py-ospd-openvas,Scanner wrapper for OSP (Open Scanner Protocol),
+py312-paramiko-3.5.1_2,security/py-paramiko,Python SSH2 protocol library,yes
+py312-pass-audit-1.2_2,security/py-pass-audit,Extension to audit your password-store password repository,yes
+py312-pass-git-helper-5.0.0,security/py-pass-git-helper,Git credential helper interfacing with pass,
+py312-passhole-1.10.1_1,security/py-passhole,Secure hole for your passwords (KeePass CLI),yes
+py312-passlib-1.7.4_2,security/py-passlib,Comprehensive password hashing framework supporting over 30 schemes,yes
+py312-pbkdf2-1.3_1,security/py-pbkdf2,PKCS5 v2.0 PBKDF2 Module,yes
+py312-pem-23.1.0,security/py-pem,Easy PEM file parsing in Python,
+py312-pgpdump-1.5_1,security/py-pgpdump,Python library for parsing PGP packets,yes
+py312-plaso-20260512,security/py-plaso,Automatic creation of a super timeline,
+py312-pnu-certwatch-1.0.3,security/py-pnu-certwatch,Watch X509 certificates expiration dates,yes
+py312-pnu-vuxml-1.2.1,security/py-pnu-vuxml,FreeBSD VuXML library and query tool,
+py312-policyuniverse-1.5.1.20231109,security/py-policyuniverse,"Parse and Process AWS IAM Policies, Statements, ARNs, and wildcards",
+py312-potr-1.0.1_2,security/py-potr,Pure Python Off-The-Record encryption,yes
+py312-pwntools-4.15.1,security/py-pwntools,CTF framework and exploit development library,
+py312-pyClamd-0.3.17_1,security/py-pyclamd,Python ClamD interface module,
+py312-pyaes-1.6.1_1,security/py-pyaes,Pure-Python implementation of AES block-cipher,yes
+py312-pyaxo-0.8.2_7,security/py-pyaxo,Python implementation of the Axolotl ratchet protocol,
+py312-pycryptodome-3.24.1,security/py-pycryptodome,Cryptographic library for Python,yes
+py312-pycryptodome-test-vectors-1.0.22,security/py-pycryptodome-test-vectors,Optional test vectors for PyCryptodome and PyCryptodomeX,yes
+py312-pycryptodomex-3.24.1,security/py-pycryptodomex,Cryptographic library for Python,yes
+py312-pyelliptic-2.0.1_2,security/py-pyelliptic,Python OpenSSL wrapper,yes
+py312-pygost-5.13_1,security/pygost,Pure Python 2.7/3.x GOST cryptographic functions library,yes
+py312-pyhanko-0.38.1,security/py-pyhanko,Tools for stamping and signing PDF files,yes
+py312-pyhanko-certvalidator-0.33.0,security/py-pyhanko-certvalidator,Validates X.509 certificates and paths,yes
+py312-pyhanko-cli-0.6.0,security/py-pyhanko-cli,CLI tools for stamping and signing PDF files,yes
+py312-pykeepass-4.1.1_2,security/py-pykeepass,Python library to interact with keepass databases,
+py312-pykeepass-cache-2.0.3_1,security/py-pykeepass-cache,Database caching for PyKeePass,
+py312-pylibacl-0.7.0_1,security/py-pylibacl,Manipulate ACL with Python,
+py312-pymacaroons-0.13.0_4,security/py-pymacaroons,Macaroon library for Python,
+"py312-pyopenssl-26.4.0,1",security/py-pyopenssl,Python interface to the OpenSSL library,yes
+py312-pyotp-2.12.0,security/py-pyotp,Python One Time Password Library,yes
+py312-pyotp2289-2.0.0,security/py-pyotp2289,"Pure Python implementation of RFC-2289 - ""A One-Time Password System""",yes
+py312-pysaml2-7.5.5,security/py-pysaml2,Python implementation of SAML Version 2,
+py312-pyscard-2.3.1,security/py-pyscard,Smartcard module for Python,
+py312-pysequoia-0.1.35_1,security/py-pysequoia,Provides OpenPGP facilities using Sequoia-PGP library,yes
+py312-pysodium-0.7.19,security/py-pysodium,Wrapper for libsodium providing high level crypto primitives,yes
+py312-pyspnego-0.12.4,security/py-pyspnego,Windows Negotiate Authentication Client and Server,
+py312-pysrp-1.0.22_1,security/py-pysrp,Python Secure Remote Password protocol (SRP),yes
+py312-python-axolotl-0.1.42_1,security/py-python-axolotl,Python port of libaxolotl-android,
+py312-python-axolotl-curve25519-0.4.1_1,security/py-python-axolotl-curve25519,Python wrapper for curve25519 with ed25519 signatures,yes
+py312-python-cas-1.6.0_3,security/py-python-cas,Python CAS client library,
+py312-python-gnupg-0.5.1,security/py-python-gnupg,Python wrapper for the GNU Privacy Guard (GPG or GnuPG),yes
+py312-python-gvm-27.7.0,security/py-python-gvm,The Greenbone Vulnerability Management Python API library,
+py312-python-jose-3.5.0,security/py-python-jose,JOSE implementation in Python,
+py312-python-nmap-0.7.1_1,security/py-python-nmap,Use nmap and access scan results from Python3,
+py312-python-nss-1.0.1_4,security/py-python-nss,Python bindings for NSS and NSPR,
+py312-python-openid-2.2.5_3,security/py-python-openid,Python OpenID version,
+py312-python-pam-1.8.4_1,security/py-python-pam,Python PAM module,
+py312-python-pkcs11-0.10.1,security/py-python-pkcs11,PKCS#11 (Cryptoki) support for Python,yes
+py312-python-registry-1.4_1,security/py-python-registry,Read access to Windows Registry files,
+py312-python3-openid-3.2.0_2,security/py-python3-openid,Python 3 port of the python-openid library,
+py312-python3-saml-1.16.0_2,security/py-python3-saml,Add SAML support to your Python software,
+py312-pyvex-9.2.222_2,security/py-pyvex,Python interface to libVEX and VEX IR,
+py312-pywinrm-0.5.0,security/py-pywinrm,Python library for Windows Remote Management (WinRM),
+py312-pyxmpp2_scram-2.0.2,security/py-pyxmpp2_scram,SCRAM implementation from PyXMPP2,
+py312-requests-credssp-1.2.0_3,security/py-requests-credssp,Authentication handler for using CredSSP with Python Requests,
+py312-requests-kerberos-0.14.0_2,security/py-requests-kerberos,Kerberos authentication handler for python-requests,yes
+py312-ropgadget-7.7,security/py-ropgadget,Tool to search gadgets to facilitate ROP exploitation,
+py312-ropper-1.13.13,security/py-ropper,Find gadgets to build rop chains for different architectures,
+py312-rsa-4.9.1,security/py-rsa,Pure-Python RSA implementation,yes
+py312-rtls-2026.10.3,security/py-rtls,"Drop-in replacement for Python's ssl module, backed by rustls",yes
+py312-safe-0.4_1,security/py-safe,Python library to test password strength,yes
+py312-scp-0.14.4_3,security/py-scp,Scp module for paramiko,
+py312-scramp-1.4.17,security/py-scramp,Pure-Python implementation of the SCRAM authentication protocol,
+py312-scrypt-0.9.4,security/py-scrypt,Bindings for the scrypt key derivation function library,yes
+py312-secure-2.0.1,security/py-secure,Adds security headers for python web frameworks,
+py312-securesystemslib-1.6.0,security/py-securesystemslib,Cryptographic and general-purpose routines,yes
+py312-serpico-0.2.2,security/py-serpico,Security scanner for FreeBSD packages and releases,
+py312-service-identity-26.1.0,security/py-service-identity,Service identity verification for pyOpenSSL & cryptography,yes
+py312-shamir-mnemonic-0.3.0,security/py-shamir-mnemonic,Implementation of SLIP-0039 Shamir mnemonic secret sharing,
+py312-signedjson-1.1.4_4,security/py-signedjson,Sign JSON with Ed25519 signatures,yes
+py312-signxml-5.3.0,security/py-signxml,Python XML Signature and XAdES library,yes
+py312-siphash24-1.8,security/py-siphash24,Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation,yes
+py312-slip10-1.1.0,security/py-slip10,Reference implementation of SLIP-0010 key derivation,yes
+py312-social-auth-core-5.2.0,security/py-social-auth-core,Social authentication/registration mechanism for several frameworks,
+py312-social-auth-core4-4.8.7,security/py-social-auth-core4,Social authentication/registration mechanism for several frameworks,
+py312-social-auth-core5-5.2.0,security/py-social-auth-core5,Social authentication/registration mechanism for several frameworks,
+py312-spake2-0.9_1,security/py-spake2,SPAKE2 password-authenticated key exchange (pure python),yes
+py312-sqlmap-1.9.12,security/sqlmap,Automatic SQL injection tool,
+py312-ssh-audit-3.9.0,security/py-ssh-audit,SSH server auditing,yes
+py312-ssh-import-id-5.11_1,security/ssh-import-id,Authorize SSH public keys from trusted online identities,yes
+py312-sshpubkeys-3.3.1_2,security/py-sshpubkeys,SSH public key parser,yes
+py312-stem-1.8.2_1,security/py-stem,Python controller library for Tor,
+py312-stix-1.2.0.11_4,security/py-stix,"Python library for parsing, manipulating, and generating STIX content",
+py312-stix2-3.0.2,security/py-stix2,Python library to produce and consume STIX 2 JSON content,
+py312-stix2-patterns-2.1.2,security/py-stix2-patterns,Python library to validate STIX 2 Patterns,
+py312-taxii2-client-2.3.0_1,security/py-taxii2-client,Minimal client implementation for the TAXII 2.0 server,
+py312-tinyaes-1.1.2,security/py-tinyaes,Tiny-AES-c wrapper in Python,yes
+py312-tls-parser-2.0.2,security/py-tls-parser,Small library to parse TLS records,yes
+py312-tlslite-0.4.9_2,security/py-tlslite,"Python module implementing SSL 3.0, TLS 1.0, and TLS 1.1",yes
+py312-tlslite-ng-0.8.2,security/py-tlslite-ng,Pure python implementation of SSL and TLS,yes
+py312-trezor-0.20.1,security/py-trezor,Client side implementation for TREZOR Bitcoin hardware wallets,
+py312-trustme-1.2.1_1,security/py-trustme,"Top quality TLS certs while you wait, for the discerning tester",yes
+py312-truststore-0.10.5,security/py-truststore,Verify certificates using native system trust stores,yes
+py312-tuf-7.0.1,security/py-tuf,Framework for securing software update systems,
+py312-txtorcon-26.6.0,security/py-txtorcon,Twisted-based Tor controller client,
+py312-uhashring-2.5,security/py-uhashring,Full featured consistent hashing python library,yes
+py312-unicode-show-55.6.1,security/py-unicode-show,Detect and annotate suspicious Unicode characters in text or files,
+py312-utls-2026.10.3,security/py-utls,Drop-in ssl stdlib library using BoringSSL with first-class fingerprint impersonation,yes
+py312-vici-6.0.3,security/py-vici,Native Python interface for strongSwan's VICI protocol,
+py312-virustotal-api-1.1.11_1,security/py-virustotal-api,Virus Total Public/Private/Intel API,
+py312-volatility3-2.28.0,security/py-volatility3,Advanced memory forensics framework,
+py312-vpn-slice-0.16.1_1,security/py-vpn-slice,vpnc-script replacement for easy split-tunnel VPN setup,yes
+py312-vulndb-0.0.19_1,security/py-vulndb,Provides access to the vulndb information in Python,
+py312-wassima-2.1.5,security/py-wassima,Access your OS root certificates with utmost ease,yes
+py312-webauthn-3.0.1,security/py-webauthn,WebAuthn Python module,
+py312-xkcdpass-1.17.4_3,security/py-xkcdpass,Password generator as in XKCD 936,yes
+py312-xmlsec-1.3.18,security/py-xmlsec,Python bindings for XML Security Library,
+py312-yara-python-4.5.5,security/py-yara,Python bindings for yara,
+py312-yara-python-dex-1.1.0,security/py-yara-python-dex,Prebuilt dex-enabled yara-python wheels,
+py312-yubikey-manager-5.7.2_1,security/py-yubikey-manager,Python library and command line tool for configuring a YubiKey,yes
+py312-zaproxy-0.6.0,security/py-zaproxy,ZAP api client,
+py312-zkg-3.0.1,security/py-zkg,Zeek NSM package manager,
+py312-zxcvbn-4.5.0_1,security/py-zxcvbn,Realistic password strength estimator,yes
+py313-PAM-0.4.2,security/py-PAM,Python interface to the PAM library,
+py313-privleap-7.1.1,security/py-privleap,Limited Privilege Escalation Framework,
+py313t-PAM-0.4.2,security/py-PAM,Python interface to the PAM library,
+py314-PAM-0.4.2,security/py-PAM,Python interface to the PAM library,
+py314t-PAM-0.4.2,security/py-PAM,Python interface to the PAM library,
+py315-PAM-0.4.2,security/py-PAM,Python interface to the PAM library,
+qgpgme-qt5-2.2.0,security/qgpgme,GnuPG Made Easy (GPGME) Qt bindings,yes
+qgpgme-qt6-2.2.0,security/qgpgme,GnuPG Made Easy (GPGME) Qt bindings,yes
+qt-sudo-2.4.1,security/qt-sudo,Clone of LXQt sudo tool without LXQt libs,
+qtkeychain-0.18.0,security/qtkeychain,Platform independent Qt API for storing passwords,yes
+quantis-kmod-v18.03.08.1502501,security/quantis-kmod,Kernel driver for Quantis PCI/PCIe random number generator,
+radamsa-0.7,security/radamsa,General purpose fuzzer,
+rage-encryption-0.12.1_2,security/rage-encryption,"Simple, modern, and secure file encryption tool, using the age format",yes
+ratify-2.6.0_4,security/ratify,Tool to sign files and directories,yes
+ratproxy-1.58,security/ratproxy,"Semi-automated, largely passive web application security audit tool",
+rats-2.4_1,security/rats,Source code auditing tool,
+rauthy-0.36.2_1,security/rauthy,OpenID Connect Identity & Access Management server,
+rbw-1.15.0_5,security/rbw,Unofficial bitwarden cli,
+rcracki_mt-0.7.0,security/rcracki_mt,Rainbow table based crack tool,
+rekor-client-1.6.1,security/rekor,Software Supply Chain Transparency Log (client only),
+rekor-server-1.6.1,security/rekor,Software Supply Chain Transparency Log (server only),
+reop-2.1.1_4,security/reop,Reasonable Expectation Of Privacy,
+rhash-1.4.6,security/rhash,Utility and library for computing and checking of file hashes,yes
+ridl-g20190530,security/ridl,Tool to check whether the system is affected by various attacks,
+rifiuti2-0.7.0_1,security/rifiuti2,Tool for analyzing Windows recycle bin,
+rndpassw-0.2.2_1,security/rndpassw,CLI password generator,yes
+rnp-0.18.1_1,security/rnp,RNP is a set of OpenPGP (RFC4880) tools,yes
+rotate-1.2,security/rotate,Binary rotation cipher (rot-13),yes
+rpm-sequoia-1.10.3_1,security/rpm-sequoia,OpenPGP backend for rpm using Sequoia PGP,yes
+rubygem-acme-client-2.0.36,security/rubygem-acme-client,Client for the ACME protocol,
+rubygem-acme-client-gitlab-2.0.34,security/rubygem-acme-client-gitlab,Client for the ACME protocol,
+rubygem-aes_key_wrap-1.1.0,security/rubygem-aes_key_wrap,Ruby implementation of AES Key Wrap,yes
+rubygem-airbrussh-1.6.2,security/rubygem-airbrussh,Replacement log formatter for SSHKit,yes
+rubygem-android_key_attestation-0.3.0,security/rubygem-android_key_attestation,Android key attestation verification,yes
+rubygem-attr_encrypted-4.2.0,security/rubygem-attr_encrypted,Generates attr_accessors that encrypt and decrypt attributes,yes
+rubygem-attr_encrypted3-3.1.0,security/rubygem-attr_encrypted3,Generates attr_accessors that encrypt and decrypt attributes,yes
+rubygem-auth-sanitizer-0.2.5,security/rubygem-auth-sanitizer,Configurable KV output redaction. Sanitize/filter your secrets,
+rubygem-auth-sanitizer-gitlab-0.2.3,security/rubygem-auth-sanitizer-gitlab,Configurable KV output redaction. Sanitize/filter your secrets,
+rubygem-az-identity-0.1.0,security/rubygem-az-identity,Credential acquisition for Azure services,
+rubygem-bcrypt-3.1.22,security/rubygem-bcrypt,OpenBSD bcrypt password hashing algorithm,yes
+rubygem-bcrypt-ruby-3.1.5_1,security/rubygem-bcrypt-ruby,Sophisticated and secure hash algorithm for passwords,yes
+rubygem-bcrypt_pbkdf-1.1.1,security/rubygem-bcrypt_pbkdf,This gem implements bcrypt_pdkfd,yes
+rubygem-brakeman-8.1.0,security/rubygem-brakeman,Detect security vulnerabilities in Ruby on Rails applications via static analysis,
+rubygem-cancancan-3.7.0,security/rubygem-cancancan,Simple authorization solution for Rails with all permissions stored in a single location,
+rubygem-cose-1.4.0,security/rubygem-cose,Ruby implementation of RFC 8152 CBOR Object Signing and Encryption,yes
+rubygem-cvss-suite-4.1.2,security/rubygem-cvss-suite,Ruby binding to process CVSS entries,
+rubygem-declarative_policy-2.3.0,security/rubygem-declarative_policy,Authorization framework with a declarative DSL,
+rubygem-devise-two-factor-6.4.1,security/rubygem-devise-two-factor,Barebones two-factor authentication with Devise,
+rubygem-devise-two-factor-rails-gitlab-6.4.0,security/rubygem-devise-two-factor-rails-gitlab,Barebones two-factor authentication with Devise,
+rubygem-devise-two-factor-rails5-4.1.0,security/rubygem-devise-two-factor-rails5,Barebones two-factor authentication with Devise,
+rubygem-devise-two-factor-rails70-6.3.1,security/rubygem-devise-two-factor-rails70,Barebones two-factor authentication with Devise,
+rubygem-devise_pam_authenticatable2-9.2.0,security/rubygem-devise_pam_authenticatable2,Devise PAM authentication module using rpam2,
+rubygem-digest-3.3.0,security/rubygem-digest,Framework for message digest libraries,
+rubygem-digest-crc-0.7.0,security/rubygem-digest-crc,Adds support for CRC to the Digest module,
+rubygem-doorkeeper-5.9.3,security/rubygem-doorkeeper,OAuth2 provider for Rails and Grape,
+rubygem-doorkeeper-device_authorization_grant-1.0.3_1,security/rubygem-doorkeeper-device_authorization_grant,OAuth 2.0 Device Authorization Grant extension for Doorkeeper,
+rubygem-doorkeeper-i18n-5.2.9,security/rubygem-doorkeeper-i18n,Internationalization files for Doorkeeper OAuth2 provider,
+rubygem-doorkeeper-i18n-rails72-5.2.9,security/rubygem-doorkeeper-i18n-rails72,Internationalization files for Doorkeeper OAuth2 provider,
+rubygem-doorkeeper-i18n-rails81-5.2.9,security/rubygem-doorkeeper-i18n-rails81,Internationalization files for Doorkeeper OAuth2 provider,
+rubygem-doorkeeper-openid_connect-1.10.5,security/rubygem-doorkeeper-openid_connect,OpenID Connect extension for Doorkeeper,
+rubygem-doorkeeper-rails-gitlab-5.9.9,security/rubygem-doorkeeper-rails-gitlab,OAuth2 provider for Rails and Grape,
+rubygem-doorkeeper-rails5-5.9.3,security/rubygem-doorkeeper-rails5,OAuth2 provider for Rails and Grape,
+rubygem-doorkeeper-rails50-5.9.3,security/rubygem-doorkeeper-rails50,OAuth2 provider for Rails and Grape,
+rubygem-doorkeeper-rails70-5.9.3,security/rubygem-doorkeeper-rails70,OAuth2 provider for Rails and Grape,
+rubygem-doorkeeper-rails72-5.9.3,security/rubygem-doorkeeper-rails72,OAuth2 provider for Rails and Grape,
+rubygem-doorkeeper-rails81-5.9.3,security/rubygem-doorkeeper-rails81,OAuth2 provider for Rails and Grape,
+rubygem-doorkeeper57-rails70-5.7.1,security/rubygem-doorkeeper57-rails70,OAuth2 provider for Rails and Grape,
+rubygem-duo_api-1.5.0_1,security/rubygem-duo_api,Ruby implementation of the Duo API,
+rubygem-ed25519-1.4.0,security/rubygem-ed25519,Ruby binding to the Ed25519 (RFC 8032),
+rubygem-encryptor-3.0.0,security/rubygem-encryptor,Wrapper for the standard ruby OpenSSL library,yes
+rubygem-ezcrypto-0.7.2_1,security/rubygem-ezcrypto,Wrapper for the poorly documented OpenSSL ruby library,yes
+rubygem-gitlab-cloud-connector-1.54.0,security/rubygem-gitlab-cloud-connector,CloudConnector and lib for GitLab projects,
+rubygem-gitlab-glaz-2.2.0,security/rubygem-gitlab-glaz,Wraps the Rust-backed GitLab Authorization Service (GLAZ),
+rubygem-gitlab-secret_detection-0.47.0,security/rubygem-gitlab-secret_detection,Secret detector for Gitlab,
+rubygem-googleauth-1.17.7,security/rubygem-googleauth,Google Auth Library for Ruby,
+rubygem-googleauth-gitlab-1.14.0_2,security/rubygem-googleauth-gitlab,Google Auth Library for Ruby,
+rubygem-gpgme-2.0.26,security/rubygem-gpgme,Ruby interface to GnuPG Made Easy (GPGME),yes
+rubygem-gpgr-0.1.0,security/rubygem-gpgr,Very light interface to the command-line GPG tool,yes
+rubygem-gssapi-1.3.1,security/rubygem-gssapi,FFI wrapper around the system GSSAPI library,yes
+rubygem-haiti-hash-4.0.0,security/rubygem-haiti-hash,Hash type identifier (CLI tool and library),yes
+rubygem-hkdf-1.0.0,security/rubygem-hkdf,HMAC-based Key Derivation Function,yes
+rubygem-hkdf0-0.3.0,security/rubygem-hkdf0,HMAC-based Key Derivation Function,yes
+rubygem-hrr_rb_ssh-0.4.2,security/rubygem-hrr_rb_ssh,Pure Ruby SSH 2.0 server implementation,yes
+rubygem-hrr_rb_ssh-ed25519-0.4.2,security/rubygem-hrr_rb_ssh-ed25519,hrr_rb_ssh extension that supports ED25519,yes
+rubygem-lockbox-1.4.1,security/rubygem-lockbox,Modern encryption for Rails,yes
+rubygem-metasploit-concern-5.0.6,security/rubygem-metasploit-concern,Automatically include Modules from app/concerns,
+rubygem-metasploit-credential-6.0.25,security/rubygem-metasploit-credential,Credential models for metasploit-framework and Metasploit Pro,
+rubygem-metasploit-model-5.0.5,security/rubygem-metasploit-model,Metasploit Model Mixins and Validators,
+rubygem-metasploit-payloads-2.0.257,security/rubygem-metasploit-payloads,Compiled binaries for Metasploit's Meterpreter,
+"rubygem-metasploit_data_models-6.0.18,2",security/rubygem-metasploit_data_models,Database layer for Metasploit,
+rubygem-metasploit_payloads-mettle-1.0.48,security/rubygem-metasploit_payloads-mettle,Compiled binaries for Metasploit's next-gen Meterpreter,
+rubygem-nessus_rest-0.1.6,security/rubygem-nessus_rest,Communicate with Nessus Scanner over REST/JSON interface,
+rubygem-net-scp-4.2.1,security/rubygem-net-scp,Non-interactive SCP processing,
+rubygem-net-scp-gitlab-4.2.1,security/rubygem-net-scp-gitlab,Non-interactive SCP processing,
+rubygem-net-scp1-1.2.1,security/rubygem-net-scp1,Non-interactive SCP processing,
+rubygem-net-sftp-4.1.1,security/rubygem-net-sftp,Implementation of the SFTP client protocol,
+rubygem-net-sftp-gitlab-4.1.1,security/rubygem-net-sftp-gitlab,Implementation of the SFTP client protocol,
+"rubygem-net-ssh-8.1.2,2",security/rubygem-net-ssh,Non-interactive SSH processing,yes
+rubygem-net-ssh-gateway-2.0.0,security/rubygem-net-ssh-gateway,Establish Net::SSH connections through firewalls,yes
+rubygem-net-ssh-gitlab-7.3.10,security/rubygem-net-ssh-gitlab,Non-interactive SSH processing,yes
+rubygem-net-ssh-krb-0.5.1,security/rubygem-net-ssh-krb,Add Kerberos authentication capabilities to Net::SSH,yes
+rubygem-net-ssh-multi-1.2.1,security/rubygem-net-ssh-multi,SSH connection multiplexing library for Ruby,yes
+"rubygem-net-ssh5-5.2.0,2",security/rubygem-net-ssh5,Non-interactive SSH processing,yes
+rubygem-net-ssh6-6.1.0,security/rubygem-net-ssh6,Non-interactive SSH processing,yes
+rubygem-net-ssh7-7.3.10,security/rubygem-net-ssh7,Non-interactive SSH processing,yes
+rubygem-net-telnet-0.2.0,security/rubygem-net-telnet,Provides telnet client functionality,
+rubygem-nexpose-7.3.0,security/rubygem-nexpose,Ruby API to Rapid7 Nexpose vulnerability management,
+rubygem-nmap-parser-0.3.5,security/rubygem-nmap-parser,Ruby interface to Nmap scan data,
+rubygem-omniauth-2.4.1,security/rubygem-omniauth,Generalized Rack framework for multiple-provider authentication,
+rubygem-omniauth-alicloud-3.0.0_1,security/rubygem-omniauth-alicloud,Wrapper the AliCloud Oauth2 API,
+rubygem-omniauth-atlassian-oauth2-0.2.0_3,security/rubygem-omniauth-atlassian-oauth2,Atlassian OAuth2 strategy for OmniAuth,
+rubygem-omniauth-bitbucket-0.0.2_1,security/rubygem-omniauth-bitbucket,OmniAuth strategy for Bitbucket,
+rubygem-omniauth-cas-3.0.2,security/rubygem-omniauth-cas,Central Authentication Service (CAS) strategy for OmniAuth,
+rubygem-omniauth-dingtalk-oauth2-1.0.1_1,security/rubygem-omniauth-dingtalk-oauth2,Wrapper the DingTalk Oauth2 API,
+rubygem-omniauth-gitlab-4.1.0_1,security/rubygem-omniauth-gitlab,OmniAuth strategy for GitLab,
+rubygem-omniauth-gl-2.1.4_2,security/rubygem-omniauth-gl,Generalized Rack framework for multiple-provider authentication,
+rubygem-omniauth-jwt-0.0.2_1,security/rubygem-omniauth-jwt,OmniAuth strategy to accept JWT-based single sign-on,yes
+rubygem-omniauth-multipassword-2.1.0,security/rubygem-omniauth-multipassword,OmniAuth strategy using different password strategies,yes
+rubygem-omniauth-multipassword2-2.1.0,security/rubygem-omniauth-multipassword2,OmniAuth strategy using different password strategies,yes
+rubygem-omniauth-oauth2-generic-0.2.8,security/rubygem-omniauth-oauth2-generic,"Generic, Configurable OmniAuth Strategy for OAuth2 providers",
+rubygem-omniauth-oauth2-generic-gitlab-0.2.8,security/rubygem-omniauth-oauth2-generic-gitlab,"Generic, Configurable OmniAuth Strategy for OAuth2 providers",
+rubygem-omniauth-rails_csrf_protection-1.0.2,security/rubygem-omniauth-rails_csrf_protection,Mitigation against CVE-2015-9284 for OmniAuth,
+rubygem-omniauth-saml-2.2.5,security/rubygem-omniauth-saml,OmniAuth strategy for SAML,
+rubygem-omniauth-saml-gitlab-2.2.5,security/rubygem-omniauth-saml-gitlab,OmniAuth strategy for SAML,
+rubygem-omniauth-saml1-1.10.6,security/rubygem-omniauth-saml1,OmniAuth strategy for SAML,
+rubygem-omniauth-shibboleth-1.3.0_1,security/rubygem-omniauth-shibboleth,OmniAuth Shibboleth strategies for OmniAuth 1.x,
+rubygem-omniauth-shibboleth-redux-2.0.0,security/rubygem-omniauth-shibboleth-redux,OmniAuth strategy for Shibboleth,
+rubygem-omniauth-shibboleth-redux-gitlab-2.0.0,security/rubygem-omniauth-shibboleth-redux-gitlab,OmniAuth strategy for Shibboleth,
+rubygem-omniauth1-1.9.2_1,security/rubygem-omniauth1,Generalized Rack framework for multiple-provider authentication,
+rubygem-openssl-4.0.2,security/rubygem-openssl,Wrap the OpenSSL library,yes
+rubygem-openssl-ccm-1.3.0_1,security/rubygem-openssl-ccm,Implementation of RFC 3610 - Counter with CBC-MAC (CCM),yes
+rubygem-openssl-cmac-2.1.0_1,security/rubygem-openssl-cmac,"Implementation of RFC 4493, 4494, 4615 - AES-CMAC Algorithm",yes
+rubygem-openssl-signature_algorithm-1.3.0,security/rubygem-openssl-signature_algorithm,"ECDSA, RSA-PSS and RSA-PKCS for ruby",yes
+rubygem-openssl3-3.3.3,security/rubygem-openssl3,Wrap the OpenSSL library,yes
+rubygem-openvas-omp-0.0.4,security/rubygem-openvas-omp,Communicate with OpenVAS manager through OMP,
+rubygem-origami-2.1.0_1,security/rubygem-origami,Ruby framework to parse analyze and forge PDF documents,
+rubygem-pbkdf2-ruby-0.2.1,security/rubygem-pbkdf2-ruby,Password Based Key Derivation Function 2 for Ruby,yes
+rubygem-pundit-2.5.2,security/rubygem-pundit,Object oriented authorization for Rails applications,
+rubygem-pwned-2.4.1,security/rubygem-pwned,Tools to use the Pwned Passwords API,yes
+rubygem-pyu-ruby-sasl-0.0.3.3,security/rubygem-pyu-ruby-sasl,Simple Authentication and Security Layer,
+rubygem-rack-oauth2-2.3.0,security/rubygem-rack-oauth2,OAuth 2.0 Server & Client Library,
+rubygem-rack-oauth2-gitlab-2.3.0,security/rubygem-rack-oauth2-gitlab,OAuth 2.0 Server & Client Library,
+rubygem-rasn1-0.17.0,security/rubygem-rasn1,Pure ruby ASN.1 library,
+rubygem-razorback-scriptNugget-0.5.0_1,security/rubygem-razorback-scriptNugget,Framework for an intelligence driven security - Script Nugget Ruby,
+rubygem-rbnacl-5.0.0_3,security/rubygem-rbnacl,Networking and Cryptography (NaCl) library,yes
+rubygem-rbnacl-libsodium-1.0.16_2,security/rubygem-rbnacl-libsodium,Port rbnacl with bundled libsodium,yes
+rubygem-recog-3.1.26,security/rubygem-recog,Framework for fingerprinting products,
+rubygem-rex-arch-0.1.20,security/rubygem-rex-arch,Ruby Exploitation(Rex) library with architecture specific information,
+rubygem-rex-bin_tools-0.1.16,security/rubygem-rex-bin_tools,Ruby Exploitation(Rex) Library for Binary Manipulation,
+rubygem-rex-core-0.1.36,security/rubygem-rex-core,Core libraries required for the Ruby Exploitation (Rex) Suite,
+rubygem-rex-encoder-0.1.10,security/rubygem-rex-encoder,Ruby Exploitation(Rex) library for various polymorphic encoders,
+rubygem-rex-exploitation-0.1.44,security/rubygem-rex-exploitation,Ruby Exploitation(Rex) library for various exploitation helpers,
+rubygem-rex-java-0.1.8,security/rubygem-rex-java,Ruby Exploitation(Rex) library for parsing Java serialized streams,
+rubygem-rex-mime-0.1.12,security/rubygem-rex-mime,Ruby Exploitation(Rex) methods for creating and parsing MIME messages,
+rubygem-rex-nop-0.1.4,security/rubygem-rex-nop,Ruby Exploitation(Rex) library for NOP generation,
+rubygem-rex-ole-0.1.9,security/rubygem-rex-ole,Ruby Exploitation(Rex) library for working with OLE files and streams,
+rubygem-rex-powershell-0.1.105,security/rubygem-rex-powershell,Ruby Exploitation(Rex) library for generating Powershell scripts,
+rubygem-rex-random_identifier-0.1.21,security/rubygem-rex-random_identifier,Ruby Exploitation(Rex) library for generating Random identifier,
+rubygem-rex-registry-0.1.6,security/rubygem-rex-registry,Ruby Exploitation(Rex) library for parsing offline registry files,
+rubygem-rex-rop_builder-0.1.6,security/rubygem-rex-rop_builder,Ruby Exploitation(Rex) library for building ROP chains,
+rubygem-rex-socket-0.1.66,security/rubygem-rex-socket,Ruby Exploitation(Rex) socket abstraction library,
+rubygem-rex-sslscan-0.1.13,security/rubygem-rex-sslscan,Ruby Exploitation(Rex) library for scanning SSL/TLS capabilities,yes
+rubygem-rex-struct2-0.1.5,security/rubygem-rex-struct2,Ruby Exploitation(Rex) library for creating and using C-like structs,
+rubygem-rex-text-0.2.64,security/rubygem-rex-text,Ruby Exploitation(Rex) methods for text manipulation and generation,
+rubygem-rex-zip-0.1.6,security/rubygem-rex-zip,Ruby Exploitation(Rex) library for working with zip and related files,
+rubygem-roauth-0.0.8,security/rubygem-roauth,Simple Ruby OAuth library,
+rubygem-rpam2-4.0.2,security/rubygem-rpam2,PAM integration with ruby,
+rubygem-ruby-hmac-0.4.0,security/rubygem-ruby-hmac,Common interface to HMAC functionality,
+rubygem-ruby-rc4-0.1.5,security/rubygem-ruby-rc4,Pure Ruby implementation of the RC4 algorithm,
+rubygem-ruby-saml-1.18.1,security/rubygem-ruby-saml,SAML toolkit for Ruby on Rails,
+rubygem-ruby-saml-gitlab-1.18.1,security/rubygem-ruby-saml-gitlab,SAML toolkit for Ruby on Rails,
+rubygem-safety_net_attestation-0.5.0,security/rubygem-safety_net_attestation,SafetyNet attestation response verification,
+rubygem-scrypt-3.1.0,security/rubygem-scrypt,Scrypt key derivation function,yes
+rubygem-securecompare-1.0.0,security/rubygem-securecompare,Constant time string comparison,
+rubygem-securerandom-0.4.1,security/rubygem-securerandom,Interface for secure random number generator,
+rubygem-signet-0.22.2,security/rubygem-signet,OAuth 1.0 / OAuth 2.0 implementation,yes
+rubygem-signet-gitlab-0.19.0_2,security/rubygem-signet-gitlab,OAuth 1.0 / OAuth 2.0 implementation,yes
+rubygem-six-0.2.2,security/rubygem-six,Very simple authorization gem,
+rubygem-ssh_data-2.0.0,security/rubygem-ssh_data,Library for parsing SSH certificates,yes
+rubygem-sshkey-3.0.0,security/rubygem-sshkey,Generate private/public SSH keypairs using pure Ruby,yes
+rubygem-sshkit-1.25.1,security/rubygem-sshkit,Toolkit for remotely running commands on groups of servers,yes
+rubygem-sslshake-1.3.1,security/rubygem-sslshake,Simulate SSL and TLD handshake,yes
+rubygem-ssrf_filter-1.2.0,security/rubygem-ssrf_filter,Gem to prevent SSRF attacks,
+rubygem-ssrf_filter10-1.0.8,security/rubygem-ssrf_filter10,Gem to prevent SSRF attacks,
+rubygem-timfel-krb5-auth-0.8.3,security/rubygem-timfel-krb5,KRB5 for Ruby,
+rubygem-tpm-key_attestation-0.14.2,security/rubygem-tpm-key_attestation,TPM Key Attestation verifier,yes
+rubygem-twitter_oauth-0.4.94,security/rubygem-twitter_oauth,Twitter OAuth REST API client library for Ruby,
+rubygem-unix-crypt-1.3.2,security/rubygem-unix-crypt,"UNIX crypt(3) algorithm using DES, MD5, SHA256 and SHA512",yes
+rubygem-vault-0.20.1,security/rubygem-vault,Ruby API client for interacting with a Vault server,
+rubygem-webauthn-3.4.4,security/rubygem-webauthn,WebAuthn ruby server library,
+rubygem-webpush-1.1.0_1,security/rubygem-webpush,Encryption utilities for Web Push payload,yes
+rustls-ffi-0.15.7,security/rustls-ffi,FFI bindings for the rustls TLS library,yes
+rustscan-2.4.1_15,security/rustscan,Faster Nmap Scanning with Rust,
+"s2n-tls-1.7.14,1",security/s2n-tls,C99 implementation of the TLS/SSL protocols,yes
+safesh-1.5_1,security/safesh,Authentication manager for OpenSSH (making secure auth easier),yes
+samhain-4.4.3_1,security/samhain,Samhain Intrusion Detection System,
+samhain-client-4.4.3_1,security/samhain-client,Samhain Intrusion Detection System,
+samhain-server-4.4.3_1,security/samhain-server,Samhain Intrusion Detection System,
+sasp-0.1_5,security/sasp,Tool that permits to use a gateway whatever IP we have,
+scanlogd-2.2.8_3,security/scanlogd,TCP port scan detection tool,
+scrypt-1.3.3,security/scrypt,Key Derivation Function,yes
+seahorse-47.0.1,security/seahorse,"GNOME application for managing encryption keys (PGP, SSH)",yes
+seal-4.5.1,security/seal,Microsoft Simple Encrypted Arithmetic Library,yes
+seccure-0.5_10,security/seccure,Elliptic Curve Crypto Utility for Reliable Encryption,yes
+seclists-2026.2,security/seclists,Collection of multiple types of lists used during security assessments,
+"secpanel-0.6.1_6,1",security/secpanel,GUI for managing and running ssh and related utilities,yes
+secure_delete-3.1_2,security/secure_delete,Secure data deletion toolkit,
+sedutil-1.12,security/sedutil,Self Encrypting Drive utility,yes
+sequoia-2.0.0_1,security/sequoia,Meta-port for Sequoia,
+sequoia-chameleon-gnupg-0.13.1_16,security/sequoia-chameleon-gnupg,Reimplementation of gpg using Sequoia,yes
+sequoia-sq-1.5.0_1,security/sequoia-sq,Sequoia-PGP command line tool,yes
+setaudit-1.0.3_1,security/setaudit,Tool to specify audit configurations on a process,
+sha1collisiondetection-1.0.3,security/sha1collisiondetection,Library and command line tool to detect SHA-1 collisions,
+sha2wordlist-1.0.20140124,security/sha2wordlist,Create SHA256 digests as PGP words,yes
+shibboleth-idp-5.2.3,security/shibboleth-idp,Shibboleth Identity Provider (Internet2),
+shibboleth-sp-3.5.2,security/shibboleth-sp,C++ Shibboleth Service Provider (Internet2) for Apache,
+sig2dot-0.35,security/sig2dot,GPG/PGP Keyring Graph Generator,yes
+"signify-0.14,1",security/signify,Create and verify cryptographic signatures,yes
+signing-party-2.10_1,security/signing-party,Various OpenPGP related tools,yes
+silktools-3.22.2,security/silktools,Tools for large-scale network capture analysis,
+smurflog-2.1_1,security/smurflog,Program to assist logging of smurf attacks,
+sniffglue-0.16.2_2,security/sniffglue,Secure multithreaded packet sniffer,
+snoopy-2.5.2,security/snoopy,Log every executed command to syslog,
+snort-2.9.20_5,security/snort,Lightweight network intrusion detection system,
+snort-rep-1.10_1,security/snort-rep,Snort reporting tool that can produce text or HTML from logs,
+snort2pfcd-3.2_2,security/snort2pfcd,Snort alert to pf blocker,
+"snort3-3.13.2.0,1",security/snort3,Lightweight network intrusion detection system,
+"snortsnarf-1.0_1,1",security/snortsnarf,Generate HTML report summaries from snort incident alerts,
+snowflake-tor-2.11.0_14,security/snowflake-tor,Pluggable Transport using WebRTC inspired by Flashproxy,
+softether-4.44.9807,security/softether,SoftEther VPN 4 (RTM version),yes
+softether-devel-4.43.9799.b,security/softether-devel,Softether VPN 4 (stable beta version),yes
+"softether5-5.2.5190,2",security/softether5,SoftEther VPN 5 (Developer Edition),yes
+softhsm2-2.7.0,security/softhsm2,Software implementation of a Hardware Security Module (HSM),
+sops-3.13.3_6,security/sops,"Editor of encrypted files that supports YAML, JSON and BINARY formats",yes
+spass-3.2.5_15,security/spass,Secure password generator with a true random number generator,yes
+spass-qt5-3.2.5_15,security/spass-qt5,Secure password generator with a true RNG (Qt5 GUI),yes
+spectre-meltdown-checker-26.36.0913490,security/spectre-meltdown-checker,Checks your system for the speculative execution CVEs,
+spm-0.20200208_1,security/spm,Simple password manager,yes
+sqlninja-0.2.6,security/sqlninja,SQL Server exploit toolkit,
+srm-1.2.15_1,security/srm,"Secure rm, a utility which destroys file contents before unlinking",
+ssb-0.1.1_47,security/ssb,SSH Server Bruteforcer,yes
+ssdeep-2.14.1_1,security/ssdeep,Tool for computing context triggered piecewise hashes,yes
+ssh-multiadd-1.3.2_1,security/ssh-multiadd,Tool to add multiple ssh keys to the authentication agent,yes
+ssh-tools-1.9_1,security/ssh-tools,CLI tools that make SSH more convenient,yes
+ssh-vault-1.3.9,security/ssh-vault,Encrypt/decrypt using ssh keys,yes
+sshesame-0.0.39_14,security/sshesame,Easy to set up and use SSH honeypot,yes
+"sshguard-2.6.0,1",security/sshguard,Protect hosts from brute-force attacks against SSH and other services,yes
+sshpass-1.10_1,security/sshpass,Non-interactive ssh password auth tool,yes
+ssl-admin-1.3.0_2,security/ssl-admin,OpenSSL certificate manager with OpenVPN support,yes
+ssl-checker-0.1.7_21,security/ssl-checker,Fast and beautiful program to check all your https endpoints,yes
+ssllabs-scan-1.5.0_47,security/ssllabs-scan,Command-line tool to use the SSL Labs API,yes
+"sslproxy-0.10.1,1",security/sslproxy,Transparent and scalable SSL/TLS interception,yes
+sslscan-2.1.3_1,security/sslscan,Fast SSL port scanner,yes
+sslsplit-0.5.5_3,security/sslsplit,Transparent and scalable SSL/TLS interception,yes
+sssd2-2.13.1_2,security/sssd2,System Security Services Daemon,
+ssss-0.5.7,security/ssss,Shamir's Secret Sharing Scheme,
+sst-1.26_2,security/sst,Simple SSL tunneling tool (uses netcat),yes
+starttls-0.10_37,security/starttls,Simple wrapper program for STARTTLS on Emacs,yes
+stegify-1.2.2_47,security/stegify,Steganography software,
+step-certificates-0.30.2_8,security/step-certificates,Smallstep step_ca certificates server,yes
+step-cli-0.30.2_8,security/step-cli,Smallstep step-ca command line client,
+stoken-0.93_4,security/stoken,Software Token for UNIX compatible with RSA SecurID,yes
+strongswan-6.1.0,security/strongswan,Open Source IKEv2 IPsec-based VPN solution,yes
+"stunnel-5.82,1",security/stunnel,SSL encryption wrapper for standard network daemons,yes
+su-exec-0.3,security/su-exec,Switch user and group id and exec,
+su-exec-static-0.3,security/su-exec,Switch user and group id and exec,
+subversion-gnome-keyring-1.15.0,security/subversion-gnome-keyring,GNOME Keyring credential cache for Apache Subversion,yes
+sudo-1.9.17p2_4,security/sudo,Allow others to run commands as root,
+sudo-rs-0.2.15_2,security/sudo-rs,Allow others to run commands as root,
+sudo-rs-coexist-0.2.15_2,security/sudo-rs,Allow others to run commands as root,
+sudo-sssd-1.9.17p2_4,security/sudo,Allow others to run commands as root,
+sudoscript-2.1.2_1,security/sudoscript,Audited shells in Perl with sudo(8) and script(1),
+super-3.30.3_2,security/super,Allow others to run commands as root,
+suricata-8.0.8,security/suricata,"High Performance Network IDS, IPS and Security Monitoring engine",
+susshi-1.0.0,security/susshi,Terminal-based SSH connection manager,yes
+swatchdog-3.2.4,security/swatchdog,Simple log watcher formerly known as swatch,
+syft-1.42.2_9,security/syft,CLI tool for generating SBOMs from container images and filesystems,
+tailcat-0.7.0_2,security/tailcat,"Like netcat, over Tailscale's data plane, no control plane",
+tailscale-1.104.7,security/tailscale,Mesh VPN that makes it easy to connect your devices,yes
+tang-16,security/tang,Tang is a small daemon for binding data to the presence of a network,
+tclsasl-1.0_3,security/tclsasl,Tcl interface to the Cyrus SASLv2 library,
+tcpcrypt-0.5_2,security/tcpcrypt,TCPCrypt userland divert daemon,yes
+teleport-5.2.5_36,security/teleport,Centralized access gateway using the SSH protocol,yes
+testssl.sh-3.2.5,security/testssl.sh,Analyze and report TLS/SSL configuration/misconfiguration,yes
+tfhe-1.0.1.30,security/tfhe,Fast Fully Homomorphic Encryption (FHE) library over the Torus,yes
+theonionbox-4.3.1_5,security/theonionbox,Web interface to monitor Tor node operation,
+timestamp-authority-1.2.9_18,security/timestamp-authority,Service for issuing RFC 3161 timestamps,
+tinc-1.0.37,security/tinc,Virtual Private Network (VPN) daemon,yes
+tinc-devel-1.1pre18_4,security/tinc-devel,Virtual Private Network (VPN) daemon,yes
+tinyca-0.7.6_4,security/tinyca,Simple graphical interface to manage a small Certification Authority,yes
+tlsc-2.0,security/tlsc,TLS connect daemon,yes
+tor-0.4.9.17,security/tor,Anonymizing overlay network for TCP,
+totp-cli-1.9.2_24,security/totp-cli,Authy/Google Authenticator like TOTP CLI tool,yes
+tpm-quote-tools-1.0.4_1,security/tpm-quote-tools,Tools for TPM-based remote attestation using the TPM quote operation,yes
+tpm-tools-1.3.9.1_2,security/tpm-tools,Provides a basic set of TPM tools,yes
+tpm2-abrmd-3.0.0_4,security/tpm2-abrmd,TPM2 Access Broker & Resource Manager Deamon,yes
+tpm2-openssl-1.3.0,security/tpm2-openssl,Provider for integration of TPM 2.0 into OpenSSL 3.x,yes
+tpm2-pkcs11-1.10.1,security/tpm2-pkcs11,PKCS#11 interface for TPM2 hardware,yes
+tpm2-tools-5.6_2,security/tpm2-tools,TPM2 tools,yes
+tpm2-tss-4.1.3,security/tpm2-tss,TPM2 Software Stack core library,yes
+transcrypt-2.3.2,security/transcrypt,Transparently encrypt files within a git repository,yes
+trezord-2.0.33.9_14,security/trezord,TREZOR Communication Daemon aka TREZOR Bridge,
+trillian-1.8.0_3,security/trillian,General transparency,
+tripwire-2.4.3.8_2,security/tripwire,File system security and verification program,
+trivy-0.76.2_1,security/trivy,Security scanner written in go,
+trousers-0.3.14_5,security/trousers,Open-source TCG Software Stack,
+trufflehog-3.100.0,security/trufflehog,Find and verify credentials,
+tscli-0.0.15_20,security/tscli,CLI tool to interact with the Tailscale API,
+tthsum-1.3.2_2,security/tthsum,Command-line utility for generating and checking TTH message digests,
+u2f-devd-1.1.10_9,security/u2f-devd,Devd hotplug rules for Universal 2nd Factor (U2F) tokens,yes
+uacme-1.8.1_1,security/uacme,Lightweight C ACMEv2 client which uses external authenticators,
+ubuntu-keyring-2021.03.26,security/ubuntu-keyring,GPG keys for Ubuntu package signature verification,yes
+unhide-20210124_1,security/unhide,Forensic tool to find hidden processes and TCP/UDP ports,
+unix-selfauth-helper-1.1_1,security/unix-selfauth-helper,Local self-authentication for pam_exec,
+vanguards-tor-0.3.1_1,security/vanguards-tor,Tor add-on to protect against guard discovery and related attacks,
+vault-2.2.2,security/vault,Tool for securely accessing secrets,
+vault-medusa-0.7.2_15,security/vault-medusa,Exporter for Vault data,
+vaultwarden-1.37.5,security/vaultwarden,Bitwarden compatible backend server,
+veracrypt-1.26.31,security/veracrypt,Open-source disk encryption software based on Truecrypt,yes
+vigenere-1.0_1,security/vigenere,Vigenere cipher cryptography tool,yes
+vlock-2.2.3_5,security/vlock,Locks a terminal,
+vm-to-tor-1.0,security/vm-to-tor,Connect virtual machines to the tor network,
+voa-0.7.5_2,security/voa,Verification of OS Artifacts (VOA) command-line interface,
+vouch-proxy-0.50.0_3,security/vouch-proxy,SSO solution for Nginx using the auth_request module,
+vpnc-0.5.3_15,security/vpnc,Client for Cisco 3000 VPN Concentrator,yes
+vulnx-2.0.2_3,security/vulnx,CLI for exploring vulnerability data,
+vuls-0.43.0,security/vuls,Agentless vulnerability scanner,
+vulsrepo-0.7.1_31,security/vulsrepo,Web presentation layer for vuls CVE scanner,
+vuxml-1.1_6,security/vuxml,Vulnerability and eXposure Markup Language DTD,
+vxquery-0.2.1,security/vxquery,VuXML Query Tool,
+wazuh-agent-4.14.10,security/wazuh-agent,Security tool to monitor and check logs and intrusions (agent),
+wazuh-dashboard-4.14.10,security/wazuh-dashboard,Web user interface for data visualization and analysis,
+wazuh-indexer-4.14.10,security/wazuh-indexer,"A highly scalable, full-text search and analytics engine",
+wazuh-manager-4.14.10,security/wazuh-manager,Security tool to monitor and check logs and intrusions (manager),
+wazuh-server-4.14.10,security/wazuh-server,Components for analyze the data received from the agents,
+webfwlog-1.1.3,security/webfwlog,Web-based firewall log analyzer,
+webtunnel-tor-0.0.1_35,security/webtunnel-tor,Pluggable Transport attempting to imitate web browsing based on HTTPT,
+whatweb-0.5.5.1.b35169_2,security/whatweb,Tool to fingerprint web site components,
+wipe-2.3.1_2,security/wipe,File and block device wiping utility,
+wolfssh-1.6.0,security/wolfssh,Lightweight SSH Library,yes
+wolfssl-5.9.4,security/wolfssl,Embedded SSL C-Library,yes
+wpa_supplicant-2.12_1,security/wpa_supplicant,Supplicant (client) for WPA/802.1x protocols,
+wpa_supplicant-devel-2026.10.28_4,security/wpa_supplicant-devel,Supplicant (client) for WPA/802.1x protocols,
+x11appjail-2.3.0,security/x11appjail,FreeBSD application sandboxing and distribution framework,
+xca-2.9.0,security/xca,Graphical certification authority,yes
+xca-qt6-2.9.0,security/xca,Graphical certification authority,yes
+xhash-3.6.3_23,security/xhash,Calculate hashes on files using goroutines,yes
+xinetd-2.3.15_3,security/xinetd,Replacement for inetd with better control and logging,
+xmlsec-3.0.5_2,security/xml-security,Java library for XML Signature and Encryption,yes
+xmlsec1-1.3.9,security/xmlsec1,XML Security Library,
+xorsearch-1.11.1,security/xorsearch,Search for a given string in an XOR or ROL encoded binary file,
+xray-core-26.10.21_1,security/xray-core,Set of network penetration tools,
+y509-1.12.0_1,security/y509,TUI tool for viewing and analyzing X.509 certificate chains,yes
+yafic-1.2.2_4,security/yafic,"Yet Another File Integrity Checker, similar to Tripwire",
+yapet-2.6,security/yapet,Curses based password manager,yes
+yara-4.5.5,security/yara,Malware identification and classification tool,
+yersinia-gtk-0.8.2_4,security/yersinia,"Layer 2 vulnerability scanner (switches, spanning tree, 802.1q ...)",
+ykclient-2.15_1,security/ykclient,Yubico C client library,yes
+ykpers-1.19.0_2,security/ykpers,Library and tool for personalization of Yubico's YubiKey,yes
+ylva-1.7,security/ylva,Command line password manager and file encryption program,yes
+yubico-piv-tool-2.7.2,security/yubico-piv-tool,Yubico PIV tool,yes
+yubikey-agent-0.1.6_40,security/yubikey-agent,Seamless ssh-agent for YubiKeys,yes
+yubikey-manager-qt-1.2.0_1,security/yubikey-manager-qt,Cross-platform application for configuring any YubiKey,yes
+yubikey-personalization-gui-3.1.25_5,security/yubikey-personalization-gui,Graphical YubiKey personalization tool,yes
+yubioath-desktop-5.0.4_2,security/yubioath-desktop,GUI for displaying OATH codes with a Yubikey,yes
+zaproxy-2.17.0_4,security/zaproxy,The zed attack proxy,
+zeek-9.0.1,security/zeek,System for detecting network intruders in real-time,
+zeronet-0.7.1_2,security/zeronet,Decentralized websites using Bitcoin crypto and BitTorrent network,yes
+zlint-3.7.3_1,security/zlint,X.509 certificate linter,yes
+zzuf-0.13_2,security/zzuf,Transparent application input fuzzer,
