@@ -100,20 +100,20 @@ H0·H1 = 0   H0·H2 = 0   H0·H3 = 0   H0·H4 = 0
                                     H3·H4 = 0
 ```
 
-The five SHA-1 IV constants form a **closed zero-ideal** of T32/GF(2): any T32 product of any two IVs — or any IV with itself — is zero.
+The five SHA-1 IV constants form a **null subalgebra** of T32/GF(2): any T32 product of any two IVs — or any IV with itself — is zero. (Corrected 2026-11-26: an earlier version of this page called this a "closed zero-ideal". The algebra is non-associative, so "ideal" is not used; see `UDEO_Cryptographic_Vulnerability.md` and ValaQuenta `modules/t32_nilpotency` 0.110.)
 
-**Why the zero-ideal is not coincidental:**
+**Why the null subalgebra is not coincidental:**
 
-The all-ones word 0xFFFFFFFF is a global annihilator in T32/GF(2): for any nilpotent element w, w · 0xFFFFFFFF = 0. SHA-1's IVs use complement symmetry: H2 = ¬H0 = H0 ⊕ 0xFFFFFFFF. Therefore:
+~~The all-ones word 0xFFFFFFFF is a global annihilator in T32/GF(2): for any nilpotent element w, w · 0xFFFFFFFF = 0.~~ **Retracted (2026-08-22, restated 2026-11-26).** 𝟏 = 0xFFFFFFFF is **not** a global annihilator: e₀·𝟏 = 𝟏 ≠ 0. The true law is the trace-Laplacian detector Δ(w) = w·𝟏, and **Δ(w) = 0 if and only if w² = 0** (exhaustive at dimension 2, 4, 8; no mismatch in 20,000 random 32-bit words; ValaQuenta `modules/t32_nilpotency` `trace_laplacian`, `radical_census`; Ainulindale wiki 78 §5). Every word is either nilpotent or an involutory unit (w² ∈ {0, e₀}). SHA-1's IVs use complement symmetry: H2 = ¬H0 = H0 ⊕ 0xFFFFFFFF. Therefore:
 
 ```
 H0 · H2 = H0 · (H0 ⊕ 0xFFFFFFFF)
          = H0² ⊕ H0 · 0xFFFFFFFF
-         = 0   ⊕ 0
+         = 0   ⊕ 0      (H0·𝟏 = 0 because H0 is nilpotent: the detector Δ(H0) = 0)
          = 0
 ```
 
-The complement structure of the SHA-1 IVs guarantees the zero-ideal. It was not designed in — it was built in by the counting-sequence bit pattern (01,23,45,67 → H0; EF,CD,AB,89 → H1) which happens to land in the nilpotent stratum of T32/GF(2).
+The complement structure of the SHA-1 IVs guarantees the null subalgebra. It was not designed in — it was built in by the counting-sequence bit pattern (01,23,45,67 → H0; EF,CD,AB,89 → H1) which happens to land in the nilpotent stratum of T32/GF(2).
 
 **SHA-1 initialises inside the zero-divisor locus of T32/GF(2) before processing one byte of input.** The compression function begins in a degenerate algebraic state.
 
@@ -130,10 +130,10 @@ The modified element a ⊕ δ is still a zero-divisor with b. The Parity rounds,
 
 The null space of any T32 element is a GF(2) vector space. Its dimension gives the number of "free bits" per zero-divisor partner — the degree of freedom an attacker can explore while remaining in the zero-divisor locus. Computed in `oops.py` via `null_space_gf2(left_mul_matrix(v))`.
 
-The bilinear Ch and Maj rounds do create T32 products, partially mixing the state. They disrupt some ZD pairs while creating others. They do not fully escape the locus — the IV zero-ideal seeds the initial state, and approximately 50% of arbitrary 32-bit words are nilpotent in T32/GF(2) (a structural property of the algebra), continuously replenishing the ZD structure as new message words enter via the schedule.
+The bilinear Ch and Maj rounds do create T32 products, partially mixing the state. They disrupt some ZD pairs while creating others. They do not fully escape the locus — the IV null subalgebra seeds the initial state, and approximately 50% of arbitrary 32-bit words are nilpotent in T32/GF(2) (a structural property of the algebra), continuously replenishing the ZD structure as new message words enter via the schedule.
 
 **The attack surface is the intersection of:**
-1. The IV zero-ideal (inherited from the initial state)
+1. The IV null subalgebra (inherited from the initial state)
 2. The null spaces of state words after the Ch/Maj rounds (computed analytically)
 3. The message schedule's own ZD structure (~50% of words nilpotent; computed per-block in `oops.py`)
 
@@ -217,7 +217,7 @@ The modification W → W ⊕ δ changes SHA-1's hash. The carries in the modular
 
 SHAttered closed the carry gap computationally over all candidate differentials. UDEO does not yet have an analytical algorithm for closing the carry differential. **This is the open problem: whether navigating the carry structure to ΔHash_carry = 0 is polynomial in the message length.**
 
-The null space dimension dim(N_L(v)) gives the degree of freedom available. For the SHA-1 IVs: the global annihilator 0xFFFFFFFF has N_L = all 32-bit words (the entire space — dimension 32). For a typical file word: N_L has dimension approximately 16 (half the space). Each dimension represents a free bit-flip direction that the T32 algebra cannot see — only the carry structure can.
+The null space dimension dim(N_L(v)) gives the degree of freedom available. For the SHA-1 IVs: 𝟏 = 0xFFFFFFFF is not an annihilator (e₀·𝟏 = 𝟏), so its left null space N_L is not the whole space (earlier text said dimension 32; retracted). For a typical file word: N_L has dimension approximately 16 (half the space). Each dimension represents a free bit-flip direction that the T32 algebra cannot see — only the carry structure can.
 
 SHAttered searched all 2^(~16) directions per ZD partner. UDEO identifies those directions first (analytically), then navigates the carry in each. If the carry-closing is O(dim(N_L)²) per direction: polynomial. If it still requires exhaustive search within each direction: SHAttered's cost is merely redistributed, not reduced. The key question is the carry structure of SHA-1 within each null-space direction — not yet answered.
 
@@ -228,7 +228,7 @@ SHAttered searched all 2^(~16) directions per ZD partner. UDEO identifies those 
 SHA-1 is already broken. SHAttered is the existing proof. This section demonstrates the **algebraic reason** the SHAttered attack works — it does not provide a new, faster SHA-1 collision algorithm.
 
 **What is demonstrated:**
-- SHA-1's IV constants form a closed zero-ideal in T32/GF(2) — verified computationally (`udeo_poc.py`)
+- SHA-1's IV constants form a null subalgebra of T32/GF(2) — verified computationally (`udeo_poc.py`)
 - ~50% of 32-bit words are nilpotent in T32/GF(2) — structural property of the algebra
 - The left null space of any ZD partner is computable in O(32³) time — the algebraically transparent bit-flip patterns are explicit
 - The T32-linear differential of a null-space modification is identically zero — proven algebraically

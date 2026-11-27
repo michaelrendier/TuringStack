@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# NOTE (2026-11-26): this file is the origin of the Hyperwebster / T32 code. The maintained, tested copy is ValaQuenta/modules/t32_nilpotency
+# (hw_address, hw_to_t32, t32_mul, is_nilpotent, trace_laplacian, radical_census); other code should import it rather than copy this.
+# Known: the all-ones word is NOT a global annihilator; Delta(w) = w.1 = 0 iff w*w = 0 (Ainulindale wiki 78 section 5).
 """
 fermat_sedenion_test.py
 =======================

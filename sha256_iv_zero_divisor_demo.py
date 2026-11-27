@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-sha256_iv_zero_divisor_demo.py — SHA-256 IV nilpotency/zero-ideal check
+sha256_iv_zero_divisor_demo.py — SHA-256 IV nilpotency/null-subalgebra check
 in T32/GF(2), same test as udeo_poc.py's sha1_iv_zero_divisor_demo(),
 applied to SHA-256's eight IV constants instead of SHA-1's five.
 
@@ -17,10 +17,10 @@ roots of the first 8 primes (2,3,5,7,11,13,17,19) — FIPS 180-4 sec 5.3.3.
 
 Method: same as SHA-1's version — check each IV is nilpotent (H_i^2=0),
 then check all C(8,2)=28 cross-products H_i*H_j for mutual annihilation.
-SHA-1's zero-ideal came from an explicit complement-pair design
+SHA-1's null subalgebra came from an explicit complement-pair design
 (H2=~H0, H3=~H1); SHA-256's IVs have no such complement structure among
 themselves (they're derived independently from 8 different primes), so
-there's no a priori reason to expect the same closed zero-ideal — this
+there's no a priori reason to expect the same null subalgebra — this
 is a genuine test, not a re-confirmation of a known result.
 
 Author:  Claude, at Cody's direction — 2026-07-17
@@ -94,7 +94,7 @@ def sha256_iv_zero_divisor_demo():
         print("    SHA-256's 8 IVs form a closed zero-ideal, same structural class as SHA-1's 5.")
     elif n_nilpotent == 8 and annihilation_count == 0:
         print("    All 8 IVs individually nilpotent, but NO cross-pair mutually annihilates.")
-        print("    This is NOT the SHA-1 pattern — SHA-1's zero-ideal came specifically from")
+        print("    This is NOT the SHA-1 pattern — SHA-1's null subalgebra came specifically from")
         print("    its H2=~H0 / H3=~H1 complement-pair design. SHA-256's IVs (independently")
         print("    derived from 8 different primes' square roots) show no such structure.")
     else:
