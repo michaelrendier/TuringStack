@@ -1,0 +1,4 @@
+# TuringStack: what this repository's own code imports (tools/repo_venv.py, root environment versions)
+matplotlib>=3.11  # tested 3.11.1
+numpy>=2.5  # tested 2.5.2
+pillow>=12.3  # tested 12.3.0
